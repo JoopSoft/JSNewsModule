@@ -17,11 +17,14 @@
             <dnn:label ID="lblDate" runat="server" />
             <asp:TextBox ID="txtDate" runat="server" TextMode="Date" />
         </div>
-
         <div class="dnnFormItem">
             <dnn:label ID="lblImgUrl" runat="server" />
             <asp:TextBox ID="txtImgUrl" runat="server" />
-            <asp:FileUpload ID="btnImgUpload" runat="server" />
+        </div>
+        <div class="dnnFormItem">
+            <dnn:label ID="lblUploadImg" runat="server" />
+            <asp:FileUpload ID="btnImgSelect" runat="server" />
+            <asp:LinkButton ID="btnImgUpload" runat="server" Text="Upload Image" OnClick="btnImgUpload_Click"/>
         </div>
 
         <div class="dnnFormItem">

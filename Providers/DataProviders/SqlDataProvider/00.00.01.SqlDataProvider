@@ -16,7 +16,7 @@ CREATE TABLE {databaseOwner}{objectQualifier}JSNewsModule_News
 (
 	[NewsId] INT NOT NULL IDENTITY (1, 1),
 	[NewsTitle] NVARCHAR(MAX) NOT NULL,
-	[NewsDate] NVARCHAR(MAX) NULL,
+	[NewsDate]  NVARCHAR(MAX) NULL,
 	[ImageUrl] NVARCHAR(MAX) NULL,
 	[NewsTeaserText] NVARCHAR(MAX) NOT NULL,
 	[NewsContent] NVARCHAR(MAX) NOT NULL,

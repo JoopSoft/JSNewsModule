@@ -132,31 +132,31 @@
   <data name="ExpandAll.Text" xml:space="preserve">
     <value>Expand All</value>
   </data>
-  <data name="lblContent.HelpText" xml:space="preserve">
+  <data name="lblContent.Help" xml:space="preserve">
     <value>Enter Full News Content</value>
   </data>
   <data name="lblContent.Text" xml:space="preserve">
     <value>News Full Content</value>
   </data>
-  <data name="lblDate.HelpText" xml:space="preserve">
+  <data name="lblDate.Help" xml:space="preserve">
     <value>Enter News Date</value>
   </data>
   <data name="lblDate.Text" xml:space="preserve">
     <value>Date</value>
   </data>
-  <data name="lblImageUrl.HelpText" xml:space="preserve">
+  <data name="lblImgUrl.Help" xml:space="preserve">
     <value>Upload News Image</value>
   </data>
-  <data name="lblImageUrl.Text" xml:space="preserve">
+  <data name="lblImgUrl.Text" xml:space="preserve">
     <value>Image</value>
   </data>
-  <data name="lblTeaserText.HelpText" xml:space="preserve">
+  <data name="lblTeaserText.Help" xml:space="preserve">
     <value>Enter Short News Content</value>
   </data>
   <data name="lblTeaserText.Text" xml:space="preserve">
     <value>Short News Content</value>
   </data>
-  <data name="lblTitle.HelpText" xml:space="preserve">
+  <data name="lblTitle.Help" xml:space="preserve">
     <value>Enter News Title</value>
   </data>
   <data name="lblTitle.Text" xml:space="preserve">

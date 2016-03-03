@@ -38,11 +38,6 @@ namespace JS.Modules.JSNewsModule
                 //Implement your edit logic for your module
                 if (!Page.IsPostBack)
                 {
-                    if (btnImgUpload.FileName != null)
-                    {
-                        txtDate.Text = btnImgUpload.FileName;
-                    }
-
                     //check if we have an ID passed in via a querystring parameter, if so, load that item to edit.
                     //ItemId is defined in the ItemModuleBase.cs file
                     if (NewsId > 0)
@@ -70,13 +65,9 @@ namespace JS.Modules.JSNewsModule
 
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
+
             var n = new News();
             var nc = new NewsController();
-
-            if (btnImgUpload.FileName != null)
-            {
-                txtDate.Text = btnImgUpload.FileName;
-            }
 
             if (NewsId > 0)
             {
@@ -116,6 +107,16 @@ namespace JS.Modules.JSNewsModule
         protected void btnCancel_Click(object sender, EventArgs e)
         {
             Response.Redirect(DotNetNuke.Common.Globals.NavigateURL());
+        }
+
+        protected void btnImgUpload_Click(object sender, EventArgs e)
+        {
+            btnImgSelect.SaveAs(Server.MapPath("~/DesktopModules/JSNewsModule/Images/" + btnImgSelect.FileName));
+
+            if (btnImgSelect.FileName != null)
+            {
+                txtImgUrl.Text = "~/DesktopModules/JSNewsModule/Images/" + btnImgSelect.FileName;
+            }
         }
     }
 }

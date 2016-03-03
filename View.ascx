@@ -9,8 +9,9 @@
             <h3>
                 <asp:Label ID="lblNewsTitle" runat="server" Text='<%#DataBinder.Eval(Container.DataItem,"NewsTitle").ToString() %>' />
             </h3>
-            <asp:Label ID="lblNewsDate" runat="server" Text='<%#DataBinder.Eval(Container.DataItem,"NewsDate").ToString() %>' CssClass="tm_td" />
-            <asp:Label ID="lblNewsTeaserText" runat="server" Text='<%#DataBinder.Eval(Container.DataItem,"NewsTeasetText").ToString() %>' CssClass="tm_td" />
+            <asp:Label ID="lblNewsDate" runat="server" Text='<%#DataBinder.Eval(Container.DataItem,"NewsDate").ToString() %>' CssClass="tm_td" /><br />
+            <asp:Image ID="imgNewsImage" runat="server" Width="100" Height="100" ImageUrl='<%#DataBinder.Eval(Container.DataItem, "ImageUrl").ToString() %>'/><br />
+            <asp:Label ID="lblNewsTeaserText" runat="server" Text='<%#DataBinder.Eval(Container.DataItem,"NewsTeaserText").ToString() %>' CssClass="tm_td" /><br />
             <asp:Label ID="lblNewsContent" runat="server" Text='<%#DataBinder.Eval(Container.DataItem,"NewsContent").ToString() %>' CssClass="tm_td" />
 
             <asp:Panel ID="pnlAdmin" runat="server" Visible="false">
