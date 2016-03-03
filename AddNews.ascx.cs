@@ -14,6 +14,7 @@ using System;
 using DotNetNuke.Entities.Users;
 using JS.Modules.JSNewsModule.Components;
 using DotNetNuke.Services.Exceptions;
+using System.IO;
 
 namespace JS.Modules.JSNewsModule
 {
@@ -109,8 +110,10 @@ namespace JS.Modules.JSNewsModule
             Response.Redirect(DotNetNuke.Common.Globals.NavigateURL());
         }
 
+
         protected void btnImgUpload_Click(object sender, EventArgs e)
         {
+            DirectoryInfo di = Directory.CreateDirectory(Server.MapPath("~/DesktopModules/JSNewsModule/Images/"));
             btnImgSelect.SaveAs(Server.MapPath("~/DesktopModules/JSNewsModule/Images/" + btnImgSelect.FileName));
 
             if (btnImgSelect.FileName != null)

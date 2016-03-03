@@ -67,6 +67,17 @@
                     <viewOrder>0</viewOrder>
                   </moduleControl>
                   <moduleControl>
+                    <controlKey>AddNews</controlKey>
+                    <controlSrc>DesktopModules/JSNewsModule/AddNews.ascx</controlSrc>
+                    <supportsPartialRendering>False</supportsPartialRendering>
+                    <controlTitle>Add/Edit News</controlTitle>
+                    <controlType>Edit</controlType>
+                    <iconFile />
+                    <helpUrl />
+                    <viewOrder>0</viewOrder>
+                    <supportsPopUps>True</supportsPopUps>
+                  </moduleControl>
+                  <moduleControl>
                     <controlKey>Edit</controlKey>
                     <controlSrc>DesktopModules/JSNewsModule/Edit.ascx</controlSrc>
                     <supportsPartialRendering>False</supportsPartialRendering>
