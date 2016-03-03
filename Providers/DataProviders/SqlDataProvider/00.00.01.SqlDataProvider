@@ -28,6 +28,35 @@ GO
 ALTER TABLE {databaseOwner}[{objectQualifier}JSNewsModule_News] ADD CONSTRAINT [PK_{objectQualifier}JSNewsModule_News] PRIMARY KEY CLUSTERED ([NewsId])
 GO
 
+IF EXISTS (SELECT * FROM sys.objects WHERE [object_id] = OBJECT_ID(N'{databaseOwner}[{objectQualifier}JSNewsModule_Settings]') AND type in (N'U'))
+	DROP TABLE {databaseOwner}[{objectQualifier}JSNewsModule_Settings]
+GO
+
+CREATE TABLE {databaseOwner}{objectQualifier}JSNewsModule_Settings
+(
+	[SettingsId] INT NOT NULL,
+	[ShowNewsDate] BIT NOT NULL,
+	[ShowNewsImg] BIT NOT NULL,
+	[ShowReadMore] BIT NOT NULL,
+	[ReadMoreText] NVARCHAR(MAX) NOT NULL,
+	[ShowBack] BIT NOT NULL,
+	[BackText]  NVARCHAR(MAX) NULL,
+	[ShowHome] BIT NOT NULL,
+	[HomeText] NVARCHAR(MAX) NULL,
+	[ModuleId] INT NOT NULL
+)
+GO
+
+
+ALTER TABLE {databaseOwner}[{objectQualifier}JSNewsModule_Settings] ADD CONSTRAINT [PK_{objectQualifier}JSNewsModule_Settings] PRIMARY KEY CLUSTERED ([SettingsId])
+GO
+
+INSERT INTO {databaseOwner}[{objectQualifier}JSNewsModule_Settings]
+([SettingsId], [ShowNewsDate], [ShowNewsImg], [ShowReadMore], [ReadMoreText], [ShowBack], [BackText], [ShowHome], [HomeText], [ModuleId])
+VALUES
+(1, 1, 1, 1, 'Read More', 1, 'Back', 1, 'Home', 0)
+GO
+
 
 /************************************************************/
 /*****              SqlDataProvider                     *****/

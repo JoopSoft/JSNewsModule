@@ -101,13 +101,13 @@ namespace JS.Modules.JSNewsModule
             {
                 var actions = new ModuleActionCollection
                     {
+                        //{
+                        //    GetNextActionID(), Localization.GetString("EditModule", LocalResourceFile), "", "", "",
+                        //    EditUrl(), false, SecurityAccessLevel.Edit, true, false
+                        //},
                         {
                             GetNextActionID(), Localization.GetString("AddNews", LocalResourceFile), "", "", "",
                             EditUrl("AddNews"), false, SecurityAccessLevel.Edit, true, false
-                        },
-                        {
-                            GetNextActionID(), Localization.GetString("EditModule", LocalResourceFile), "", "", "",
-                            EditUrl(), false, SecurityAccessLevel.Edit, true, false
                         }
                     };
                 return actions;
