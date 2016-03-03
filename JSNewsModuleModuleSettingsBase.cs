@@ -11,10 +11,12 @@
 */
 
 using DotNetNuke.Entities.Modules;
+using System;
 
 namespace JS.Modules.JSNewsModule
 {
     public class JSNewsModuleModuleSettingsBase : ModuleSettingsBase
     {
+        
     }
 }

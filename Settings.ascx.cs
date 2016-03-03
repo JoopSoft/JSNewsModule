@@ -13,6 +13,7 @@
 using System;
 using DotNetNuke.Entities.Modules;
 using DotNetNuke.Services.Exceptions;
+using JS.Modules.JSNewsModule.Components;
 
 namespace JS.Modules.JSNewsModule
 {
@@ -47,22 +48,40 @@ namespace JS.Modules.JSNewsModule
         /// -----------------------------------------------------------------------------
         public override void LoadSettings()
         {
+
             try
             {
-                if (Page.IsPostBack == false)
+                if (!IsPostBack)
                 {
-                    //Check for existing settings and use those on this page
-                    //Settings["SettingName"]
-
-                    /* uncomment to load saved settings in the text boxes
-                    if(Settings.Contains("Setting1"))
-                        txtSetting1.Text = Settings["Setting1"].ToString();
-			
-                    if (Settings.Contains("Setting2"))
-                        txtSetting2.Text = Settings["Setting2"].ToString();
-
-                    */
-
+                    var sc = new SettingsController();
+                    var cs = sc.LoadSettings();
+                    foreach (CustomSettings s in cs)
+                    {
+                        if (s.SettingsId == ModuleId)
+                        {
+                            cbShowNewsDate.Checked = s.ShowNewsDate;
+                            cbShowNewsImg.Checked = s.ShowNewsImg;
+                            cbShowReadMore.Checked = s.ShowReadMore;
+                            txtReadMoreText.Text = s.ReadMoreText;
+                            cbShowBack.Checked = s.ShowBack;
+                            txtBackText.Text = s.BackText;
+                            cbShowHome.Checked = s.ShowHome;
+                            txtHomeText.Text = s.HomeText;
+                            return;
+                        }
+                        else
+                        {
+                            var ds = sc.LoadDefaultSettings(0);
+                            cbShowNewsDate.Checked = ds.ShowNewsDate;
+                            cbShowNewsImg.Checked = ds.ShowNewsImg;
+                            cbShowReadMore.Checked = ds.ShowReadMore;
+                            txtReadMoreText.Text = ds.ReadMoreText;
+                            cbShowBack.Checked = ds.ShowBack;
+                            txtBackText.Text = ds.BackText;
+                            cbShowHome.Checked = ds.ShowHome;
+                            txtHomeText.Text = ds.HomeText;
+                        }
+                   }
                 }
             }
             catch (Exception exc) //Module failed to load
@@ -78,18 +97,46 @@ namespace JS.Modules.JSNewsModule
         /// -----------------------------------------------------------------------------
         public override void UpdateSettings()
         {
+            var sc = new SettingsController();
+            var cs = sc.LoadSettings();
+            foreach (CustomSettings us in cs)
+            {
+                if (us.SettingsId == ModuleId)
+                {
+                    us.SettingsId = ModuleId;
+                    us.ShowNewsDate = cbShowNewsDate.Checked;
+                    us.ShowNewsImg = cbShowNewsImg.Checked;
+                    us.ShowReadMore = cbShowReadMore.Checked;
+                    us.ReadMoreText = txtReadMoreText.Text.Trim();
+                    us.ShowBack = cbShowBack.Checked;
+                    us.BackText = txtBackText.Text.Trim();
+                    us.ShowHome = cbShowHome.Checked;
+                    us.HomeText = txtHomeText.Text.Trim();
+                    sc.UpdateSettings(us);
+                    Response.Redirect(DotNetNuke.Common.Globals.NavigateURL());
+                    return;
+                }
+                else
+                {
+                    var ns = new CustomSettings()
+                    {
+                        SettingsId = ModuleId,
+                        ShowNewsDate = cbShowNewsDate.Checked,
+                        ShowNewsImg = cbShowNewsImg.Checked,
+                        ShowReadMore = cbShowReadMore.Checked,
+                        ReadMoreText = txtReadMoreText.Text.Trim(),
+                        ShowBack = cbShowBack.Checked,
+                        BackText = txtBackText.Text.Trim(),
+                        ShowHome = cbShowHome.Checked,
+                        HomeText = txtHomeText.Text.Trim()
+                    };
+                    sc.AddSettings(ns);
+                    Response.Redirect(DotNetNuke.Common.Globals.NavigateURL());
+                }
+            }
+
             try
             {
-                var modules = new ModuleController();
-
-                //the following are two sample Module Settings, using the text boxes that are commented out in the ASCX file.
-                //module settings
-                //modules.UpdateModuleSetting(ModuleId, "Setting1", txtSetting1.Text);
-                //modules.UpdateModuleSetting(ModuleId, "Setting2", txtSetting2.Text);
-
-                //tab module settings
-                //modules.UpdateTabModuleSetting(TabModuleId, "Setting1",  txtSetting1.Text);
-                //modules.UpdateTabModuleSetting(TabModuleId, "Setting2",  txtSetting2.Text);
             }
             catch (Exception exc) //Module failed to load
             {
@@ -98,5 +145,6 @@ namespace JS.Modules.JSNewsModule
         }
 
         #endregion
+
     }
 }

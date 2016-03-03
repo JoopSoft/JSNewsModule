@@ -20,12 +20,12 @@ namespace JS.Modules.JSNewsModule.Components
 {
     [TableName("JSNewsModule_Settings")]
     //setup the primary key for table
-    [PrimaryKey("SettingsId", AutoIncrement = true)]
+    [PrimaryKey("SettingsId", AutoIncrement = false)]
     //configure caching using PetaPoco
-    [Cacheable("Settings", CacheItemPriority.Default, 20)]
+    [Cacheable("CustomSettings", CacheItemPriority.Default, 20)]
     //scope the objects to the ModuleId of a module on a page (or copy of a module on a page)
     [Scope("ModuleId")]
-    class Settings
+    class CustomSettings
     {
         public int SettingsId { get; set; }
         public bool ShowNewsDate { get; set; }
@@ -36,7 +36,5 @@ namespace JS.Modules.JSNewsModule.Components
         public string BackText { get; set; }
         public bool ShowHome { get; set; }
         public string HomeText { get; set; }
-        public int ModuleId { get; set; }
-
     }
 }

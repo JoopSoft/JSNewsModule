@@ -74,7 +74,7 @@
     <Compile Include="AddNews.ascx.designer.cs">
       <DependentUpon>AddNews.ascx</DependentUpon>
     </Compile>
-    <Compile Include="Components\Settings.cs" />
+    <Compile Include="Components\CustomSettings.cs" />
     <Compile Include="Components\SettingsController.cs" />
     <Compile Include="JSNewsModuleModuleBase.cs">
       <SubType>ASPXCodeBehind</SubType>

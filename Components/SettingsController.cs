@@ -16,22 +16,42 @@ namespace JS.Modules.JSNewsModule.Components
 {
     class SettingsController
     {
-        public Settings LoadSettings(int settingsId, int moduleId)
+        public void AddSettings(CustomSettings s)
         {
-            Settings s;
             using (IDataContext ctx = DataContext.Instance())
             {
-                var rep = ctx.GetRepository<Settings>();
-                s = rep.GetById(settingsId, moduleId);
+                var rep = ctx.GetRepository<CustomSettings>();
+                rep.Insert(s);
+            }
+        }
+
+        public CustomSettings LoadDefaultSettings(int settingsId)
+        {
+            CustomSettings s;
+            using (IDataContext ctx = DataContext.Instance())
+            {
+                var rep = ctx.GetRepository<CustomSettings>();
+                s = rep.GetById(settingsId);
             }
             return s;
         }
 
-        public void UpdateSettings(Settings s)
+        public IEnumerable<CustomSettings> LoadSettings()
+        {
+            IEnumerable<CustomSettings> s;
+            using (IDataContext ctx = DataContext.Instance())
+            {
+                var rep = ctx.GetRepository<CustomSettings>();
+                s = rep.Get();
+            }
+            return s;
+        }
+
+        public void UpdateSettings(CustomSettings s)
         {
             using (IDataContext ctx = DataContext.Instance())
             {
-                var rep = ctx.GetRepository<Settings>();
+                var rep = ctx.GetRepository<CustomSettings>();
                 rep.Update(s);
             }
         }
