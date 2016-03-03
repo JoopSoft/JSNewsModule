@@ -1,0 +1,34 @@
+﻿/************************************************************/
+/*****              SqlDataProvider                     *****/
+/*****                                                  *****/
+/*****                                                  *****/
+/***** Note: To manually execute this script you must   *****/
+/*****       perform a search and replace operation     *****/
+/*****       for {databaseOwner} and {objectQualifier}  *****/
+/*****                                                  *****/
+/************************************************************/
+
+IF EXISTS (SELECT * FROM sys.objects WHERE [object_id] = OBJECT_ID(N'{databaseOwner}[{objectQualifier}JSNewsModule_News]') AND type in (N'U'))
+	DROP TABLE {databaseOwner}[{objectQualifier}JSNewsModule_News]
+GO
+
+CREATE TABLE {databaseOwner}{objectQualifier}JSNewsModule_News
+(
+	[NewsId] INT NOT NULL IDENTITY (1, 1),
+	[NewsTitle] NVARCHAR(MAX) NOT NULL,
+	[NewsDate] NVARCHAR(MAX) NULL,
+	[ImageUrl] NVARCHAR(MAX) NULL,
+	[NewsTeaserText] NVARCHAR(MAX) NOT NULL,
+	[NewsContent] NVARCHAR(MAX) NOT NULL,
+	[ModuleId] INT NOT NULL
+)
+GO
+
+
+ALTER TABLE {databaseOwner}[{objectQualifier}JSNewsModule_News] ADD CONSTRAINT [PK_{objectQualifier}JSNewsModule_News] PRIMARY KEY CLUSTERED ([NewsId])
+GO
+
+
+/************************************************************/
+/*****              SqlDataProvider                     *****/
+/************************************************************/
