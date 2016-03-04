@@ -27,38 +27,20 @@ namespace JS.Modules.JSNewsModule.Components
     [Scope("ModuleId")]
     class News
     {
-        ///<summary>
-        /// The ID of your object with the name of the News
-        ///</summary>
         public int NewsId { get; set; }
-        ///<summary>
-        /// A string with the title of the News
-        ///</summary>
         public string NewsTitle { get; set; }
-
-        ///<summary>
-        /// The date the news was created
-        ///</summary>
+        public bool ShowNewsDate { get; set; }
         public string NewsDate { get; set; }
-
-        ///<summary>
-        /// A string with the image url of the News
-        ///</summary>
+        public bool ShowNewsImg { get; set; }
         public string ImageUrl { get; set; }
-        
-        ///<summary>
-        /// A string with the teaser text of the News
-        ///</summary>
         public string NewsTeaserText { get; set; }
-
-        ///<summary>
-        /// A string with the content of the News
-        ///</summary>
         public string NewsContent { get; set; }
-
-        ///<summary>
-        /// The ModuleId of where the object was created and gets displayed
-        ///</summary>
+        public bool ShowReadMore { get; set; }
+        public string ReadMoreText { get; set; }
+        public bool ShowBack { get; set; }
+        public string BackText { get; set; }
+        public bool ShowHome { get; set; }
+        public string HomeText { get; set; }
         public int ModuleId { get; set; }
 
     }

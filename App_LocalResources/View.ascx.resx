@@ -130,10 +130,10 @@
     <value>Are you sure you want to delete this Item</value>
   </data>
   <data name="DeleteItem.Text" xml:space="preserve">
-    <value>Delete</value>
+    <value>&lt;span class="glyphicon glyphicon-trash"&gt;&lt;/span&gt;</value>
   </data>
   <data name="EditItem.Text" xml:space="preserve">
-    <value>Edit</value>
+    <value>&lt;span class="glyphicon glyphicon-pencil"&gt;&lt;/span&gt;</value>
   </data>
   <data name="EditModule.Text" xml:space="preserve">
     <value>Edit Module</value>

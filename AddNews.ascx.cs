@@ -71,30 +71,47 @@ namespace JS.Modules.JSNewsModule
 
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
-
+            var s = new CustomSettings();
             var n = new News();
             var nc = new NewsController();
+            var sc = new SettingsController();
+            s = sc.LoadSingleSettings(ModuleId);
 
             if (NewsId > 0)
             {
                 n = nc.LoadNews(NewsId, ModuleId);
                 n.NewsTitle = txtTitle.Text.Trim();
+                n.ShowNewsDate = s.ShowNewsDate;
                 n.NewsDate = txtDate.Text.Trim();
+                n.ShowNewsImg = s.ShowNewsImg;
                 n.ImageUrl = txtImgUrl.Text.Trim();
                 n.NewsTeaserText = txtTeaserText.Text.Trim();
                 n.NewsContent = txtContent.Text.Trim();
+                n.ShowReadMore = s.ShowReadMore;
+                n.ReadMoreText = s.ReadMoreText;
+                n.ShowBack = s.ShowBack;
+                n.BackText = s.BackText;
+                n.ShowHome = s.ShowHome;
+                n.HomeText = s.HomeText;
             }
             else
             {
                 n = new News()
                 {
                     NewsTitle = txtTitle.Text.Trim(),
+                    ShowNewsDate = s.ShowNewsDate,
                     NewsDate = txtDate.Text.Trim(),
+                    ShowNewsImg = s.ShowNewsImg,
                     ImageUrl = txtImgUrl.Text.Trim(),
                     NewsTeaserText = txtTeaserText.Text.Trim(),
-                    NewsContent = txtContent.Text.Trim()
-
-            };
+                    NewsContent = txtContent.Text.Trim(),
+                    ShowReadMore = s.ShowReadMore,
+                    ReadMoreText = s.ReadMoreText,
+                    ShowBack = s.ShowBack,
+                    BackText = s.BackText,
+                    ShowHome = s.ShowHome,
+                    HomeText = s.HomeText
+                };
             }
 
             n.ModuleId = ModuleId;

@@ -102,6 +102,8 @@ namespace JS.Modules.JSNewsModule
                 bool isSettingsPresent = false;
                 var sc = new SettingsController();
                 var cs = sc.LoadSettings();
+                var nc = new NewsController();
+                var an = nc.LoadAllNews(ModuleId);
                 foreach (CustomSettings s in cs)
                 {
                     if (s.SettingsId == ModuleId)
@@ -123,6 +125,18 @@ namespace JS.Modules.JSNewsModule
                         ShowHome = cbShowHome.Checked,
                         HomeText = txtHomeText.Text.Trim()
                     };
+                    foreach (News n in an)
+                    {
+                        n.ShowNewsDate = ns.ShowNewsDate;
+                        n.ShowNewsImg = ns.ShowNewsImg;
+                        n.ShowReadMore = ns.ShowReadMore;
+                        n.ReadMoreText = ns.ReadMoreText;
+                        n.ShowBack = ns.ShowBack;
+                        n.BackText = ns.BackText;
+                        n.ShowHome = ns.ShowHome;
+                        n.HomeText = ns.HomeText;
+                        nc.UpdateNews(n);
+                    }
                     sc.AddSettings(ns);
                     Response.Redirect(DotNetNuke.Common.Globals.NavigateURL());
                 }
@@ -137,6 +151,18 @@ namespace JS.Modules.JSNewsModule
                     s.BackText = txtBackText.Text.Trim();
                     s.ShowHome = cbShowHome.Checked;
                     s.HomeText = txtHomeText.Text.Trim();
+                    foreach (News n in an)
+                    {
+                        n.ShowNewsDate = s.ShowNewsDate;
+                        n.ShowNewsImg = s.ShowNewsImg;
+                        n.ShowReadMore = s.ShowReadMore;
+                        n.ReadMoreText = s.ReadMoreText;
+                        n.ShowBack = s.ShowBack;
+                        n.BackText = s.BackText;
+                        n.ShowHome = s.ShowHome;
+                        n.HomeText = s.HomeText;
+                        nc.UpdateNews(n);
+                    }
                     sc.UpdateSettings(s);
                     Response.Redirect(DotNetNuke.Common.Globals.NavigateURL());
                 }
@@ -150,5 +176,51 @@ namespace JS.Modules.JSNewsModule
 
         #endregion
 
+        protected void cbShowReadMore_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbShowReadMore.Checked)
+            {
+                txtReadMoreText.Visible = true;
+            }
+            else
+            {
+                txtReadMoreText.Visible = false;
+            }
+
+
+
+        }
+
+        protected void cbShowBack_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbShowBack.Checked)
+            {
+                txtBackText.Visible = true;
+            }
+            else
+            {
+                txtBackText.Visible = false;
+            }
+
+            LoadSettings();
+
+
+        }
+
+        protected void cbShowHome_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbShowHome.Checked)
+            {
+                txtHomeText.Visible = true;
+            }
+            else
+            {
+                txtHomeText.Visible = false;
+            }
+
+            LoadSettings();
+
+
+        }
     }
 }

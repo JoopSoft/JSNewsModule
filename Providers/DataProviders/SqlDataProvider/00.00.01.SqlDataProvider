@@ -16,10 +16,18 @@ CREATE TABLE {databaseOwner}{objectQualifier}JSNewsModule_News
 (
 	[NewsId] INT NOT NULL IDENTITY (1, 1),
 	[NewsTitle] NVARCHAR(MAX) NOT NULL,
+	[ShowNewsDate] BIT NOT NUL,
 	[NewsDate]  NVARCHAR(MAX) NULL,
+	[ShowNewsImg] BIT NOT NUL,
 	[ImageUrl] NVARCHAR(MAX) NULL,
 	[NewsTeaserText] NVARCHAR(MAX) NOT NULL,
 	[NewsContent] NVARCHAR(MAX) NOT NULL,
+	[ShowReadMore] BIT NULL,
+	[ReadMoreText] NVARCHAR(MAX) NULL,
+	[ShowBack] BIT NULL,
+	[BackText] NVARCHAR(MAX) NULL,
+	[ShowHome] BIT NULL,
+	[HomeText] NVARCHAR(MAX) NULL,
 	[ModuleId] INT NOT NULL
 )
 GO

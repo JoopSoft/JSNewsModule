@@ -1,0 +1,16 @@
+
+.panel .panel-body img {
+    float: left;
+    margin: 0 20px 10px 0;
+    max-width: 150px;
+    width: auto;
+}
+
+.panel .panel-body .teaser-txt {
+    float: left;
+    width: calc(100% - 150px);
+}
+.panel .panel-body .body-txt {
+    float: left;
+    width: calc(100% - 150px);
+}
