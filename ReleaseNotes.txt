@@ -1,8 +1,8 @@
 ﻿<h3>JoopSoft News Module</h3>
 <p class="Contributor">
-	JoopSoft.com <br />
-	<a href="mailto:modules@joopsoft.com">modules@JoopSoft.com</a><br />
-	<a href=http://www.joopsoft.com>www.JoopSoft.com</a><br />
+	<b>JoopSOFT</b><br />
+	<a href="mailto:modules@joopsoft.com">modules@joopsoft.com</a><br />
+	<a href=http://www.joopsoft.com>www.joopsoft.com</a><br />
 </p>
 <hr/>
 <div class="License">
@@ -10,7 +10,7 @@
 	<p class="Owner">
 		<b>Version 00.00.01</b><br />
 		<b>Description about version</b><br />
-		<b>JoopSoft.com</b> News Module allows you to create news items, modify an existing items, delete items, change the items order and etc. for free use.
+		<b>JoopSOFT</b> News Module allows you to create news items, modify an existing items, delete items, change the items order and etc. for free use.
 	</p>
 
 	<!--<h4>Bug Fixes</h4>
