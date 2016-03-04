@@ -16,9 +16,9 @@ CREATE TABLE {databaseOwner}{objectQualifier}JSNewsModule_News
 (
 	[NewsId] INT NOT NULL IDENTITY (1, 1),
 	[NewsTitle] NVARCHAR(MAX) NOT NULL,
-	[ShowNewsDate] BIT NOT NUL,
+	[ShowNewsDate] BIT NOT NULL DEFAULT 1,
 	[NewsDate]  NVARCHAR(MAX) NULL,
-	[ShowNewsImg] BIT NOT NUL,
+	[ShowNewsImg] BIT NOT NULL DEFAULT 1,
 	[ImageUrl] NVARCHAR(MAX) NULL,
 	[NewsTeaserText] NVARCHAR(MAX) NOT NULL,
 	[NewsContent] NVARCHAR(MAX) NOT NULL,
@@ -35,6 +35,7 @@ GO
 
 ALTER TABLE {databaseOwner}[{objectQualifier}JSNewsModule_News] ADD CONSTRAINT [PK_{objectQualifier}JSNewsModule_News] PRIMARY KEY CLUSTERED ([NewsId])
 GO
+
 
 IF EXISTS (SELECT * FROM sys.objects WHERE [object_id] = OBJECT_ID(N'{databaseOwner}[{objectQualifier}JSNewsModule_Settings]') AND type in (N'U'))
 	DROP TABLE {databaseOwner}[{objectQualifier}JSNewsModule_Settings]

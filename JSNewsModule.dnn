@@ -3,7 +3,7 @@
     <package name="JSNewsModule" type="Module" version="00.00.01">
       <friendlyName>JSNewsModule</friendlyName>
       <description>JoopSoft JSNewsModule module</description>
-      <iconFile>~/Images/icon_extensions_32px.png</iconFile>
+      <iconFile>icon.png</iconFile>
       <owner>
         <name>JoopSoft</name>
         <organization>JoopSoft</organization>
