@@ -1,23 +1,24 @@
-﻿<h3>DNNModule1</h3>
+﻿<h3>JoopSoft News Module</h3>
 <p class="Contributor">
-	Christoc.com <br />
-	<a href="mailto:modules@christoc.com">modules@christoc.com</a><br />
-	<a href=http://www.christoc.com/>http://www.christoc.com/</a><br />
+	JoopSoft.com <br />
+	<a href="mailto:modules@joopsoft.com">modules@JoopSoft.com</a><br />
+	<a href=http://www.joopsoft.com>www.JoopSoft.com</a><br />
 </p>
 <hr/>
 <div class="License">
-	<h3>About the DNNModule1</h3>
+	<h3>About the NewsModule</h3>
 	<p class="Owner">
-		<b>Version CHANGEME</b><br /><br />
+		<b>Version 00.00.01</b><br />
+		<b>Description about version</b><br />
+		<b>JoopSoft.com</b> News Module allows you to create news items, modify an existing items, delete items, change the items order and etc. for free use.
 	</p>
-	<p>Description about version.</p>
-	
-	<h4>Bug Fixes</h4>
+
+	<!--<h4>Bug Fixes</h4>
 	<ul>
 			<li>List</li>
 			<li>of</li>
 			<li>bug</li>
 			<li>fixes</li>
 	</ul>
-	
+	-->
 </div>

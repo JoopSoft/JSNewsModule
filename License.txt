@@ -1,9 +1,9 @@
 ﻿<div class="License">
 	<h3>License</h3>
 	<p class="Owner">
-		Christoc.com  <a href=http://www.christoc.com/>http://www.christoc.com/</a></br>
-		Copyright (c) 2016</br>	
-		by Christoc.com</br>
+		JoopSoft.com  <a href=http://www.joopsoft.com>www.JoopSoft.com</a><br />
+		Copyright (c) 2016<br />	
+		by JoopSoft.com
 	</p>
     <p>
         Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated 
