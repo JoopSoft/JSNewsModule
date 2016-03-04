@@ -178,49 +178,19 @@ namespace JS.Modules.JSNewsModule
 
         protected void cbShowReadMore_CheckedChanged(object sender, EventArgs e)
         {
-            if (cbShowReadMore.Checked)
-            {
-                txtReadMoreText.Visible = true;
-            }
-            else
-            {
-                txtReadMoreText.Visible = false;
-            }
-
-
-
+            var sc = new SettingsController();
+            var us = sc.LoadSingleSettings(ModuleId);
+            us.ShowReadMore = cbShowReadMore.Checked;
+            sc.UpdateSettings(us);
+            LoadSettings();
         }
 
         protected void cbShowBack_CheckedChanged(object sender, EventArgs e)
         {
-            if (cbShowBack.Checked)
-            {
-                txtBackText.Visible = true;
-            }
-            else
-            {
-                txtBackText.Visible = false;
-            }
-
-            LoadSettings();
-
-
         }
 
         protected void cbShowHome_CheckedChanged(object sender, EventArgs e)
         {
-            if (cbShowHome.Checked)
-            {
-                txtHomeText.Visible = true;
-            }
-            else
-            {
-                txtHomeText.Visible = false;
-            }
-
-            LoadSettings();
-
-
         }
     }
 }
