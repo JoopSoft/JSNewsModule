@@ -71,7 +71,7 @@ namespace JS.Modules.JSNewsModule
                         }
                         else
                         {
-                            var ds = sc.LoadDefaultSettings(0);
+                            var ds = sc.LoadSingleSettings(0);
                             cbShowNewsDate.Checked = ds.ShowNewsDate;
                             cbShowNewsImg.Checked = ds.ShowNewsImg;
                             cbShowReadMore.Checked = ds.ShowReadMore;
@@ -97,26 +97,19 @@ namespace JS.Modules.JSNewsModule
         /// -----------------------------------------------------------------------------
         public override void UpdateSettings()
         {
-            var sc = new SettingsController();
-            var cs = sc.LoadSettings();
-            foreach (CustomSettings us in cs)
+            try
             {
-                if (us.SettingsId == ModuleId)
+                bool isSettingsPresent = false;
+                var sc = new SettingsController();
+                var cs = sc.LoadSettings();
+                foreach (CustomSettings s in cs)
                 {
-                    us.SettingsId = ModuleId;
-                    us.ShowNewsDate = cbShowNewsDate.Checked;
-                    us.ShowNewsImg = cbShowNewsImg.Checked;
-                    us.ShowReadMore = cbShowReadMore.Checked;
-                    us.ReadMoreText = txtReadMoreText.Text.Trim();
-                    us.ShowBack = cbShowBack.Checked;
-                    us.BackText = txtBackText.Text.Trim();
-                    us.ShowHome = cbShowHome.Checked;
-                    us.HomeText = txtHomeText.Text.Trim();
-                    sc.UpdateSettings(us);
-                    Response.Redirect(DotNetNuke.Common.Globals.NavigateURL());
-                    return;
+                    if (s.SettingsId == ModuleId)
+                    {
+                        isSettingsPresent = true;
+                    }
                 }
-                else
+                if (!isSettingsPresent)
                 {
                     var ns = new CustomSettings()
                     {
@@ -133,10 +126,21 @@ namespace JS.Modules.JSNewsModule
                     sc.AddSettings(ns);
                     Response.Redirect(DotNetNuke.Common.Globals.NavigateURL());
                 }
-            }
+                else
+                {
+                    var s = sc.LoadSingleSettings(ModuleId);
+                    s.ShowNewsDate = cbShowNewsDate.Checked;
+                    s.ShowNewsImg = cbShowNewsImg.Checked;
+                    s.ShowReadMore = cbShowReadMore.Checked;
+                    s.ReadMoreText = txtReadMoreText.Text.Trim();
+                    s.ShowBack = cbShowBack.Checked;
+                    s.BackText = txtBackText.Text.Trim();
+                    s.ShowHome = cbShowHome.Checked;
+                    s.HomeText = txtHomeText.Text.Trim();
+                    sc.UpdateSettings(s);
+                    Response.Redirect(DotNetNuke.Common.Globals.NavigateURL());
+                }
 
-            try
-            {
             }
             catch (Exception exc) //Module failed to load
             {

@@ -25,7 +25,7 @@ namespace JS.Modules.JSNewsModule.Components
             }
         }
 
-        public CustomSettings LoadDefaultSettings(int settingsId)
+        public CustomSettings LoadSingleSettings(int settingsId)
         {
             CustomSettings s;
             using (IDataContext ctx = DataContext.Instance())
@@ -53,6 +53,21 @@ namespace JS.Modules.JSNewsModule.Components
             {
                 var rep = ctx.GetRepository<CustomSettings>();
                 rep.Update(s);
+            }
+        }
+
+        public void DeleteSettings(int settingsId)
+        {
+            var s = LoadSingleSettings(settingsId);
+            DeleteSettings(s);
+        }
+
+        public void DeleteSettings(CustomSettings s)
+        {
+            using (IDataContext ctx = DataContext.Instance())
+            {
+                var rep = ctx.GetRepository<CustomSettings>();
+                rep.Delete(s);
             }
         }
 

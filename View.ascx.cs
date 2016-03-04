@@ -40,7 +40,7 @@ namespace JS.Modules.JSNewsModule
         protected void Page_Load(object sender, EventArgs e)
         {
             try
-            {
+            {                
                 var nc = new NewsController();
                 rptItemList.DataSource = nc.LoadAllNews(ModuleId);
                 rptItemList.DataBind();
@@ -55,6 +55,7 @@ namespace JS.Modules.JSNewsModule
         {
             if (e.Item.ItemType == ListItemType.AlternatingItem || e.Item.ItemType == ListItemType.Item)
             {
+                
                 var lnkEdit = e.Item.FindControl("lnkEdit") as HyperLink;
                 var lnkDelete = e.Item.FindControl("lnkDelete") as LinkButton;
 

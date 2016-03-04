@@ -39,6 +39,11 @@ namespace JS.Modules.JSNewsModule
                 //Implement your edit logic for your module
                 if (!Page.IsPostBack)
                 {
+                    var sc = new SettingsController();
+                    var s = sc.LoadSingleSettings(ModuleId);
+                    lblDate.Visible = txtDate.Visible = s.ShowNewsDate;
+                    lblImgUrl.Visible = txtImgUrl.Visible = btnImgSelect.Visible = btnImgUpload.Visible = s.ShowNewsImg;
+                    
                     //check if we have an ID passed in via a querystring parameter, if so, load that item to edit.
                     //ItemId is defined in the ItemModuleBase.cs file
                     if (NewsId > 0)
