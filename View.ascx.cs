@@ -55,8 +55,10 @@ namespace JS.Modules.JSNewsModule
         {
             if (e.Item.ItemType == ListItemType.AlternatingItem || e.Item.ItemType == ListItemType.Item)
             {
-                
+
                 var lnkEdit = e.Item.FindControl("lnkEdit") as HyperLink;
+                var lnkAdd = e.Item.FindControl("lnkAdd") as HyperLink;
+                var lnkSettings = e.Item.FindControl("lnkSettings") as HyperLink;
                 var lnkDelete = e.Item.FindControl("lnkDelete") as LinkButton;
 
                 var pnlAdminControls = e.Item.FindControl("pnlAdmin") as Panel;
@@ -67,9 +69,9 @@ namespace JS.Modules.JSNewsModule
                 {
                     pnlAdminControls.Visible = true;
                     lnkDelete.CommandArgument = n.NewsId.ToString();
-                    lnkDelete.Enabled = lnkDelete.Visible = lnkEdit.Enabled = lnkEdit.Visible = true;
-
+                    lnkDelete.Enabled = lnkDelete.Visible = lnkEdit.Enabled = lnkEdit.Visible = lnkAdd.Enabled = lnkAdd.Visible = true;
                     lnkEdit.NavigateUrl = EditUrl(string.Empty, string.Empty, "AddNews", "nid=" + n.NewsId);
+                    lnkAdd.NavigateUrl = EditUrl("AddNews");
 
                     ClientAPI.AddButtonConfirm(lnkDelete, Localization.GetString("ConfirmDelete", LocalResourceFile));
                 }
@@ -87,7 +89,6 @@ namespace JS.Modules.JSNewsModule
             {
                 Response.Redirect(EditUrl(string.Empty, string.Empty, "Edit", "nid=" + e.CommandArgument));
             }
-
             if (e.CommandName == "Delete")
             {
                 var nc = new NewsController();

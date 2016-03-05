@@ -27,16 +27,16 @@
 
         <div class="dnnFormItem">
             <dnn:label ID="lblImgUrl" runat="server" />
-            <asp:DropDownList runat="server" CssClass="form-control"/><br />
+            <asp:DropDownList ID="imgList" runat="server" CssClass="form-control" AutoPostBack="True" OnSelectedIndexChanged="Image_Selected"/><br />
             <dnn:label runat="server" />
-            <asp:TextBox ID="txtImgUrl" runat="server" CssClass="form-control" />
+            <asp:TextBox ID="txtImgUrl" runat="server" CssClass="form-control" Visible="false" />
         </div>
         
         <div class="dnnFormItem">
             <dnn:label ID="lblUploadImg" runat="server" />
             <asp:FileUpload ID="btnImgSelect" runat="server" CssClass="btn btn-default" />
             <asp:LinkButton ID="btnImgUpload" runat="server" CssClass="btn btn-primary" Text="<i class='fa fa-upload'></i>" OnClick="btnImgUpload_Click" />
-            <asp:Image ID="imgPreview" runat="server" AlternateText="News image" ImageUrl="~/DesktopModules/JSNewsModule/icon.png" Width="35px" Height="35px"  />
+            <asp:Image ID="imgPreview" runat="server" AlternateText="News image" ImageUrl="~/DesktopModules/JSNewsModule/Images/Uploaded Images.jpg" Width="35px" Height="35px"  />
         </div>
 
         <div class="dnnFormItem">

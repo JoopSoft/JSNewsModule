@@ -15,6 +15,7 @@ using DotNetNuke.Entities.Users;
 using JS.Modules.JSNewsModule.Components;
 using DotNetNuke.Services.Exceptions;
 using System.IO;
+using System.Web.UI.WebControls;
 
 namespace JS.Modules.JSNewsModule
 {
@@ -42,8 +43,20 @@ namespace JS.Modules.JSNewsModule
                     var sc = new SettingsController();
                     var s = sc.LoadSingleSettings(ModuleId);
                     lblDate.Visible = txtDate.Visible = s.ShowNewsDate;
-                    lblImgUrl.Visible = txtImgUrl.Visible = btnImgSelect.Visible = btnImgUpload.Visible = s.ShowNewsImg;
-                    
+                    lblImgUrl.Visible = imgList.Visible = btnImgSelect.Visible = btnImgUpload.Visible = s.ShowNewsImg;
+                    var li = new ListItem("Uploaded Images", "Uploaded Images");
+                    imgList.Items.Add(li);
+                    string [] imgDirectory = Directory.GetFiles(Server.MapPath("~/DesktopModules/JSNewsModule/Images/"));
+                    foreach (string img in imgDirectory)
+                    {
+                        string filename = Path.GetFileName(img);
+                        var im = new ListItem(filename, img);
+                        if (filename != "Uploaded Images.jpg")
+                        {
+                            imgList.Items.Add(new ListItem(filename, img));
+                        }
+                    }
+
                     //check if we have an ID passed in via a querystring parameter, if so, load that item to edit.
                     //ItemId is defined in the ItemModuleBase.cs file
                     if (NewsId > 0)
@@ -144,6 +157,20 @@ namespace JS.Modules.JSNewsModule
                 txtImgUrl.Text = "~/DesktopModules/JSNewsModule/Images/" + btnImgSelect.FileName;
                 imgPreview.ImageUrl = txtImgUrl.Text;
             }
+        }
+
+        protected void Image_Selected(object sender, EventArgs e)
+        {
+            var li = new ListItem("Uploaded Images", "Uploaded Images");
+            if (imgList.SelectedItem.Equals(li))
+            {
+                txtImgUrl.Text = "~/DesktopModules/JSNewsModule/Images/Uploaded Images.jpg";
+            }
+            else
+            {
+                txtImgUrl.Text = "~/DesktopModules/JSNewsModule/Images/" + imgList.SelectedItem;
+            }
+            imgPreview.ImageUrl = txtImgUrl.Text;
         }
     }
 }

@@ -58,6 +58,15 @@ namespace JS.Modules.JSNewsModule {
         protected global::DotNetNuke.UI.UserControls.LabelControl lblImgUrl;
         
         /// <summary>
+        /// imgList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList imgList;
+        
+        /// <summary>
         /// txtImgUrl control.
         /// </summary>
         /// <remarks>
