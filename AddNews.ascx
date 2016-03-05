@@ -27,6 +27,8 @@
 
         <div class="dnnFormItem">
             <dnn:label ID="lblImgUrl" runat="server" />
+            <asp:DropDownList runat="server" CssClass="form-control"/><br />
+            <dnn:label runat="server" />
             <asp:TextBox ID="txtImgUrl" runat="server" CssClass="form-control" />
         </div>
         

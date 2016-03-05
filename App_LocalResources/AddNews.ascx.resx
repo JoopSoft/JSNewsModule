@@ -162,4 +162,10 @@
   <data name="lblTitle.Text" xml:space="preserve">
     <value>Title</value>
   </data>
+  <data name="lblUploadImg.Help" xml:space="preserve">
+    <value>Upload New Image</value>
+  </data>
+  <data name="lblUploadImg.Text" xml:space="preserve">
+    <value>Upload Image</value>
+  </data>
 </root>
