@@ -2,7 +2,9 @@
 <%@ Register TagPrefix="dnn" TagName="label" Src="~/controls/LabelControl.ascx" %>
 
 
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" />
 <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js" type="text/javascript"></script>
 
 
 <div class="dnnForm dnnEditBasicSettings" id="dnnEditBasicSettings">
@@ -15,39 +17,46 @@
 
         <div class="dnnFormItem">
             <dnn:label ID="lblTitle" runat="server" />
-            <asp:TextBox ID="txtTitle" runat="server" />
+            <asp:TextBox ID="txtTitle" runat="server" CssClass="form-control" />
         </div>
 
         <div class="dnnFormItem">
             <dnn:label ID="lblDate" runat="server" />
-            <asp:TextBox ID="txtDate" runat="server" TextMode="Date" />
+            <asp:TextBox ID="txtDate" runat="server" TextMode="Date" CssClass="form-control" />
         </div>
+
         <div class="dnnFormItem">
             <dnn:label ID="lblImgUrl" runat="server" />
-            <asp:TextBox ID="txtImgUrl" runat="server" />
+            <asp:TextBox ID="txtImgUrl" runat="server" CssClass="form-control" />
         </div>
+        
         <div class="dnnFormItem">
             <dnn:label ID="lblUploadImg" runat="server" />
-            <asp:FileUpload ID="btnImgSelect" runat="server" />
-            <asp:LinkButton ID="btnImgUpload" runat="server" CssClass="btn btn-primary" Text="Upload Image" OnClick="btnImgUpload_Click"/>
+            <asp:FileUpload ID="btnImgSelect" runat="server" CssClass="btn btn-default" />
+            <asp:LinkButton ID="btnImgUpload" runat="server" CssClass="btn btn-primary" Text="<i class='fa fa-upload'></i>" OnClick="btnImgUpload_Click" />
+            <asp:Image ID="Image1" runat="server" AlternateText="News image" ImageUrl="~/DesktopModules/JSNewsModule/icon.png" Width="35px" Height="35px"  />
         </div>
 
         <div class="dnnFormItem">
             <dnn:label ID="lblTeaserText" runat="server" />
-            <asp:TextBox ID="txtTeaserText" runat="server" TextMode="MultiLine" Rows="3" Columns="20" />
+            <asp:TextBox ID="txtTeaserText" runat="server" TextMode="MultiLine" Rows="3" Columns="20" CssClass="form-control" />
         </div>
 
         <div class="dnnFormItem">
             <dnn:label ID="lblContent" runat="server" />
-            <asp:TextBox ID="txtContent" runat="server" TextMode="MultiLine" Rows="5" Columns="20" />
+            <asp:TextBox ID="txtContent" runat="server" TextMode="MultiLine" Rows="9" Columns="20" CssClass="form-control" />
         </div>
+
+        <div class="dnnFormItem">
+            <asp:LinkButton ID="btnSubmit" runat="server"
+                OnClick="btnSubmit_Click" resourcekey="btnSubmit" CssClass="btn btn-primary" />
+            <asp:LinkButton ID="btnCancel" runat="server"
+                OnClick="btnCancel_Click" resourcekey="btnCancel" CssClass="btn btn-default" />
+        </div>
+
 
     </fieldset>
 </div>
-<asp:LinkButton ID="btnSubmit" runat="server"
-    OnClick="btnSubmit_Click" resourcekey="btnSubmit" CssClass="dnnPrimaryAction" />
-<asp:LinkButton ID="btnCancel" runat="server"
-    OnClick="btnCancel_Click" resourcekey="btnCancel" CssClass="dnnSecondaryAction" />
 
 <script type="text/javascript">
     /*globals jQuery, window, Sys */
@@ -57,11 +66,19 @@
             $('#dnnEditBasicSettings .dnnFormExpandContent a').dnnExpandAll({ expandText: '<%=Localization.GetString("ExpandAll", LocalResourceFile)%>', collapseText: '<%=Localization.GetString("CollapseAll", LocalResourceFile)%>', targetArea: '#dnnEditBasicSettings' });
         }
 
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip({
+                placement: 'auto left'
+            })
+        });
+
+
         $(document).ready(function () {
             dnnEditBasicSettings();
             Sys.WebForms.PageRequestManager.getInstance().add_endRequest(function () {
                 dnnEditBasicSettings();
             });
+
         });
 
     }(jQuery, window.Sys));

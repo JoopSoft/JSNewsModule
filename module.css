@@ -1,16 +1,79 @@
+﻿.panel .panel-body img {
+  float: left;
+  margin: 0 20px 10px 0;
+  max-width: 150px;
+  width: auto; }
 
-.panel .panel-body img {
-    float: left;
-    margin: 0 20px 10px 0;
-    max-width: 150px;
-    width: auto;
-}
+.dnnForm .form-control {
+  width: 45%;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  -o-box-shadow: none;
+  box-shadow: none; }
+
+.dnnForm .dnnFormItem {
+  margin-bottom: 15px; }
+  .dnnForm .dnnFormItem input[type="text"],
+  .dnnForm .dnnFormItem select,
+  .dnnForm .dnnFormItem textarea,
+  .dnnForm .dnnFormItem input[type="email"],
+  .dnnForm .dnnFormItem input[type="search"],
+  .dnnForm .dnnFormItem input[type="password"],
+  .dnnForm .dnnFormItem input[type="date"] {
+    margin: 0;
+    border: 1px solid #dadada;
+    color: #999;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    -ms-border-radius: 0;
+    border-radius: 0;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    -o-box-shadow: none;
+    box-shadow: none; }
+    .dnnForm .dnnFormItem input[type="text"]:active, .dnnForm .dnnFormItem input[type="text"]:focus,
+    .dnnForm .dnnFormItem select:active,
+    .dnnForm .dnnFormItem select:focus,
+    .dnnForm .dnnFormItem textarea:active,
+    .dnnForm .dnnFormItem textarea:focus,
+    .dnnForm .dnnFormItem input[type="email"]:active,
+    .dnnForm .dnnFormItem input[type="email"]:focus,
+    .dnnForm .dnnFormItem input[type="search"]:active,
+    .dnnForm .dnnFormItem input[type="search"]:focus,
+    .dnnForm .dnnFormItem input[type="password"]:active,
+    .dnnForm .dnnFormItem input[type="password"]:focus,
+    .dnnForm .dnnFormItem input[type="date"]:active,
+    .dnnForm .dnnFormItem input[type="date"]:focus {
+      border: 1px solid rgba(2, 139, 255, 0.5);
+      color: #333;
+      background: #fff;
+      -moz-box-shadow: 0px 0px 3px 0px rgba(2, 139, 255, 0.4);
+      -webkit-box-shadow: 0px 0px 3px 0px rgba(2, 139, 255, 0.4);
+      -o-box-shadow: 0px 0px 3px 0px rgba(2, 139, 255, 0.4);
+      box-shadow: 0px 0px 3px 0px rgba(2, 139, 255, 0.4); }
+
+.dnnForm a.dnnFormHelp, .dnnForm .dnnForm .dnnFormItem a.dnnFormHelp, .dnnForm .dnnTooltip label a.dnnFormHelp {
+  background: none;
+  font-weight: normal; }
+  .dnnForm a.dnnFormHelp:before, .dnnForm .dnnForm .dnnFormItem a.dnnFormHelp:before, .dnnForm .dnnTooltip label a.dnnFormHelp:before {
+    font-family: "FontAwesome";
+    /*content: "\f129";*/
+    font-size: 1.33333333em;
+    /*line-height: 0.75em;*/
+    /*vertical-align: -15%;*/ }
+
+.panel .panel-body .body-txt {
+  float: left;
+  width: calc(100% - 150px); }
 
 .panel .panel-body .teaser-txt {
-    float: left;
-    width: calc(100% - 150px);
-}
-.panel .panel-body .body-txt {
-    float: left;
-    width: calc(100% - 150px);
-}
+  float: left;
+  width: calc(100% - 150px); }
+
+.panel.panel-info {
+  /*background: none;*/
+  border: none; }
+  .panel.panel-info > .panel-heading {
+    background: none;
+    border: none; }
+

@@ -28,7 +28,7 @@
                 <asp:Panel ID="pnlAdmin" runat="server" Visible="false" CssClass="pull-right">
                     <div class="btn-group" role="group" aria-label="Control buttons">
                         <asp:HyperLink ID="lnkEdit" runat="server" CssClass="btn btn-primary" ResourceKey="EditItem.Text" Visible="false" Enabled="false" />
-                        <asp:LinkButton ID="lnkDelete" runat="server" CssClass="btn btn-primary" ResourceKey="DeleteItem.Text" Visible="false" Enabled="false" CommandName="Delete" />
+                        <asp:LinkButton ID="lnkDelete" runat="server" CssClass="btn btn-danger" ResourceKey="DeleteItem.Text" Visible="false" Enabled="false" CommandName="Delete" />
                     </div>
                 </asp:Panel>                
             </div>

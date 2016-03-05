@@ -1,0 +1,81 @@
+﻿@import "variables.scss";
+
+.panel .panel-body img {
+    float: left;
+    margin: 0 20px 10px 0;
+    max-width: 150px;
+    width: auto;
+}
+
+.dnnForm {
+
+    .form-control {
+        width: 45%;
+        @include box-shadow($none);
+    }
+
+    .dnnFormItem {
+        margin-bottom: 15px;
+
+        input[type="text"],
+        select,
+        textarea,
+        input[type="email"],
+        input[type="search"],
+        input[type="password"],
+        input[type="date"] {
+            margin: 0;
+            border: 1px solid $light;
+            color: $middle;
+
+            @include border-radius(0);
+            @include box-shadow($none);
+
+            &:active,
+            &:focus {
+                border: 1px solid rgba(2,139,255,0.5);
+                color: #333;
+                background: #fff;
+
+                @include box-shadow (0px 0px 3px 0px rgba(2, 139, 255, 0.4));
+            }
+        }
+    }
+
+
+    a.dnnFormHelp, .dnnForm .dnnFormItem a.dnnFormHelp, .dnnTooltip label a.dnnFormHelp {
+        background: none;
+        font-weight: normal;
+
+        &:before {
+            font-family: $font-awesome;
+            /*content: "\f129";*/
+            font-size: 1.33333333em;
+            /*line-height: 0.75em;*/
+            /*vertical-align: -15%;*/
+        }
+    }
+}
+
+.panel {
+    .panel-body .body-txt {
+        float: left;
+        width: calc(100% - 150px);
+    }
+
+    .panel-body .teaser-txt {
+        float: left;
+        width: calc(100% - 150px);
+    }
+
+    &.panel-info {
+        /*background: none;*/
+        border: none;
+
+        & > .panel-heading {
+            background: none;
+            border: none;
+        }
+    }
+}
+
