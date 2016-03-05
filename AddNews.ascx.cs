@@ -44,13 +44,14 @@ namespace JS.Modules.JSNewsModule
                     var s = sc.LoadSingleSettings(ModuleId);
                     lblDate.Visible = txtDate.Visible = s.ShowNewsDate;
                     lblImgUrl.Visible = imgList.Visible = btnImgSelect.Visible = btnImgUpload.Visible = s.ShowNewsImg;
-                    imgList.Items.Add("Uploaded Images");
+                    var li = new ListItem("Uploaded Images", "Uploaded Images");
+                    imgList.Items.Add(li);
                     string [] imgDirectory = Directory.GetFiles(Server.MapPath("~/DesktopModules/JSNewsModule/Images/"));
                     foreach (string img in imgDirectory)
                     {
-                        string filename = Path.GetFileNameWithoutExtension(img);
+                        string filename = Path.GetFileName(img);
                         var im = new ListItem(filename, img);
-                        if (!imgList.Items.Contains(im))
+                        if (filename != "Uploaded Images.jpg")
                         {
                             imgList.Items.Add(new ListItem(filename, img));
                         }
@@ -160,7 +161,15 @@ namespace JS.Modules.JSNewsModule
 
         protected void Image_Selected(object sender, EventArgs e)
         {
-            txtImgUrl.Text = "~/DesktopModules/JSNewsModule/Images/" + imgList.SelectedItem + ".jpg";
+            var li = new ListItem("Uploaded Images", "Uploaded Images");
+            if (imgList.SelectedItem.Equals(li))
+            {
+                txtImgUrl.Text = "~/DesktopModules/JSNewsModule/Images/Uploaded Images.jpg";
+            }
+            else
+            {
+                txtImgUrl.Text = "~/DesktopModules/JSNewsModule/Images/" + imgList.SelectedItem;
+            }
             imgPreview.ImageUrl = txtImgUrl.Text;
         }
     }
