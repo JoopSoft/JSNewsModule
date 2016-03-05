@@ -15,7 +15,7 @@
         </div>
         <div class="dnnFormItem">
             <dnn:Label ID="lblShowReadMore" runat="server" /> 
-            <asp:CheckBox ID="cbShowReadMore" runat="server" OnCheckedChanged="cbShowReadMore_CheckedChanged" />
+            <asp:CheckBox ID="cbShowReadMore" runat="server" AutoPostBack="true" OnCheckedChanged="cbShowReadMore_CheckedChanged" />
         </div>
         <div class="dnnFormItem">
             <dnn:Label ID="lblReadMoreText" runat="server" /> 
@@ -23,7 +23,7 @@
         </div>
         <div class="dnnFormItem">
             <dnn:Label ID="lblShowBack" runat="server" /> 
-            <asp:CheckBox ID="cbShowBack" runat="server" OnCheckedChanged="cbShowBack_CheckedChanged" />
+            <asp:CheckBox ID="cbShowBack" runat="server" AutoPostBack="True" OnCheckedChanged="cbShowBack_CheckedChanged"  />
         </div>
         <div class="dnnFormItem">
             <dnn:Label ID="lblBackText" runat="server" /> 
@@ -31,7 +31,7 @@
         </div>
         <div class="dnnFormItem">
             <dnn:Label ID="lblShowHome" runat="server" /> 
-            <asp:CheckBox ID="cbShowHome" runat="server" OnCheckedChanged="cbShowHome_CheckedChanged" />
+            <asp:CheckBox ID="cbShowHome" runat="server" AutoPostBack="True" OnCheckedChanged="cbShowHome_CheckedChanged"  />
         </div>
         <div class="dnnFormItem">
             <dnn:Label ID="lblHomeText" runat="server" /> 

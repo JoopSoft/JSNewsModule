@@ -61,11 +61,11 @@ namespace JS.Modules.JSNewsModule
                         {
                             cbShowNewsDate.Checked = s.ShowNewsDate;
                             cbShowNewsImg.Checked = s.ShowNewsImg;
-                            cbShowReadMore.Checked = s.ShowReadMore;
+                            cbShowReadMore.Checked = lblReadMoreText.Visible = txtReadMoreText.Visible = s.ShowReadMore;
                             txtReadMoreText.Text = s.ReadMoreText;
-                            cbShowBack.Checked = s.ShowBack;
+                            cbShowBack.Checked = lblBackText.Visible = txtBackText.Visible = s.ShowBack;
                             txtBackText.Text = s.BackText;
-                            cbShowHome.Checked = s.ShowHome;
+                            cbShowHome.Checked = lblHomeText.Visible = txtHomeText.Visible = s.ShowHome;
                             txtHomeText.Text = s.HomeText;
                             return;
                         }
@@ -178,19 +178,20 @@ namespace JS.Modules.JSNewsModule
 
         protected void cbShowReadMore_CheckedChanged(object sender, EventArgs e)
         {
-            var sc = new SettingsController();
-            var us = sc.LoadSingleSettings(ModuleId);
-            us.ShowReadMore = cbShowReadMore.Checked;
-            sc.UpdateSettings(us);
-            LoadSettings();
+            lblReadMoreText.Visible = cbShowReadMore.Checked;
+            txtReadMoreText.Visible = cbShowReadMore.Checked;
         }
 
         protected void cbShowBack_CheckedChanged(object sender, EventArgs e)
         {
+            lblBackText.Visible = cbShowBack.Checked;
+            txtBackText.Visible = cbShowBack.Checked;
         }
 
         protected void cbShowHome_CheckedChanged(object sender, EventArgs e)
         {
+            lblHomeText.Visible = cbShowHome.Checked;
+            txtHomeText.Visible = cbShowHome.Checked;
         }
     }
 }

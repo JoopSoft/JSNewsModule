@@ -141,6 +141,7 @@ namespace JS.Modules.JSNewsModule
             if (btnImgSelect.FileName != null)
             {
                 txtImgUrl.Text = "~/DesktopModules/JSNewsModule/Images/" + btnImgSelect.FileName;
+                imgPreview.ImageUrl = txtImgUrl.Text;
             }
         }
     }

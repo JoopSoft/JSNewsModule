@@ -34,7 +34,7 @@
             <dnn:label ID="lblUploadImg" runat="server" />
             <asp:FileUpload ID="btnImgSelect" runat="server" CssClass="btn btn-default" />
             <asp:LinkButton ID="btnImgUpload" runat="server" CssClass="btn btn-primary" Text="<i class='fa fa-upload'></i>" OnClick="btnImgUpload_Click" />
-            <asp:Image ID="Image1" runat="server" AlternateText="News image" ImageUrl="~/DesktopModules/JSNewsModule/icon.png" Width="35px" Height="35px"  />
+            <asp:Image ID="imgPreview" runat="server" AlternateText="News image" ImageUrl="~/DesktopModules/JSNewsModule/icon.png" Width="35px" Height="35px"  />
         </div>
 
         <div class="dnnFormItem">
