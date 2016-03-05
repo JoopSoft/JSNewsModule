@@ -58,6 +58,7 @@ namespace JS.Modules.JSNewsModule
                             txtImgUrl.Text = n.ImageUrl;
                             txtTeaserText.Text = n.NewsTeaserText;
                             txtContent.Text = n.NewsContent;
+                            imgPreview.ImageUrl = txtImgUrl.Text;
                         }
                     }
                 }
