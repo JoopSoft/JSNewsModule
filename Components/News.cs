@@ -28,6 +28,7 @@ namespace JS.Modules.JSNewsModule.Components
     class News
     {
         public int NewsId { get; set; }
+        public int CustomOrderId { get; set; }
         public string NewsTitle { get; set; }
         public bool ShowNewsDate { get; set; }
         public string NewsDate { get; set; }

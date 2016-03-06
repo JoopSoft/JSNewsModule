@@ -53,6 +53,13 @@ namespace JS.Modules.JSNewsModule
             {
                 if (!IsPostBack)
                 {
+                    sortByList.Items.Add("Select Sorting Method");
+                    sortByList.Items.Add("Date");
+                    sortByList.Items.Add("Title");
+                    sortByList.Items.Add("Custom Order");
+                    sortTypeList.Items.Add("Select Sorting Type");
+                    sortTypeList.Items.Add("ASC");
+                    sortTypeList.Items.Add("DESC");
                     var sc = new SettingsController();
                     var cs = sc.LoadSettings();
                     foreach (CustomSettings s in cs)
@@ -67,6 +74,7 @@ namespace JS.Modules.JSNewsModule
                             txtBackText.Text = s.BackText;
                             cbShowHome.Checked = lblHomeText.Visible = txtHomeText.Visible = s.ShowHome;
                             txtHomeText.Text = s.HomeText;
+                            cbIsSorted.Checked = lblSortBy.Visible = sortByList.Visible = lblSortType.Visible = sortTypeList.Visible = s.IsSorted;
                             return;
                         }
                         else
@@ -80,8 +88,9 @@ namespace JS.Modules.JSNewsModule
                             txtBackText.Text = ds.BackText;
                             cbShowHome.Checked = ds.ShowHome;
                             txtHomeText.Text = ds.HomeText;
+                            cbIsSorted.Checked = lblSortBy.Visible = sortByList.Visible = lblSortType.Visible = sortTypeList.Visible = s.IsSorted;
                         }
-                   }
+                    }
                 }
             }
             catch (Exception exc) //Module failed to load
@@ -104,6 +113,16 @@ namespace JS.Modules.JSNewsModule
                 var cs = sc.LoadSettings();
                 var nc = new NewsController();
                 var an = nc.LoadAllNews(ModuleId);
+                string sortByTemp = null;
+                string sortTypeTemp = null;
+                if (sortByList.SelectedIndex != 0)
+                {
+                    sortByTemp = sortByList.SelectedValue;
+                }
+                if (sortTypeList.SelectedIndex != 0)
+                {
+                    sortTypeTemp = sortTypeList.SelectedValue;
+                }
                 foreach (CustomSettings s in cs)
                 {
                     if (s.SettingsId == ModuleId)
@@ -123,7 +142,10 @@ namespace JS.Modules.JSNewsModule
                         ShowBack = cbShowBack.Checked,
                         BackText = txtBackText.Text.Trim(),
                         ShowHome = cbShowHome.Checked,
-                        HomeText = txtHomeText.Text.Trim()
+                        HomeText = txtHomeText.Text.Trim(),
+                        IsSorted = cbIsSorted.Checked,
+                        SortBy = sortByTemp,
+                        SortType = sortTypeTemp                       
                     };
                     foreach (News n in an)
                     {
@@ -151,6 +173,9 @@ namespace JS.Modules.JSNewsModule
                     s.BackText = txtBackText.Text.Trim();
                     s.ShowHome = cbShowHome.Checked;
                     s.HomeText = txtHomeText.Text.Trim();
+                    s.IsSorted = cbIsSorted.Checked;
+                    s.SortBy = sortByTemp;
+                    s.SortType = sortTypeTemp;
                     foreach (News n in an)
                     {
                         n.ShowNewsDate = s.ShowNewsDate;
@@ -192,6 +217,12 @@ namespace JS.Modules.JSNewsModule
         {
             lblHomeText.Visible = cbShowHome.Checked;
             txtHomeText.Visible = cbShowHome.Checked;
+        }
+
+        protected void cbIsSorted_CheckedChanged(object sender, EventArgs e)
+        {
+            lblSortBy.Visible = sortByList.Visible = cbIsSorted.Checked;
+            lblSortType.Visible = sortTypeList.Visible = cbIsSorted.Checked;
         }
     }
 }

@@ -132,6 +132,12 @@
   <data name="lblHomeText.Text" xml:space="preserve">
     <value>Home Button Text</value>
   </data>
+  <data name="lblIsSorted.Help" xml:space="preserve">
+    <value>Check to sort the News List</value>
+  </data>
+  <data name="lblIsSorted.Text" xml:space="preserve">
+    <value>Sort News</value>
+  </data>
   <data name="lblReadMoreText.Help" xml:space="preserve">
     <value>Enter custom text for the Read More Button</value>
   </data>
@@ -167,5 +173,17 @@
   </data>
   <data name="lblShowReadMore.Text" xml:space="preserve">
     <value>Show/Hide Read More Button</value>
+  </data>
+  <data name="lblSortBy.Help" xml:space="preserve">
+    <value>Select Sorting Method</value>
+  </data>
+  <data name="lblSortBy.Text" xml:space="preserve">
+    <value>Sort By</value>
+  </data>
+  <data name="lblSortType.Help" xml:space="preserve">
+    <value>Select Sorting Type</value>
+  </data>
+  <data name="lblSortType.Text" xml:space="preserve">
+    <value>Sort Type</value>
   </data>
 </root>

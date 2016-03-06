@@ -13,6 +13,24 @@ namespace JS.Modules.JSNewsModule {
     public partial class AddNews {
         
         /// <summary>
+        /// lblCustomOrderId control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DotNetNuke.UI.UserControls.LabelControl lblCustomOrderId;
+        
+        /// <summary>
+        /// txtCustomOrderId control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtCustomOrderId;
+        
+        /// <summary>
         /// lblTitle control.
         /// </summary>
         /// <remarks>

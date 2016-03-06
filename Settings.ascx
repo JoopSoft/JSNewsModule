@@ -23,7 +23,7 @@
         </div>
         <div class="dnnFormItem">
             <dnn:Label ID="lblShowBack" runat="server" /> 
-            <asp:CheckBox ID="cbShowBack" runat="server" AutoPostBack="True" OnCheckedChanged="cbShowBack_CheckedChanged"  />
+            <asp:CheckBox ID="cbShowBack" runat="server" AutoPostBack="true" OnCheckedChanged="cbShowBack_CheckedChanged"  />
         </div>
         <div class="dnnFormItem">
             <dnn:Label ID="lblBackText" runat="server" /> 
@@ -31,11 +31,23 @@
         </div>
         <div class="dnnFormItem">
             <dnn:Label ID="lblShowHome" runat="server" /> 
-            <asp:CheckBox ID="cbShowHome" runat="server" AutoPostBack="True" OnCheckedChanged="cbShowHome_CheckedChanged"  />
+            <asp:CheckBox ID="cbShowHome" runat="server" AutoPostBack="true" OnCheckedChanged="cbShowHome_CheckedChanged"  />
         </div>
         <div class="dnnFormItem">
             <dnn:Label ID="lblHomeText" runat="server" /> 
             <asp:TextBox ID="txtHomeText" runat="server" />
+        </div>
+        <div class="dnnFormItem">
+            <dnn:Label ID="lblIsSorted" runat="server" />
+            <asp:CheckBox ID="cbIsSorted" runat="server" AutoPostBack="true" OnCheckedChanged="cbIsSorted_CheckedChanged"/>
+        </div>
+        <div class="dnnFormItem">
+            <dnn:Label ID="lblSortBy" runat="server" />
+            <asp:DropDownList ID="sortByList" runat="server" AutoPostBack="true" />
+        </div>
+        <div class="dnnFormItem">
+            <dnn:Label ID="lblSortType" runat="server" />
+            <asp:DropDownList ID="sortTypeList" runat="server" AutoPostBack="true" />
         </div>
     </fieldset>
 

@@ -66,6 +66,7 @@ namespace JS.Modules.JSNewsModule
                         var n = nc.LoadNews(NewsId, ModuleId);
                         if (n != null)
                         {
+                            txtCustomOrderId.Text = n.CustomOrderId.ToString();
                             txtTitle.Text = n.NewsTitle;
                             txtDate.Text = n.NewsDate;
                             txtImgUrl.Text = n.ImageUrl;
@@ -94,6 +95,7 @@ namespace JS.Modules.JSNewsModule
             if (NewsId > 0)
             {
                 n = nc.LoadNews(NewsId, ModuleId);
+                n.CustomOrderId = Convert.ToInt32(txtCustomOrderId);
                 n.NewsTitle = txtTitle.Text.Trim();
                 n.ShowNewsDate = s.ShowNewsDate;
                 n.NewsDate = txtDate.Text.Trim();
@@ -112,6 +114,7 @@ namespace JS.Modules.JSNewsModule
             {
                 n = new News()
                 {
+                    CustomOrderId = Convert.ToInt32(txtCustomOrderId.Text.Trim()),
                     NewsTitle = txtTitle.Text.Trim(),
                     ShowNewsDate = s.ShowNewsDate,
                     NewsDate = txtDate.Text.Trim(),

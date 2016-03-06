@@ -16,6 +16,11 @@
     <fieldset>
 
         <div class="dnnFormItem">
+            <dnn:label ID="lblCustomOrderId" runat="server" />
+            <asp:TextBox ID="txtCustomOrderId" runat="server" CssClass="form-control" />
+        </div>
+
+        <div class="dnnFormItem">
             <dnn:label ID="lblTitle" runat="server" />
             <asp:TextBox ID="txtTitle" runat="server" CssClass="form-control" />
         </div>
