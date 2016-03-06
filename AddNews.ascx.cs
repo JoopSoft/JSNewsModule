@@ -156,6 +156,12 @@ namespace JS.Modules.JSNewsModule
             {
                 txtImgUrl.Text = "~/DesktopModules/JSNewsModule/Images/" + btnImgSelect.FileName;
                 imgPreview.ImageUrl = txtImgUrl.Text;
+                var li = new ListItem(btnImgSelect.FileName, btnImgSelect.PostedFile.ToString());
+                if (!imgList.Items.Contains(li))
+                {
+                    imgList.Items.Add(li);
+                }
+
             }
         }
 
