@@ -19,6 +19,7 @@ using DotNetNuke.Entities.Modules;
 using DotNetNuke.Entities.Modules.Actions;
 using DotNetNuke.Services.Localization;
 using DotNetNuke.UI.Utilities;
+using System.Linq;
 
 namespace JS.Modules.JSNewsModule
 {
@@ -42,7 +43,50 @@ namespace JS.Modules.JSNewsModule
             try
             {                
                 var nc = new NewsController();
-                rptItemList.DataSource = nc.LoadAllNews(ModuleId);
+                var sc = new SettingsController();
+                var cs = new CustomSettings();
+                cs = sc.LoadSingleSettings(ModuleId);
+                if (cs.IsSorted)
+                {
+                    if (cs.SortType == "ASC")
+                    {
+                        switch (cs.SortBy)
+                        {
+                            case "Title":
+                                rptItemList.DataSource = (nc.LoadAllNews(ModuleId)).OrderBy(item => item.NewsTitle);
+                                break;
+                            case "Date":
+                                rptItemList.DataSource = (nc.LoadAllNews(ModuleId)).OrderBy(item => item.NewsDate);
+                                break;
+                            case "Custom Order":
+                                rptItemList.DataSource = (nc.LoadAllNews(ModuleId)).OrderBy(item => item.CustomOrderId);
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                    else
+                    {
+                        switch (cs.SortBy)
+                        {
+                            case "Title":
+                                rptItemList.DataSource = (nc.LoadAllNews(ModuleId)).OrderByDescending(item => item.NewsTitle);
+                                break;
+                            case "Date":
+                                rptItemList.DataSource = (nc.LoadAllNews(ModuleId)).OrderByDescending(item => item.NewsDate);
+                                break;
+                            case "Custom Order":
+                                rptItemList.DataSource = (nc.LoadAllNews(ModuleId)).OrderByDescending(item => item.CustomOrderId);
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                }
+                else
+                {
+                    rptItemList.DataSource = nc.LoadAllNews(ModuleId);
+                }
                 rptItemList.DataBind();
             }
             catch (Exception exc) //Module failed to load

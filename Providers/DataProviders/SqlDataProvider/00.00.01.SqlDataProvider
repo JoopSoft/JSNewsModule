@@ -15,7 +15,8 @@ GO
 CREATE TABLE {databaseOwner}{objectQualifier}JSNewsModule_News
 (
 	[NewsId] INT NOT NULL IDENTITY (1, 1),
-	[CustomOrderId] INT NULL;
+	[ShowCustomOrderId] BIT NULL,
+	[CustomOrderId] NVARCHAR(50) NULL;
 	[NewsTitle] NVARCHAR(MAX) NOT NULL,
 	[ShowNewsDate] BIT NOT NULL DEFAULT 1,
 	[NewsDate]  NVARCHAR(MAX) NULL,
@@ -53,6 +54,7 @@ CREATE TABLE {databaseOwner}{objectQualifier}JSNewsModule_Settings
 	[BackText]  NVARCHAR(MAX) NOT NULL,
 	[ShowHome] BIT NOT NULL,
 	[HomeText] NVARCHAR(MAX) NOT NULL,
+	[ShowCustomOrderId] BIT NULL,
 	[IsSorted] BIT NULL,
 	[SortBy] NVARCHAR(50) NULL,
 	[SortType] NVARCHAR(50) NULL
@@ -65,9 +67,9 @@ ALTER TABLE {databaseOwner}[{objectQualifier}JSNewsModule_Settings] ADD CONSTRAI
 GO
 
 INSERT INTO {databaseOwner}[{objectQualifier}JSNewsModule_Settings]
-([SettingsId], [ShowNewsDate], [ShowNewsImg], [ShowReadMore], [ReadMoreText], [ShowBack], [BackText], [ShowHome], [HomeText])
+([SettingsId], [ShowNewsDate], [ShowNewsImg], [ShowReadMore], [ReadMoreText], [ShowBack], [BackText], [ShowHome], [HomeText], [ShowCustomOrderId], [IsSorted], [SortBy], [SortType])
 VALUES
-(0, 1, 1, 1, 'Read More', 1, 'Back', 1, 'Home')
+(0, 1, 1, 1, 'Read More', 1, 'Back', 1, 'Home', 0, 0, null, null)
 GO
 
 

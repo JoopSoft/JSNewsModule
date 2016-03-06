@@ -36,6 +36,7 @@ namespace JS.Modules.JSNewsModule.Components
         public string BackText { get; set; }
         public bool ShowHome { get; set; }
         public string HomeText { get; set; }
+        public bool ShowCustomOrderId { get; set; }
         public bool IsSorted { get; set; }
         public string SortBy { get; set; }
         public string SortType { get; set; }

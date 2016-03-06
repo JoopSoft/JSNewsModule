@@ -53,11 +53,9 @@ namespace JS.Modules.JSNewsModule
             {
                 if (!IsPostBack)
                 {
-                    sortByList.Items.Add("Select Sorting Method");
                     sortByList.Items.Add("Date");
                     sortByList.Items.Add("Title");
                     sortByList.Items.Add("Custom Order");
-                    sortTypeList.Items.Add("Select Sorting Type");
                     sortTypeList.Items.Add("ASC");
                     sortTypeList.Items.Add("DESC");
                     var sc = new SettingsController();
@@ -75,6 +73,8 @@ namespace JS.Modules.JSNewsModule
                             cbShowHome.Checked = lblHomeText.Visible = txtHomeText.Visible = s.ShowHome;
                             txtHomeText.Text = s.HomeText;
                             cbIsSorted.Checked = lblSortBy.Visible = sortByList.Visible = lblSortType.Visible = sortTypeList.Visible = s.IsSorted;
+                            sortByList.SelectedValue = s.SortBy;
+                            sortTypeList.SelectedValue = s.SortType;
                             return;
                         }
                         else
@@ -89,6 +89,8 @@ namespace JS.Modules.JSNewsModule
                             cbShowHome.Checked = ds.ShowHome;
                             txtHomeText.Text = ds.HomeText;
                             cbIsSorted.Checked = lblSortBy.Visible = sortByList.Visible = lblSortType.Visible = sortTypeList.Visible = s.IsSorted;
+                            sortByList.SelectedValue = s.SortBy;
+                            sortTypeList.SelectedValue = s.SortType;
                         }
                     }
                 }
@@ -115,14 +117,8 @@ namespace JS.Modules.JSNewsModule
                 var an = nc.LoadAllNews(ModuleId);
                 string sortByTemp = null;
                 string sortTypeTemp = null;
-                if (sortByList.SelectedIndex != 0)
-                {
-                    sortByTemp = sortByList.SelectedValue;
-                }
-                if (sortTypeList.SelectedIndex != 0)
-                {
-                    sortTypeTemp = sortTypeList.SelectedValue;
-                }
+                sortByTemp = sortByList.SelectedValue;
+                sortTypeTemp = sortTypeList.SelectedValue;
                 foreach (CustomSettings s in cs)
                 {
                     if (s.SettingsId == ModuleId)
@@ -135,6 +131,7 @@ namespace JS.Modules.JSNewsModule
                     var ns = new CustomSettings()
                     {
                         SettingsId = ModuleId,
+                        ShowCustomOrderId = (sortByList.SelectedValue == "Custom Order"),
                         ShowNewsDate = cbShowNewsDate.Checked,
                         ShowNewsImg = cbShowNewsImg.Checked,
                         ShowReadMore = cbShowReadMore.Checked,
@@ -149,6 +146,7 @@ namespace JS.Modules.JSNewsModule
                     };
                     foreach (News n in an)
                     {
+                        n.ShowCustomOrderId = ns.ShowCustomOrderId;
                         n.ShowNewsDate = ns.ShowNewsDate;
                         n.ShowNewsImg = ns.ShowNewsImg;
                         n.ShowReadMore = ns.ShowReadMore;
@@ -165,6 +163,7 @@ namespace JS.Modules.JSNewsModule
                 else
                 {
                     var s = sc.LoadSingleSettings(ModuleId);
+                    s.ShowCustomOrderId = (sortByList.SelectedValue == "Custom Order");
                     s.ShowNewsDate = cbShowNewsDate.Checked;
                     s.ShowNewsImg = cbShowNewsImg.Checked;
                     s.ShowReadMore = cbShowReadMore.Checked;
@@ -178,6 +177,7 @@ namespace JS.Modules.JSNewsModule
                     s.SortType = sortTypeTemp;
                     foreach (News n in an)
                     {
+                        n.ShowCustomOrderId = s.ShowCustomOrderId;
                         n.ShowNewsDate = s.ShowNewsDate;
                         n.ShowNewsImg = s.ShowNewsImg;
                         n.ShowReadMore = s.ShowReadMore;

@@ -44,6 +44,7 @@ namespace JS.Modules.JSNewsModule
                     var s = sc.LoadSingleSettings(ModuleId);
                     lblDate.Visible = txtDate.Visible = s.ShowNewsDate;
                     lblImgUrl.Visible = imgList.Visible = btnImgSelect.Visible = btnImgUpload.Visible = s.ShowNewsImg;
+                    lblCustomOrderId.Visible = txtCustomOrderId.Visible = s.ShowCustomOrderId;
                     var li = new ListItem("Uploaded Images", "Uploaded Images");
                     imgList.Items.Add(li);
                     string [] imgDirectory = Directory.GetFiles(Server.MapPath("~/DesktopModules/JSNewsModule/Images/"));
@@ -95,7 +96,7 @@ namespace JS.Modules.JSNewsModule
             if (NewsId > 0)
             {
                 n = nc.LoadNews(NewsId, ModuleId);
-                n.CustomOrderId = Convert.ToInt32(txtCustomOrderId);
+                n.CustomOrderId = Convert.ToInt32(txtCustomOrderId.Text);
                 n.NewsTitle = txtTitle.Text.Trim();
                 n.ShowNewsDate = s.ShowNewsDate;
                 n.NewsDate = txtDate.Text.Trim();
