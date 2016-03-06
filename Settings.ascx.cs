@@ -53,6 +53,8 @@ namespace JS.Modules.JSNewsModule
             {
                 if (!IsPostBack)
                 {
+                    viewModeList.Items.Add("default");
+                    viewModeList.Items.Add("test");
                     sortByList.Items.Add("Date");
                     sortByList.Items.Add("Title");
                     sortByList.Items.Add("Custom Order");
@@ -64,6 +66,7 @@ namespace JS.Modules.JSNewsModule
                     {
                         if (s.SettingsId == ModuleId)
                         {
+                            viewModeList.SelectedValue = s.ViewMode;
                             cbShowNewsDate.Checked = s.ShowNewsDate;
                             cbShowNewsImg.Checked = s.ShowNewsImg;
                             cbShowReadMore.Checked = lblReadMoreText.Visible = txtReadMoreText.Visible = s.ShowReadMore;
@@ -80,6 +83,7 @@ namespace JS.Modules.JSNewsModule
                         else
                         {
                             var ds = sc.LoadSingleSettings(0);
+                            viewModeList.SelectedValue = ds.ViewMode;
                             cbShowNewsDate.Checked = ds.ShowNewsDate;
                             cbShowNewsImg.Checked = ds.ShowNewsImg;
                             cbShowReadMore.Checked = ds.ShowReadMore;
@@ -124,6 +128,7 @@ namespace JS.Modules.JSNewsModule
                     if (s.SettingsId == ModuleId)
                     {
                         isSettingsPresent = true;
+                        break;
                     }
                 }
                 if (!isSettingsPresent)
@@ -131,6 +136,7 @@ namespace JS.Modules.JSNewsModule
                     var ns = new CustomSettings()
                     {
                         SettingsId = ModuleId,
+                        ViewMode = viewModeList.SelectedValue,
                         ShowCustomOrderId = (sortByList.SelectedValue == "Custom Order"),
                         ShowNewsDate = cbShowNewsDate.Checked,
                         ShowNewsImg = cbShowNewsImg.Checked,
@@ -163,6 +169,7 @@ namespace JS.Modules.JSNewsModule
                 else
                 {
                     var s = sc.LoadSingleSettings(ModuleId);
+                    s.ViewMode = viewModeList.SelectedValue;
                     s.ShowCustomOrderId = (sortByList.SelectedValue == "Custom Order");
                     s.ShowNewsDate = cbShowNewsDate.Checked;
                     s.ShowNewsImg = cbShowNewsImg.Checked;

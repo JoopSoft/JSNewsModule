@@ -46,6 +46,20 @@ namespace JS.Modules.JSNewsModule
                 var sc = new SettingsController();
                 var cs = new CustomSettings();
                 cs = sc.LoadSingleSettings(ModuleId);
+                switch (cs.ViewMode)
+                {
+                    case "default":
+                        rptItemList.Visible = true;
+                        test.Visible = false;
+                        break;
+                    case "test":
+                        rptItemList.Visible = false;
+                        test.Visible = true;
+                        break;
+                    default:
+                        break;
+                }
+                #region default view
                 if (cs.IsSorted)
                 {
                     if (cs.SortType == "ASC")
@@ -88,6 +102,51 @@ namespace JS.Modules.JSNewsModule
                     rptItemList.DataSource = nc.LoadAllNews(ModuleId);
                 }
                 rptItemList.DataBind();
+                #endregion
+                #region test view
+                if (cs.IsSorted)
+                {
+                    if (cs.SortType == "ASC")
+                    {
+                        switch (cs.SortBy)
+                        {
+                            case "Title":
+                                test.DataSource = (nc.LoadAllNews(ModuleId)).OrderBy(item => item.NewsTitle);
+                                break;
+                            case "Date":
+                                test.DataSource = (nc.LoadAllNews(ModuleId)).OrderBy(item => item.NewsDate);
+                                break;
+                            case "Custom Order":
+                                test.DataSource = (nc.LoadAllNews(ModuleId)).OrderBy(item => item.CustomOrderId);
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                    else
+                    {
+                        switch (cs.SortBy)
+                        {
+                            case "Title":
+                                test.DataSource = (nc.LoadAllNews(ModuleId)).OrderByDescending(item => item.NewsTitle);
+                                break;
+                            case "Date":
+                                test.DataSource = (nc.LoadAllNews(ModuleId)).OrderByDescending(item => item.NewsDate);
+                                break;
+                            case "Custom Order":
+                                test.DataSource = (nc.LoadAllNews(ModuleId)).OrderByDescending(item => item.CustomOrderId);
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                }
+                else
+                {
+                    test.DataSource = nc.LoadAllNews(ModuleId);
+                }
+                test.DataBind();
+                #endregion
             }
             catch (Exception exc) //Module failed to load
             {

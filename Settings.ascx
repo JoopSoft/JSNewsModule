@@ -6,6 +6,10 @@
 	<h2 id="dnnSitePanel-BasicSettings" class="dnnFormSectionHead"><a href="" class="dnnSectionExpanded"><%=LocalizeString("BasicSettings")%></a></h2>
 	<fieldset>
         <div class="dnnFormItem">
+            <dnn:Label ID="lblViewMode" runat="server" />
+            <asp:DropDownList ID="viewModeList" runat="server" AutoPostBack="true" />
+        </div>
+        <div class="dnnFormItem">
             <dnn:Label ID="lblShowNewsDate" runat="server" /> 
             <asp:CheckBox ID="cbShowNewsDate" runat="server" />
         </div>
@@ -43,11 +47,11 @@
         </div>
         <div class="dnnFormItem">
             <dnn:Label ID="lblSortBy" runat="server" />
-            <asp:DropDownList ID="sortByList" runat="server" AutoPostBack="true" />
+            <asp:DropDownList ID="sortByList" runat="server" />
         </div>
         <div class="dnnFormItem">
             <dnn:Label ID="lblSortType" runat="server" />
-            <asp:DropDownList ID="sortTypeList" runat="server" AutoPostBack="true" />
+            <asp:DropDownList ID="sortTypeList" runat="server" />
         </div>
     </fieldset>
 

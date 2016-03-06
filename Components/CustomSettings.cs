@@ -28,6 +28,7 @@ namespace JS.Modules.JSNewsModule.Components
     class CustomSettings
     {
         public int SettingsId { get; set; }
+        public string ViewMode { get; set; }
         public bool ShowNewsDate { get; set; }
         public bool ShowNewsImg { get; set; }
         public bool ShowReadMore { get; set; }
