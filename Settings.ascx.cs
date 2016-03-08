@@ -53,8 +53,8 @@ namespace JS.Modules.JSNewsModule
             {
                 if (!IsPostBack)
                 {
-                    viewModeList.Items.Add("default");
-                    viewModeList.Items.Add("test");
+                    viewModeList.Items.Add("List");
+                    viewModeList.Items.Add("Acordeon");
                     sortByList.Items.Add("Date");
                     sortByList.Items.Add("Title");
                     sortByList.Items.Add("Custom Order");

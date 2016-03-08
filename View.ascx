@@ -1,5 +1,5 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="View.ascx.cs" Inherits="JS.Modules.JSNewsModule.View" %>
-<asp:Repeater ID="rptItemList" Visible="false" runat="server" OnItemDataBound="rptItemListOnItemDataBound" OnItemCommand="rptItemListOnItemCommand">
+<asp:Repeater ID="rptItemListView" Visible="false" runat="server" OnItemDataBound="rptItemListOnItemDataBound" OnItemCommand="rptItemListOnItemCommand">
     <%--<HeaderTemplate>
         <ul class="tm_tl">
     </HeaderTemplate>--%>
@@ -42,7 +42,7 @@
     </FooterTemplate>--%>
 </asp:Repeater>
 
-<asp:Repeater ID="test" runat="server" OnItemDataBound="rptItemListOnItemDataBound" OnItemCommand="rptItemListOnItemCommand">
+<asp:Repeater ID="rptItemAcordeonView" runat="server" OnItemDataBound="rptItemListOnItemDataBound" OnItemCommand="rptItemListOnItemCommand">
     <%--<HeaderTemplate>
         <ul class="tm_tl">
     </HeaderTemplate>--%>
