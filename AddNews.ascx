@@ -17,7 +17,7 @@
 
         <div class="dnnFormItem">
             <dnn:label ID="lblCustomOrderId" runat="server" />
-            <asp:TextBox ID="txtCustomOrderId" runat="server" CssClass="form-control" />
+            <asp:TextBox ID="txtCustomOrderId" runat="server" CssClass="form-control" text="0"/>
         </div>
 
         <div class="dnnFormItem">
