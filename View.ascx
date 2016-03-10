@@ -21,9 +21,7 @@
             </div>
             <div class="panel-footer">
                 <div class="btn-group" role="group" aria-label="Navigate buttons">
-                    <asp:LinkButton ID="btnReadMore" runat="server" CssClass="btn btn-primary" Text='<%#DataBinder.Eval(Container.DataItem,"ReadMoreText").ToString() %>' Visible='<%#((DataBinder.Eval(Container.DataItem,"ShowReadMore")!=null) && ((bool)DataBinder.Eval(Container.DataItem,"ShowReadMore")==true)) %>' />
-                    <asp:LinkButton ID="btnBack" runat="server" CssClass="btn btn-primary" Text='<%#DataBinder.Eval(Container.DataItem,"BackText").ToString() %>' Visible='<%#((DataBinder.Eval(Container.DataItem,"ShowBack")!=null) && ((bool)DataBinder.Eval(Container.DataItem,"ShowBack")==true)) %>' />
-                    <asp:LinkButton ID="btnHome" runat="server" CssClass="btn btn-primary" Text='<%#DataBinder.Eval(Container.DataItem,"HomeText").ToString() %>' Visible='<%#((DataBinder.Eval(Container.DataItem,"ShowHome")!=null) && ((bool)DataBinder.Eval(Container.DataItem,"ShowHome")==true)) %>' />
+                    <asp:HyperLink ID="btnReadMore" runat="server" CssClass="btn btn-primary" Text='<%#DataBinder.Eval(Container.DataItem,"ReadMoreText").ToString() %>' Visible='<%#((DataBinder.Eval(Container.DataItem,"ShowReadMore")!=null) && ((bool)DataBinder.Eval(Container.DataItem,"ShowReadMore")==true)) %>' />
                 </div>
                 <asp:Panel ID="pnlAdmin" runat="server" Visible="false" CssClass="pull-right">
                     <div class="btn-group" role="group" aria-label="Control buttons">
@@ -49,7 +47,7 @@
 
     <ItemTemplate>
         <%--<li class="tm_t">--%>
-
+        <asp:HyperLink ID="btnReadMore" runat="server">
         <div class="panel panel-info">
             <div class="panel-heading">
                 <h3 class="panel-title">
@@ -60,23 +58,20 @@
             <div class="panel-body">
                 <asp:Image ID="imgNewsImage" runat="server" Width="100" Height="100" ImageUrl='<%#DataBinder.Eval(Container.DataItem, "ImageUrl").ToString() %>' Visible='<%#((DataBinder.Eval(Container.DataItem,"ShowNewsImg")!=null) && ((bool)DataBinder.Eval(Container.DataItem,"ShowNewsImg")==true)) %>' /><br />
                 <asp:Label ID="lblNewsTeaserText" runat="server" CssClass="teaser-txt tm_td" Text='<%#DataBinder.Eval(Container.DataItem,"NewsTeaserText").ToString() %>'  /><br />
-                <asp:Label ID="lblNewsContent" runat="server" CssClass="body-txt tm_td" Text='<%#DataBinder.Eval(Container.DataItem,"NewsContent").ToString() %>' /><br />
             </div>
             <div class="panel-footer">
                 <div class="btn-group" role="group" aria-label="Navigate buttons">
-                    <asp:LinkButton ID="btnReadMore" runat="server" CssClass="btn btn-primary" Text='<%#DataBinder.Eval(Container.DataItem,"ReadMoreText").ToString() %>' Visible='<%#((DataBinder.Eval(Container.DataItem,"ShowReadMore")!=null) && ((bool)DataBinder.Eval(Container.DataItem,"ShowReadMore")==true)) %>' />
-                    <asp:LinkButton ID="btnBack" runat="server" CssClass="btn btn-primary" Text='<%#DataBinder.Eval(Container.DataItem,"BackText").ToString() %>' Visible='<%#((DataBinder.Eval(Container.DataItem,"ShowBack")!=null) && ((bool)DataBinder.Eval(Container.DataItem,"ShowBack")==true)) %>' />
-                    <asp:LinkButton ID="btnHome" runat="server" CssClass="btn btn-primary" Text='<%#DataBinder.Eval(Container.DataItem,"HomeText").ToString() %>' Visible='<%#((DataBinder.Eval(Container.DataItem,"ShowHome")!=null) && ((bool)DataBinder.Eval(Container.DataItem,"ShowHome")==true)) %>' />
                 </div>
                 <asp:Panel ID="pnlAdmin" runat="server" Visible="false" CssClass="pull-right">
-<%--                    <div class="btn-group" role="group" aria-label="Control buttons">
+                    <div class="btn-group" role="group" aria-label="Control buttons">
                         <asp:HyperLink ID="lnkEdit" runat="server" CssClass="btn btn-primary" ResourceKey="EditItem.Text" Visible="false" Enabled="false" CommandName="Edit" />
                         <asp:HyperLink ID="lnkAdd" runat="server" CssClass="btn btn-primary" ResourceKey="AddItem.Text" Visible="false" Enabled="false" CommandName="Add" />
                         <asp:LinkButton ID="lnkDelete" runat="server" CssClass="btn btn-danger" ResourceKey="DeleteItem.Text" Visible="false" Enabled="false" CommandName="Delete" />
-                    </div>--%>
+                    </div>
                 </asp:Panel>                
             </div>
         </div>
+        </asp:HyperLink>
 
         <%--        </li>--%>
     </ItemTemplate>

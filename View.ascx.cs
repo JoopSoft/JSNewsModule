@@ -163,11 +163,14 @@ namespace JS.Modules.JSNewsModule
                 var lnkAdd = e.Item.FindControl("lnkAdd") as HyperLink;
                 var lnkSettings = e.Item.FindControl("lnkSettings") as HyperLink;
                 var lnkDelete = e.Item.FindControl("lnkDelete") as LinkButton;
+                var btnReadMore = e.Item.FindControl("btnReadMore") as HyperLink;
+
 
                 var pnlAdminControls = e.Item.FindControl("pnlAdmin") as Panel;
 
                 var n = (News)e.Item.DataItem;
 
+                btnReadMore.NavigateUrl = EditUrl(string.Empty, string.Empty, "DetailsView", "nid=" + n.NewsId);
                 if (IsEditable && lnkDelete != null && lnkEdit != null && pnlAdminControls != null)
                 {
                     pnlAdminControls.Visible = true;
