@@ -22,12 +22,30 @@ namespace JS.Modules.JSNewsModule {
         protected global::System.Web.UI.WebControls.Repeater rptItemListView;
         
         /// <summary>
-        /// rptItemAcordeonView control.
+        /// rptItemAccordionView control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rptItemAcordeonView;
+        protected global::System.Web.UI.WebControls.Repeater rptItemAccordionView;
+        
+        /// <summary>
+        /// dnnTITLE control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DotNetNuke.UI.Containers.Title dnnTITLE;
+        
+        /// <summary>
+        /// ContentPane control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl ContentPane;
     }
 }

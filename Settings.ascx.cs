@@ -54,7 +54,7 @@ namespace JS.Modules.JSNewsModule
                 if (!IsPostBack)
                 {
                     viewModeList.Items.Add("List");
-                    viewModeList.Items.Add("Acordeon");
+                    viewModeList.Items.Add("Accordion");
                     sortByList.Items.Add("Date");
                     sortByList.Items.Add("Title");
                     sortByList.Items.Add("Custom Order");

@@ -50,11 +50,11 @@ namespace JS.Modules.JSNewsModule
                 {
                     case "List":
                         rptItemListView.Visible = true;
-                        rptItemAcordeonView.Visible = false;
+                        rptItemAccordionView.Visible = false;
                         break;
-                    case "Acordeon":
+                    case "Accordion":
                         rptItemListView.Visible = false;
-                        rptItemAcordeonView.Visible = true;
+                        rptItemAccordionView.Visible = true;
                         break;
                     default:
                         break;
@@ -103,7 +103,7 @@ namespace JS.Modules.JSNewsModule
                 }
                 rptItemListView.DataBind();
                 #endregion
-                #region Acordeon View
+                #region Accordion View
                 if (cs.IsSorted)
                 {
                     if (cs.SortType == "ASC")
@@ -111,13 +111,13 @@ namespace JS.Modules.JSNewsModule
                         switch (cs.SortBy)
                         {
                             case "Title":
-                                rptItemAcordeonView.DataSource = (nc.LoadAllNews(ModuleId)).OrderBy(item => item.NewsTitle);
+                                rptItemAccordionView.DataSource = (nc.LoadAllNews(ModuleId)).OrderBy(item => item.NewsTitle);
                                 break;
                             case "Date":
-                                rptItemAcordeonView.DataSource = (nc.LoadAllNews(ModuleId)).OrderBy(item => item.NewsDate);
+                                rptItemAccordionView.DataSource = (nc.LoadAllNews(ModuleId)).OrderBy(item => item.NewsDate);
                                 break;
                             case "Custom Order":
-                                rptItemAcordeonView.DataSource = (nc.LoadAllNews(ModuleId)).OrderBy(item => item.CustomOrderId);
+                                rptItemAccordionView.DataSource = (nc.LoadAllNews(ModuleId)).OrderBy(item => item.CustomOrderId);
                                 break;
                             default:
                                 break;
@@ -128,13 +128,13 @@ namespace JS.Modules.JSNewsModule
                         switch (cs.SortBy)
                         {
                             case "Title":
-                                rptItemAcordeonView.DataSource = (nc.LoadAllNews(ModuleId)).OrderByDescending(item => item.NewsTitle);
+                                rptItemAccordionView.DataSource = (nc.LoadAllNews(ModuleId)).OrderByDescending(item => item.NewsTitle);
                                 break;
                             case "Date":
-                                rptItemAcordeonView.DataSource = (nc.LoadAllNews(ModuleId)).OrderByDescending(item => item.NewsDate);
+                                rptItemAccordionView.DataSource = (nc.LoadAllNews(ModuleId)).OrderByDescending(item => item.NewsDate);
                                 break;
                             case "Custom Order":
-                                rptItemAcordeonView.DataSource = (nc.LoadAllNews(ModuleId)).OrderByDescending(item => item.CustomOrderId);
+                                rptItemAccordionView.DataSource = (nc.LoadAllNews(ModuleId)).OrderByDescending(item => item.CustomOrderId);
                                 break;
                             default:
                                 break;
@@ -143,9 +143,9 @@ namespace JS.Modules.JSNewsModule
                 }
                 else
                 {
-                    rptItemAcordeonView.DataSource = nc.LoadAllNews(ModuleId);
+                    rptItemAccordionView.DataSource = nc.LoadAllNews(ModuleId);
                 }
-                rptItemAcordeonView.DataBind();
+                rptItemAccordionView.DataBind();
                 #endregion
             }
             catch (Exception exc) //Module failed to load
