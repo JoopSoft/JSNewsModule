@@ -1,6 +1,12 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="AddNews.ascx.cs" Inherits="JS.Modules.JSNewsModule.AddNews" %>
 <%@ Register TagPrefix="dnn" TagName="label" Src="~/controls/LabelControl.ascx" %>
 
+<%@ Register TagPrefix="dnn" TagName="texteditor" Src="~/controls/TextEditor.ascx" %>
+
+<%@ Register TagPrefix="dnnweb" Assembly="DotNetNuke.Web" Namespace="DotNetNuke.Web.UI.WebControls" %>
+<%@ Register TagPrefix="dnnweb" Assembly="DotNetNuke.Web.Deprecated" Namespace="DotNetNuke.Web.UI.WebControls"%>
+<%@ Register TagPrefix="dnncl" Namespace="DotNetNuke.Web.Client.ClientResourceManagement" Assembly="DotNetNuke.Web.Client" %>
+
 
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" />
 <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" />
@@ -52,6 +58,10 @@
         <div class="dnnFormItem">
             <dnn:label ID="lblContent" runat="server" />
             <asp:TextBox ID="txtContent" runat="server" TextMode="MultiLine" Rows="9" Columns="20" CssClass="form-control" />
+            
+            <%--Rich text editor--%>
+            <dnn:texteditor ID="txtContentRichTxt" runat="server" CssClass="form-control" />
+
         </div>
 
         <div class="dnnFormItem">
@@ -64,6 +74,7 @@
 
     </fieldset>
 </div>
+
 
 <script type="text/javascript">
     /*globals jQuery, window, Sys */

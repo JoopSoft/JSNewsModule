@@ -118,10 +118,13 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AddItem.Text" xml:space="preserve">
-    <value>&lt;i class="fa fa-plus-circle fa-lg"&gt;&lt;/i&gt; Add News</value>
+    <value>Add</value>
   </data>
   <data name="AddNews.Text" xml:space="preserve">
     <value>Add News</value>
+  </data>
+  <data name="AllItems.Text" xml:space="preserve">
+    <value>All News</value>
   </data>
   <data name="BasicSettings.Text" xml:space="preserve">
     <value>Basic JSNewsModule Settings</value>
@@ -133,13 +136,19 @@
     <value>Are you sure you want to delete this Item</value>
   </data>
   <data name="DeleteItem.Text" xml:space="preserve">
-    <value>&lt;i class="fa fa-trash-o fa-lg"&gt;&lt;/i&gt; Delete</value>
+    <value>Delete</value>
   </data>
   <data name="EditItem.Text" xml:space="preserve">
-    <value> &lt;i class="fa fa-pencil fa-lg"&gt;&lt;/i&gt; Edit</value>
+    <value>Edit</value>
   </data>
   <data name="EditModule.Text" xml:space="preserve">
     <value>Edit Module</value>
+  </data>
+  <data name="NextItem.Text" xml:space="preserve">
+    <value>Next</value>
+  </data>
+  <data name="PrevItem.Text" xml:space="preserve">
+    <value>Previous</value>
   </data>
   <data name="Settings.Text" xml:space="preserve">
     <value>Settings</value>

@@ -1,10 +1,4 @@
-﻿.panel .panel-body img {
-  float: left;
-  margin: 0 20px 10px 0;
-  max-width: 150px;
-  width: auto; }
-
-.dnnForm .form-control {
+﻿.dnnForm .form-control {
   width: 45%;
   -moz-box-shadow: none;
   -webkit-box-shadow: none;
@@ -21,8 +15,9 @@
   .dnnForm .dnnFormItem input[type="password"],
   .dnnForm .dnnFormItem input[type="date"] {
     margin: 0;
-    border: 1px solid #dadada;
+    border: 1px solid #ccc;
     color: #999;
+    width: 50%;
     -webkit-border-radius: 0;
     -moz-border-radius: 0;
     -ms-border-radius: 0;
@@ -44,23 +39,31 @@
     .dnnForm .dnnFormItem input[type="password"]:focus,
     .dnnForm .dnnFormItem input[type="date"]:active,
     .dnnForm .dnnFormItem input[type="date"]:focus {
-      border: 1px solid rgba(2, 139, 255, 0.5);
-      color: #333;
-      background: #fff;
-      -moz-box-shadow: 0px 0px 3px 0px rgba(2, 139, 255, 0.4);
-      -webkit-box-shadow: 0px 0px 3px 0px rgba(2, 139, 255, 0.4);
-      -o-box-shadow: 0px 0px 3px 0px rgba(2, 139, 255, 0.4);
-      box-shadow: 0px 0px 3px 0px rgba(2, 139, 255, 0.4); }
+      border: 1px solid #333;
+      background: #333;
+      color: #fff;
+      outline: none;
+      -moz-box-shadow: none;
+      -webkit-box-shadow: none;
+      -o-box-shadow: none;
+      box-shadow: none; }
+  .dnnForm .dnnFormItem select > option {
+    color: #fff; }
+  .dnnForm .dnnFormItem label span {
+    color: #333; }
 
 .dnnForm a.dnnFormHelp, .dnnForm .dnnForm .dnnFormItem a.dnnFormHelp, .dnnForm .dnnTooltip label a.dnnFormHelp {
-  background: none;
-  font-weight: normal; }
-  .dnnForm a.dnnFormHelp:before, .dnnForm .dnnForm .dnnFormItem a.dnnFormHelp:before, .dnnForm .dnnTooltip label a.dnnFormHelp:before {
-    font-family: "FontAwesome";
-    /*content: "\f129";*/
-    font-size: 1.33333333em;
-    /*line-height: 0.75em;*/
-    /*vertical-align: -15%;*/ }
+  /*background: none;*/
+  color: #333 !important;
+  font-weight: normal !important; }
+  .dnnForm a.dnnFormHelp .fa-lg, .dnnForm .dnnForm .dnnFormItem a.dnnFormHelp .fa-lg, .dnnForm .dnnTooltip label a.dnnFormHelp .fa-lg {
+    font-size: 1.33333333em; }
+
+.panel .panel-body img {
+  float: left;
+  margin: 0 20px 10px 0;
+  max-width: 150px;
+  width: auto; }
 
 .panel .panel-body .body-txt {
   float: left;
@@ -70,10 +73,60 @@
   float: left;
   width: calc(100% - 150px); }
 
-.panel.panel-info {
+.panel .panel-body.panel-info {
   /*background: none;*/
   border: none; }
-  .panel.panel-info > .panel-heading {
+  .panel .panel-body.panel-info > .panel-heading {
     background: none;
     border: none; }
+
+.panel a.btn-primary:active, .panel a.btn-primary:link, .panel a.btn-primary:visited {
+  color: #fff; }
+
+.panel .list-group {
+  margin: 0; }
+  .panel .list-group .list-group-item-text {
+    color: #999; }
+  .panel .list-group .list-group-item-heading {
+    margin: 0;
+    color: #333; }
+  .panel .list-group .list-group-item:last-child, .panel .list-group .list-group-item:first-child {
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    -ms-border-radius: 0;
+    border-radius: 0; }
+  .panel .list-group .list-group-item > a {
+    color: rgba(59, 30, 119, 0.7);
+    text-decoration: none; }
+  .panel .list-group .list-group-item:focus, .panel .list-group .list-group-item:hover {
+    color: #fff;
+    background-color: rgba(59, 30, 119, 0.7); }
+    .panel .list-group .list-group-item:focus .list-group-item-heading, .panel .list-group .list-group-item:hover .list-group-item-heading {
+      color: #fff; }
+    .panel .list-group .list-group-item:focus .badge, .panel .list-group .list-group-item:hover .badge {
+      background: none; }
+    .panel .list-group .list-group-item:focus .list-group-item-text, .panel .list-group .list-group-item:hover .list-group-item-text {
+      color: #fff; }
+    .panel .list-group .list-group-item:focus > a, .panel .list-group .list-group-item:hover > a {
+      color: #fff; }
+  .panel .list-group:hover .pnl-admin .btn-group {
+    display: block; }
+
+.panel .rpt-list .pnl-admin {
+  /*position: relative;*/ }
+  .panel .rpt-list .pnl-admin .btn-group {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    padding: 10px;
+    display: none; }
+
+.panel .rpt-accordion .pnl-admin {
+  position: relative; }
+  .panel .rpt-accordion .pnl-admin .btn-group {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    padding: 5px;
+    display: none; }
 

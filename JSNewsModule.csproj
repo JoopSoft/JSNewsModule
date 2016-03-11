@@ -117,6 +117,8 @@
     <Content Include="Documentation\Documentation.html" />
     <Content Include="AddNews.ascx" />
     <Content Include="Edit.ascx" />
+    <Content Include="Ellipsis\jquery.ellipsis.js" />
+    <Content Include="Ellipsis\jquery.ellipsis.min.js" />
     <Content Include="icon.png" />
     <Content Include="Images\sheviza3.jpg" />
     <Content Include="Images\Uploaded Images.jpg" />

@@ -8,22 +8,23 @@ $link:              #33ccff;
 $link-md:           rgba(51,204,255,0.5); //33ccff
 $link-hover:        #f7944d;
 
-$dark:              #333; //51,51,51 //33,33,33 = 212121
-$dark-alpha-null:   rgba(51,51,51,0);	
-$dark-alpha:        rgba(51,51,51,0.2);
-$dark-alpha-md:     rgba(51,51,51,0.5);
-$dark-alpha-lg:     rgba(51,51,51,0.75);	
-$dark-alpha-xlg:    rgba(51,51,51,0.95);	
-
-$light:             #dadada;
+$grey:              #ccc;
 $middle:            #999;
+$large:             #333;
 
-$light-alpha-null:  rgba(255,255,255,0);
-$light-alpha:       rgba(255,255,255,0.15);
-$light-alpha-md:    rgba(255,255,255,0.5);
-$light-alpha-lg:    rgba(255,255,255,0.75);
-$light-alpha-xlg:   rgba(255,255,255,0.9);
+$dark: rgba(59,30,119, 1);
+$dark-alpha-null: rgba(59,30,119, 0);
+$dark-alpha: rgba(59,30,119, 0.25);
+$dark-alpha-md: rgba(59,30,119, 0.5);
+$dark-alpha-lg: rgba(59,30,119, 0.7);
+$dark-alpha-xlg: rgba(59,30,119, 0.8);
 
+$light: rgba(255,255,255, 1);
+$light-alpha-null: rgba(255,255,255, 0);
+$light-alpha: rgba(255,255,255, 0.35);
+$light-alpha-md: rgba(255,255,255, 0.5);
+$light-alpha-lg: rgba(255,255,255, 0.7);
+$light-alpha-xlg: rgba(255,255,255, 0.8);
 
 $none: none;
 $all: all 300ms ease-out;

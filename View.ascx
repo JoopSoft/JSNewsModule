@@ -1,245 +1,144 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="View.ascx.cs" Inherits="JS.Modules.JSNewsModule.View" %>
-<%@ Register TagPrefix="dnn" TagName="TITLE" Src="~/Admin/Containers/Title.ascx" %>
 
-<asp:Repeater ID="rptItemListView" Visible="false" runat="server" OnItemDataBound="rptItemListOnItemDataBound" OnItemCommand="rptItemListOnItemCommand">
-    <%--<HeaderTemplate>
-        <ul class="tm_tl">
-    </HeaderTemplate>--%>
-
-    <ItemTemplate>
-        <%--<li class="tm_t">--%>
-
-        <div class="panel panel-info">
-            <div class="panel-heading">
-                <h3 class="panel-title">
-                    <asp:Label ID="lblNewsTitle" runat="server" Text='<%#DataBinder.Eval(Container.DataItem,"NewsTitle").ToString() %>' />
-                </h3>
-                <asp:Label ID="lblNewsDate" runat="server" Text='<%#DataBinder.Eval(Container.DataItem,"NewsDate").ToString() %>' Visible='<%#((DataBinder.Eval(Container.DataItem,"ShowNewsDate")!=null) && ((bool)DataBinder.Eval(Container.DataItem,"ShowNewsDate")==true)) %>' CssClass="tm_td" /><br />
-            </div>
-            <div class="panel-body">
-                <asp:Image ID="imgNewsImage" runat="server" Width="100" Height="100" ImageUrl='<%#DataBinder.Eval(Container.DataItem, "ImageUrl").ToString() %>' Visible='<%#((DataBinder.Eval(Container.DataItem,"ShowNewsImg")!=null) && ((bool)DataBinder.Eval(Container.DataItem,"ShowNewsImg")==true)) %>' /><br />
-                <asp:Label ID="lblNewsTeaserText" runat="server" CssClass="teaser-txt tm_td" Text='<%#DataBinder.Eval(Container.DataItem,"NewsTeaserText").ToString() %>'  /><br />
-                <asp:Label ID="lblNewsContent" runat="server" CssClass="body-txt tm_td" Text='<%#DataBinder.Eval(Container.DataItem,"NewsContent").ToString() %>' /><br />
-            </div>
-            <div class="panel-footer">
-                <div class="btn-group" role="group" aria-label="Navigate buttons">
-                    <asp:HyperLink ID="btnReadMore" runat="server" CssClass="btn btn-primary" Text='<%#DataBinder.Eval(Container.DataItem,"ReadMoreText").ToString() %>' Visible='<%#((DataBinder.Eval(Container.DataItem,"ShowReadMore")!=null) && ((bool)DataBinder.Eval(Container.DataItem,"ShowReadMore")==true)) %>' />
-                </div>
-                <asp:Panel ID="pnlAdmin" runat="server" Visible="false" CssClass="pull-right">
-                    <div class="btn-group" role="group" aria-label="Control buttons">
-                        <asp:HyperLink ID="lnkEdit" runat="server" CssClass="btn btn-primary" ResourceKey="EditItem.Text" Visible="false" Enabled="false" CommandName="Edit" />
-                        <asp:HyperLink ID="lnkAdd" runat="server" CssClass="btn btn-primary" ResourceKey="AddItem.Text" Visible="false" Enabled="false" CommandName="Add" />
-                        <asp:LinkButton ID="lnkDelete" runat="server" CssClass="btn btn-danger" ResourceKey="DeleteItem.Text" Visible="false" Enabled="false" CommandName="Delete" />
-                    </div>
-                </asp:Panel>                
-            </div>
-        </div>
-
-        <%--        </li>--%>
-    </ItemTemplate>
-    <FooterTemplate>
-        <%--    </ul>--%>
-
-        <div class="panel-footer">
-            <!-- Split button -->
-            <div class="btn-group">
-                <button type="button" class="btn btn-primary">View All</button>
-                <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <%--<span class="caret"></span>
-                        <span class="sr-only">Toggle Dropdown</span>--%>
-                    <i class="fa fa-angle-down"></i>
-                </button>
-                <ul class="dropdown-menu">
-                    <li><a href="#">News item 1</a></li>
-                    <li><a href="#">News item 2</a></li>
-                    <li><a href="#">News item 3</a></li>
-                    <li><a href="#">News item 4</a></li>
-                </ul>
-            </div>
-            <div class="btn-group pull-right">
-                <a class="btn btn-default" href="#"><i class="fa fa-angle-left"></i></a>
-                <a class="btn btn-default" href="#"><i class="fa fa-angle-right"></i></a>
-            </div>
-        </div>
-
-    </FooterTemplate>
-</asp:Repeater>
-
-<asp:Repeater ID="rptItemAccordionView" runat="server" OnItemDataBound="rptItemListOnItemDataBound" OnItemCommand="rptItemListOnItemCommand">
-    <%--<HeaderTemplate>
-        <ul class="tm_tl">
-    </HeaderTemplate>--%>
-
-    <ItemTemplate>
-        <%--<li class="tm_t">--%>
-        <asp:HyperLink ID="btnReadMore" runat="server">
-        <div class="panel panel-info">
-            <div class="panel-heading">
-                <h3 class="panel-title">
-                    <asp:Label ID="lblNewsTitle" runat="server" Text='<%#DataBinder.Eval(Container.DataItem,"NewsTitle").ToString() %>' />
-                </h3>
-                <asp:Label ID="lblNewsDate" runat="server" Text='<%#DataBinder.Eval(Container.DataItem,"NewsDate").ToString() %>' Visible='<%#((DataBinder.Eval(Container.DataItem,"ShowNewsDate")!=null) && ((bool)DataBinder.Eval(Container.DataItem,"ShowNewsDate")==true)) %>' CssClass="tm_td" /><br />
-            </div>
-            <div class="panel-body">
-                <asp:Image ID="imgNewsImage" runat="server" Width="100" Height="100" ImageUrl='<%#DataBinder.Eval(Container.DataItem, "ImageUrl").ToString() %>' Visible='<%#((DataBinder.Eval(Container.DataItem,"ShowNewsImg")!=null) && ((bool)DataBinder.Eval(Container.DataItem,"ShowNewsImg")==true)) %>' /><br />
-                <asp:Label ID="lblNewsTeaserText" runat="server" CssClass="teaser-txt tm_td" Text='<%#DataBinder.Eval(Container.DataItem,"NewsTeaserText").ToString() %>'  /><br />
-            </div>
-            <div class="panel-footer">
-                <div class="btn-group" role="group" aria-label="Navigate buttons">
-                </div>
-                <asp:Panel ID="pnlAdmin" runat="server" Visible="false" CssClass="pull-right">
-                    <div class="btn-group" role="group" aria-label="Control buttons">
-                        <asp:HyperLink ID="lnkEdit" runat="server" CssClass="btn btn-primary" ResourceKey="EditItem.Text" Visible="false" Enabled="false" CommandName="Edit" />
-                        <asp:HyperLink ID="lnkAdd" runat="server" CssClass="btn btn-primary" ResourceKey="AddItem.Text" Visible="false" Enabled="false" CommandName="Add" />
-                        <asp:LinkButton ID="lnkDelete" runat="server" CssClass="btn btn-danger" ResourceKey="DeleteItem.Text" Visible="false" Enabled="false" CommandName="Delete" />
-                    </div>
-                </asp:Panel>                
-            </div>
-        </div>
-        </asp:HyperLink>
-
-        <%--        </li>--%>
-    </ItemTemplate>
-       <FooterTemplate>
-       <%--  </ul>--%>
-           <div class="panel-footer">
-               <!-- Split button -->
-               <div class="btn-group">
-                   <button type="button" class="btn btn-primary">View All</button>
-                   <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                       <%--<span class="caret"></span>
-                        <span class="sr-only">Toggle Dropdown</span>--%>
-                       <i class="fa fa-angle-down"></i>
-                   </button>
-                   <ul class="dropdown-menu">
-                       <li><a href="#">News item 1</a></li>
-                       <li><a href="#">News item 2</a></li>
-                       <li><a href="#">News item 3</a></li>
-                       <li><a href="#">News item 4</a></li>
-                   </ul>
-               </div>
-               <div class="btn-group pull-right">
-                   <a class="btn btn-default" href="#"><i class="fa fa-angle-left"></i></a>
-                   <a class="btn btn-default" href="#"><i class="fa fa-angle-right"></i></a>
-               </div>
-           </div>
-    </FooterTemplate>
-</asp:Repeater>
+<script src="<%=ModulePath %>/Ellipsis/jquery.ellipsis.min.js" type="text/javascript"></script>
 
 <div class="panel panel-default">
-    <div class="panel-heading">
-        <h3 class="panel-title">
-            <dnn:TITLE runat="server" id="dnnTITLE" CssClass="TitleH3" />
-        </h3>
-    </div>
-    <div class="panel-body">
-        <div id="ContentPane" runat="server"></div>
+
+    <%--LIST VIEW--%>
+    <div class="rpt-list">
+        <asp:Repeater ID="rptItemListView" Visible="false" runat="server"
+            OnItemDataBound="rptItemListOnItemDataBound" OnItemCommand="rptItemListOnItemCommand">
+            <HeaderTemplate>
+            </HeaderTemplate>
+
+            <ItemTemplate>
+
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        <asp:Label ID="lblNewsTitle" runat="server" Text='<%#DataBinder.Eval(Container.DataItem,"NewsTitle").ToString() %>' />
+                    </h3>
+                    <asp:Label ID="lblNewsDate" runat="server" CssClass="" Text='<%#DataBinder.Eval(Container.DataItem,"NewsDate").ToString() %>' Visible='<%#((DataBinder.Eval(Container.DataItem,"ShowNewsDate")!=null) && ((bool)DataBinder.Eval(Container.DataItem,"ShowNewsDate")==true)) %>' />
+                </div>
+
+                <div class="list-group">
+                    <div class="list-group-item">
+                        <asp:Image ID="imgNewsImage" runat="server" Width="100" Height="100" ImageUrl='<%#DataBinder.Eval(Container.DataItem, "ImageUrl").ToString() %>' Visible='<%#((DataBinder.Eval(Container.DataItem,"ShowNewsImg")!=null) && ((bool)DataBinder.Eval(Container.DataItem,"ShowNewsImg")==true)) %>' />
+                        <asp:Label ID="lblNewsTeaserText" runat="server" CssClass="teaser-txt" Text='<%#DataBinder.Eval(Container.DataItem,"NewsTeaserText").ToString() %>' />
+                        <asp:HyperLink ID="btnReadMore" runat="server" CssClass="btn btn-primary" Text='<%#DataBinder.Eval(Container.DataItem,"ReadMoreText").ToString() %>' Visible='<%#((DataBinder.Eval(Container.DataItem,"ShowReadMore")!=null) && ((bool)DataBinder.Eval(Container.DataItem,"ShowReadMore")==true)) %>' />
+
+                        <asp:Panel ID="pnlAdmin" runat="server" Visible="false" CssClass="pnl-admin">
+                            <div class="btn-group" role="group" aria-label="Control buttons">
+                                <asp:HyperLink ID="lnkEdit" runat="server" CssClass="btn btn-default link-edit" ResourceKey="EditItem.Text" Visible="false" Enabled="false" CommandName="Edit" />
+                                <asp:HyperLink ID="lnkAdd" runat="server" CssClass="btn btn-default link-add" ResourceKey="AddItem.Text" Visible="false" Enabled="false" CommandName="Add" />
+                                <asp:LinkButton ID="lnkDelete" runat="server" CssClass="btn btn-danger link-delete" ResourceKey="DeleteItem.Text" Visible="false" Enabled="false" CommandName="Delete" />
+                            </div>
+                        </asp:Panel>
+                    </div>
+                </div>
+
+            </ItemTemplate>
+            <FooterTemplate>
+                <div class="panel-footer">
+                    <asp:LinkButton ID="lnkAll" runat="server" CssClass="btn btn-primary link-all" ResourceKey="AllItems.Text" Visible="True" Enabled="True" CommandName="AllNews" />
+                    <div class="btn-group pull-right">
+                        <asp:LinkButton ID="lnkPrev" runat="server" CssClass="btn btn-primary link-prev" ResourceKey="PrevItem.Text" Visible="True" Enabled="True" CommandName="Previous" />
+                        <asp:LinkButton ID="lnkNext" runat="server" CssClass="btn btn-primary link-next" ResourceKey="NextItem.Text" Visible="True" Enabled="True" CommandName="Next" />
+                    </div>
+                </div>
+            </FooterTemplate>
+        </asp:Repeater>
     </div>
 
-    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-        <div class="panel panel-default">
-            <div class="panel-heading" role="tab" id="headingOne">
-                <h4 class="panel-title">
-                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Collapsible Group Item #1
-                    </a>
-                </h4>
-            </div>
-            <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-                <div class="list-group">
-                    <a href="#" class="list-group-item">
-                        <span class="badge">6</span>
-                        <h4 class="list-group-item-heading">List group item heading</h4>
-                        <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-                    </a>
-                    <a href="#" class="list-group-item">
-                        <span class="badge">11</span>
-                        <h4 class="list-group-item-heading">List group item heading</h4>
-                        <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-                    </a>
-                    <a href="#" class="list-group-item">
-                        <span class="badge">124</span>
-                        <h4 class="list-group-item-heading">List group item heading</h4>
-                        <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div class="panel panel-default">
-            <div class="panel-heading" role="tab" id="headingTwo">
-                <h4 class="panel-title">
-                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">Collapsible Group Item #2
-                    </a>
-                </h4>
-            </div>
-            <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-                <div class="list-group">
-                    <a href="#" class="list-group-item">
-                        <span class="badge">6</span>
-                        <h4 class="list-group-item-heading">List group item heading</h4>
-                        <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-                    </a>
-                    <a href="#" class="list-group-item">
-                        <span class="badge">11</span>
-                        <h4 class="list-group-item-heading">List group item heading</h4>
-                        <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-                    </a>
-                    <a href="#" class="list-group-item">
-                        <span class="badge">124</span>
-                        <h4 class="list-group-item-heading">List group item heading</h4>
-                        <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div class="panel panel-default">
-            <div class="panel-heading" role="tab" id="headingThree">
-                <h4 class="panel-title">
-                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">Collapsible Group Item #3
-                    </a>
-                </h4>
-            </div>
-            <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-                <div class="list-group">
-                    <a href="#" class="list-group-item">
-                        <span class="badge">6</span>
-                        <h4 class="list-group-item-heading">List group item heading</h4>
-                        <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-                    </a>
-                    <a href="#" class="list-group-item">
-                        <span class="badge">11</span>
-                        <h4 class="list-group-item-heading">List group item heading</h4>
-                        <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-                    </a>
-                    <a href="#" class="list-group-item">
-                        <span class="badge">124</span>
-                        <h4 class="list-group-item-heading">List group item heading</h4>
-                        <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
+    <%--ACCORDION VIEW--%>
+    <div class="rpt-accordion">
+        <asp:Repeater ID="rptItemAccordionView" runat="server"
+            OnItemDataBound="rptItemListOnItemDataBound" OnItemCommand="rptItemListOnItemCommand">
+            <HeaderTemplate>
+            </HeaderTemplate>
 
-    <div class="panel-footer">
-        <!-- Split button -->
-        <div class="btn-group">
-            <button type="button" class="btn btn-primary">View All</button>
-            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <%--<span class="caret"></span>
-                        <span class="sr-only">Toggle Dropdown</span>--%>
-                <i class="fa fa-angle-down"></i>
-            </button>
-            <ul class="dropdown-menu">
-                <li><a href="#">News item 1</a></li>
-                <li><a href="#">News item 2</a></li>
-                <li><a href="#">News item 3</a></li>
-                <li><a href="#">News item 4</a></li>
-            </ul>
-        </div>
-        <div class="btn-group pull-right">
-            <a class="btn btn-default" href="#"><i class="fa fa-angle-left"></i></a>
-            <a class="btn btn-default" href="#"><i class="fa fa-angle-right"></i></a>
-        </div>
+            <ItemTemplate>
+                <div class="list-group">
+                    
+                    <div class="list-group-item">
+                    <asp:HyperLink ID="btnReadMore" runat="server" CssClass="">
+                        <span class="badge">
+                            <asp:Label ID="lblNewsDate" runat="server" CssClass="" Text='<%#DataBinder.Eval(Container.DataItem,"NewsDate").ToString() %>' Visible='<%#((DataBinder.Eval(Container.DataItem,"ShowNewsDate")!=null) && ((bool)DataBinder.Eval(Container.DataItem,"ShowNewsDate")==true)) %>' />
+                        </span>
+                        <h4 class="list-group-item-heading">
+                            <asp:Label ID="lblNewsTitle" runat="server" CssClass="" Text='<%#DataBinder.Eval(Container.DataItem,"NewsTitle").ToString() %>' />
+                        </h4>
+                        <p class="list-group-item-text">
+                            <%--<asp:Image ID="imgNewsImage" runat="server" CssClass="" Width="50" Height="50" ImageUrl='<%#DataBinder.Eval(Container.DataItem, "ImageUrl").ToString() %>' Visible='<%#((DataBinder.Eval(Container.DataItem,"ShowNewsImg")!=null) && ((bool)DataBinder.Eval(Container.DataItem,"ShowNewsImg")==true)) %>' />--%>
+                            <asp:Label ID="lblNewsTeaserText" runat="server" CssClass="teaser-txt" Text='<%#DataBinder.Eval(Container.DataItem,"NewsTeaserText").ToString() %>' />
+                        </p>
+                        <asp:Panel ID="pnlAdmin" runat="server" Visible="false" CssClass="pnl-admin">
+                            <div class="btn-group" role="group" aria-label="Control buttons">
+                                <asp:HyperLink ID="lnkEdit" runat="server" CssClass="btn btn-default link-edit" ResourceKey="EditItem.Text" Visible="false" Enabled="false" CommandName="Edit" />
+                                <asp:HyperLink ID="lnkAdd" runat="server" CssClass="btn btn-default link-add" ResourceKey="AddItem.Text" Visible="false" Enabled="false" CommandName="Add" />
+                                <asp:LinkButton ID="lnkDelete" runat="server" CssClass="btn btn-danger link-delete" ResourceKey="DeleteItem.Text" Visible="false" Enabled="false" CommandName="Delete" />
+                            </div>
+                        </asp:Panel>
+                    </asp:HyperLink>
+                        </div>
+
+                </div>
+            </ItemTemplate>
+            <FooterTemplate>
+                <div class="panel-footer">
+                    <asp:LinkButton ID="lnkAll" runat="server" CssClass="btn btn-primary link-all" ResourceKey="AllItems.Text" Visible="True" Enabled="True" CommandName="AllNews" />
+                    <div class="btn-group pull-right">
+                        <asp:LinkButton ID="lnkPrev" runat="server" CssClass="btn btn-primary link-prev" ResourceKey="PrevItem.Text" Visible="True" Enabled="True" CommandName="Previous" />
+                        <asp:LinkButton ID="lnkNext" runat="server" CssClass="btn btn-primary link-next" ResourceKey="NextItem.Text" Visible="True" Enabled="True" CommandName="Next" />
+                    </div>
+                </div>
+            </FooterTemplate>
+        </asp:Repeater>
     </div>
 </div>
 <div class="clear"></div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        var $lnkEdit = '<i class="fa fa-pencil"></i>',
+            $lnkAdd = '<i class="fa fa-plus-circle"></i>',
+            $lnkDelete = '<i class="fa fa-trash-o"></i>',
+            $lnkAll = '<i class="fa fa-external-link"></i>',
+
+            $lnkPrev = '<i class="fa fa-angle-left"></i>',
+            $lnkNext = '<i class="fa fa-angle-right"></i>',
+            $largeIcon = 'fa-lg';
+
+
+        $('.collapse').collapse();
+
+        $('.rpt-accordion .link-edit').html($lnkEdit);
+        $('.rpt-accordion .link-add').html($lnkAdd);
+        $('.rpt-accordion .link-delete').html($lnkDelete);
+        $('.rpt-accordion .link-all').prepend($lnkAll + ' ');
+        $('.rpt-accordion .link-prev').html($lnkPrev);
+        $('.rpt-accordion .link-next').html($lnkNext);
+
+        $('.rpt-accordion .teaser-txt').ellipsis({
+            row: 2,
+            onlyFullWords: true
+        });
+
+
+        $('.rpt-list .link-edit').prepend($lnkEdit + ' ');
+        $('.rpt-list .link-add').prepend($lnkAdd + ' ');
+        $('.rpt-list .link-delete').prepend($lnkDelete + ' ');
+        $('.rpt-list .link-all').prepend($lnkAll + ' ');
+        $('.rpt-list .link-prev').prepend($lnkPrev + ' ');
+        $('.rpt-list .link-next').append(' ' +$lnkNext);
+
+        $('.rpt-list .teaser-txt').ellipsis({
+            row: 5,
+            onlyFullWords: true
+        });
+
+
+
+
+    });
+</script>

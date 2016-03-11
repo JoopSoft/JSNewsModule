@@ -1,12 +1,5 @@
 ﻿@import "variables.scss";
 
-.panel .panel-body img {
-    float: left;
-    margin: 0 20px 10px 0;
-    max-width: 150px;
-    width: auto;
-}
-
 .dnnForm {
 
     .form-control {
@@ -25,57 +18,160 @@
         input[type="password"],
         input[type="date"] {
             margin: 0;
-            border: 1px solid $light;
+            border: 1px solid $grey;
             color: $middle;
+            width: 50%;
 
             @include border-radius(0);
             @include box-shadow($none);
 
             &:active,
             &:focus {
-                border: 1px solid rgba(2,139,255,0.5);
-                color: #333;
-                background: #fff;
+                border: 1px solid $large;
+                background: $large;
+                color: $white;
 
-                @include box-shadow (0px 0px 3px 0px rgba(2, 139, 255, 0.4));
+                outline: $none;
+                @include box-shadow ($none);
             }
+        }
+
+        select > option {
+            color: $white
+        }
+        label span {
+            color: $large;
         }
     }
 
 
     a.dnnFormHelp, .dnnForm .dnnFormItem a.dnnFormHelp, .dnnTooltip label a.dnnFormHelp {
-        background: none;
-        font-weight: normal;
-
-        &:before {
-            font-family: $font-awesome;
-            /*content: "\f129";*/
+        /*background: none;*/
+        color: $large !important;
+        font-weight: normal !important;
+            
+        .fa-lg {
             font-size: 1.33333333em;
-            /*line-height: 0.75em;*/
-            /*vertical-align: -15%;*/
         }
     }
 }
 
 .panel {
-    .panel-body .body-txt {
-        float: left;
-        width: calc(100% - 150px);
-    }
 
-    .panel-body .teaser-txt {
-        float: left;
-        width: calc(100% - 150px);
-    }
+    .panel-body {
 
-    &.panel-info {
-        /*background: none;*/
-        border: none;
+        img {
+            float: left;
+            margin: 0 20px 10px 0;
+            max-width: 150px;
+            width: auto;
+        }
 
-        & > .panel-heading {
-            background: none;
+        .body-txt {
+            float: left;
+            width: calc(100% - 150px);
+        }
+
+        .teaser-txt {
+            float: left;
+            width: calc(100% - 150px);
+        }
+
+        &.panel-info {
+            /*background: none;*/
             border: none;
+
+            & > .panel-heading {
+                background: none;
+                border: none;
+            }
+        }
+    }
+
+    a.btn-primary:active, a.btn-primary:link, a.btn-primary:visited {
+        color: $white;
+    }
+
+    .list-group {
+        margin: 0;
+
+        .list-group-item-text {
+            color: $middle;
+        }
+
+        .list-group-item-heading {
+            margin: 0;
+            color: $large;
+        }
+
+        .list-group-item {
+
+            &:last-child,
+            &:first-child {
+                @include border-radius(0);
+            }
+
+            > a {
+                color: $dark-alpha-lg;
+                text-decoration: $none;
+            }
+
+            &:focus,
+            &:hover {
+                color: $white;
+                background-color: $dark-alpha-lg;
+
+                .list-group-item-heading {
+                    color: $white;
+                }
+
+                .badge {
+                    background: $none;
+                }
+
+                .list-group-item-text {
+                    color: $white;
+                }
+
+                > a {
+                    color: $white;
+                }
+            }
+        }
+
+        &:hover {
+            .pnl-admin {
+                .btn-group {
+                    display: block;
+                }
+            }
+        }
+    }
+
+    .rpt-list {
+        .pnl-admin {
+            /*position: relative;*/
+            .btn-group {
+                position: absolute;
+                right: 0;
+                bottom: 0;
+                padding: 10px;
+                display: $none;
+            }
+        }
+    }
+
+    .rpt-accordion {
+        .pnl-admin {
+            position: relative;
+
+            .btn-group {
+                position: absolute;
+                right: 0;
+                bottom: 0;
+                padding: 5px;
+                display: $none;
+            }
         }
     }
 }
-
