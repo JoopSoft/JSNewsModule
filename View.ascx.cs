@@ -59,14 +59,14 @@ namespace JS.Modules.JSNewsModule
                 switch (cs.ViewMode)
                 {
                     case "List":
-                        rptItemListView.Visible = true;
-                        rptItemAccordionView.Visible = false;
+                        pnlList.Visible = true;
+                        pnlAccordion.Visible = false;
                         break;
                     case "Accordion":
-                        rptItemListView.Visible = false;
-                        rptItemAccordionView.Visible = true;
+                        pnlList.Visible = false;
+                        pnlAccordion.Visible = true;
                         break;
-                    default:
+                    default: 
                         break;
                 }
                 #region List View
@@ -173,7 +173,7 @@ namespace JS.Modules.JSNewsModule
                 var lnkAdd = e.Item.FindControl("lnkAdd") as HyperLink;
                 var lnkSettings = e.Item.FindControl("lnkSettings") as HyperLink;
                 var lnkDelete = e.Item.FindControl("lnkDelete") as LinkButton;
-                var btnReadMore = e.Item.FindControl("btnReadMore") as HyperLink;
+                var btnReadMore = e.Item.FindControl("btnReadMoreList") as HyperLink;
                 var lnkImg = e.Item.FindControl("lnkImg") as HyperLink;
 
 

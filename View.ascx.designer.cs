@@ -13,6 +13,15 @@ namespace JS.Modules.JSNewsModule {
     public partial class View {
         
         /// <summary>
+        /// pnlList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlList;
+        
+        /// <summary>
         /// rptItemListView control.
         /// </summary>
         /// <remarks>
@@ -20,6 +29,15 @@ namespace JS.Modules.JSNewsModule {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Repeater rptItemListView;
+        
+        /// <summary>
+        /// pnlAccordion control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlAccordion;
         
         /// <summary>
         /// rptItemAccordionView control.

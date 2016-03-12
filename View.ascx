@@ -3,8 +3,8 @@
 <div class="panel panel-default">
 
     <%--LIST VIEW--%>
-    <div class="rpt-list">
-        <asp:Repeater ID="rptItemListView" Visible="false" runat="server"
+    <asp:panel ID="pnlList" runat="server" CssClass="rpt-list">
+        <asp:Repeater ID="rptItemListView" runat="server"
             OnItemDataBound="rptItemListOnItemDataBound" OnItemCommand="rptItemListOnItemCommand">
             <HeaderTemplate>
             </HeaderTemplate>
@@ -24,7 +24,7 @@
                         <asp:Image ID="imgNewsImage" runat="server" CssClass="news-image" ImageUrl='<%#DataBinder.Eval(Container.DataItem, "ImageUrl").ToString() %>' Visible='<%#((DataBinder.Eval(Container.DataItem,"ShowNewsImg")!=null) && ((bool)DataBinder.Eval(Container.DataItem,"ShowNewsImg")==true)) %>' />
                         </asp:HyperLink>
                         <asp:Label ID="lblNewsTeaserText" runat="server" CssClass="teaser-txt" Text='<%#DataBinder.Eval(Container.DataItem,"NewsTeaserText").ToString() %>' />
-                        <asp:HyperLink ID="btnReadMore" runat="server" CssClass="btn btn-primary" Text='<%#DataBinder.Eval(Container.DataItem,"ReadMoreText").ToString() %>' Visible='<%#((DataBinder.Eval(Container.DataItem,"ShowReadMore")!=null) && ((bool)DataBinder.Eval(Container.DataItem,"ShowReadMore")==true)) %>' />
+                        <asp:HyperLink ID="btnReadMoreList" runat="server" CssClass="btn btn-primary" Text='<%#DataBinder.Eval(Container.DataItem,"ReadMoreText").ToString() %>' Visible='<%#((DataBinder.Eval(Container.DataItem,"ShowReadMore")!=null) && ((bool)DataBinder.Eval(Container.DataItem,"ShowReadMore")==true)) %>' />
 
                         <asp:Panel ID="pnlAdmin" runat="server" Visible="false" CssClass="pnl-admin">
                             <div class="btn-group" role="group" aria-label="Control buttons">
@@ -35,7 +35,7 @@
                         </asp:Panel>
                     </div>
                 </div>
-
+                
             </ItemTemplate>
             <FooterTemplate>
                 <div class="panel-footer">
@@ -47,10 +47,10 @@
                 </div>
             </FooterTemplate>
         </asp:Repeater>
-    </div>
+    </asp:panel>
 
     <%--ACCORDION VIEW--%>
-    <div class="rpt-accordion">
+    <asp:panel ID="pnlAccordion" runat="server" CssClass="rpt-accordion">
         <asp:Repeater ID="rptItemAccordionView" runat="server"
             OnItemDataBound="rptItemAccordionOnItemDataBound" OnItemCommand="rptItemListOnItemCommand">
             <HeaderTemplate>
@@ -71,6 +71,7 @@
                             <%--<asp:Image ID="imgNewsImage" runat="server" CssClass="news-image" ImageUrl='<%#DataBinder.Eval(Container.DataItem, "ImageUrl").ToString() %>' Visible='<%#((DataBinder.Eval(Container.DataItem,"ShowNewsImg")!=null) && ((bool)DataBinder.Eval(Container.DataItem,"ShowNewsImg")==true)) %>' />--%>
                             <asp:Label ID="lblNewsTeaserText" runat="server" CssClass="teaser-txt" Text='<%#DataBinder.Eval(Container.DataItem,"NewsTeaserText").ToString() %>' />
                         </p>
+                    </asp:HyperLink>
                         <asp:Panel ID="pnlAdmin" runat="server" Visible="false" CssClass="pnl-admin">
                             <div class="btn-group" role="group" aria-label="Control buttons">
                                 <asp:HyperLink ID="lnkEdit" runat="server" CssClass="btn btn-default link-edit" ResourceKey="EditItem.Text" Visible="false" Enabled="false" />
@@ -78,9 +79,7 @@
                                 <asp:LinkButton ID="lnkDelete" runat="server" CssClass="btn btn-danger link-delete" ResourceKey="DeleteItem.Text" Visible="false" Enabled="false" CommandName="Delete" />
                             </div>
                         </asp:Panel>
-                    </asp:HyperLink>
                         </div>
-
                 </div>
             </ItemTemplate>
             <FooterTemplate>
@@ -93,7 +92,7 @@
                 </div>
             </FooterTemplate>
         </asp:Repeater>
-    </div>
+    </asp:panel>
 
 </div>
 <div class="clear"></div>
