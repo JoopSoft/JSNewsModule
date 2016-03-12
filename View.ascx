@@ -20,14 +20,16 @@
 
                 <div class="list-group">
                     <div class="list-group-item">
+                        <asp:HyperLink ID="lnkImg" runat="server">
                         <asp:Image ID="imgNewsImage" runat="server" CssClass="news-image" ImageUrl='<%#DataBinder.Eval(Container.DataItem, "ImageUrl").ToString() %>' Visible='<%#((DataBinder.Eval(Container.DataItem,"ShowNewsImg")!=null) && ((bool)DataBinder.Eval(Container.DataItem,"ShowNewsImg")==true)) %>' />
+                        </asp:HyperLink>
                         <asp:Label ID="lblNewsTeaserText" runat="server" CssClass="teaser-txt" Text='<%#DataBinder.Eval(Container.DataItem,"NewsTeaserText").ToString() %>' />
                         <asp:HyperLink ID="btnReadMore" runat="server" CssClass="btn btn-primary" Text='<%#DataBinder.Eval(Container.DataItem,"ReadMoreText").ToString() %>' Visible='<%#((DataBinder.Eval(Container.DataItem,"ShowReadMore")!=null) && ((bool)DataBinder.Eval(Container.DataItem,"ShowReadMore")==true)) %>' />
 
                         <asp:Panel ID="pnlAdmin" runat="server" Visible="false" CssClass="pnl-admin">
                             <div class="btn-group" role="group" aria-label="Control buttons">
-                                <asp:HyperLink ID="lnkEdit" runat="server" CssClass="btn btn-default link-edit" ResourceKey="EditItem.Text" Visible="false" Enabled="false" CommandName="Edit" />
-                                <asp:HyperLink ID="lnkAdd" runat="server" CssClass="btn btn-default link-add" ResourceKey="AddItem.Text" Visible="false" Enabled="false" CommandName="Add" />
+                                <asp:HyperLink ID="lnkEdit" runat="server" CssClass="btn btn-default link-edit" ResourceKey="EditItem.Text" Visible="false" Enabled="false" />
+                                <asp:HyperLink ID="lnkAdd" runat="server" CssClass="btn btn-default link-add" ResourceKey="AddItem.Text" Visible="false" Enabled="false" />
                                 <asp:LinkButton ID="lnkDelete" runat="server" CssClass="btn btn-danger link-delete" ResourceKey="DeleteItem.Text" Visible="false" Enabled="false" CommandName="Delete" />
                             </div>
                         </asp:Panel>
@@ -50,7 +52,7 @@
     <%--ACCORDION VIEW--%>
     <div class="rpt-accordion">
         <asp:Repeater ID="rptItemAccordionView" runat="server"
-            OnItemDataBound="rptItemListOnItemDataBound" OnItemCommand="rptItemListOnItemCommand">
+            OnItemDataBound="rptItemAccordionOnItemDataBound" OnItemCommand="rptItemListOnItemCommand">
             <HeaderTemplate>
             </HeaderTemplate>
 
@@ -71,8 +73,8 @@
                         </p>
                         <asp:Panel ID="pnlAdmin" runat="server" Visible="false" CssClass="pnl-admin">
                             <div class="btn-group" role="group" aria-label="Control buttons">
-                                <asp:HyperLink ID="lnkEdit" runat="server" CssClass="btn btn-default link-edit" ResourceKey="EditItem.Text" Visible="false" Enabled="false" CommandName="Edit" />
-                                <asp:HyperLink ID="lnkAdd" runat="server" CssClass="btn btn-default link-add" ResourceKey="AddItem.Text" Visible="false" Enabled="false" CommandName="Add" />
+                                <asp:HyperLink ID="lnkEdit" runat="server" CssClass="btn btn-default link-edit" ResourceKey="EditItem.Text" Visible="false" Enabled="false" />
+                                <asp:HyperLink ID="lnkAdd" runat="server" CssClass="btn btn-default link-add" ResourceKey="AddItem.Text" Visible="false" Enabled="false" />
                                 <asp:LinkButton ID="lnkDelete" runat="server" CssClass="btn btn-danger link-delete" ResourceKey="DeleteItem.Text" Visible="false" Enabled="false" CommandName="Delete" />
                             </div>
                         </asp:Panel>

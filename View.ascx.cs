@@ -174,6 +174,41 @@ namespace JS.Modules.JSNewsModule
                 var lnkSettings = e.Item.FindControl("lnkSettings") as HyperLink;
                 var lnkDelete = e.Item.FindControl("lnkDelete") as LinkButton;
                 var btnReadMore = e.Item.FindControl("btnReadMore") as HyperLink;
+                var lnkImg = e.Item.FindControl("lnkImg") as HyperLink;
+
+
+                var pnlAdminControls = e.Item.FindControl("pnlAdmin") as Panel;
+
+                var n = (News)e.Item.DataItem;
+
+                btnReadMore.NavigateUrl = EditUrl(string.Empty, string.Empty, "DetailsView", "nid=" + n.NewsId);
+                lnkImg.NavigateUrl = EditUrl(string.Empty, string.Empty, "DetailsView", "nid=" + n.NewsId);
+                if (IsEditable && lnkDelete != null && lnkEdit != null && pnlAdminControls != null)
+                {
+                    pnlAdminControls.Visible = true;
+                    lnkDelete.CommandArgument = n.NewsId.ToString();
+                    lnkDelete.Enabled = lnkDelete.Visible = lnkEdit.Enabled = lnkEdit.Visible = lnkAdd.Enabled = lnkAdd.Visible = true;
+                    lnkEdit.NavigateUrl = EditUrl(string.Empty, string.Empty, "AddNews", "nid=" + n.NewsId);
+                    lnkAdd.NavigateUrl = EditUrl("AddNews");
+
+                    ClientAPI.AddButtonConfirm(lnkDelete, Localization.GetString("ConfirmDelete", LocalResourceFile));
+                }
+                else
+                {
+                    pnlAdminControls.Visible = false;
+                }
+            }
+        }
+        protected void rptItemAccordionOnItemDataBound(object sender, RepeaterItemEventArgs e)
+        {
+            if (e.Item.ItemType == ListItemType.AlternatingItem || e.Item.ItemType == ListItemType.Item)
+            {
+
+                var lnkEdit = e.Item.FindControl("lnkEdit") as HyperLink;
+                var lnkAdd = e.Item.FindControl("lnkAdd") as HyperLink;
+                var lnkSettings = e.Item.FindControl("lnkSettings") as HyperLink;
+                var lnkDelete = e.Item.FindControl("lnkDelete") as LinkButton;
+                var btnReadMore = e.Item.FindControl("btnReadMore") as HyperLink;
 
 
                 var pnlAdminControls = e.Item.FindControl("pnlAdmin") as Panel;
@@ -201,10 +236,6 @@ namespace JS.Modules.JSNewsModule
 
         public void rptItemListOnItemCommand(object source, RepeaterCommandEventArgs e)
         {
-            if (e.CommandName == "Edit")
-            {
-                Response.Redirect(EditUrl(string.Empty, string.Empty, "Edit", "nid=" + e.CommandArgument));
-            }
             if (e.CommandName == "Delete")
             {
                 var nc = new NewsController();

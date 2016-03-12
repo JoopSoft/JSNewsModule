@@ -15,7 +15,7 @@
         </div>
         <div class="dnnFormItem">
             <dnn:Label ID="lblShowNewsImg" runat="server" /> 
-            <asp:CheckBox ID="cbShowNewsImg" runat="server" />
+            <asp:CheckBox ID="cbShowNewsImg" runat="server" OnCheckedChanged="cbShowNewsImg_CheckedChanged" AutoPostBack="true"/>
         </div>
         <div class="dnnFormItem">
             <dnn:Label ID="lblShowReadMore" runat="server" /> 

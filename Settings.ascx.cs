@@ -210,26 +210,36 @@ namespace JS.Modules.JSNewsModule
 
         protected void cbShowReadMore_CheckedChanged(object sender, EventArgs e)
         {
-            lblReadMoreText.Visible = cbShowReadMore.Checked;
-            txtReadMoreText.Visible = cbShowReadMore.Checked;
+            lblReadMoreText.Visible = txtReadMoreText.Visible = cbShowReadMore.Checked;
+            if (!cbShowReadMore.Checked)
+            {
+                cbShowNewsImg.Checked = true;
+            }
         }
 
         protected void cbShowBack_CheckedChanged(object sender, EventArgs e)
         {
-            lblBackText.Visible = cbShowBack.Checked;
-            txtBackText.Visible = cbShowBack.Checked;
+            lblBackText.Visible = txtBackText.Visible = cbShowBack.Checked;
         }
 
         protected void cbShowHome_CheckedChanged(object sender, EventArgs e)
         {
-            lblHomeText.Visible = cbShowHome.Checked;
-            txtHomeText.Visible = cbShowHome.Checked;
+            lblHomeText.Visible = txtHomeText.Visible = cbShowHome.Checked;
         }
 
         protected void cbIsSorted_CheckedChanged(object sender, EventArgs e)
         {
             lblSortBy.Visible = sortByList.Visible = cbIsSorted.Checked;
             lblSortType.Visible = sortTypeList.Visible = cbIsSorted.Checked;
+        }
+
+        protected void cbShowNewsImg_CheckedChanged(object sender, EventArgs e)
+        {
+            if (!cbShowNewsImg.Checked)
+            {
+                cbShowReadMore.Checked = true;
+                lblReadMoreText.Visible = txtReadMoreText.Visible = true;
+            }
         }
     }
 }
