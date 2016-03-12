@@ -122,6 +122,7 @@
     <Content Include="icon.png" />
     <Content Include="Images\sheviza3.jpg" />
     <Content Include="Images\Uploaded Images.jpg" />
+    <Content Include="Js\main.js" />
     <Content Include="License.txt" />
     <Content Include="module.css">
       <DependentUpon>module.scss</DependentUpon>
@@ -179,6 +180,7 @@
   <ItemGroup>
     <Content Include="App_LocalResources\DetailsView.ascx.resx" />
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

@@ -59,26 +59,13 @@
   .dnnForm a.dnnFormHelp .fa-lg, .dnnForm .dnnForm .dnnFormItem a.dnnFormHelp .fa-lg, .dnnForm .dnnTooltip label a.dnnFormHelp .fa-lg {
     font-size: 1.33333333em; }
 
-.panel .panel-body img {
-  float: left;
-  margin: 0 20px 10px 0;
-  max-width: 150px;
-  width: auto; }
-
 .panel .panel-body .body-txt {
   float: left;
-  width: calc(100% - 150px); }
+  width: calc(100% - 270px); }
 
 .panel .panel-body .teaser-txt {
   float: left;
   width: calc(100% - 150px); }
-
-.panel .panel-body.panel-info {
-  /*background: none;*/
-  border: none; }
-  .panel .panel-body.panel-info > .panel-heading {
-    background: none;
-    border: none; }
 
 .panel a.btn-primary:active, .panel a.btn-primary:link, .panel a.btn-primary:visited {
   color: #fff; }
@@ -119,7 +106,11 @@
     right: 0;
     bottom: 0;
     padding: 10px;
-    display: none; }
+    /*display: $none;*/ }
+
+.panel .rpt-list .news-image {
+  height: 100px;
+  width: 100px; }
 
 .panel .rpt-accordion .pnl-admin {
   position: relative; }
@@ -128,5 +119,25 @@
     right: 0;
     bottom: 0;
     padding: 5px;
-    display: none; }
+    /*display: $none;*/ }
+
+.panel .rpt-accordion .news-image {
+  height: 100px;
+  width: 100px; }
+
+.panel.details-view .pnl-admin {
+  /*position: relative;*/ }
+  .panel.details-view .pnl-admin .btn-group {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    padding: 10px;
+    /*display: $none;*/ }
+
+.panel.details-view .news-image {
+  float: left;
+  padding: 0 15px 15px 0;
+  max-width: 270px;
+  width: auto;
+  height: auto; }
 
