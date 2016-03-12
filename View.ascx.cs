@@ -41,11 +41,21 @@ namespace JS.Modules.JSNewsModule
         protected void Page_Load(object sender, EventArgs e)
         {
             try
-            {                
+            {
                 var nc = new NewsController();
-                var sc = new SettingsController();
                 var cs = new CustomSettings();
-                cs = sc.LoadSingleSettings(ModuleId);
+                var sc = new SettingsController();
+                int TModuleId = 0;
+                var ts = sc.LoadSettings();
+                foreach (CustomSettings s in ts)
+                {
+                    if (s.SettingsId == ModuleId)
+                    {
+                        TModuleId = ModuleId;
+                        break;
+                    }
+                }
+                cs = sc.LoadSingleSettings(TModuleId);
                 switch (cs.ViewMode)
                 {
                     case "List":

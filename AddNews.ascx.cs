@@ -41,7 +41,17 @@ namespace JS.Modules.JSNewsModule
                 if (!Page.IsPostBack)
                 {
                     var sc = new SettingsController();
-                    var s = sc.LoadSingleSettings(ModuleId);
+                    int TModuleId = 0;
+                    var ts = sc.LoadSettings();
+                    foreach (CustomSettings ns in ts)
+                    {
+                        if (ns.SettingsId == ModuleId)
+                        {
+                            TModuleId = ModuleId;
+                            break;
+                        }
+                    }
+                    var s = sc.LoadSingleSettings(TModuleId);
                     lblDate.Visible = txtDate.Visible = s.ShowNewsDate;
                     lblImgUrl.Visible = imgList.Visible = btnImgSelect.Visible = btnImgUpload.Visible = s.ShowNewsImg;
                     lblCustomOrderId.Visible = txtCustomOrderId.Visible = (s.ShowCustomOrderId && s.IsSorted);
@@ -91,7 +101,17 @@ namespace JS.Modules.JSNewsModule
             var n = new News();
             var nc = new NewsController();
             var sc = new SettingsController();
-            s = sc.LoadSingleSettings(ModuleId);
+            int TModuleId = 0;
+            var ts = sc.LoadSettings();
+            foreach (CustomSettings ns in ts)
+            {
+                if (ns.SettingsId == ModuleId)
+                {
+                    TModuleId = ModuleId;
+                    break;
+                }
+            }
+            s = sc.LoadSingleSettings(TModuleId);
             if (NewsId > 0)
             {
                 n = nc.LoadNews(NewsId, ModuleId);
