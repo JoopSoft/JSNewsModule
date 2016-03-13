@@ -1,15 +1,20 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="Edit.ascx.cs" Inherits="JS.Modules.JSNewsModule.Edit" %>
 <%@ Register TagPrefix="dnn" TagName="label" Src="~/controls/LabelControl.ascx" %>
-<div class="dnnForm dnnEditBasicSettings" id="dnnEditBasicSettings">
-    <div class="dnnFormExpandContent dnnRight "><a href=""><%=LocalizeString("ExpandAll")%></a></div>
 
+<div class="dnnForm dnnEditBasicSettings edit" id="dnnEditBasicSettings">
+    <div class="dnnFormExpandContent dnnRight ">
+        <a href="">
+            <%=LocalizeString("ExpandAll")%>
+        </a>
+    </div>
     <h2 id="dnnSitePanel-BasicSettings" class="dnnFormSectionHead dnnClear">
         <a href="" class="dnnSectionExpanded">
-            <%=LocalizeString("BasicSettings")%></a></h2>
-    <fieldset>
-        
-    </fieldset>
+            <%=LocalizeString("BasicSettings")%>
+        </a>
+    </h2>
+    <fieldset></fieldset>
 </div>
+
 <asp:LinkButton ID="btnSubmit" runat="server"
     OnClick="btnSubmit_Click" resourcekey="btnSubmit" CssClass="dnnPrimaryAction" />
 <asp:LinkButton ID="btnCancel" runat="server"

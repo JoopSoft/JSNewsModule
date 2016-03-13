@@ -1,6 +1,6 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="View.ascx.cs" Inherits="JS.Modules.JSNewsModule.View" %>
 
-<div class="panel panel-default">
+<div class="panel panel-default view">
 
     <%--LIST VIEW--%>
     <asp:panel ID="pnlList" runat="server" CssClass="rpt-list">
@@ -97,5 +97,5 @@
 </div>
 <div class="clear"></div>
 
-<script type="text/javascript" src="<%= ModulePath %>/Ellipsis/jquery.ellipsis.min.js" ></script>
-<script type="text/javascript" src="<%= ModulePath %>/Js/main.js"></script>
+<script type="text/javascript" src="<%= ModulePath %>Ellipsis/jquery.ellipsis.min.js" ></script>
+<script type="text/javascript" src="<%= ModulePath %>Js/main.js"></script>

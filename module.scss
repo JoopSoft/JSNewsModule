@@ -30,26 +30,74 @@
                 border: 1px solid $large;
                 background: $large;
                 color: $white;
-
                 outline: $none;
                 @include box-shadow ($none);
             }
+
+            &[disabled="disabled"] {
+                color: $large;
+                width: calc(50% - 50px);
+                display: inline-block;
+                border: none;
+                background: none;
+                padding: 0;
+            }
+        }
+
+        .news-image {
+            width: 35px;
+            height: 35px;
+            display: inline-block;
+            margin-right: 10px;
         }
 
         select > option {
-            color: $white
+            color: $white;
         }
+
         label span {
             color: $large;
         }
     }
 
 
+    &.add-news {
+
+        .dnnFormItem button,
+        .dnnFormItem input[type="button"],
+        .dnnFormItem input[type="reset"],
+        .dnnSecondaryAction,
+        a.dnnSecondaryAction,
+        ul.dnnAdminTabNav li a,
+        .dnnLogin .LoginTabGroup span {
+            /*background: none;
+            border: none;        
+                   
+                
+                
+                       
+                       text-shadow: none;
+            box-shadow: none;*/
+            text-decoration: none;
+        }
+
+        span.dnnInputFileWrapper > input[type="file"] {
+
+
+
+
+
+
+
+
+        }
+    }
+
     a.dnnFormHelp, .dnnForm .dnnFormItem a.dnnFormHelp, .dnnTooltip label a.dnnFormHelp {
         /*background: none;*/
         color: $large !important;
         font-weight: normal !important;
-            
+
         .fa-lg {
             font-size: 1.33333333em;
         }

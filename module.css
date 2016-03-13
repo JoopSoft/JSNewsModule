@@ -47,10 +47,45 @@
       -webkit-box-shadow: none;
       -o-box-shadow: none;
       box-shadow: none; }
+    .dnnForm .dnnFormItem input[type="text"][disabled="disabled"],
+    .dnnForm .dnnFormItem select[disabled="disabled"],
+    .dnnForm .dnnFormItem textarea[disabled="disabled"],
+    .dnnForm .dnnFormItem input[type="email"][disabled="disabled"],
+    .dnnForm .dnnFormItem input[type="search"][disabled="disabled"],
+    .dnnForm .dnnFormItem input[type="password"][disabled="disabled"],
+    .dnnForm .dnnFormItem input[type="date"][disabled="disabled"] {
+      color: #333;
+      width: calc(50% - 50px);
+      display: inline-block;
+      border: none;
+      background: none;
+      padding: 0; }
+  .dnnForm .dnnFormItem .news-image {
+    width: 35px;
+    height: 35px;
+    display: inline-block;
+    margin-right: 10px; }
   .dnnForm .dnnFormItem select > option {
     color: #fff; }
   .dnnForm .dnnFormItem label span {
     color: #333; }
+
+.dnnForm.add-news .dnnFormItem button,
+.dnnForm.add-news .dnnFormItem input[type="button"],
+.dnnForm.add-news .dnnFormItem input[type="reset"],
+.dnnForm.add-news .dnnSecondaryAction,
+.dnnForm.add-news a.dnnSecondaryAction,
+.dnnForm.add-news ul.dnnAdminTabNav li a,
+.dnnForm.add-news .dnnLogin .LoginTabGroup span {
+  /*background: none;
+            border: none;        
+                   
+                
+                
+                       
+                       text-shadow: none;
+            box-shadow: none;*/
+  text-decoration: none; }
 
 .dnnForm a.dnnFormHelp, .dnnForm .dnnForm .dnnFormItem a.dnnFormHelp, .dnnForm .dnnTooltip label a.dnnFormHelp {
   /*background: none;*/

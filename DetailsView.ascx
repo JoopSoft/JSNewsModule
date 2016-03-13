@@ -25,4 +25,4 @@
     </div>
 </div>
 
-<script type="text/javascript" src="<%= ModulePath %>/Js/main.js"></script>
+<script type="text/javascript" src="<%= ModulePath %>Js/main.js"></script>

@@ -6,6 +6,7 @@
         $lnkBack = '<i class="fa fa-angle-left"></i>',
         $lnkHome = '<i class="fa fa-home"></i>',
         $lnkAll = '<i class="fa fa-external-link"></i>',
+        $lnkUpload = '<i class="fa fa-upload"></i>',
 
         $lnkPrev = '<i class="fa fa-angle-left"></i>',
         $lnkNext = '<i class="fa fa-angle-right"></i>',
@@ -38,6 +39,7 @@
     $('.rpt-list .link-prev').prepend($lnkPrev + ' ');
     $('.rpt-list .link-next').append(' ' + $lnkNext);
 
+
     //CUTTING TEXT BY ELLIPSIS PLUGIN
     if ($('.rpt-list .teaser-txt').length > 0) $('.rpt-list .teaser-txt').ellipsis({
                                                    row: 5,
@@ -46,7 +48,6 @@
 
     //COLLAPSING BY BOOTSTRAP FRAMEWORK
     $('.collapse').collapse();
-
 
 
 });

@@ -166,12 +166,21 @@
     <value>Upload New Image</value>
   </data>
   <data name="lblUploadImg.Text" xml:space="preserve">
-    <value>Upload Image</value>
+    <value>Upload New Image</value>
   </data>
   <data name="lblCustomOrderId.Help" xml:space="preserve">
     <value>Enter Number for Custom Order</value>
   </data>
   <data name="lblCustomOrderId.Text" xml:space="preserve">
     <value>Custom Order</value>
+  </data>
+  <data name="btnUpload.Text" xml:space="preserve">
+    <value>Upload</value>
+  </data>
+  <data name="lblImgSelected.Help" xml:space="preserve">
+    <value>Choosen image</value>
+  </data>
+  <data name="lblImgSelected.Text" xml:space="preserve">
+    <value>Selected image</value>
   </data>
 </root>
