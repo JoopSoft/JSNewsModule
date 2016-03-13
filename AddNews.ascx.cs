@@ -121,7 +121,7 @@ namespace JS.Modules.JSNewsModule
                 n.NewsDate = txtDate.Text.Trim();
                 n.ShowNewsImg = s.ShowNewsImg;
                 n.ImageUrl = txtImgUrl.Text.Trim();
-                n.NewsTeaserText = imgPreview.ImageUrl;
+                n.NewsTeaserText = txtTeaserText.Text.Trim();
                 n.NewsContent = txtContent.Text.Trim();
                 n.ShowReadMore = s.ShowReadMore;
                 n.ReadMoreText = s.ReadMoreText;
