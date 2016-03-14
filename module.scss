@@ -7,59 +7,92 @@
         @include box-shadow($none);
     }
 
+
+
+    h1, h2, h3, h4, h5, h6 {
+        color: $dark;
+        /*margin: 0 0 10px;*/
+    }
+
+    h3 {
+        /*font-size: 1rem;*/
+        font-size: 1.571em;
+    }
+
+    h4 {
+        /*font-size: 0.85rem;*/
+        font-size: 1.286em;
+    }
+
+    .dnnFormSectionHead {
+        /*border-bottom: 1px solid $dark-alpha;*/
+        border-bottom: $none;
+        margin-bottom: 30px;
+    }
+
+
+    .dnnFormItem,
     .dnnFormItem {
         margin-bottom: 15px;
 
-        input[type="text"],
-        select,
-        textarea,
-        input[type="email"],
-        input[type="search"],
-        input[type="password"],
-        input[type="date"] {
-            margin: 0;
-            border: 1px solid $grey;
-            color: $middle;
-            width: 50%;
-
-            @include border-radius(0);
-            @include box-shadow($none);
-
-            &:active,
-            &:focus {
-                border: 1px solid $large;
-                background: $large;
-                color: $white;
-                outline: $none;
-                @include box-shadow ($none);
-            }
-
-            &[disabled="disabled"] {
-                color: $large;
-                width: calc(50% - 50px);
-                display: inline-block;
-                border: none;
-                background: none;
-                padding: 0;
-            }
-        }
-
         .news-image {
-            width: 35px;
+            width: auto;
             height: 35px;
             display: inline-block;
             margin-right: 10px;
+            border: 1px solid $dark-alpha-lg;
         }
 
         select > option {
-            color: $white;
+            color: $dark;
         }
 
         label span {
-            color: $large;
+            color: $dark-alpha-lg;
+            font-weight: bold;
+        }
+
+        .btn {
+            line-height: normal;
+            border: $none;
+            @include border-radius(0);
+
+            &.btn-primary {
+                background-color: $dark-alpha-lg;
+
+                &:hover,
+                &:focus,
+                &:active {
+                    background-color: $dark-alpha-xlg;
+                }
+            }
+
+            &.btn-default {
+                color: $dark-alpha-lg;
+
+                &:hover,
+                &:focus,
+                &:active {
+                    color: $white;
+                    background-color: $dark-alpha-lg;
+                }
+            }
+
+            &:hover {
+                border: $none;
+            }
+
+            &:active {
+                @include box-shadow($none);
+            }
+        }
+
+        &.controls {
+            margin: 0;
+            padding: 10px 0 0 0;
+            border-top: 1px solid $dark-alpha;
         }
     }
-
 
     &.add-news {
 
@@ -70,62 +103,127 @@
         a.dnnSecondaryAction,
         ul.dnnAdminTabNav li a,
         .dnnLogin .LoginTabGroup span {
-            /*background: none;
-            border: none;        
-                   
-                
-                
-                       
-                       text-shadow: none;
-            box-shadow: none;*/
+            margin: 0;
+            padding: 6px 12px;
+            color: $white;
+            background: $dark-alpha-lg;
+            font-family: inherit;
+            font-weight: normal;
+            border: $none;
             text-decoration: none;
+            text-shadow: $none;
+
+            @include border-radius(0);
+            @include box-shadow($none);
+
+            &:hover {
+                background: $dark-alpha-xlg;
+            }
         }
 
-        span.dnnInputFileWrapper > input[type="file"] {
-
-
-
-
-
-
-
-
+        a.dnnFormHelp {
+            color: $dark-alpha-lg;
+            background: $none;
+            top: 0;
+            width: auto;
+            height: auto;
+            font-weight: normal;
         }
     }
 
-    a.dnnFormHelp, .dnnForm .dnnFormItem a.dnnFormHelp, .dnnTooltip label a.dnnFormHelp {
-        /*background: none;*/
-        color: $large !important;
-        font-weight: normal !important;
+    &.add-news,
+    &.settings {
+        input[type="text"],
+        select,
+        textarea,
+        input[type="email"],
+        input[type="search"],
+        input[type="date"] {
+            margin: 0;
+            border: 1px solid $dark-alpha;
+            color: $dark-alpha-md;
+            width: 50%;
+            font-size: 1em;
 
-        .fa-lg {
-            font-size: 1.33333333em;
+            @include border-radius(0);
+            @include box-shadow($none);
+            @include transition($all);
+
+            &:active,
+            &:focus {
+                color: $dark;
+                background: $none;
+                border: 1px solid $dark;
+                outline: $none;
+                @include box-shadow(0 0 6px 1px $dark-alpha-md);
+            }
+
+            &[disabled="disabled"] {
+                color: $dark;
+                width: calc(50% - 50px);
+                display: inline-block;
+                border: none;
+                background: none;
+                padding: 0;
+
+                @include box-shadow($none);
+            }
         }
     }
 }
 
 .panel {
 
-    .panel-body {
-
-        img {
-        }
-
-        .body-txt {
-            float: left;
-            width: calc(100% - 270px);
-        }
-
-        .teaser-txt {
-            float: left;
-            width: calc(100% - 150px);
-        }
+    h1, h2, h3, h4, h5, h6 {
+        color: $dark;
+        /*margin: 0 0 10px;*/
     }
 
+    h3 {
+        /*font-size: 1rem;*/
+        font-size: 1.571em;
+    }
 
+    h4 {
+        /*font-size: 0.85rem;*/
+        font-size: 1.286em;
+    }
+
+    p {
+        /*font-size: 0.65rem;*/
+        font-size: 1em;
+    }
 
     a.btn-primary:active, a.btn-primary:link, a.btn-primary:visited {
         color: $white;
+    }
+
+    .btn {
+        @include border-radius(0);
+        line-height: normal;
+        border-color: transparent;
+
+        &.btn-primary {
+            background-color: $dark-alpha-lg;
+            border-color: transparent;
+
+            &:hover {
+                background-color: $dark-alpha-xlg;
+                border-color: transparent;
+            }
+        }
+
+        &:hover {
+            border-color: transparent;
+        }
+
+        &:active {
+            @include box-shadow($none);
+        }
+    }
+
+    .btn-group .btn + .btn, .btn-group .btn + .btn-group, .btn-group .btn-group + .btn, .btn-group .btn-group + .btn-group {
+        margin-left: 0;
     }
 
     .list-group {
@@ -140,20 +238,56 @@
             color: $large;
         }
 
+        .panel-footer {
+            float: left;
+            clear: both;
+            width: 100%;
+            background-color: transparent;
+            border: $none;
+        }
+
+        .badge {
+            position: absolute;
+            min-width: 10px;
+            padding: 2px 6px;
+            line-height: normal;
+            top: 0;
+            right: 0;
+            font-weight: normal;
+            color: $white;
+            background-color: $dark-alpha-lg;
+            border-radius: 0;
+        }
+
         .list-group-item {
+            float: left;
+            clear: both;
+            margin-bottom: 0;
+            border: $none;
+            border-bottom: 1px solid $dark-alpha;
 
             &:last-child,
             &:first-child {
                 @include border-radius(0);
             }
 
+            &:nth-last-child(-n+2) {
+                margin-bottom: -1px;
+            }
+
             > a {
-                color: $dark-alpha-lg;
                 text-decoration: $none;
+
+                &.read-more {
+                    margin-top: 15px;
+                    float: left;
+                    clear: both;
+                }
             }
 
             &:focus,
-            &:hover {
+            &:hover,
+            &:active {
                 color: $white;
                 background-color: $dark-alpha-lg;
 
@@ -169,76 +303,165 @@
                     color: $white;
                 }
 
-                > a {
+                h1, h2, h3, h4, h5, h6 {
                     color: $white;
                 }
-            }
-        }
 
-        &:hover {
-            .pnl-admin {
-                .btn-group {
-                    display: block;
+                > a {
+
+                    &.read-more {
+                        background: $none;
+                        color: $white;
+                        border: 1px solid $white;
+
+                        &:hover {
+                            background: $white;
+                            color: $dark;
+                            border: 1px solid $white;
+                        }
+                    }
+                }
+
+                &:hover {
+
+                    .pnl-admin {
+                        .btn-group {
+                            display: block;
+                        }
+                    }
                 }
             }
         }
     }
 
     .rpt-list {
+
+        .list-group-item {
+            padding: 10px;
+        }
+
         .pnl-admin {
-            /*position: relative;*/
+
             .btn-group {
-                position: absolute;
-                right: 0;
-                bottom: 0;
-                padding: 10px;
-                /*display: $none;*/
+                float: right;
+                margin-top: 10px;
+                display: $none;
+            }
+            .btn {
+                padding: 4px 8px;
             }
         }
 
-        .news-image {
-            height: 100px;
-            width: 100px;
+        .panel-footer {
+            padding: 10px;
+        }
+
+        .link-image {
+            float: left;
+
+            .news-image {
+                padding: 0 10px 10px 0;
+                max-width: 170px;
+                width: auto;
+                height: auto;
+            }
+        }
+
+        .teaser-txt {
+            float: left;
+            width: calc(100% - 170px);
+            clear: right;
+        }
+
+        .body-txt {
+            float: left;
+            width: calc(100% - 270px);
+            clear: right;
+        }
+
+        .panel-heading {
+            padding: 0 0 5px 0;
         }
     }
-
+background-image: url('info-icon.svg');
     .rpt-accordion {
+
+        .list-group-item {
+            padding: 5px;
+        }
+
         .pnl-admin {
             position: relative;
 
             .btn-group {
-                position: absolute;
-                right: 0;
-                bottom: 0;
-                padding: 5px;
-                /*display: $none;*/
+                float: right;
+                margin-top: 5px;
+                display: $none;
             }
+            .btn {
+                padding: 2px 7px;
+            }
+        }
+
+        .panel-footer {
+            padding: 10px 5px;
         }
 
         .news-image {
             height: 100px;
             width: 100px;
         }
+
+        .panel-heading {
+            padding: 0 0 5px 0;
+        }
+    }
+
+    &.view {
+        border: $none;
+        @include box-shadow($none);
     }
 
     &.details-view {
+        margin-bottom: 0;
+        background: $none;
+
         .pnl-admin {
-            /*position: relative;*/
-            .btn-group {
-                position: absolute;
-                right: 0;
-                bottom: 0;
-                padding: 10px;
-                /*display: $none;*/
-            }
+            position: relative;
+            text-align: right;
+            margin-top: 10px;
+            display: $none;
         }
 
         .news-image {
             float: left;
-            padding: 0 15px 15px 0;
+            padding: 0 15px 10px 0;
             max-width: 270px;
             width: auto;
             height: auto;
         }
+
+        .panel-body {
+            text-align: justify;
+
+            &:hover {
+                .pnl-admin {
+                    display: block;
+
+                    .btn-group {
+                    }
+                }
+            }
+        }
+
+        .panel-footer {
+            background-color: transparent;
+            border-top: 1px solid $dark-alpha;
+        }
     }
+}
+
+.mark, mark {
+    padding: 0!important;
+    background-color: transparent!important;
 }

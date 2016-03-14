@@ -67,6 +67,15 @@ namespace JS.Modules.JSNewsModule {
         protected global::System.Web.UI.WebControls.CheckBox cbShowNewsImg;
         
         /// <summary>
+        /// lblStatImgMsg control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox lblStatImgMsg;
+        
+        /// <summary>
         /// lblShowReadMore control.
         /// </summary>
         /// <remarks>
@@ -83,6 +92,15 @@ namespace JS.Modules.JSNewsModule {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CheckBox cbShowReadMore;
+        
+        /// <summary>
+        /// lblStatReadMoreMsg control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox lblStatReadMoreMsg;
         
         /// <summary>
         /// lblReadMoreText control.

@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="BasicSettings.Text" xml:space="preserve">
+    <value>JSNewsModule Settings</value>
+  </data>
   <data name="ControlTitle_settings.Text" xml:space="preserve">
     <value>JSNewsModule Settings</value>
   </data>
@@ -148,31 +151,31 @@
     <value>Choose whether to show Back Button or not.</value>
   </data>
   <data name="lblShowBack.Text" xml:space="preserve">
-    <value>Show/Hide Back Button</value>
+    <value>Show Back Button</value>
   </data>
   <data name="lblShowHome.Help" xml:space="preserve">
     <value>Choose whether to show Home Button or not.</value>
   </data>
   <data name="lblShowHome.Text" xml:space="preserve">
-    <value>Show/Hide Home Button</value>
+    <value>Show Home Button</value>
   </data>
   <data name="lblShowNewsDate.Help" xml:space="preserve">
     <value>Choose whether to show date or not.</value>
   </data>
   <data name="lblShowNewsDate.Text" xml:space="preserve">
-    <value>Show/Hide News Date</value>
+    <value>Show News Date</value>
   </data>
   <data name="lblShowNewsImg.Help" xml:space="preserve">
     <value>Choose whether to show image or not.</value>
   </data>
   <data name="lblShowNewsImg.Text" xml:space="preserve">
-    <value>Show/Hide News Image</value>
+    <value>Show News Image</value>
   </data>
   <data name="lblShowReadMore.Help" xml:space="preserve">
     <value>Choose whether to show Read More Button or not.</value>
   </data>
   <data name="lblShowReadMore.Text" xml:space="preserve">
-    <value>Show/Hide Read More Button</value>
+    <value>Show Read More Button</value>
   </data>
   <data name="lblSortBy.Help" xml:space="preserve">
     <value>Select Sorting Method</value>

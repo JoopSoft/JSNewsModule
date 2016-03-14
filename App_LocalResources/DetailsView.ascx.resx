@@ -123,6 +123,9 @@
   <data name="AddNews.Text" xml:space="preserve">
     <value>Add News</value>
   </data>
+  <data name="AllItems.Text" xml:space="preserve">
+    <value>All News</value>
+  </data>
   <data name="BasicSettings.Text" xml:space="preserve">
     <value>Basic JSNewsModule Settings</value>
   </data>
@@ -140,6 +143,12 @@
   </data>
   <data name="EditModule.Text" xml:space="preserve">
     <value>Edit Module</value>
+  </data>
+  <data name="NextItem.Text" xml:space="preserve">
+    <value>Next</value>
+  </data>
+  <data name="PrevItem.Text" xml:space="preserve">
+    <value>Previous</value>
   </data>
   <data name="Settings.Text" xml:space="preserve">
     <value>Settings</value>
