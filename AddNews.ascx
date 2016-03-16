@@ -3,34 +3,15 @@
 
 <%@ Register TagPrefix="dnn" TagName="texteditor" Src="~/controls/TextEditor.ascx" %>
 
-<%--<%@ Register TagPrefix="dnnweb" Assembly="DotNetNuke.Web" Namespace="DotNetNuke.Web.UI.WebControls" %>
-<%@ Register TagPrefix="dnnweb" Assembly="DotNetNuke.Web.Deprecated" Namespace="DotNetNuke.Web.UI.WebControls"%>
-
-<%@ Register TagPrefix="dnn" Namespace="DotNetNuke.Web.Client.ClientResourceManagement" Assembly="DotNetNuke.Web.Client" %>
-<%@ Register TagPrefix="dnn" TagName="jQuery" Src="~/Admin/Skins/jQuery.ascx" %>--%>
-
 <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js" type="text/javascript"></script>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" />
 
 
 <div class="dnnForm add-news">
-<%--<div class="dnnForm dnnEditBasicSettings add-news" id="dnnEditBasicSettings">--%>
-<%--    <div class="dnnFormExpandContent dnnRight ">
-        <a href="">
-            <%=LocalizeString("ExpandAll")%>
-        </a>
-    </div>--%>
-
-<%--    <h2 id="dnnSitePanel-BasicSettings" class="dnnFormSectionHead dnnClear">
-        <a href="" class="dnnSectionExpanded">
-            <%=LocalizeString("BasicSettings")%>
-        </a>
-    </h2>--%>
     <h3 class="dnnFormSectionHead">
             <%=LocalizeString("BasicSettings")%>
     </h3>
-
 
     <fieldset>
 
@@ -83,29 +64,5 @@
     </div>
 
 </div>
-
-<%--<script type="text/javascript">
-    /*globals jQuery, window, Sys */
-    (function ($, Sys) {
-        function dnnEditBasicSettings() {
-            $('#dnnEditBasicSettings').dnnPanels();
-            $('#dnnEditBasicSettings .dnnFormExpandContent a').dnnExpandAll({ expandText: '<%=Localization.GetString("ExpandAll", LocalResourceFile)%>', collapseText: '<%=Localization.GetString("CollapseAll", LocalResourceFile)%>', targetArea: '#dnnEditBasicSettings' });
-        }
-
-        $(function () {
-            $('[data-toggle="tooltip"]').tooltip({
-                placement: 'auto left'
-            })
-        });
-
-        $(document).ready(function () {
-            dnnEditBasicSettings();
-            Sys.WebForms.PageRequestManager.getInstance().add_endRequest(function () {
-                dnnEditBasicSettings();
-            });
-        });
-
-    }(jQuery, window.Sys));
-</script>--%>
 
 <script type="text/javascript" src="<%= ModulePath %>Js/main.js"></script>

@@ -262,6 +262,7 @@
         .list-group-item {
             float: left;
             clear: both;
+            width: 100%;
             margin-bottom: 0;
             border: $none;
             border-bottom: 1px solid $dark-alpha;
@@ -347,6 +348,7 @@
                 margin-top: 10px;
                 display: $none;
             }
+
             .btn {
                 padding: 4px 8px;
             }
@@ -383,7 +385,7 @@
             padding: 0 0 5px 0;
         }
     }
-background-image: url('info-icon.svg');
+
     .rpt-accordion {
 
         .list-group-item {
@@ -398,6 +400,7 @@ background-image: url('info-icon.svg');
                 margin-top: 5px;
                 display: $none;
             }
+
             .btn {
                 padding: 2px 7px;
             }

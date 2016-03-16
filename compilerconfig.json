@@ -1,10 +1,12 @@
-﻿[
+[
   {
     "outputFile": "module.css",
-    "inputFile": "module.scss"
+    "inputFile": "module.scss",
+    "sourceMap": false
   },
   {
     "outputFile": "variables.css",
-    "inputFile": "variables.scss"
+    "inputFile": "variables.scss",
+    "sourceMap": false
   }
 ]
