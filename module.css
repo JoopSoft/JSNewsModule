@@ -61,10 +61,10 @@
   background: transparent url(checkbox.png) no-repeat; }
 
 .dnnForm .dnnCheckbox img {
-  background-position: 1px 0px; }
+  background-position: 0px 0px; }
 
 .dnnForm .dnnCheckbox-checked img {
-  background-position: -51px 0px; }
+  background-position: -50px 0px; }
 
 .dnnForm .dnnCheckbox-disabled img {
   opacity: .5; }
@@ -76,9 +76,12 @@
   .dnnForm .dnnFormItem .news-image {
     width: auto;
     height: 35px;
-    display: inline-block;
-    margin-right: 10px;
-    border: 1px solid rgba(59, 30, 119, 0.7); }
+    float: left; }
+  .dnnForm .dnnFormItem .link-delete,
+  .dnnForm .dnnFormItem .link-delete {
+    height: 35px;
+    float: left;
+    margin-right: 10px; }
   .dnnForm .dnnFormItem select > option,
   .dnnForm .dnnFormItem select > option {
     color: #3b1e77; }
@@ -340,8 +343,7 @@
       text-decoration: none; }
       .panel .list-group .list-group-item > a.read-more {
         margin-top: 15px;
-        float: left;
-        clear: both; }
+        float: right; }
     .panel .list-group .list-group-item:focus, .panel .list-group .list-group-item:hover, .panel .list-group .list-group-item:active {
       color: #fff;
       background-color: rgba(59, 30, 119, 0.7); }
@@ -367,10 +369,17 @@
 .panel .rpt-list .list-group-item {
   padding: 10px; }
 
+.panel .rpt-list .no-img .list-group-item .teaser-txt {
+  width: 100%; }
+
+.panel .rpt-list .no-img .list-group-item > a.read-more {
+  clear: both; }
+
 .panel .rpt-list .pnl-admin .btn-group {
-  float: right;
-  margin-top: 10px;
-  display: none; }
+  display: none;
+  position: absolute;
+  top: 10px;
+  right: 10px; }
 
 .panel .rpt-list .pnl-admin .btn {
   padding: 4px 8px; }

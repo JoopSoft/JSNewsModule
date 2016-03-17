@@ -117,20 +117,8 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="AddItem.Text" xml:space="preserve">
-    <value>Add News</value>
-  </data>
-  <data name="AddNews.Text" xml:space="preserve">
-    <value>Add News</value>
-  </data>
   <data name="AllItems.Text" xml:space="preserve">
     <value>All News</value>
-  </data>
-  <data name="BasicSettings.Text" xml:space="preserve">
-    <value>Basic JSNewsModule Settings</value>
-  </data>
-  <data name="CollapseAll.Text" xml:space="preserve">
-    <value>Collapse All</value>
   </data>
   <data name="ConfirmDelete.Text" xml:space="preserve">
     <value>Are you sure you want to delete this Item</value>
@@ -141,16 +129,10 @@
   <data name="EditItem.Text" xml:space="preserve">
     <value>Edit</value>
   </data>
-  <data name="EditModule.Text" xml:space="preserve">
-    <value>Edit Module</value>
-  </data>
   <data name="NextItem.Text" xml:space="preserve">
     <value>Next</value>
   </data>
   <data name="PrevItem.Text" xml:space="preserve">
     <value>Previous</value>
-  </data>
-  <data name="Settings.Text" xml:space="preserve">
-    <value>Settings</value>
   </data>
 </root>

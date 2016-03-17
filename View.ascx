@@ -100,7 +100,6 @@
         </div>
     </asp:Panel>
 </div>
-<div class="clear"></div>
 
 <script type="text/javascript" src="<%= ModulePath %>Ellipsis/jquery.ellipsis.min.js"></script>
 <script type="text/javascript" src="<%= ModulePath %>Js/main.js"></script>

@@ -22,8 +22,6 @@
         }
     }
 
-
-
     h1, h2, h3, h4, h5, h6 {
         color: $dark;
         /*margin: 0 0 10px;*/
@@ -76,11 +74,11 @@
     }
 
     .dnnCheckbox img {
-        background-position: 1px 0px;
+        background-position: 0px 0px;
     }
 
     .dnnCheckbox-checked img {
-        background-position: -51px 0px;
+        background-position: -50px 0px;
     }
 
     .dnnCheckbox-disabled img {
@@ -94,9 +92,18 @@
         .news-image {
             width: auto;
             height: 35px;
-            display: inline-block;
+            //display: inline-block;
+            //margin-right: 10px;
+            //border: 1px solid $dark-alpha-lg;
+            float: left;
+
+        }
+
+        .link-delete {
+            height:35px;
+            float: left;
             margin-right: 10px;
-            border: 1px solid $dark-alpha-lg;
+
         }
 
         select > option {
@@ -349,8 +356,7 @@
 
                 &.read-more {
                     margin-top: 15px;
-                    float: left;
-                    clear: both;
+                    float: right;
                 }
             }
 
@@ -409,12 +415,26 @@
             padding: 10px;
         }
 
+        .no-img {
+            .list-group-item {
+
+                .teaser-txt {
+                    width: 100%;
+                }
+
+                > a.read-more {
+                    clear: both;
+                }
+            }
+        }
+
         .pnl-admin {
 
             .btn-group {
-                float: right;
-                margin-top: 10px;
                 display: $none;
+                position: absolute;
+                top: 10px;
+                right: 10px;                
             }
 
             .btn {
@@ -553,7 +573,7 @@
 
 
 
-.mark, mark {
-    padding: 0!important;
-    background-color: transparent!important;
-}
+    .mark, mark {
+        padding: 0 !important;
+        background-color: transparent !important;
+    }

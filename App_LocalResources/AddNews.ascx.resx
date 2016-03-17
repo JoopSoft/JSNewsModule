@@ -124,7 +124,7 @@
     <value>Save</value>
   </data>
   <data name="ControlTitle_edit.Text" xml:space="preserve">
-    <value>JSNewsModule Add/Edit News</value>
+    <value>JSNewsModule - Add/Edit News</value>
   </data>
   <data name="Title.Text" xml:space="preserve">
     <value>JSNewsModule - Add/Edit News</value>
@@ -187,6 +187,9 @@
     <value>Choose whether to show image or not.</value>
   </data>
   <data name="lblShowImg.Text" xml:space="preserve">
-    <value>Show News Image</value>
+    <value>Show Image</value>
+  </data>
+  <data name="btnDeleteImg.Text" xml:space="preserve">
+    <value>Delete</value>
   </data>
 </root>

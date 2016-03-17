@@ -45,6 +45,7 @@ namespace JS.Modules.JSNewsModule
                 var nc = new NewsController();
                 var n = nc.LoadNews(NewsId, ModuleId);
                 lblNewsTitle.Text = n.NewsTitle;
+                lnkPopUpImg.NavigateUrl = n.ImageUrl;
                 lblNewsDate.Visible = n.ShowNewsDate;
                 lblNewsDate.Text = n.NewsDate;
                 imgNewsImage.Visible = n.ShowNewsImg;

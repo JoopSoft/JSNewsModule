@@ -52,6 +52,8 @@
 
         $('a.dnnFormHelp').prepend($lnkInfo);
 
+        $('.add-news .link-delete').prepend($lnkDelete + ' ');
+
 
         $('.details-view .link-home').prepend($lnkHome + ' ');
         $('.details-view .link-back').prepend($lnkBack + ' ');
@@ -80,6 +82,13 @@
         //Sys.WebForms.PageRequestManager.getInstance().add_endRequest(function () {
         //    dnnEditBasicSettings();
         //});
+
+        if ($('a.link-popup').exists()) $('a.link-popup').fancybox({
+            'padding': 0,
+            'transitionIn': 'elastic',
+            'transitionOut': 'elastic',
+            'titleShow': false
+        });
     });
 
 }(jQuery, window.Sys));
