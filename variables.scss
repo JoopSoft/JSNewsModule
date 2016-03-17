@@ -12,6 +12,9 @@ $grey:              #ccc;
 $middle:            #999;
 $large:             #333;
 
+$activeColor: #27ae60; //green
+$darkenColor: darken($activeColor, 20%);
+
 $dark: rgba(59,30,119, 1);
 $dark-alpha-null: rgba(59,30,119, 0);
 $dark-alpha: rgba(59,30,119, 0.25);

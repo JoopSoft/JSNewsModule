@@ -124,19 +124,19 @@
     <value>Save</value>
   </data>
   <data name="ControlTitle_edit.Text" xml:space="preserve">
-    <value>Add/Edit News for JSNewsModule</value>
+    <value>JSNewsModule Add/Edit News</value>
   </data>
-  <data name="BasicSettings.Text" xml:space="preserve">
+  <data name="Title.Text" xml:space="preserve">
     <value>JSNewsModule Add/Edit News</value>
   </data>
   <data name="ExpandAll.Text" xml:space="preserve">
     <value>Expand All</value>
   </data>
   <data name="lblContent.Help" xml:space="preserve">
-    <value>Enter Full News Content</value>
+    <value>Enter Full News Text</value>
   </data>
   <data name="lblContent.Text" xml:space="preserve">
-    <value>News Full Content</value>
+    <value>Full Text</value>
   </data>
   <data name="lblDate.Help" xml:space="preserve">
     <value>Enter News Date</value>
@@ -151,10 +151,10 @@
     <value>Select From</value>
   </data>
   <data name="lblTeaserText.Help" xml:space="preserve">
-    <value>Enter Short News Content</value>
+    <value>Enter Short News Text</value>
   </data>
   <data name="lblTeaserText.Text" xml:space="preserve">
-    <value>Short News Content</value>
+    <value>Short Text</value>
   </data>
   <data name="lblTitle.Help" xml:space="preserve">
     <value>Enter News Title</value>
@@ -166,7 +166,7 @@
     <value>Upload New Image</value>
   </data>
   <data name="lblUploadImg.Text" xml:space="preserve">
-    <value>Upload New Image</value>
+    <value>Upload Image</value>
   </data>
   <data name="lblCustomOrderId.Help" xml:space="preserve">
     <value>Enter Number for Custom Order</value>

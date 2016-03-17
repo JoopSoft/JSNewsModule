@@ -117,9 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="BasicSettings.Text" xml:space="preserve">
-    <value>JSNewsModule Settings</value>
-  </data>
   <data name="ControlTitle_settings.Text" xml:space="preserve">
     <value>JSNewsModule Settings</value>
   </data>
@@ -194,5 +191,8 @@
   </data>
   <data name="lblViewMode.Text" xml:space="preserve">
     <value>View Mode</value>
+  </data>
+  <data name="Title.Text" xml:space="preserve">
+    <value>JSNewsModule Settings</value>
   </data>
 </root>

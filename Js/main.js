@@ -35,7 +35,7 @@
 
         //CUTTING TEXT BY ELLIPSIS PLUGIN
         if ($('.rpt-list .teaser-txt').exists()) $('.rpt-list .teaser-txt').ellipsis({
-            row: 3,
+            row: 5,
             onlyFullWords: true
         });
 

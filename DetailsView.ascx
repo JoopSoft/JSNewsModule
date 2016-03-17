@@ -9,7 +9,7 @@
         <h3 class="panel-title">
             <asp:Label ID="lblNewsTitle" runat="server" />
         </h3>
-        <asp:Label ID="lblNewsDate" runat="server" CssClass="" />
+        <asp:Label ID="lblNewsDate" runat="server" CssClass="date" />
     </div>
     <div class="panel-body">
         <asp:Image ID="imgNewsImage" runat="server" CssClass="news-image" />

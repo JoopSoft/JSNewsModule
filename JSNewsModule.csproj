@@ -106,14 +106,17 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="checkbox.png" />
     <Content Include="Documentation\Documentation.css" />
     <Content Include="Documentation\Documentation.html" />
     <Content Include="AddNews.ascx" />
     <Content Include="Ellipsis\jquery.ellipsis.js" />
     <Content Include="Ellipsis\jquery.ellipsis.min.js" />
+    <Content Include="h-icon.png" />
     <Content Include="icon.png" />
     <Content Include="Images\sheviza3.jpg" />
     <Content Include="Images\Uploaded Images.jpg" />
+    <Content Include="Images\Uploaded Images.png" />
     <Content Include="Js\main.js" />
     <Content Include="License.txt" />
     <Content Include="module.css">

@@ -2,13 +2,13 @@
   <packages>
     <package name="JSNewsModule" type="Module" version="00.00.01">
       <friendlyName>JSNewsModule</friendlyName>
-      <description>JoopSoft JSNewsModule module</description>
+      <description>JSNewsModule allows you to create news items, modify an existing items, delete items, change the items order and etc.</description>
       <iconFile>icon.png</iconFile>
       <owner>
-        <name>JoopSoft</name>
-        <organization>JoopSoft</organization>
+        <name>JoopSOFT Ltd.</name>
+        <organization>JoopSOFT Ltd.</organization>
         <url>http://www.joopsoft.com/</url>
-        <email>modules@joopsoft.com</email>
+        <email>devmod@joopsoft.com</email>
       </owner>
       <license src="License.txt"></license>
       <releaseNotes src="ReleaseNotes.txt"></releaseNotes>

@@ -9,12 +9,13 @@
 
 
 <div class="dnnForm add-news">
-    <h3 class="dnnFormSectionHead">
-            <%=LocalizeString("BasicSettings")%>
-    </h3>
+    <div class="dnnFormSectionHead">
+        <h3 class="dnnFormMessage dnnFormInfo">
+            <%=LocalizeString("Title")%>
+        </h3>
+    </div>
 
     <fieldset>
-
         <div class="dnnFormItem">
             <dnn:label ID="lblTitle" runat="server" />
             <asp:TextBox ID="txtTitle" runat="server" CssClass="form-control" />
@@ -23,14 +24,13 @@
             <dnn:label ID="lblDate" runat="server" />
             <asp:TextBox ID="txtDate" runat="server" TextMode="Date" CssClass="form-control" />
         </div>
-
         <div class="dnnFormItem">
             <dnn:label ID="lblImgUrl" runat="server" />
             <asp:DropDownList ID="imgList" runat="server" CssClass="form-control" AutoPostBack="True" OnSelectedIndexChanged="Image_Selected"/>
         </div>
         <div class="dnnFormItem">
             <dnn:label ID="lblImgSelected" runat="server" />
-            <asp:Image ID="imgPreview" runat="server" CssClass="news-image" AlternateText="News image" ImageUrl="~/DesktopModules/JSNewsModule/Images/Uploaded Images.jpg" />
+            <asp:Image ID="imgPreview" runat="server" CssClass="news-image" AlternateText="News image" ImageUrl="~/DesktopModules/JSNewsModule/Images/Uploaded Images.png" />
             <asp:TextBox ID="txtImgUrl" runat="server" CssClass="form-control" Visible="true" Enabled="false" />
         </div>        
         <div class="dnnFormItem">
@@ -38,15 +38,13 @@
             <asp:FileUpload ID="btnImgSelect" runat="server" />
             <asp:LinkButton ID="btnImgUpload" runat="server" ResourceKey="btnUpload.Text" CssClass="dnnSecondaryAction link-upload" OnClick="btnImgUpload_Click" />
         </div>
-
         <div class="dnnFormItem">
             <dnn:label ID="lblTeaserText" runat="server" />
-            <asp:TextBox ID="txtTeaserText" runat="server" TextMode="MultiLine" Rows="5" Columns="20" CssClass="form-control" />
+            <asp:TextBox ID="txtTeaserText" runat="server" TextMode="MultiLine" CssClass="form-control teaser-txt" />
         </div>
-
         <div class="dnnFormItem">
             <dnn:label ID="lblContent" runat="server" />
-            <asp:TextBox ID="txtContent" runat="server" TextMode="MultiLine" Rows="10" Columns="20" CssClass="form-control" />
+            <asp:TextBox ID="txtContent" runat="server" TextMode="MultiLine" CssClass="form-control body-txt" />
             
             <%--Rich text editor--%>
             <%--<dnn:texteditor ID="txtContentRichTxt" runat="server" CssClass="form-control" />--%>
@@ -55,14 +53,13 @@
             <dnn:label ID="lblCustomOrderId" runat="server" />
             <asp:TextBox ID="txtCustomOrderId" runat="server" CssClass="form-control" text="0"/>
         </div>
+        <div class="dnnFormItem controls">
+            <asp:LinkButton ID="btnSubmit" runat="server"
+                OnClick="btnSubmit_Click" resourcekey="btnSubmit" CssClass="btn btn-primary link-save" />
+            <asp:LinkButton ID="btnCancel" runat="server"
+                OnClick="btnCancel_Click" resourcekey="btnCancel" CssClass="btn btn-default link-cancel" />
+        </div>
     </fieldset>
-    <div class="dnnFormItem controls">
-        <asp:LinkButton ID="btnSubmit" runat="server"
-            OnClick="btnSubmit_Click" resourcekey="btnSubmit" CssClass="btn btn-primary link-save" />
-        <asp:LinkButton ID="btnCancel" runat="server"
-            OnClick="btnCancel_Click" resourcekey="btnCancel" CssClass="btn btn-default link-cancel" />
-    </div>
-
 </div>
 
 <script type="text/javascript" src="<%= ModulePath %>Js/main.js"></script>
