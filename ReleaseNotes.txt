@@ -1,9 +1,9 @@
 ﻿<h4>JSNewsModule</h4>
 <b>Version</b><br />00.00.01
 
-<b>Description</b><br />JSNewsModule allows you to create news items, modify an existing items, delete items, change the items order and etc.</description><br />
+<b>Description</b><br />JSNewsModule allows you to create news items, modify an existing items, delete items, change the items order and etc.<br />
 <br />
 <span class="Contributor">	
 	<b>JoopSOFT Ltd.</b><br />
-	<a href="mailto:modules@joopsoft.com">modules@joopsoft.com</a><br /><a href=http://www.joopsoft.com>www.joopsoft.com</a><br />
+	<a href="mailto:devmod@joopsoft.com">devmod@joopsoft.com</a><br /><a href=http://www.joopsoft.com>www.joopsoft.com</a><br />
 </span>

@@ -1,9 +1,9 @@
 ﻿/*globals jQuery, window, Sys */
 (function ($, Sys) {
-    function dnnEditBasicSettings() {
-        $('#dnnEditBasicSettings').dnnPanels();
-        $('#dnnEditBasicSettings .dnnFormExpandContent a').dnnExpandAll({ expandText: '<%=Localization.GetString("ExpandAll", LocalResourceFile)%>', collapseText: '<%=Localization.GetString("CollapseAll", LocalResourceFile)%>', targetArea: '#dnnEditBasicSettings' });
-    }
+    //function dnnEditBasicSettings() {
+    //    $('#dnnEditBasicSettings').dnnPanels();
+    //    $('#dnnEditBasicSettings .dnnFormExpandContent a').dnnExpandAll({ expandText: '<%=Localization.GetString("ExpandAll", LocalResourceFile)%>', collapseText: '<%=Localization.GetString("CollapseAll", LocalResourceFile)%>', targetArea: '#dnnEditBasicSettings' });
+    //}
 
     $(function () {
         $('[data-toggle="tooltip"]').tooltip({
@@ -76,10 +76,10 @@
         $('.collapse').collapse();
 
 
-        dnnEditBasicSettings();
-        Sys.WebForms.PageRequestManager.getInstance().add_endRequest(function () {
-            dnnEditBasicSettings();
-        });
+        //dnnEditBasicSettings();
+        //Sys.WebForms.PageRequestManager.getInstance().add_endRequest(function () {
+        //    dnnEditBasicSettings();
+        //});
     });
 
 }(jQuery, window.Sys));
