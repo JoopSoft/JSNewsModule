@@ -43,6 +43,7 @@ namespace JS.Modules.JSNewsModule.Components
         public string BackText { get; set; }
         public bool ShowHome { get; set; }
         public string HomeText { get; set; }
+        public string NewsStyle { get; set; }
         public int ModuleId { get; set; }
 
     }

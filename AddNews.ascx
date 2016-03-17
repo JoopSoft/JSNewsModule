@@ -25,12 +25,16 @@
             <asp:TextBox ID="txtDate" runat="server" TextMode="Date" CssClass="form-control" />
         </div>
         <div class="dnnFormItem">
+            <dnn:label ID="lblShowImg" runat="server" />
+            <asp:CheckBox ID="cbShowImg" runat="server" OnCheckedChanged="cbShowImg_CheckedChanged" AutoPostBack="true" />
+        </div>
+        <div class="dnnFormItem">
             <dnn:label ID="lblImgUrl" runat="server" />
             <asp:DropDownList ID="imgList" runat="server" CssClass="form-control" AutoPostBack="True" OnSelectedIndexChanged="Image_Selected"/>
         </div>
         <div class="dnnFormItem">
             <dnn:label ID="lblImgSelected" runat="server" />
-            <asp:Image ID="imgPreview" runat="server" CssClass="news-image" AlternateText="News image" ImageUrl="~/DesktopModules/JSNewsModule/Images/Uploaded Images.png" />
+            <asp:Image ID="imgPreview" runat="server" CssClass="news-image" AlternateText="News image" ImageUrl="~/DesktopModules/JSNewsModule/Images/Default Image.png" />
             <asp:TextBox ID="txtImgUrl" runat="server" CssClass="form-control" Visible="true" Enabled="false" />
         </div>        
         <div class="dnnFormItem">

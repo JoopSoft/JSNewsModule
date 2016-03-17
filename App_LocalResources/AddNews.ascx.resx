@@ -183,4 +183,10 @@
   <data name="lblImgSelected.Text" xml:space="preserve">
     <value>Selected image</value>
   </data>
+  <data name="lblShowImg.Help" xml:space="preserve">
+    <value>Choose whether to show image or not.</value>
+  </data>
+  <data name="lblShowImg.Text" xml:space="preserve">
+    <value>Show News Image</value>
+  </data>
 </root>

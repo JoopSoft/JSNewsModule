@@ -53,7 +53,14 @@ namespace JS.Modules.JSNewsModule
                     }
                     var s = sc.LoadSingleSettings(TModuleId);
                     lblDate.Visible = txtDate.Visible = s.ShowNewsDate;
-                    lblImgUrl.Visible = imgList.Visible = lblImgSelected.Visible = imgPreview.Visible = txtImgUrl.Visible = lblUploadImg.Visible = btnImgSelect.Visible = btnImgUpload.Visible = s.ShowNewsImg;
+                    lblShowImg.Visible = cbShowImg.Visible = cbShowImg.Checked = s.ShowNewsImg && s.ShowReadMore;
+                    var nc = new NewsController();
+                    if (NewsId > 0)
+                    {
+                        var n = nc.LoadNews(NewsId, ModuleId);
+                        cbShowImg.Checked = n.ShowNewsImg;
+                    }
+                    lblImgUrl.Visible = imgList.Visible = lblImgSelected.Visible = imgPreview.Visible = txtImgUrl.Visible = lblUploadImg.Visible = btnImgSelect.Visible = btnImgUpload.Visible = s.ShowNewsImg && cbShowImg.Checked;
                     lblCustomOrderId.Visible = txtCustomOrderId.Visible = (s.ShowCustomOrderId && s.IsSorted);
                     var li = new ListItem("Default Image", "Default Image.png");
                     imgList.Items.Add(li);
@@ -67,24 +74,28 @@ namespace JS.Modules.JSNewsModule
                             imgList.Items.Add(new ListItem(filename, img));
                         }
                     }
-
+                    txtImgUrl.Text = imgList.SelectedValue;
                     //check if we have an ID passed in via a querystring parameter, if so, load that item to edit.
                     //ItemId is defined in the ItemModuleBase.cs file
                     if (NewsId > 0)
                     {
-                        var nc = new NewsController();
-
                         var n = nc.LoadNews(NewsId, ModuleId);
                         if (n != null)
                         {
+                            string name = n.ImageUrl.Replace("~/DesktopModules/JSNewsModule/Images/", "");
                             txtCustomOrderId.Text = n.CustomOrderId.ToString();
                             txtTitle.Text = n.NewsTitle;
                             txtDate.Text = n.NewsDate;
-                            txtImgUrl.Text = n.ImageUrl;
+                            cbShowImg.Checked = n.ShowNewsImg;
+                            txtImgUrl.Text = name;
                             txtTeaserText.Text = n.NewsTeaserText;
                             txtContent.Text = n.NewsContent;
-                            imgPreview.ImageUrl = txtImgUrl.Text;
+                            imgPreview.ImageUrl = n.ImageUrl;
                         }
+                    }
+                    else
+                    {
+                        txtImgUrl.Text = imgList.SelectedValue;
                     }
                 }
             }
@@ -101,6 +112,7 @@ namespace JS.Modules.JSNewsModule
             var n = new News();
             var nc = new NewsController();
             var sc = new SettingsController();
+            string style = "";
             int TModuleId = 0;
             var ts = sc.LoadSettings();
             foreach (CustomSettings ns in ts)
@@ -119,8 +131,8 @@ namespace JS.Modules.JSNewsModule
                 n.NewsTitle = txtTitle.Text.Trim();
                 n.ShowNewsDate = s.ShowNewsDate;
                 n.NewsDate = txtDate.Text.Trim();
-                n.ShowNewsImg = s.ShowNewsImg;
-                n.ImageUrl = txtImgUrl.Text.Trim();
+                n.ShowNewsImg = s.ShowNewsImg && cbShowImg.Checked;
+                n.ImageUrl = imgPreview.ImageUrl;
                 n.NewsTeaserText = txtTeaserText.Text.Trim();
                 n.NewsContent = txtContent.Text.Trim();
                 n.ShowReadMore = s.ShowReadMore;
@@ -138,7 +150,7 @@ namespace JS.Modules.JSNewsModule
                     NewsTitle = txtTitle.Text.Trim(),
                     ShowNewsDate = s.ShowNewsDate,
                     NewsDate = txtDate.Text.Trim(),
-                    ShowNewsImg = s.ShowNewsImg,
+                    ShowNewsImg = s.ShowNewsImg && cbShowImg.Checked,
                     ImageUrl = imgPreview.ImageUrl,
                     NewsTeaserText = txtTeaserText.Text.Trim(),
                     NewsContent = txtContent.Text.Trim(),
@@ -147,10 +159,55 @@ namespace JS.Modules.JSNewsModule
                     ShowBack = s.ShowBack,
                     BackText = s.BackText,
                     ShowHome = s.ShowHome,
-                    HomeText = s.HomeText
-                };
+                    HomeText = s.HomeText,
+            };
             }
+            #region News Style Rotation
+            if (n.ShowNewsDate)
+            {
+                if (n.ShowNewsImg)
+                {
+                    switch (n.ShowReadMore)
+                    {
+                        case true:
+                            style = "";
+                            break;
+                        case false:
+                            style = "no-read-more";
+                            break;
+                        default:
+                            break;
+                    }
+                }
+                else
+                {
+                    style = "no-img";
+                }
+            }
+            else
+            {
+                if (n.ShowNewsImg)
+                {
+                    switch (n.ShowReadMore)
+                    {
+                        case true:
+                            style = "no-date";
+                            break;
+                        case false:
+                            style = "no-date no-read-more";
+                            break;
+                        default:
+                            break;
+                    }
+                }
+                else
+                {
+                    style = "no-date no-img";
+                }
+            }
+            #endregion
 
+            n.NewsStyle = style;
             n.ModuleId = ModuleId;
 
             if (n.NewsId > 0)
@@ -206,6 +263,11 @@ namespace JS.Modules.JSNewsModule
                 txtImgUrl.Text = imgList.SelectedItem.ToString();
             }
             imgPreview.ImageUrl = "~/DesktopModules/JSNewsModule/Images/" + txtImgUrl.Text;
+        }
+
+        protected void cbShowImg_CheckedChanged(object sender, EventArgs e)
+        {
+            lblImgUrl.Visible = imgList.Visible = lblImgSelected.Visible = imgPreview.Visible = txtImgUrl.Visible = lblUploadImg.Visible = btnImgSelect.Visible = btnImgUpload.Visible = cbShowImg.Checked;
         }
     }
 }

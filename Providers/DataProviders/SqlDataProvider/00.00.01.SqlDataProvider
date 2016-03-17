@@ -30,6 +30,7 @@ CREATE TABLE {databaseOwner}{objectQualifier}JSNewsModule_News
 	[BackText] NVARCHAR(MAX) NULL,
 	[ShowHome] BIT NULL,
 	[HomeText] NVARCHAR(MAX) NULL,
+	[NewsStyle] NVARCHAR(MAX) NULL,
 	[ModuleId] INT NOT NULL
 )
 GO

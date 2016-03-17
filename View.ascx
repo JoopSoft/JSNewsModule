@@ -14,28 +14,30 @@
                 <HeaderTemplate></HeaderTemplate>
 
                 <ItemTemplate>
-                    <div class="list-group-item">
-                        <div class="panel-heading">
-                            <h3 class="panel-title">
-                                <asp:Label ID="lblNewsTitle" runat="server" Text='<%#DataBinder.Eval(Container.DataItem,"NewsTitle").ToString() %>' />
-                            </h3>
-                            <asp:Label ID="lblNewsDate" runat="server" CssClass="" Text='<%#DataBinder.Eval(Container.DataItem,"NewsDate").ToString() %>' Visible='<%#((DataBinder.Eval(Container.DataItem,"ShowNewsDate")!=null) && ((bool)DataBinder.Eval(Container.DataItem,"ShowNewsDate")==true)) %>' />
-                        </div>
-                        <asp:HyperLink ID="lnkImg" runat="server" CssClass="link-image">
-                            <asp:Image ID="imgNewsImage" runat="server" CssClass="news-image" ImageUrl='<%#DataBinder.Eval(Container.DataItem, "ImageUrl").ToString() %>' Visible='<%#((DataBinder.Eval(Container.DataItem,"ShowNewsImg")!=null) && ((bool)DataBinder.Eval(Container.DataItem,"ShowNewsImg")==true)) %>' />
-                        </asp:HyperLink>
-                        <asp:Label ID="lblNewsTeaserText" runat="server" CssClass="teaser-txt" Text='<%#DataBinder.Eval(Container.DataItem,"NewsTeaserText").ToString() %>' />
-                        <asp:HyperLink ID="btnReadMoreList" runat="server" CssClass="btn btn-primary read-more" Text='<%#DataBinder.Eval(Container.DataItem,"ReadMoreText").ToString() %>' Visible='<%#((DataBinder.Eval(Container.DataItem,"ShowReadMore")!=null) && ((bool)DataBinder.Eval(Container.DataItem,"ShowReadMore")==true)) %>' />
-
-                        <%--EDIT MODE GROUP BUTTONS--%>
-                        <asp:Panel ID="pnlAdmin" runat="server" Visible="false" CssClass="pnl-admin">
-                            <div class="btn-group" role="group" aria-label="Control buttons">
-                                <asp:HyperLink ID="lnkAdd" runat="server" CssClass="btn btn-default link-add" ResourceKey="AddItem.Text" Visible="false" Enabled="false" />
-                                <asp:HyperLink ID="lnkEdit" runat="server" CssClass="btn btn-default link-edit" ResourceKey="EditItem.Text" Visible="false" Enabled="false" />
-                                <asp:LinkButton ID="lnkDelete" runat="server" CssClass="btn btn-danger link-delete" ResourceKey="DeleteItem.Text" Visible="false" Enabled="false" CommandName="Delete" />
+                    <asp:Panel ID="styleControl" runat="server" CssClass='<%#DataBinder.Eval(Container.DataItem,"NewsStyle").ToString() %>' >
+                        <div class="list-group-item">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">
+                                    <asp:Label ID="lblNewsTitle" runat="server" Text='<%#DataBinder.Eval(Container.DataItem,"NewsTitle").ToString() %>' />
+                                </h3>
+                                <asp:Label ID="lblNewsDate" runat="server" CssClass="" Text='<%#DataBinder.Eval(Container.DataItem,"NewsDate").ToString() %>' Visible='<%#((DataBinder.Eval(Container.DataItem,"ShowNewsDate")!=null) && ((bool)DataBinder.Eval(Container.DataItem,"ShowNewsDate")==true)) %>' />
                             </div>
-                        </asp:Panel>
-                    </div>
+                            <asp:HyperLink ID="lnkImg" runat="server" CssClass="link-image">
+                                <asp:Image ID="imgNewsImage" runat="server" CssClass="news-image" ImageUrl='<%#DataBinder.Eval(Container.DataItem, "ImageUrl").ToString() %>' Visible='<%#((DataBinder.Eval(Container.DataItem,"ShowNewsImg")!=null) && ((bool)DataBinder.Eval(Container.DataItem,"ShowNewsImg")==true)) %>' />
+                            </asp:HyperLink>
+                            <asp:Label ID="lblNewsTeaserText" runat="server" CssClass="teaser-txt" Text='<%#DataBinder.Eval(Container.DataItem,"NewsTeaserText").ToString() %>' />
+                            <asp:HyperLink ID="btnReadMoreList" runat="server" CssClass="btn btn-primary read-more" Text='<%#DataBinder.Eval(Container.DataItem,"ReadMoreText").ToString() %>' Visible='<%#((DataBinder.Eval(Container.DataItem,"ShowReadMore")!=null) && ((bool)DataBinder.Eval(Container.DataItem,"ShowReadMore")==true)) %>' />
+
+                            <%--EDIT MODE GROUP BUTTONS--%>
+                            <asp:Panel ID="pnlAdmin" runat="server" Visible="false" CssClass="pnl-admin">
+                                <div class="btn-group" role="group" aria-label="Control buttons">
+                                    <asp:HyperLink ID="lnkAdd" runat="server" CssClass="btn btn-default link-add" ResourceKey="AddItem.Text" Visible="false" Enabled="false" />
+                                    <asp:HyperLink ID="lnkEdit" runat="server" CssClass="btn btn-default link-edit" ResourceKey="EditItem.Text" Visible="false" Enabled="false" />
+                                    <asp:LinkButton ID="lnkDelete" runat="server" CssClass="btn btn-danger link-delete" ResourceKey="DeleteItem.Text" Visible="false" Enabled="false" CommandName="Delete" />
+                                </div>
+                            </asp:Panel>
+                        </div>
+                    </asp:Panel>
                 </ItemTemplate>
 
                 <FooterTemplate>

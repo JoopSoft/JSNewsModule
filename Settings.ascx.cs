@@ -155,6 +155,7 @@ namespace JS.Modules.JSNewsModule
                     };
                     foreach (News n in an)
                     {
+                        string style = "";
                         n.ShowCustomOrderId = ns.ShowCustomOrderId;
                         n.ShowNewsDate = ns.ShowNewsDate;
                         n.ShowNewsImg = ns.ShowNewsImg;
@@ -164,6 +165,51 @@ namespace JS.Modules.JSNewsModule
                         n.BackText = ns.BackText;
                         n.ShowHome = ns.ShowHome;
                         n.HomeText = ns.HomeText;
+                        #region News Style Rotation
+                        if (n.ShowNewsDate)
+                        {
+                            if (n.ShowNewsImg)
+                            {
+                                switch (n.ShowReadMore)
+                                {
+                                    case true:
+                                        style = "";
+                                        break;
+                                    case false:
+                                        style = "no-read-more";
+                                        break;
+                                    default:
+                                        break;
+                                }
+                            }
+                            else
+                            {
+                                style = "no-img";
+                            }
+                        }
+                        else
+                        {
+                            if (n.ShowNewsImg)
+                            {
+                                switch (n.ShowReadMore)
+                                {
+                                    case true:
+                                        style = "no-date";
+                                        break;
+                                    case false:
+                                        style = "no-date no-read-more";
+                                        break;
+                                    default:
+                                        break;
+                                }
+                            }
+                            else
+                            {
+                                style = "no-date no-img";
+                            }
+                        }
+                        #endregion
+                        n.NewsStyle = style;
                         nc.UpdateNews(n);
                     }
                     sc.AddSettings(ns);
@@ -187,6 +233,7 @@ namespace JS.Modules.JSNewsModule
                     s.SortType = sortTypeTemp;
                     foreach (News n in an)
                     {
+                        string style = "";
                         n.ShowCustomOrderId = s.ShowCustomOrderId;
                         n.ShowNewsDate = s.ShowNewsDate;
                         n.ShowNewsImg = s.ShowNewsImg;
@@ -196,6 +243,51 @@ namespace JS.Modules.JSNewsModule
                         n.BackText = s.BackText;
                         n.ShowHome = s.ShowHome;
                         n.HomeText = s.HomeText;
+                        #region News Style Rotation
+                        if (n.ShowNewsDate)
+                        {
+                            if (n.ShowNewsImg)
+                            {
+                                switch (n.ShowReadMore)
+                                {
+                                    case true:
+                                        style = "";
+                                        break;
+                                    case false:
+                                        style = "no-read-more";
+                                        break;
+                                    default:
+                                        break;
+                                }
+                            }
+                            else
+                            {
+                                style = "no-img";
+                            }
+                        }
+                        else
+                        {
+                            if (n.ShowNewsImg)
+                            {
+                                switch (n.ShowReadMore)
+                                {
+                                    case true:
+                                        style = "no-date";
+                                        break;
+                                    case false:
+                                        style = "no-date no-read-more";
+                                        break;
+                                    default:
+                                        break;
+                                }
+                            }
+                            else
+                            {
+                                style = "no-date no-img";
+                            }
+                        }
+                        #endregion
+                        n.NewsStyle = style;
                         nc.UpdateNews(n);
                     }
                     sc.UpdateSettings(s);
