@@ -114,7 +114,7 @@
     <Content Include="Ellipsis\jquery.ellipsis.min.js" />
     <Content Include="h-icon.png" />
     <Content Include="icon.png" />
-    <Content Include="Images\sheviza3.jpg" />
+    <Content Include="Images\Default Image.png" />
     <Content Include="Js\main.js" />
     <Content Include="License.txt" />
     <Content Include="module.css">
