@@ -450,10 +450,10 @@
   -o-box-shadow: none;
   box-shadow: none; }
   .panel.details-view .pnl-admin {
-    position: relative;
-    text-align: right;
-    margin-top: 10px;
-    display: none; }
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    margin: 0; }
   .panel.details-view .news-image {
     float: left;
     padding: 0 15px 10px 0;
@@ -473,8 +473,6 @@
     border-radius: 0; }
   .panel.details-view .panel-body {
     text-align: justify; }
-    .panel.details-view .panel-body:hover .pnl-admin {
-      display: block; }
   .panel.details-view .panel-footer {
     background-color: transparent;
     border-top: 1px solid rgba(59, 30, 119, 0.25); }

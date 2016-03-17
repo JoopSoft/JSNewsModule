@@ -434,7 +434,7 @@
                 display: $none;
                 position: absolute;
                 top: 10px;
-                right: 10px;                
+                right: 10px;
             }
 
             .btn {
@@ -522,10 +522,10 @@
         @include box-shadow($none);
 
         .pnl-admin {
-            position: relative;
-            text-align: right;
-            margin-top: 10px;
-            display: $none;
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            margin: 0;
         }
 
         .news-image {
@@ -553,15 +553,6 @@
 
         .panel-body {
             text-align: justify;
-
-            &:hover {
-                .pnl-admin {
-                    display: block;
-
-                    .btn-group {
-                    }
-                }
-            }
         }
 
         .panel-footer {
