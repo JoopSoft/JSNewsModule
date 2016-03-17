@@ -70,7 +70,7 @@ GO
 INSERT INTO {databaseOwner}[{objectQualifier}JSNewsModule_Settings]
 ([SettingsId], [ViewMode], [ShowNewsDate], [ShowNewsImg], [ShowReadMore], [ReadMoreText], [ShowBack], [BackText], [ShowHome], [HomeText], [ShowCustomOrderId], [IsSorted], [SortBy], [SortType])
 VALUES
-(0, 'List', 1, 1, 1, 'Read More', 1, 'Back', 1, 'Home', 0, 0, 'Date', 'ASC')
+(0, 'List', 1, 1, 1, 'Read More', 1, 'Back', 0, 'Home', 0, 0, 'Date', 'ASC')
 GO
 
 

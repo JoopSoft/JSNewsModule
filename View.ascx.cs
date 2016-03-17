@@ -56,6 +56,50 @@ namespace JS.Modules.JSNewsModule
                     }
                 }
                 cs = sc.LoadSingleSettings(TModuleId);
+                #region pnlList CssClass rotation
+                if (cs.ShowNewsDate)
+                {
+                    if (cs.ShowNewsImg)
+                    {
+                        switch (cs.ShowReadMore)
+                        {
+                            case true:
+                                pnlList.CssClass = "rpt-list";
+                                break;
+                            case false:
+                                pnlList.CssClass = "rpt-list no-read-more";
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                    else
+                    {
+                        pnlList.CssClass = "rpt-list no-img";
+                    }
+                }
+                else
+                {
+                    if (cs.ShowNewsImg)
+                    {
+                        switch (cs.ShowReadMore)
+                        {
+                            case true:
+                                pnlList.CssClass = "rpt-list no-date";
+                                break;
+                            case false:
+                                pnlList.CssClass = "rpt-list no-date no-read-more";
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                    else
+                    {
+                        pnlList.CssClass = "rpt-list no-date no-img";
+                    }
+                }
+                #endregion
                 switch (cs.ViewMode)
                 {
                     case "List":

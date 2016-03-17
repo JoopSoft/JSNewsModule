@@ -20,12 +20,12 @@
         <div class="dnnFormItem">
             <dnn:Label ID="lblShowNewsImg" runat="server" />
             <asp:CheckBox ID="cbShowNewsImg" runat="server" OnCheckedChanged="cbShowNewsImg_CheckedChanged" AutoPostBack="true" />
-            <asp:TextBox ID="lblStatImgMsg" runat="server" Enabled="false" Text="*Notes: News image must be checked" />
+            <asp:TextBox ID="lblStatImgMsg" runat="server" Enabled="false" Text="*Notes: Read more button must be checked" />
         </div>
         <div class="dnnFormItem">
             <dnn:Label ID="lblShowReadMore" runat="server" />
             <asp:CheckBox ID="cbShowReadMore" runat="server" AutoPostBack="true" OnCheckedChanged="cbShowReadMore_CheckedChanged" />
-            <asp:TextBox ID="lblStatReadMoreMsg" runat="server" CssClass="form-control" Enabled="false" Text="*Notes: Read more button must be checked" />
+            <asp:TextBox ID="lblStatReadMoreMsg" runat="server" CssClass="form-control" Enabled="false" Text="*Notes: News image must be checked" />
         </div>
         <div class="dnnFormItem">
             <dnn:Label ID="lblReadMoreText" runat="server" />

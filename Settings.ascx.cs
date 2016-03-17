@@ -78,7 +78,6 @@ namespace JS.Modules.JSNewsModule
                             cbIsSorted.Checked = lblSortBy.Visible = sortByList.Visible = lblSortType.Visible = sortTypeList.Visible = s.IsSorted;
                             sortByList.SelectedValue = s.SortBy;
                             sortTypeList.SelectedValue = s.SortType;
-                            return;
                         }
                         else
                         {
@@ -98,6 +97,10 @@ namespace JS.Modules.JSNewsModule
                         }
                     }
                 }
+                cbShowReadMore.Enabled = cbShowNewsImg.Checked;
+                cbShowNewsImg.Enabled = cbShowReadMore.Checked;
+                lblStatImgMsg.Visible = !cbShowReadMore.Checked;
+                lblStatReadMoreMsg.Visible = !cbShowNewsImg.Checked;
             }
             catch (Exception exc) //Module failed to load
             {
@@ -208,13 +211,20 @@ namespace JS.Modules.JSNewsModule
 
         #endregion
 
+        protected void cbShowNewsImg_CheckedChanged(object sender, EventArgs e)
+        {
+            cbShowReadMore.Enabled = cbShowNewsImg.Checked;
+            lblStatReadMoreMsg.Visible = !cbShowNewsImg.Checked;
+            lblReadMoreText.Visible = txtReadMoreText.Visible = true;
+        }
+
         protected void cbShowReadMore_CheckedChanged(object sender, EventArgs e)
         {
+            cbShowNewsImg.Enabled = cbShowReadMore.Checked;
+            lblStatImgMsg.Visible = !cbShowReadMore.Checked;
+            lblStatReadMoreMsg.Visible = !cbShowNewsImg.Checked;
+
             lblReadMoreText.Visible = txtReadMoreText.Visible = cbShowReadMore.Checked;
-            if (!cbShowReadMore.Checked)
-            {
-                cbShowNewsImg.Checked = true;
-            }
         }
 
         protected void cbShowBack_CheckedChanged(object sender, EventArgs e)
@@ -233,13 +243,5 @@ namespace JS.Modules.JSNewsModule
             lblSortType.Visible = sortTypeList.Visible = cbIsSorted.Checked;
         }
 
-        protected void cbShowNewsImg_CheckedChanged(object sender, EventArgs e)
-        {
-            if (!cbShowNewsImg.Checked)
-            {
-                cbShowReadMore.Checked = true;
-                lblReadMoreText.Visible = txtReadMoreText.Visible = true;
-            }
-        }
     }
 }
