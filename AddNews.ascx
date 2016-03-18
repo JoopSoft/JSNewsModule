@@ -6,7 +6,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js" type="text/javascript"></script>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" />
 
-
 <div class="dnnForm add-news">
     <div class="dnnFormSectionHead">
         <h3 class="dnnFormMessage dnnFormTitle dnnFormIcon">
