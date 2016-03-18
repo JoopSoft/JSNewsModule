@@ -101,6 +101,14 @@ namespace JS.Modules.JSNewsModule
                 cbShowNewsImg.Enabled = cbShowReadMore.Checked;
                 lblStatImgMsg.Visible = !cbShowReadMore.Checked;
                 lblStatReadMoreMsg.Visible = !cbShowNewsImg.Checked;
+                if (viewModeList.SelectedValue == "Accordion")
+                {
+                    lblShowNewsImg.Visible = cbShowNewsImg.Visible = lblShowReadMore.Visible = cbShowReadMore.Visible = lblReadMoreText.Visible = txtReadMoreText.Visible = false;
+                }
+                else
+                {
+                    lblShowNewsImg.Visible = cbShowNewsImg.Visible = lblShowReadMore.Visible = cbShowReadMore.Visible = lblReadMoreText.Visible = txtReadMoreText.Visible = true;
+                }
             }
             catch (Exception exc) //Module failed to load
             {
@@ -335,5 +343,16 @@ namespace JS.Modules.JSNewsModule
             lblSortType.Visible = sortTypeList.Visible = cbIsSorted.Checked;
         }
 
+        protected void viewModeList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (viewModeList.SelectedValue == "Accordion")
+            {
+                lblShowNewsImg.Visible = cbShowNewsImg.Visible = lblShowReadMore.Visible = cbShowReadMore.Visible = lblReadMoreText.Visible = txtReadMoreText.Visible = false;
+            }
+            else
+            {
+                lblShowNewsImg.Visible = cbShowNewsImg.Visible = lblShowReadMore.Visible = cbShowReadMore.Visible = lblReadMoreText.Visible = txtReadMoreText.Visible = true;
+            }
+        }
     }
 }

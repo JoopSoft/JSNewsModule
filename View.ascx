@@ -20,7 +20,7 @@
                                 </h3>
                                 <asp:Label ID="lblNewsDate" runat="server" CssClass="" Text='<%#DataBinder.Eval(Container.DataItem,"NewsDate").ToString() %>' Visible='<%#((DataBinder.Eval(Container.DataItem,"ShowNewsDate")!=null) && ((bool)DataBinder.Eval(Container.DataItem,"ShowNewsDate")==true)) %>' />
                             </div>
-                            <asp:HyperLink ID="lnkImg" runat="server" CssClass="link-image">
+                            <asp:HyperLink ID="lnkImg" runat="server" CssClass="link-image" Visible='<%#((DataBinder.Eval(Container.DataItem,"ShowNewsImg")!=null) && ((bool)DataBinder.Eval(Container.DataItem,"ShowNewsImg")==true)) %>'>
                                 <asp:Image ID="imgNewsImage" runat="server" CssClass="news-image" ImageUrl='<%#DataBinder.Eval(Container.DataItem, "ImageUrl").ToString() %>' Visible='<%#((DataBinder.Eval(Container.DataItem,"ShowNewsImg")!=null) && ((bool)DataBinder.Eval(Container.DataItem,"ShowNewsImg")==true)) %>' />
                             </asp:HyperLink>
                             <asp:Label ID="lblNewsTeaserText" runat="server" CssClass="teaser-txt" Text='<%#DataBinder.Eval(Container.DataItem,"NewsTeaserText").ToString() %>' />

@@ -53,14 +53,14 @@ namespace JS.Modules.JSNewsModule
                     }
                     var s = sc.LoadSingleSettings(TModuleId);
                     lblDate.Visible = txtDate.Visible = s.ShowNewsDate;
-                    lblShowImg.Visible = cbShowImg.Visible = cbShowImg.Checked = s.ShowNewsImg && s.ShowReadMore;
+                    lblShowImg.Visible = cbShowImg.Visible = cbShowImg.Checked = s.ShowNewsImg && s.ShowReadMore && s.ViewMode == "List";
                     var nc = new NewsController();
                     if (NewsId > 0)
                     {
                         var n = nc.LoadNews(NewsId, ModuleId);
                         cbShowImg.Checked = n.ShowNewsImg;
                     }
-                    lblImgUrl.Visible = imgList.Visible = lblImgSelected.Visible = imgPreview.Visible = txtImgUrl.Visible = lblUploadImg.Visible = btnImgSelect.Visible = btnImgUpload.Visible = s.ShowNewsImg && cbShowImg.Checked;
+                    lblImgUrl.Visible = imgList.Visible = lblImgSelected.Visible = imgPreview.Visible = btnDeleteImg.Visible = txtImgUrl.Visible = lblUploadImg.Visible = btnImgSelect.Visible = btnImgUpload.Visible = s.ShowNewsImg && cbShowImg.Checked && s.ViewMode == "List";
                     lblCustomOrderId.Visible = txtCustomOrderId.Visible = (s.ShowCustomOrderId && s.IsSorted);
                     var li = new ListItem("Default Image", "Default Image.png");
                     imgList.Items.Add(li);
@@ -267,7 +267,7 @@ namespace JS.Modules.JSNewsModule
 
         protected void cbShowImg_CheckedChanged(object sender, EventArgs e)
         {
-            lblImgUrl.Visible = imgList.Visible = lblImgSelected.Visible = imgPreview.Visible = txtImgUrl.Visible = lblUploadImg.Visible = btnImgSelect.Visible = btnImgUpload.Visible = cbShowImg.Checked;
+            lblImgUrl.Visible = imgList.Visible = lblImgSelected.Visible = imgPreview.Visible = btnDeleteImg.Visible = txtImgUrl.Visible = lblUploadImg.Visible = btnImgSelect.Visible = btnImgUpload.Visible = cbShowImg.Checked;
         }
     }
 }

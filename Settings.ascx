@@ -11,7 +11,7 @@
     <fieldset>
         <div class="dnnFormItem">
             <dnn:Label ID="lblViewMode" runat="server" />
-            <asp:DropDownList ID="viewModeList" runat="server" CssClass="form-control" AutoPostBack="true" />
+            <asp:DropDownList ID="viewModeList" runat="server" CssClass="form-control" AutoPostBack="true" OnSelectedIndexChanged="viewModeList_SelectedIndexChanged" />
         </div>
         <div class="dnnFormItem">
             <dnn:Label ID="lblShowNewsDate" runat="server" />
