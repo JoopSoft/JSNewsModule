@@ -9,7 +9,7 @@
 
 <div class="dnnForm add-news">
     <div class="dnnFormSectionHead">
-        <h3 class="dnnFormMessage dnnFormInfo">
+        <h3 class="dnnFormMessage dnnFormTitle dnnFormIcon">
             <%=LocalizeString("Title")%>
         </h3>
     </div>

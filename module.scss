@@ -43,16 +43,39 @@
         margin-bottom: 30px;
 
         .dnnFormMessage {
-            color: $white;
-            background: $dark-alpha-lg url(h-icon.png) no-repeat 15px center;
-            background-size: 30px;
-            border: $none;
             margin: 0;
-            padding: 15px 15px 15px 55px;
+            padding: 15px;
+            background-size: 30px;
             font-weight: normal;
             line-height: normal;
+            border: $none;
 
             @include border-radius(0);
+
+            &.dnnFormTitle {
+                color: $white;
+                background-color: $dark-alpha-lg;
+
+                &.dnnFormIcon {
+                    padding: 15px 15px 15px 55px;
+                    background-image: url(h-icon.png);
+                    background-repeat: no-repeat;
+                    background-position: 15px center;
+                }
+            }
+            //&.dnnFormInfo {
+            //    color: $white;
+            //    background: $dark-alpha-md;
+            //
+            //}
+            //&.dnnFormSuccess {
+            //    color: $dark;
+            //    background: $dark-alpha;
+            //}
+            //&.dnnFormWarning {
+            //    color: $dark;
+            //    background: $dark-alpha;
+            //}
         }
     }
 
@@ -96,14 +119,12 @@
             //margin-right: 10px;
             //border: 1px solid $dark-alpha-lg;
             float: left;
-
         }
 
         .link-delete {
-            height:35px;
+            height: 35px;
             float: left;
             margin-right: 10px;
-
         }
 
         select > option {

@@ -34,18 +34,24 @@
   border-bottom: none;
   margin-bottom: 30px; }
   .dnnForm .dnnFormSectionHead .dnnFormMessage {
-    color: #fff;
-    background: rgba(59, 30, 119, 0.7) url(h-icon.png) no-repeat 15px center;
-    background-size: 30px;
-    border: none;
     margin: 0;
-    padding: 15px 15px 15px 55px;
+    padding: 15px;
+    background-size: 30px;
     font-weight: normal;
     line-height: normal;
+    border: none;
     -webkit-border-radius: 0;
     -moz-border-radius: 0;
     -ms-border-radius: 0;
     border-radius: 0; }
+    .dnnForm .dnnFormSectionHead .dnnFormMessage.dnnFormTitle {
+      color: #fff;
+      background-color: rgba(59, 30, 119, 0.7); }
+      .dnnForm .dnnFormSectionHead .dnnFormMessage.dnnFormTitle.dnnFormIcon {
+        padding: 15px 15px 15px 55px;
+        background-image: url(h-icon.png);
+        background-repeat: no-repeat;
+        background-position: 15px center; }
 
 .dnnForm input[type=checkbox] {
   visibility: hidden; }
