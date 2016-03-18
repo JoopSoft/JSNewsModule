@@ -40,10 +40,9 @@
     .dnnFormSectionHead {
         /*border-bottom: 1px solid $dark-alpha;*/
         border-bottom: $none;
-        margin-bottom: 30px;
 
         .dnnFormMessage {
-            margin: 0;
+            margin: 0 0 30px;
             padding: 15px;
             background-size: 30px;
             font-weight: normal;
