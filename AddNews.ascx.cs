@@ -64,7 +64,7 @@ namespace JS.Modules.JSNewsModule
                     lblCustomOrderId.Visible = txtCustomOrderId.Visible = (s.ShowCustomOrderId && s.IsSorted);
                     var li = new ListItem("Default Image", "Default Image.png");
                     imgList.Items.Add(li);
-                    string [] imgDirectory = Directory.GetFiles(Server.MapPath("~/DesktopModules/JSNewsModule/Images/"));
+                    string[] imgDirectory = Directory.GetFiles(Server.MapPath("~/DesktopModules/JSNewsModule/Images/"));
                     foreach (string img in imgDirectory)
                     {
                         string filename = Path.GetFileName(img);
@@ -104,7 +104,6 @@ namespace JS.Modules.JSNewsModule
                 Exceptions.ProcessModuleLoadException(this, exc);
             }
         }
-
 
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
@@ -160,7 +159,7 @@ namespace JS.Modules.JSNewsModule
                     BackText = s.BackText,
                     ShowHome = s.ShowHome,
                     HomeText = s.HomeText,
-            };
+                };
             }
             #region News Style Rotation
             if (n.ShowNewsDate)
@@ -226,7 +225,6 @@ namespace JS.Modules.JSNewsModule
             Response.Redirect(DotNetNuke.Common.Globals.NavigateURL());
         }
 
-
         protected void btnImgUpload_Click(object sender, EventArgs e)
         {
             if (btnImgSelect.HasFile)
@@ -238,10 +236,22 @@ namespace JS.Modules.JSNewsModule
                 {
                     txtImgUrl.Text = btnImgSelect.FileName;
                     imgPreview.ImageUrl = "~/DesktopModules/JSNewsModule/Images/" + txtImgUrl.Text;
-                    var li = new ListItem(btnImgSelect.FileName, btnImgSelect.PostedFile.ToString());
-                    if (!imgList.Items.Contains(li))
+                    var li = new ListItem("Default Image", "Default Image.png");
+                    imgList.Items.Clear();
+                    imgList.Items.Add(li);
+                    string[] imgDirectory = Directory.GetFiles(Server.MapPath("~/DesktopModules/JSNewsModule/Images/"));
+                    foreach (string img in imgDirectory)
                     {
-                        imgList.Items.Add(li);
+                        string filename = Path.GetFileName(img);
+                        var im = new ListItem(filename, img);
+                        if (filename != "Default Image.png")
+                        {
+                            imgList.Items.Add(im);
+                        }
+                        if (filename == txtImgUrl.Text)
+                        {
+                            imgList.SelectedValue = img;
+                        }
                     }
                 }
             }
@@ -268,6 +278,126 @@ namespace JS.Modules.JSNewsModule
         protected void cbShowImg_CheckedChanged(object sender, EventArgs e)
         {
             lblImgUrl.Visible = imgList.Visible = lblImgSelected.Visible = imgPreview.Visible = btnDeleteImg.Visible = txtImgUrl.Visible = lblUploadImg.Visible = btnImgSelect.Visible = btnImgUpload.Visible = cbShowImg.Checked;
+        }
+
+        protected void btnDeleteImg_Click(object sender, EventArgs e)
+        {
+            if (imgList.SelectedValue != "Default Image.png")
+            {
+                txtImgUrl.Text = "Are you sure you want to delete this Image?";
+                btnYes.Visible = true;
+                btnNo.Visible = true;
+            }
+            else
+            {
+                txtImgUrl.Text = "You Can't Delete Default Image";
+            }
+        }
+
+        protected void btnYes_Click(object sender, EventArgs e)
+        {
+            bool imgUsed = false;
+            var nc = new NewsController();
+            var an = nc.LoadAllNews(ModuleId);
+            foreach (var n in an)
+            {
+                if (n.ImageUrl == imgPreview.ImageUrl)
+                {
+                    imgUsed = true;
+                    break;
+                }
+            }
+            if (imgUsed)
+            {
+                txtImgUrl.Text = "There are News using this Image";
+                btnDefault.Visible = true;
+                btnRemove.Visible = true;
+                btnCancelDelete.Visible = true;
+                btnYes.Visible = false;
+                btnNo.Visible = false;
+                return;
+            }
+            else
+            {
+                DeleteImage();
+            }
+        }
+
+        protected void btnNo_Click(object sender, EventArgs e)
+        {
+            btnYes.Visible = false;
+            btnNo.Visible = false;
+            txtImgUrl.Text = "";
+        }
+
+        protected void btnDefault_Click(object sender, EventArgs e)
+        {
+            var nc = new NewsController();
+            var an = nc.LoadAllNews(ModuleId);
+            foreach (var n in an)
+            {
+                if (n.ImageUrl == imgPreview.ImageUrl)
+                {
+                    n.ImageUrl = "~/DesktopModules/JSNewsModule/Images/Default Image.png";
+                    nc.UpdateNews(n);
+                }
+            }
+            DeleteImage();
+            txtImgUrl.Text = "Image Replaced with Default";
+            btnDefault.Visible = false;
+            btnRemove.Visible = false;
+            btnCancelDelete.Visible = false;
+        }
+
+        protected void btnRemove_Click(object sender, EventArgs e)
+        {
+            var nc = new NewsController();
+            var an = nc.LoadAllNews(ModuleId);
+            foreach (var n in an)
+            {
+                if (n.ImageUrl == imgPreview.ImageUrl)
+                {
+                    n.ImageUrl = "~/DesktopModules/JSNewsModule/Images/Default Image.png";
+                    n.ShowNewsImg = false;
+                    nc.UpdateNews(n);
+                }
+            }
+            DeleteImage();
+            txtImgUrl.Text = "Image Removed";
+            btnDefault.Visible = false;
+            btnRemove.Visible = false;
+            btnCancelDelete.Visible = false;
+
+        }
+
+        protected void btnCancelDelete_Click(object sender, EventArgs e)
+        {
+            txtImgUrl.Text = "";
+            btnDefault.Visible = false;
+            btnRemove.Visible = false;
+            btnCancelDelete.Visible = false;
+        }
+        protected void DeleteImage()
+        {
+            File.Delete(imgList.SelectedValue);
+            string temp = imgList.SelectedValue.Replace(Server.MapPath("~/DesktopModules/JSNewsModule/Images/"), "");
+            txtImgUrl.Text = "Image \"" + temp + "\" Deleted";
+            var li = new ListItem("Default Image", "Default Image.png");
+            imgList.Items.Clear();
+            imgList.Items.Add(li);
+            string[] imgDirectory = Directory.GetFiles(Server.MapPath("~/DesktopModules/JSNewsModule/Images/"));
+            foreach (string img in imgDirectory)
+            {
+                string filename = Path.GetFileName(img);
+                var im = new ListItem(filename, img);
+                if (filename != "Default Image.png")
+                {
+                    imgList.Items.Add(new ListItem(filename, img));
+                }
+            }
+            imgPreview.ImageUrl = "~/DesktopModules/JSNewsModule/Images/Default Image.png";
+            btnYes.Visible = false;
+            btnNo.Visible = false;
         }
     }
 }

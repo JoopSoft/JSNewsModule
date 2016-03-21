@@ -33,8 +33,13 @@
         <div class="dnnFormItem">
             <dnn:label ID="lblImgSelected" runat="server" />
             <asp:Image ID="imgPreview" runat="server" CssClass="news-image" AlternateText="News image" ImageUrl="~/DesktopModules/JSNewsModule/Images/Default Image.png" />
-            <asp:LinkButton ID="btnDeleteImg" runat="server" CssClass="btn btn-danger link-delete" ResourceKey="btnDeleteImg.Text" />            
+            <asp:LinkButton ID="btnDeleteImg" runat="server" CssClass="btn btn-danger link-delete" ResourceKey="btnDeleteImg" OnClick="btnDeleteImg_Click"/>
             <asp:TextBox ID="txtImgUrl" runat="server" CssClass="form-control" Visible="true" Enabled="false" />
+            <asp:LinkButton ID="btnYes" runat="server" Visible="false" CssClass="dnnSecondaryAction" ResourceKey="btnYes" OnClick="btnYes_Click" />
+            <asp:LinkButton ID="btnNo" runat="server" Visible="false" CssClass="dnnSecondaryAction" ResourceKey="btnNo" OnClick="btnNo_Click" />
+            <asp:LinkButton ID="btnDefault" runat="server" Visible="false" CssClass="dnnSecondaryAction" ResourceKey="btnDefault" OnClick="btnDefault_Click" />
+            <asp:LinkButton ID="btnRemove" runat="server" Visible="false" CssClass="dnnSecondaryAction" ResourceKey="btnRemove" OnClick="btnRemove_Click" />
+            <asp:LinkButton ID="btnCancelDelete" runat="server" Visible="false" CssClass="dnnSecondaryAction" ResourceKey="btnCancelDelete" OnClick="btnCancelDelete_Click" />
         </div>        
         <div class="dnnFormItem">
             <dnn:label ID="lblUploadImg" runat="server" />
@@ -58,9 +63,9 @@
         </div>
         <div class="dnnFormItem controls">
             <asp:LinkButton ID="btnSubmit" runat="server"
-                OnClick="btnSubmit_Click" resourcekey="btnSubmit" CssClass="btn btn-primary link-save" />
+                OnClick="btnSubmit_Click" ResourceKey="btnSubmit" CssClass="btn btn-primary link-save" />
             <asp:LinkButton ID="btnCancel" runat="server"
-                OnClick="btnCancel_Click" resourcekey="btnCancel" CssClass="btn btn-default link-cancel" />
+                OnClick="btnCancel_Click" ResourceKey="btnCancel" CssClass="btn btn-default link-cancel" />
         </div>
     </fieldset>
 </div>
