@@ -85,11 +85,11 @@ namespace JS.Modules.JSNewsModule
                             viewModeList.SelectedValue = ds.ViewMode;
                             cbShowNewsDate.Checked = ds.ShowNewsDate;
                             cbShowNewsImg.Checked = ds.ShowNewsImg;
-                            cbShowReadMore.Checked = ds.ShowReadMore;
+                            cbShowReadMore.Checked = lblReadMoreText.Visible = txtReadMoreText.Visible = ds.ShowReadMore;
                             txtReadMoreText.Text = ds.ReadMoreText;
-                            cbShowBack.Checked = ds.ShowBack;
+                            cbShowBack.Checked = lblBackText.Visible = txtBackText.Visible = ds.ShowBack;
                             txtBackText.Text = ds.BackText;
-                            cbShowHome.Checked = ds.ShowHome;
+                            cbShowHome.Checked = lblHomeText.Visible = txtHomeText.Visible = ds.ShowHome;
                             txtHomeText.Text = ds.HomeText;
                             cbIsSorted.Checked = lblSortBy.Visible = sortByList.Visible = lblSortType.Visible = sortTypeList.Visible = s.IsSorted;
                             sortByList.SelectedValue = s.SortBy;
