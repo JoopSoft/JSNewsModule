@@ -97,6 +97,10 @@ namespace JS.Modules.JSNewsModule
                     {
                         txtImgUrl.Text = imgList.SelectedValue;
                     }
+                    if (imgList.SelectedValue == "Default Image.png")
+                    {
+                        btnDeleteImg.Visible = false;
+                    }
                 }
             }
             catch (Exception exc) //Module failed to load
@@ -254,6 +258,7 @@ namespace JS.Modules.JSNewsModule
                         }
                     }
                 }
+                btnDeleteImg.Visible = true;
             }
             else
             {
@@ -277,7 +282,8 @@ namespace JS.Modules.JSNewsModule
 
         protected void cbShowImg_CheckedChanged(object sender, EventArgs e)
         {
-            lblImgUrl.Visible = imgList.Visible = lblImgSelected.Visible = imgPreview.Visible = btnDeleteImg.Visible = txtImgUrl.Visible = lblUploadImg.Visible = btnImgSelect.Visible = btnImgUpload.Visible = cbShowImg.Checked;
+            lblImgUrl.Visible = imgList.Visible = lblImgSelected.Visible = imgPreview.Visible = txtImgUrl.Visible = lblUploadImg.Visible = btnImgSelect.Visible = btnImgUpload.Visible = cbShowImg.Checked;
+            btnDeleteImg.Visible = cbShowImg.Checked && imgList.SelectedValue != "Default Image.png";
         }
 
         protected void btnDeleteImg_Click(object sender, EventArgs e)

@@ -55,7 +55,7 @@
             <asp:TextBox ID="txtContent" runat="server" TextMode="MultiLine" CssClass="form-control body-txt" />
             
             <%--Rich text editor--%>
-            <dnn:texteditor ID="txtContentRichTxt" runat="server" CssClass="form-control" />
+<%--            <dnn:texteditor ID="txtContentRichTxt" runat="server" CssClass="form-control" />--%>
         </div>
         <div class="dnnFormItem">
             <dnn:label ID="lblCustomOrderId" runat="server" />
