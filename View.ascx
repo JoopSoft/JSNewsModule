@@ -4,6 +4,8 @@
 
 <div class="panel panel-default view">
     <%--LIST VIEW--%>
+    
+    
     <asp:Panel ID="pnlList" runat="server" CssClass="rpt-list">
         <div class="list-group">
             <asp:Repeater ID="rptItemListView" runat="server"
@@ -96,6 +98,10 @@
                 </FooterTemplate>
             </asp:Repeater>
         </div>
+    </asp:Panel>
+
+    <asp:Panel>
+        <asp:HyperLink ID="lnkFirstAdd" runat="server" CssClass="btn btn-primary link-add" ResourceKey="AddFirstItem"/>
     </asp:Panel>
 </div>
 
