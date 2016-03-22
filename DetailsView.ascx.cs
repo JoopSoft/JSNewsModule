@@ -50,7 +50,7 @@ namespace JS.Modules.JSNewsModule
                 lblNewsDate.Text = n.NewsDate;
                 imgNewsImage.Visible = n.ShowNewsImg;
                 imgNewsImage.ImageUrl = n.ImageUrl;
-                lblNewsContent.Text = n.NewsContent;
+                lblNewsContent.Text = Server.HtmlDecode(n.NewsContent);
                 btnBack.Visible = n.ShowBack;
                 btnBack.Text = n.BackText;
                 btnHome.Visible = n.ShowHome;

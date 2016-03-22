@@ -157,6 +157,33 @@ namespace JS.Modules.JSNewsModule
                 }
                 rptItemAccordionView.DataBind();
                 #endregion
+
+
+                var lnkAll = rptItemListView.Controls[rptItemListView.Controls.Count - 1].Controls[0].FindControl("lnkAll") as LinkButton;
+                var lnkPrev = rptItemListView.Controls[rptItemListView.Controls.Count - 1].Controls[0].FindControl("lnkPrev") as LinkButton;
+                var lnkNext = rptItemListView.Controls[rptItemListView.Controls.Count - 1].Controls[0].FindControl("lnkNext") as LinkButton;
+                var lnkAllA = rptItemAccordionView.Controls[rptItemAccordionView.Controls.Count - 1].Controls[0].FindControl("lnkAll") as LinkButton;
+                var lnkPrevA = rptItemAccordionView.Controls[rptItemAccordionView.Controls.Count - 1].Controls[0].FindControl("lnkPrev") as LinkButton;
+                var lnkNextA = rptItemAccordionView.Controls[rptItemAccordionView.Controls.Count - 1].Controls[0].FindControl("lnkNext") as LinkButton;
+                var currentNews = nc.LoadAllNews(ModuleId);
+                bool newsPresent = false;
+                foreach (var n in currentNews)
+                {
+                    newsPresent = true;
+                }
+                if (newsPresent)
+                {
+                    lnkFirstAdd.Visible = false;
+                    lnkAll.Visible = lnkPrev.Visible = lnkNext.Visible = true;
+                    lnkAllA.Visible = lnkPrevA.Visible = lnkNextA.Visible = true;
+                }
+                else
+                {
+                    lnkFirstAdd.Visible = true;
+                    lnkAll.Visible = lnkPrev.Visible = lnkNext.Visible = false;
+                    lnkAllA.Visible = lnkPrevA.Visible = lnkNextA.Visible = false;
+                }
+                lnkFirstAdd.NavigateUrl = EditUrl("AddNews");
             }
             catch (Exception exc) //Module failed to load
             {

@@ -71,7 +71,7 @@ namespace JS.Modules.JSNewsModule
                         var im = new ListItem(filename, img);
                         if (filename != "Default Image.png")
                         {
-                            imgList.Items.Add(new ListItem(filename, img));
+                            imgList.Items.Add(im);
                         }
                     }
                     txtImgUrl.Text = imgList.SelectedValue;
@@ -91,6 +91,15 @@ namespace JS.Modules.JSNewsModule
                             txtTeaserText.Text = n.NewsTeaserText;
                             txtContent.Text = n.NewsContent;
                             imgPreview.ImageUrl = n.ImageUrl;
+                        }
+                        foreach (string img in imgDirectory)
+                        {
+                            string filename = Path.GetFileName(img);
+                            var im = new ListItem(filename, img);
+                            if (filename == txtImgUrl.Text)
+                            {
+                                imgList.SelectedValue = img;
+                            }
                         }
                     }
                     else
@@ -231,34 +240,46 @@ namespace JS.Modules.JSNewsModule
 
         protected void btnImgUpload_Click(object sender, EventArgs e)
         {
+            String[] allowedExtensions = { ".gif", ".png", ".jpeg", ".jpg" };
             if (btnImgSelect.HasFile)
             {
-                DirectoryInfo di = Directory.CreateDirectory(Server.MapPath("~/DesktopModules/JSNewsModule/Images/"));
-                btnImgSelect.SaveAs(Server.MapPath("~/DesktopModules/JSNewsModule/Images/" + btnImgSelect.FileName));
-
-                if (btnImgSelect.FileName != null)
+                string fileExtension = Path.GetExtension(btnImgSelect.FileName).ToLower();
+                foreach (string str in allowedExtensions)
                 {
-                    txtImgUrl.Text = btnImgSelect.FileName;
-                    imgPreview.ImageUrl = "~/DesktopModules/JSNewsModule/Images/" + txtImgUrl.Text;
-                    var li = new ListItem("Default Image", "Default Image.png");
-                    imgList.Items.Clear();
-                    imgList.Items.Add(li);
-                    string[] imgDirectory = Directory.GetFiles(Server.MapPath("~/DesktopModules/JSNewsModule/Images/"));
-                    foreach (string img in imgDirectory)
+                    if (str == fileExtension)
                     {
-                        string filename = Path.GetFileName(img);
-                        var im = new ListItem(filename, img);
-                        if (filename != "Default Image.png")
+                        DirectoryInfo di = Directory.CreateDirectory(Server.MapPath("~/DesktopModules/JSNewsModule/Images/"));
+                        btnImgSelect.SaveAs(Server.MapPath("~/DesktopModules/JSNewsModule/Images/" + btnImgSelect.FileName));
+
+                        if (btnImgSelect.FileName != null)
                         {
-                            imgList.Items.Add(im);
+                            txtImgUrl.Text = btnImgSelect.FileName;
+                            imgPreview.ImageUrl = "~/DesktopModules/JSNewsModule/Images/" + txtImgUrl.Text;
+                            var li = new ListItem("Default Image", "Default Image.png");
+                            imgList.Items.Clear();
+                            imgList.Items.Add(li);
+                            string[] imgDirectory = Directory.GetFiles(Server.MapPath("~/DesktopModules/JSNewsModule/Images/"));
+                            foreach (string img in imgDirectory)
+                            {
+                                string filename = Path.GetFileName(img);
+                                var im = new ListItem(filename, img);
+                                if (filename != "Default Image.png")
+                                {
+                                    imgList.Items.Add(im);
+                                }
+                                if (filename == txtImgUrl.Text)
+                                {
+                                    imgList.SelectedValue = img;
+                                }
+                            }
                         }
-                        if (filename == txtImgUrl.Text)
-                        {
-                            imgList.SelectedValue = img;
-                        }
+                        btnDeleteImg.Visible = true;
+                    }
+                    else
+                    {
+                        txtImgUrl.Text = "The Selected File is not Image";
                     }
                 }
-                btnDeleteImg.Visible = true;
             }
             else
             {
@@ -272,10 +293,12 @@ namespace JS.Modules.JSNewsModule
             if (imgList.SelectedItem.Equals(li))
             {
                 txtImgUrl.Text = "Default Image.png";
+                btnDeleteImg.Visible = false;
             }
             else
             {
                 txtImgUrl.Text = imgList.SelectedItem.ToString();
+                btnDeleteImg.Visible = true;
             }
             imgPreview.ImageUrl = "~/DesktopModules/JSNewsModule/Images/" + txtImgUrl.Text;
         }
@@ -404,6 +427,7 @@ namespace JS.Modules.JSNewsModule
             imgPreview.ImageUrl = "~/DesktopModules/JSNewsModule/Images/Default Image.png";
             btnYes.Visible = false;
             btnNo.Visible = false;
+            btnDeleteImg.Visible = false;
         }
     }
 }
