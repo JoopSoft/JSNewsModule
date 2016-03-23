@@ -53,7 +53,7 @@
         <div class="dnnFormItem">
             <dnn:label ID="lblContent" runat="server" />
 <%--            <asp:TextBox ID="txtContent" runat="server" TextMode="MultiLine" CssClass="form-control body-txt" />--%>
-            <dnn:texteditor ID="txtContent" runat="server" CssClass="form-control" />
+            <dnn:texteditor ID="txtContent" runat="server" CssClass="form-control body-txt" />
         </div>
         <div class="dnnFormItem">
             <dnn:label ID="lblCustomOrderId" runat="server" />

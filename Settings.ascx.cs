@@ -67,6 +67,8 @@ namespace JS.Modules.JSNewsModule
                         if (s.SettingsId == ModuleId)
                         {
                             viewModeList.SelectedValue = s.ViewMode;
+                            lblNewsPerPage.Visible = txtNewsPerPage.Visible = cbUsePaging.Checked = s.UsePaging;
+                            txtNewsPerPage.Text = s.NewsPerPage.ToString();
                             cbShowNewsDate.Checked = s.ShowNewsDate;
                             cbShowNewsImg.Checked = s.ShowNewsImg;
                             cbShowReadMore.Checked = lblReadMoreText.Visible = txtReadMoreText.Visible = s.ShowReadMore;
@@ -83,6 +85,8 @@ namespace JS.Modules.JSNewsModule
                         {
                             var ds = sc.LoadSingleSettings(0);
                             viewModeList.SelectedValue = ds.ViewMode;
+                            lblNewsPerPage.Visible = txtNewsPerPage.Visible = cbUsePaging.Checked = s.UsePaging;
+                            txtNewsPerPage.Text = s.NewsPerPage.ToString();
                             cbShowNewsDate.Checked = ds.ShowNewsDate;
                             cbShowNewsImg.Checked = ds.ShowNewsImg;
                             cbShowReadMore.Checked = lblReadMoreText.Visible = txtReadMoreText.Visible = ds.ShowReadMore;
@@ -148,6 +152,8 @@ namespace JS.Modules.JSNewsModule
                     {
                         SettingsId = ModuleId,
                         ViewMode = viewModeList.SelectedValue,
+                        UsePaging = cbUsePaging.Checked,
+                        NewsPerPage = Convert.ToInt32(txtNewsPerPage.Text),
                         ShowCustomOrderId = (sortByList.SelectedValue == "Custom Order"),
                         ShowNewsDate = cbShowNewsDate.Checked,
                         ShowNewsImg = cbShowNewsImg.Checked,
@@ -227,6 +233,8 @@ namespace JS.Modules.JSNewsModule
                 {
                     var s = sc.LoadSingleSettings(ModuleId);
                     s.ViewMode = viewModeList.SelectedValue;
+                    s.UsePaging = cbUsePaging.Checked;
+                    s.NewsPerPage = Convert.ToInt32(txtNewsPerPage.Text);
                     s.ShowCustomOrderId = (sortByList.SelectedValue == "Custom Order");
                     s.ShowNewsDate = cbShowNewsDate.Checked;
                     s.ShowNewsImg = cbShowNewsImg.Checked;
@@ -353,6 +361,11 @@ namespace JS.Modules.JSNewsModule
             {
                 lblShowNewsImg.Visible = cbShowNewsImg.Visible = lblShowReadMore.Visible = cbShowReadMore.Visible = lblReadMoreText.Visible = txtReadMoreText.Visible = true;
             }
+        }
+
+        protected void cbUsePaging_CheckedChanged(object sender, EventArgs e)
+        {
+            lblNewsPerPage.Visible = txtNewsPerPage.Visible = cbUsePaging.Checked;
         }
     }
 }

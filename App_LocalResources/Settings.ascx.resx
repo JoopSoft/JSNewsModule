@@ -195,4 +195,16 @@
   <data name="Title.Text" xml:space="preserve">
     <value>JSNewsModule - Settings</value>
   </data>
+  <data name="lblNewsPerPage.Help" xml:space="preserve">
+    <value>Enter how many news to see per page</value>
+  </data>
+  <data name="lblNewsPerPage.Text" xml:space="preserve">
+    <value>News Per Page</value>
+  </data>
+  <data name="lblUsePaging.Help" xml:space="preserve">
+    <value>Choose wheter to use paging or not</value>
+  </data>
+  <data name="lblUsePaging.Text" xml:space="preserve">
+    <value>Use Paging</value>
+  </data>
 </root>

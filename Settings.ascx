@@ -14,12 +14,20 @@
             <asp:DropDownList ID="viewModeList" runat="server" CssClass="form-control" AutoPostBack="true" OnSelectedIndexChanged="viewModeList_SelectedIndexChanged" />
         </div>
         <div class="dnnFormItem">
+            <dnn:label ID="lblUsePaging" runat="server" />
+            <asp:CheckBox ID="cbUsePaging" runat="server" AutoPostBack="true" OnCheckedChanged="cbUsePaging_CheckedChanged" />
+        </div>
+        <div class="dnnFormItem">
+            <dnn:label ID="lblNewsPerPage" runat="server" />
+            <asp:TextBox ID="txtNewsPerPage" runat="server" />
+        </div>
+        <div class="dnnFormItem">
             <dnn:Label ID="lblShowNewsDate" runat="server" />
             <asp:CheckBox ID="cbShowNewsDate" runat="server" />
         </div>
         <div class="dnnFormItem">
             <dnn:Label ID="lblShowNewsImg" runat="server" />
-            <asp:CheckBox ID="cbShowNewsImg" runat="server" OnCheckedChanged="cbShowNewsImg_CheckedChanged" AutoPostBack="true" />
+            <asp:CheckBox ID="cbShowNewsImg" runat="server" AutoPostBack="true" OnCheckedChanged="cbShowNewsImg_CheckedChanged" />
             <asp:TextBox ID="lblStatImgMsg" runat="server" Enabled="false" Text="*Notes: Read more button must be checked" />
         </div>
         <div class="dnnFormItem">

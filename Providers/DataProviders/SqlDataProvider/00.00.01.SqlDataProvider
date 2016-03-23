@@ -48,6 +48,9 @@ CREATE TABLE {databaseOwner}{objectQualifier}JSNewsModule_Settings
 (
 	[SettingsId] INT NOT NULL,
 	[ViewMode] NVARCHAR(50) NOT NULL,
+	[UsePaging] BIT NOT NULL,
+	[NewsPerPage] INT NOT NULL,
+	[CurrentPage] INT NOT NULL,
 	[ShowNewsDate] BIT NOT NULL,
 	[ShowNewsImg] BIT NOT NULL,
 	[ShowReadMore] BIT NOT NULL,
@@ -69,9 +72,9 @@ ALTER TABLE {databaseOwner}[{objectQualifier}JSNewsModule_Settings] ADD CONSTRAI
 GO
 
 INSERT INTO {databaseOwner}[{objectQualifier}JSNewsModule_Settings]
-([SettingsId], [ViewMode], [ShowNewsDate], [ShowNewsImg], [ShowReadMore], [ReadMoreText], [ShowBack], [BackText], [ShowHome], [HomeText], [ShowCustomOrderId], [IsSorted], [SortBy], [SortType])
+([SettingsId], [ViewMode], [UsePaging], [NewsPerPage], [CurrentPage], [ShowNewsDate], [ShowNewsImg], [ShowReadMore], [ReadMoreText], [ShowBack], [BackText], [ShowHome], [HomeText], [ShowCustomOrderId], [IsSorted], [SortBy], [SortType])
 VALUES
-(0, 'List', 1, 1, 1, 'Read More', 1, 'Back', 0, 'Home', 0, 0, 'Date', 'ASC')
+(0, 'List', 0, 3, 1, 1, 1, 1, 'Read More', 1, 'Back', 0, 'Home', 0, 0, 'Date', 'ASC')
 GO
 
 

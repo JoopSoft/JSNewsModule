@@ -42,10 +42,10 @@
 
                 <FooterTemplate>
                     <div class="panel-footer">
-                        <asp:LinkButton ID="lnkAll" runat="server" CssClass="btn btn-primary link-all" ResourceKey="AllItems.Text" Visible="True" Enabled="True" CommandName="AllNews" />
+                        <asp:LinkButton ID="lnkAll" runat="server" CssClass="btn btn-primary link-all" ResourceKey="AllItems.Text" Visible="True" Enabled="True" />
                         <div class="btn-group pull-right">
-                            <asp:LinkButton ID="lnkPrev" runat="server" CssClass="btn btn-primary link-prev" ResourceKey="PrevItem.Text" Visible="True" Enabled="True" CommandName="Previous" />
-                            <asp:LinkButton ID="lnkNext" runat="server" CssClass="btn btn-primary link-next" ResourceKey="NextItem.Text" Visible="True" Enabled="True" CommandName="Next" />
+                            <asp:LinkButton ID="lnkPrev" runat="server" CssClass="btn btn-primary link-prev" ResourceKey="PrevItem.Text" Visible="True" Enabled="True" OnClick="lnkPrev_Click" />
+                            <asp:LinkButton ID="lnkNext" runat="server" CssClass="btn btn-primary link-next" ResourceKey="NextItem.Text" Visible="True" Enabled="True" OnClick="lnkNext_Click" />
                         </div>
                     </div>
                 </FooterTemplate>
@@ -91,8 +91,8 @@
                     <div class="panel-footer">
                         <asp:LinkButton ID="lnkAll" runat="server" CssClass="btn btn-primary link-all" Visible ="false" ResourceKey="AllItems.Text" CommandName="AllNews" />
                         <div class="btn-group pull-right">
-                            <asp:LinkButton ID="lnkPrev" runat="server" CssClass="btn btn-primary link-prev" Visible="false" ResourceKey="PrevItem.Text" CommandName="Previous" />
-                            <asp:LinkButton ID="lnkNext" runat="server" CssClass="btn btn-primary link-next" Visible="false" ResourceKey="NextItem.Text" CommandName="Next" />
+                            <asp:LinkButton ID="lnkPrev" runat="server" CssClass="btn btn-primary link-prev" Visible="false" ResourceKey="PrevItem.Text" CommandName="Previous" OnClick="lnkPrev_Click" />
+                            <asp:LinkButton ID="lnkNext" runat="server" CssClass="btn btn-primary link-next" Visible="false" ResourceKey="NextItem.Text" CommandName="Next" OnClick="lnkNext_Click" />
                         </div>
                     </div>
                 </FooterTemplate>
@@ -100,7 +100,7 @@
         </div>
     </asp:Panel>
 
-    <asp:Panel>
+    <asp:Panel runat="server">
         <asp:HyperLink ID="lnkFirstAdd" runat="server" CssClass="btn btn-primary link-add" Visible="false" ResourceKey="AddFirstItem"/>
     </asp:Panel>
 </div>

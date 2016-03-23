@@ -20,6 +20,7 @@ using DotNetNuke.Entities.Modules.Actions;
 using DotNetNuke.Services.Localization;
 using DotNetNuke.UI.Utilities;
 using System.Linq;
+using System.Web.UI;
 
 namespace JS.Modules.JSNewsModule
 {
@@ -56,6 +57,7 @@ namespace JS.Modules.JSNewsModule
                     }
                 }
                 cs = sc.LoadSingleSettings(TModuleId);
+                int currentPage = cs.CurrentPage;
                 switch (cs.ViewMode)
                 {
                     case "List":
@@ -66,7 +68,7 @@ namespace JS.Modules.JSNewsModule
                         pnlList.Visible = false;
                         pnlAccordion.Visible = true;
                         break;
-                    default: 
+                    default:
                         break;
                 }
                 #region List View Sort
@@ -109,6 +111,7 @@ namespace JS.Modules.JSNewsModule
                 }
                 else
                 {
+
                     rptItemListView.DataSource = nc.LoadAllNews(ModuleId);
                 }
                 rptItemListView.DataBind();
@@ -153,7 +156,16 @@ namespace JS.Modules.JSNewsModule
                 }
                 else
                 {
-                    rptItemAccordionView.DataSource = nc.LoadAllNews(ModuleId);
+                    if (cs.UsePaging)
+                    {
+                        var news = nc.LoadAllNews(ModuleId);
+                        var pageNews = (news.Skip((currentPage - 1) * cs.NewsPerPage)).Take(cs.NewsPerPage);
+                        rptItemAccordionView.DataSource = pageNews;
+                    }
+                    else
+                    {
+                        rptItemAccordionView.DataSource = nc.LoadAllNews(ModuleId);
+                    }
                 }
                 rptItemAccordionView.DataBind();
                 #endregion
@@ -288,6 +300,74 @@ namespace JS.Modules.JSNewsModule
                     };
                 return actions;
             }
+        }
+
+        protected void lnkNext_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var nc = new NewsController();
+                var sc = new SettingsController();
+                var cs = sc.LoadSingleSettings(ModuleId);
+                var news = nc.LoadAllNews(ModuleId);
+                int pageCount;
+                if (news.Count() % cs.NewsPerPage == 0)
+                {
+                    pageCount = (news.Count() / cs.NewsPerPage);
+                }
+                else
+                {
+                    pageCount = (news.Count() / cs.NewsPerPage) + 1;
+                }
+                if (cs.CurrentPage == pageCount)
+                {
+                    cs.CurrentPage = 1;
+                }
+                else
+                {
+                    cs.CurrentPage++;
+                }
+                sc.UpdateSettings(cs);
+            }
+            catch (Exception exc) //Module failed to load
+            {
+                Exceptions.ProcessModuleLoadException(this, exc);
+            }
+
+        }
+
+        protected void lnkPrev_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var nc = new NewsController();
+                var sc = new SettingsController();
+                var cs = sc.LoadSingleSettings(ModuleId);
+                var news = nc.LoadAllNews(ModuleId);
+                int pageCount;
+                if (news.Count() % cs.NewsPerPage == 0)
+                {
+                    pageCount = (news.Count() / cs.NewsPerPage);
+                }
+                else
+                {
+                    pageCount = (news.Count() / cs.NewsPerPage) + 1;
+                }
+                if (cs.CurrentPage == 1)
+                {
+                    cs.CurrentPage = pageCount;
+                }
+                else
+                {
+                    cs.CurrentPage--;
+                }
+                sc.UpdateSettings(cs);
+            }
+            catch (Exception exc) //Module failed to load
+            {
+                Exceptions.ProcessModuleLoadException(this, exc);
+            }
+
         }
     }
 }
