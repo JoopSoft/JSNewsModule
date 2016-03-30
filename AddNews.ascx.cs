@@ -313,7 +313,10 @@ namespace JS.Modules.JSNewsModule
         {
             if (imgList.SelectedValue != "Default Image.png")
             {
-                txtImgUrl.Text = "Are you sure you want to delete this Image?";
+                pnlPopUp.Visible = true;
+                //txtImgUrl.Text = "Are you sure you want to delete this Image?";
+                lblPopUpMsg.Text = "Are you sure you want to delete this Image?";
+                lblPopUpIcon.CssClass = "popup-icon link-delete";
                 btnYes.Visible = true;
                 btnNo.Visible = true;
             }

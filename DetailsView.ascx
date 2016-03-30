@@ -3,38 +3,51 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet" type="text/css" media="screen" />
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" />
 
-<div class="panel panel-default details-view">
-    <div class="panel-heading">
-        <h3 class="panel-title">
-            <asp:Label ID="lblNewsTitle" runat="server" />
-        </h3>
-        <asp:Label ID="lblNewsDate" runat="server" CssClass="date" />
-    </div>
-    <div class="panel-body">
-        <asp:HyperLink ID="lnkPopUpImg" runat="server" CssClass="link-popup" >
-            <asp:Image ID="imgNewsImage" runat="server" CssClass="news-image" />
-        </asp:HyperLink>
-        <asp:Label ID="lblNewsContent" runat="server" CssClass="body-txt" />
-
-        <asp:Panel ID="pnlAdminControls" runat="server" Visible="false" CssClass="pnl-admin">
-            <div class="btn-group" role="group" aria-label="Control buttons">
-                <asp:HyperLink ID="lnkEdit" runat="server" CssClass="btn btn-primary link-edit" ResourceKey="EditItem.Text" Visible="false" Enabled="false" />
-                <asp:LinkButton ID="lnkDelete" runat="server" CssClass="btn btn-danger link-delete" ResourceKey="DeleteItem.Text" Visible="false" Enabled="false" OnClick="lnkDelete_Click" />
+<div class="JSNews">
+    <asp:Panel ID="pnlDetailsView" runat="server" CssClass="panel panel-default details-view">
+        <div class="panel-heading">
+            <h3 class="panel-title">
+                <asp:Label ID="lblNewsTitle" runat="server" />
+            </h3>
+            <asp:Label ID="lblNewsDate" runat="server" CssClass="date" />
+        </div>
+        <div class="panel-body">
+            <asp:HyperLink ID="lnkPopUpImg" runat="server" CssClass="link-popup" >
+                <asp:Image ID="imgNewsImage" runat="server" CssClass="news-image" 
+                    AlternateText="" />
+            </asp:HyperLink>
+            <asp:Label ID="lblNewsContent" runat="server" CssClass="body-txt" />
+            <asp:Panel ID="pnlAdminControls" runat="server" Visible="false" CssClass="pnl-admin">
+                <div class="btn-group" role="group" aria-label="Control buttons">
+                    <asp:HyperLink ID="lnkEdit" runat="server" CssClass="btn btn-primary link-edit" 
+                        ResourceKey="EditItem" Visible="false" Enabled="false"
+                        data-toggle="tooltip" />
+                    <asp:LinkButton ID="lnkDelete" runat="server" CssClass="btn btn-danger link-delete" OnClick="lnkDelete_Click"
+                        ResourceKey="DeleteItem" Visible="false" Enabled="false" 
+                        data-toggle="tooltip" />
+                </div>
+            </asp:Panel>
+        </div>
+        <div class="panel-footer">
+            <div class="btn-group" role="group" aria-label="Navigate buttons">
+                <asp:LinkButton ID="btnBack" runat="server" CssClass="btn btn-primary link-back" 
+                    OnClick="btnBack_Click" />
+                <asp:LinkButton ID="btnHome" runat="server" CssClass="btn btn-primary link-home" 
+                    href="/" />
             </div>
-        </asp:Panel>
-    </div>
-    <div class="panel-footer">
-        <div class="btn-group" role="group" aria-label="Navigate buttons">
-            <asp:LinkButton ID="btnBack" runat="server" CssClass="btn btn-primary link-back" OnClick="btnBack_Click" />
-            <asp:LinkButton ID="btnHome" runat="server" CssClass="btn btn-primary link-home" href="/" />
+            <div class="btn-group pull-right">
+                <asp:LinkButton ID="lnkAll" runat="server" CssClass="btn btn-primary link-all" 
+                    ResourceKey="AllItems" Visible="True" Enabled="True" CommandName="AllNews" />
+                <asp:LinkButton ID="lnkPrev" runat="server" CssClass="btn btn-primary link-prev" 
+                    ResourceKey="PrevItem" Visible="True" Enabled="True" CommandName="Previous" />
+                <asp:LinkButton ID="lnkNext" runat="server" CssClass="btn btn-primary link-next" 
+                    ResourceKey="NextItem" Visible="True" Enabled="True" CommandName="Next"  />
+            </div>
         </div>
-        <div class="btn-group pull-right">
-            <asp:LinkButton ID="lnkAll" runat="server" CssClass="btn btn-primary link-all" ResourceKey="AllItems.Text" Visible="True" Enabled="True" CommandName="AllNews" />
-            <asp:LinkButton ID="lnkPrev" runat="server" CssClass="btn btn-primary link-prev" ResourceKey="PrevItem.Text" Visible="True" Enabled="True" CommandName="Previous" />
-            <asp:LinkButton ID="lnkNext" runat="server" CssClass="btn btn-primary link-next" ResourceKey="NextItem.Text" Visible="True" Enabled="True" CommandName="Next" />
-        </div>
-    </div>
+    </asp:Panel>
 </div>
 
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.pack.js" ></script>
+<%--<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script>--%>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.pack.js"></script>
 <script type="text/javascript" src="<%= ModulePath %>Js/main.js"></script>
+
