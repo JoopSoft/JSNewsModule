@@ -1,0 +1,112 @@
+﻿<dotnetnuke type="ResourceFile" version="5.0">
+  <files>
+    <file>
+      <path />
+      <name>AddNews.ascx</name>
+    </file>
+    <file>
+      <path />
+      <name>DetailsView.ascx</name>
+    </file>
+    <file>
+      <path />
+      <name>Edit.ascx</name>
+    </file>
+    <file>
+      <path />
+      <name>License.txt</name>
+    </file>
+    <file>
+      <path />
+      <name>module.css</name>
+    </file>
+    <file>
+      <path />
+      <name>module.min.css</name>
+    </file>
+    <file>
+      <path />
+      <name>ReleaseNotes.txt</name>
+    </file>
+    <file>
+      <path />
+      <name>Settings.ascx</name>
+    </file>
+    <file>
+      <path />
+      <name>variables.css</name>
+    </file>
+    <file>
+      <path />
+      <name>variables.min.css</name>
+    </file>
+    <file>
+      <path />
+      <name>View.ascx</name>
+    </file>
+    <file>
+      <path>App_LocalResources/</path>
+      <name>AddNews.ascx.resx</name>
+    </file>
+    <file>
+      <path>App_LocalResources/</path>
+      <name>DetailsView.ascx.resx</name>
+    </file>
+    <file>
+      <path>App_LocalResources/</path>
+      <name>Edit.ascx.resx</name>
+    </file>
+    <file>
+      <path>App_LocalResources/</path>
+      <name>Settings.ascx.resx</name>
+    </file>
+    <file>
+      <path>App_LocalResources/</path>
+      <name>View.ascx.resx</name>
+    </file>
+    <file>
+      <path>Documentation/</path>
+      <name>Documentation.css</name>
+    </file>
+    <file>
+      <path>Documentation/</path>
+      <name>Documentation.html</name>
+    </file>
+    <file>
+      <path>Ellipsis/</path>
+      <name>jquery.ellipsis.js</name>
+    </file>
+    <file>
+      <path>Ellipsis/</path>
+      <name>jquery.ellipsis.min.js</name>
+    </file>
+    <file>
+      <path>Images/</path>
+      <name>00.jpg</name>
+    </file>
+    <file>
+      <path>Images/</path>
+      <name>5-1920x1080.jpg</name>
+    </file>
+    <file>
+      <path>Images/</path>
+      <name>836-1920x1080.jpg</name>
+    </file>
+    <file>
+      <path>Images/</path>
+      <name>Default Image.png</name>
+    </file>
+    <file>
+      <path>Images/</path>
+      <name>sheviza3.jpg</name>
+    </file>
+    <file>
+      <path>Images/</path>
+      <name>Skull.jpg</name>
+    </file>
+    <file>
+      <path>Js/</path>
+      <name>main.js</name>
+    </file>
+  </files>
+</dotnetnuke>
