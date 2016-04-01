@@ -34,7 +34,6 @@
       /*font-size: 0.85rem;*/
       font-size: 1.286em; }
     .JSNews .dnnForm .dnnFormSectionHead {
-      /*border-bottom: 1px solid $dark-alpha;*/
       border-bottom: none; }
       .JSNews .dnnForm .dnnFormSectionHead .dnnFormMessage {
         margin: 0 0 30px;
@@ -400,7 +399,7 @@
           -o-box-shadow: none;
           box-shadow: none; }
   .JSNews .panel h1, .JSNews .panel h2, .JSNews .panel h3, .JSNews .panel h4, .JSNews .panel h5, .JSNews .panel h6 {
-    color: #3b1e77;
+    /*color: $dark;*/
     /*margin: 0 0 10px;*/ }
   .JSNews .panel h3 {
     /*font-size: 1rem;*/
@@ -553,7 +552,9 @@
   .JSNews .panel .rpt-list .panel-heading {
     padding: 0 0 5px 0; }
   .JSNews .panel .rpt-accordion .list-group-item {
-    padding: 5px; }
+    padding: 5px;
+    overflow: hidden;
+    min-height: 64px; }
   .JSNews .panel .rpt-accordion .pnl-admin {
     position: relative; }
     .JSNews .panel .rpt-accordion .pnl-admin .btn-group {

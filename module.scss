@@ -47,7 +47,6 @@
         }
 
         .dnnFormSectionHead {
-            /*border-bottom: 1px solid $dark-alpha;*/
             border-bottom: $none;
 
             .dnnFormMessage {
@@ -490,7 +489,7 @@
     .panel {
 
         h1, h2, h3, h4, h5, h6 {
-            color: $dark;
+            /*color: $dark;*/
             /*margin: 0 0 10px;*/
         }
 
@@ -737,6 +736,8 @@
 
             .list-group-item {
                 padding: 5px;
+                overflow: hidden;
+                min-height: 64px;
             }
 
             .pnl-admin {

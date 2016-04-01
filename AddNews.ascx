@@ -30,10 +30,10 @@
                 <dnn:label ID="lblDate" runat="server" />
                 <asp:TextBox ID="txtDate" runat="server" TextMode="Date" CssClass="form-control" />
             </div>
-            <div class="dnnFormItem">
+            <asp:Panel ID="pnlShowImg" runat="server" CssClass="dnnFormItem">
                 <dnn:label ID="lblShowImg" runat="server" />
                 <asp:CheckBox ID="cbShowImg" runat="server" OnCheckedChanged="cbShowImg_CheckedChanged" AutoPostBack="true" />
-            </div>
+            </asp:Panel>
             <asp:Panel ID="pnlImgList" runat="server" CssClass="dnnFormItem">
                 <dnn:label ID="lblImgUrl" runat="server" />
                 <asp:DropDownList ID="imgList" runat="server" CssClass="form-control" AutoPostBack="True" OnSelectedIndexChanged="Image_Selected" />
@@ -69,10 +69,10 @@
                 <dnn:texteditor ID="txtContent" runat="server" />
             </div>                
             
-            <div class="dnnFormItem">
+            <asp:Panel ID="pnlCustomOrderId" runat="server" CssClass="dnnFormItem">
                 <dnn:label ID="lblCustomOrderId" runat="server" />
                 <asp:TextBox ID="txtCustomOrderId" runat="server" CssClass="form-control" Text="0" />
-            </div>
+            </asp:Panel>
             <div class="dnnFormItem controls">
                 <asp:LinkButton ID="btnSubmit" runat="server"
                     OnClick="btnSubmit_Click" ResourceKey="btnSubmit" CssClass="btn btn-primary link-save" />
