@@ -87,10 +87,12 @@
             }
         }
 
-        input[type=checkbox] {
+        input[type=checkbox],
+        input[type=radio] {
             visibility: hidden;
+            display: $none;
         }
-        //DNN RE-STYLING CHECK BOX CONTROL
+        //DNN RE-STYLING CHECK BOX/RADIO BUTTON CONTROLS
         //DON'T REORDER ROW DEFINITIONS
         .dnnCheckbox img {
             display: inline-block;
@@ -115,6 +117,30 @@
         .dnnCheckbox-disabled img {
             opacity: .5;
         }
+        /*RADIO BUTTONS GROUP*/
+        .dnnRadiobutton img {
+            width: 20px;
+            height: 18px;
+            min-width: 20px;
+            vertical-align: middle;
+        }
+
+        .dnnRadiobutton img {
+            /*background: transparent url(radiobutton.png) no-repeat;*/
+            background: transparent url(radiobutton.png) no-repeat;
+        }
+
+        .dnnRadiobutton img {
+            background-position: 0px 0px;
+        }
+
+        .dnnRadiobutton-checked img {
+            background-position: -50px 0px;
+        }
+
+        .dnnRadiobutton-disabled img {
+            opacity: .5;
+        }
 
         .dnnFormItem {
             margin-bottom: 15px;
@@ -124,9 +150,20 @@
                 color: $dark;
             }
 
-            label span {
+            label span,
+            .dnnBoxLabel {
                 color: $dark-alpha-lg;
                 font-weight: bold;
+            }
+
+            > .dnnLabel,
+            .dnnLabel {
+                margin-top: 5px;
+
+                + span {
+                    margin-top: 0;
+                    margin-bottom: 0;
+                }
             }
 
             .btn {
@@ -177,7 +214,7 @@
                 top: 0;
                 left: 0;
                 margin: 0;
-                color: $white;
+                /*color: $white;*/
                 text-align: center;
                 background: $overlay;
                 height: 100%;
@@ -208,18 +245,28 @@
                     .popup-msg {
                         display: block;
                         margin: 10px 0 0 0;
+                        word-wrap: break-word;
+                        word-break: break-all;
                     }
 
-                    .primary-action {
+                    .btn-group {
                         margin-top: 15px;
-                        display: block;
                     }
 
-                    .secondary-action {
-                        //background-color: $light-alpha;
-                        //color: $white;
-                        margin-top: 15px;
-                        display: block;
+                    .btn {
+                        border: $none;
+                        margin: 0;
+                    }
+
+                    .progress-bar {
+                        position: absolute;
+                        left: 0;
+                        bottom: 0;
+                        width: 0;
+                        height: 2px;
+
+                        @include transition($width);
+                        @include transition-delay(0);
                     }
 
                     .close-action {
@@ -251,33 +298,15 @@
                         }
 
                         .btn {
-
-                            &.primary-action {
-                                background-color: $success;
-                                border: 1px solid transparent;
-                                color: $white;
-                                /*color: $success;*/
-                                &:hover {
-                                    /*background-color: $success;*/
-                                }
-                            }
-
-                            &.secondary-action {
-                                background-color: transparent;
-                                color: $success;
-                                border: 1px solid $success;
-
-                                &:hover {
-                                    background-color: $success;
-                                    color: $white;
-                                }
-                            }
-
                             &.close-action {
                                 &:hover {
                                     background-color: $success;
                                 }
                             }
+                        }
+
+                        .progress-bar {
+                            background: $success;
                         }
                     }
                 }
@@ -292,33 +321,15 @@
                         }
 
                         .btn {
-
-                            &.primary-action {
-                                background-color: $warning;
-                                border: 1px solid transparent;
-                                color: $white;
-                                /*color: $success;*/
-                                &:hover {
-                                    /*background-color: $success;*/
-                                }
-                            }
-
-                            &.secondary-action {
-                                background-color: transparent;
-                                color: $warning;
-                                border: 1px solid $warning;
-
-                                &:hover {
-                                    background-color: $warning;
-                                    color: $white;
-                                }
-                            }
-
                             &.close-action {
                                 &:hover {
                                     background-color: $warning;
                                 }
                             }
+                        }
+
+                        .progress-bar {
+                            background: $warning;
                         }
                     }
                 }
@@ -437,6 +448,8 @@
                     background: $none;
                     border: 1px solid $dark;
                     outline: $none;
+                    overflow: visible;
+
                     @include box-shadow(0 0 6px 1px $dark-alpha-md);
                 }
 
@@ -453,12 +466,23 @@
 
                 &.txt-img-url {
                     margin-left: 10px;
-                    width: auto;
                 }
             }
 
             select {
                 padding: 5px;
+            }
+
+            .rich-text-editor {
+                textarea {
+                    max-width: calc(100% - 16px);
+                    max-height: calc(100% - 10px);
+
+                    &:active,
+                    &:focus {
+                        @include box-shadow($none);
+                    }
+                }
             }
         }
     }
@@ -683,19 +707,17 @@
             }
 
             .news-image {
-                /*float: left;*/
                 margin: 0 0 10px 0;
 
                 .news-image {
                     max-width: 170px;
+                    min-width: 170px;
                     width: auto;
                     height: auto;
                 }
             }
 
             .teaser-txt {
-                /*float: left;*/
-                /*clear: right;*/
                 float: right;
                 width: calc(100% - 185px);
             }
@@ -770,11 +792,11 @@
             }
 
             .news-image {
-                /*float: left;*/
                 padding: 0;
-                max-width: 270px;
                 width: auto;
                 height: auto;
+                max-width: 270px;
+                min-width: 270px;
             }
 
             .date {

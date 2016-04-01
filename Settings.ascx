@@ -55,6 +55,21 @@
                 <dnn:Label ID="lblHomeText" runat="server" />
                 <asp:TextBox ID="txtHomeText" runat="server" CssClass="form-control" />
             </div>
+
+            <%--Edit region
+                ---------------------- --%>
+            <div class="dnnFormItem">
+                <dnn:Label ID="lblShowAllNews" runat="server" />
+                <asp:CheckBox ID="cbShowAllNews" runat="server" 
+                    AutoPostBack="false" />
+            </div>
+            <div class="dnnFormItem">
+                <dnn:Label ID="lblAllNewsText" runat="server" />
+                <asp:TextBox ID="txtAllNews" runat="server" CssClass="form-control" />
+            </div>
+            <%--End of edit region
+                --------------------- --%>
+
             <div class="dnnFormItem">
                 <dnn:Label ID="lblIsSorted" runat="server" />
                 <asp:CheckBox ID="cbIsSorted" runat="server" AutoPostBack="true" 

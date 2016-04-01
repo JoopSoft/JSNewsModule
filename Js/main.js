@@ -111,6 +111,39 @@
             placement: 'auto bottom'
         });
 
+        //AUTO CLOSE POPUP PANEL
+        $('.JSNews .popup').each(function(){
+        
+            var $this = $(this),
+                $timer = 0,
+                $total = 4;
+
+            if ($this.is('.auto-close-box')) {
+
+                $this.find('.popup-wrapper')
+                    .append($('<div>', { 'class': 'progress-bar'}).css('width', '0%'));
+
+                var $interval = setInterval(function () {
+
+                    //$timer = ($timer + 1) % 361;
+                    $timer++;
+                                        
+                    $this.find('.progress-bar').css('width', '100%');
+
+                    if ($timer === $total) {
+                        clearInterval($interval);
+                        $('.JSNews .popup.auto-close-box').remove();
+                    }
+                    //console.log($timer);
+
+                }, 1000);
+            }
+                    
+            //if ($this.is('.confirm-box')) $('.JSNews .popup.confirm-box').remove();
+
+
+        });
+
 
     });
 

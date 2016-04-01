@@ -34,7 +34,7 @@ $dark-alpha: rgba(59,30,119, 0.25);
 $dark-alpha-md: rgba(59,30,119, 0.5);
 $dark-alpha-lg: rgba(59,30,119, 0.7);
 $dark-alpha-xlg: rgba(59,30,119, 0.8);
-$dark-alpha-hover: rgba(59,30,119, 0.02);
+$dark-alpha-hover: rgba(59,30,119, 0.05);
 
 
 $light: rgba(255,255,255, 1);
@@ -49,6 +49,7 @@ $none: none;
 $all: all 300ms ease-out;
 $bgColor: background-color 300ms ease-out;
 $color: color 300ms ease-out;
+$width: width 3000ms ease-out;
 
 @mixin bg-size($bgsize){
     -webkit-background-size: $bgsize;
@@ -76,6 +77,13 @@ $color: color 300ms ease-out;
 	-moz-transition: $transitions;
 	-o-transition: $transitions;
 	transition: $transitions;
+}
+
+@mixin transition-delay($delay) {
+    -webkit-transition-delay: $delay;
+    -moz-transition-delay: $delay;
+    -o-transition-delay: $delay;
+    transition-delay: $delay;
 }
 
 @mixin border-radius($radius) {

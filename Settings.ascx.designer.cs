@@ -193,6 +193,42 @@ namespace JS.Modules.JSNewsModule {
         protected global::System.Web.UI.WebControls.TextBox txtHomeText;
         
         /// <summary>
+        /// lblShowAllNews control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DotNetNuke.UI.UserControls.LabelControl lblShowAllNews;
+        
+        /// <summary>
+        /// cbShowAllNews control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox cbShowAllNews;
+        
+        /// <summary>
+        /// lblAllNewsText control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DotNetNuke.UI.UserControls.LabelControl lblAllNewsText;
+        
+        /// <summary>
+        /// txtAllNews control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtAllNews;
+        
+        /// <summary>
         /// lblIsSorted control.
         /// </summary>
         /// <remarks>

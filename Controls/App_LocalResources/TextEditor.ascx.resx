@@ -117,100 +117,49 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="ControlTitle_settings.Text" xml:space="preserve">
-    <value>JSNewsModule - Settings</value>
+  <data name="BasicTextBox.Text" xml:space="preserve">
+    <value>Basic Text Box</value>
   </data>
-  <data name="lblBackText.Help" xml:space="preserve">
-    <value>Enter custom text for the Back Button</value>
+  <data name="RichTextBox.Text" xml:space="preserve">
+    <value>Rich Text Editor</value>
   </data>
-  <data name="lblBackText.Text" xml:space="preserve">
-    <value>Back Button Text</value>
+  <data name="Text.Text" xml:space="preserve">
+    <value>Text</value>
   </data>
-  <data name="lblHomeText.Help" xml:space="preserve">
-    <value>Enter custom text for the Home Button</value>
+  <data name="Html.Text" xml:space="preserve">
+    <value>HTML</value>
   </data>
-  <data name="lblHomeText.Text" xml:space="preserve">
-    <value>Home Button Text</value>
+  <data name="Raw.Text" xml:space="preserve">
+    <value>Raw</value>
   </data>
-  <data name="lblIsSorted.Help" xml:space="preserve">
-    <value>Check to sort the News List</value>
+  <data name="plView.Text" xml:space="preserve">
+    <value>Full Text Editor</value>
   </data>
-  <data name="lblIsSorted.Text" xml:space="preserve">
-    <value>Sort News</value>
+  <data name="plRender.Help" xml:space="preserve">
+    <value>Select the mode to use to render the HTML.</value>
   </data>
-  <data name="lblReadMoreText.Help" xml:space="preserve">
-    <value>Enter custom text for the Read More Button</value>
+  <data name="plRender.Text" xml:space="preserve">
+    <value>Render Mode</value>
   </data>
-  <data name="lblReadMoreText.Text" xml:space="preserve">
-    <value>Read More Button Text</value>
+  <data name="CompareListDefaultOption.Text" xml:space="preserve">
+    <value>Compare</value>
   </data>
-  <data name="lblShowBack.Help" xml:space="preserve">
-    <value>Choose whether to show Back Button or not.</value>
+  <data name="EditorTitleLabel.Text" xml:space="preserve">
+    <value>{0} Editor</value>
   </data>
-  <data name="lblShowBack.Text" xml:space="preserve">
-    <value>Show Back Button</value>
+  <data name="VersionLabel.Text" xml:space="preserve">
+    <value>Version {0}</value>
   </data>
-  <data name="lblShowHome.Help" xml:space="preserve">
-    <value>Choose whether to show Home Button or not.</value>
+  <data name="VersionListDefaultOption.Text" xml:space="preserve">
+    <value>Version</value>
   </data>
-  <data name="lblShowHome.Text" xml:space="preserve">
-    <value>Show Home Button</value>
+  <data name="lblContent.Help" xml:space="preserve">
+    <value>Enter Full News Text</value>
   </data>
-  <data name="lblShowNewsDate.Help" xml:space="preserve">
-    <value>Choose whether to show date or not.</value>
+  <data name="lblContent.Text" xml:space="preserve">
+    <value>Full Text</value>
   </data>
-  <data name="lblShowNewsDate.Text" xml:space="preserve">
-    <value>Show News Date</value>
-  </data>
-  <data name="lblShowNewsImg.Help" xml:space="preserve">
-    <value>Choose whether to show image or not.</value>
-  </data>
-  <data name="lblShowNewsImg.Text" xml:space="preserve">
-    <value>Show News Image</value>
-  </data>
-  <data name="lblShowReadMore.Help" xml:space="preserve">
-    <value>Choose whether to show Read More Button or not.</value>
-  </data>
-  <data name="lblShowReadMore.Text" xml:space="preserve">
-    <value>Show Read More Button</value>
-  </data>
-  <data name="lblSortBy.Help" xml:space="preserve">
-    <value>Select Sorting Method</value>
-  </data>
-  <data name="lblSortBy.Text" xml:space="preserve">
-    <value>Sort By</value>
-  </data>
-  <data name="lblSortType.Help" xml:space="preserve">
-    <value>Select Sorting Type</value>
-  </data>
-  <data name="lblSortType.Text" xml:space="preserve">
-    <value>Sort Type</value>
-  </data>
-  <data name="lblViewMode.Help" xml:space="preserve">
-    <value>Select the View Mode</value>
-  </data>
-  <data name="lblViewMode.Text" xml:space="preserve">
-    <value>View Mode</value>
-  </data>
-  <data name="Title.Text" xml:space="preserve">
-    <value>JSNewsModule - Settings</value>
-  </data>
-  <data name="lblNewsPerPage.Help" xml:space="preserve">
-    <value>Enter how many news to see per page</value>
-  </data>
-  <data name="lblNewsPerPage.Text" xml:space="preserve">
-    <value>News Per Page</value>
-  </data>
-  <data name="lblUsePaging.Help" xml:space="preserve">
-    <value>Choose wheter to use paging or not</value>
-  </data>
-  <data name="lblUsePaging.Text" xml:space="preserve">
-    <value>Use Paging</value>
-  </data>
-  <data name="lblAllNewsText.Text" xml:space="preserve">
-    <value>All News Button Text</value>
-  </data>
-  <data name="lblShowAllNews.Text" xml:space="preserve">
-    <value>Show All News Button</value>
+  <data name="plView.Help" xml:space="preserve">
+    <value>Select prefer editor.</value>
   </data>
 </root>
