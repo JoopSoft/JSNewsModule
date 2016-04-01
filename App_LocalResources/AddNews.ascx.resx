@@ -196,7 +196,7 @@
     <value>Cancel</value>
   </data>
   <data name="btnDefault.Text" xml:space="preserve">
-    <value>Use Default Image</value>
+    <value>Default Image</value>
   </data>
   <data name="btnNo.Text" xml:space="preserve">
     <value>No</value>

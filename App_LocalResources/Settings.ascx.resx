@@ -207,4 +207,10 @@
   <data name="lblUsePaging.Text" xml:space="preserve">
     <value>Use Paging</value>
   </data>
+  <data name="lblAllNewsText.Text" xml:space="preserve">
+    <value>All News Button Text</value>
+  </data>
+  <data name="lblShowAllNews.Text" xml:space="preserve">
+    <value>Show All News Button</value>
+  </data>
 </root>

@@ -5,12 +5,6 @@
     //    $('#dnnEditBasicSettings .dnnFormExpandContent a').dnnExpandAll({ expandText: '<%=Localization.GetString("ExpandAll", LocalResourceFile)%>', collapseText: '<%=Localization.GetString("CollapseAll", LocalResourceFile)%>', targetArea: '#dnnEditBasicSettings' });
     //}
 
-    $(function () {
-        $('[data-toggle="tooltip"]').tooltip({
-
-            placement: 'auto left'
-        })
-    });
 
     $(document).ready(function () {
 
@@ -27,68 +21,130 @@
             $lnkSave = '<i class="fa fa-floppy-o"></i>',
             $lnkCancel = '<i class="fa fa-ban"></i>',
             $lnkInfo = '<i class="fa fa-info-circle"></i>',
+            $lnkClose = '<i class="fa fa-close"></i>',
+            $lnkWarning = '<i class="fa fa-warning"></i>',
+            $lnkImage = '<i class="fa fa-picture-o"></i>',
 
             $lnkPrev = '<i class="fa fa-angle-left"></i>',
             $lnkNext = '<i class="fa fa-angle-right"></i>',
             $largeIcon = 'fa-lg';
+        
+        
+        //PUSHED MIXED UP ICON AND TEXT ONTO ELEMENTS
+        $('.JSNews .link-add').prepend($lnkAdd + ' ');
+        $('.JSNews .link-edit').prepend($lnkEdit + ' ');
+        $('.JSNews .link-delete').prepend($lnkDelete + ' ');
+        $('.JSNews .link-back').prepend($lnkBack + ' ');
+        $('.JSNews .link-home').prepend($lnkHome + ' ');
+        $('.JSNews .link-all').prepend($lnkAll + ' ');
+        $('.JSNews .link-upload').prepend($lnkUpload + ' ');
+        $('.JSNews .link-save').prepend($lnkSave + ' ');
+        $('.JSNews .link-cancel').prepend($lnkCancel + ' ');
+        $('.JSNews .link-info').prepend($lnkInfo + ' ');
+        $('.JSNews .link-prev').prepend($lnkPrev + ' ');
+        $('.JSNews .link-close').prepend($lnkClose + ' ');
+        $('.JSNews .link-warning').prepend($lnkWarning + ' ');
+        $('.JSNews .link-image').prepend($lnkImage + ' ');
+        $('.JSNews .link-next').append(' ' + $lnkNext);
 
+        //PUSHED ONLY ICONS ON ELEMTNS
+        $('.JSNews .link-add.no-txt').html($lnkAdd);
+        $('.JSNews .link-edit.no-txt').html($lnkEdit);
+        $('.JSNews .link-delete.no-txt').html($lnkDelete);
+        $('.JSNews .link-back.no-txt').html($lnkBack);
+        $('.JSNews .link-home.no-txt').html($lnkHome);
+        $('.JSNews .link-all.no-txt').html($lnkAll);
+        $('.JSNews .link-upload.no-txt').html($lnkUpload);
+        $('.JSNews .link-save.no-txt').html($lnkSave);
+        $('.JSNews .link-cancel.no-txt').html($lnkCancel);
+        $('.JSNews .link-info.no-txt').html($lnkInfo);
+        $('.JSNews .link-prev.no-txt').html($lnkPrev);
+        $('.JSNews .link-next.no-txt').html($lnkNext);
+        $('.JSNews .link-close.no-txt').html($lnkClose);
+        $('.JSNews .link-warning.no-txt').html($lnkWarning);
+        $('.JSNews .link-image.no-txt').html($lnkImage);
 
+        $('.JSNews a.dnnFormHelp').prepend($lnkInfo);
+
+        //COLLAPSING BY BOOTSTRAP FRAMEWORK
+        //$('.JSNews .collapse').collapse();
+        
         //CUTTING TEXT BY ELLIPSIS PLUGIN
-        if ($('.rpt-list .teaser-txt').exists()) $('.rpt-list .teaser-txt').ellipsis({
+        if ($('.JSNews .rpt-list .ellipsis').exists()) $('.JSNews .rpt-list .ellipsis').ellipsis({
             row: 5,
             onlyFullWords: true
         });
 
         //CUTTING TEXT BY ELLIPSIS PLUGIN
-        if ($('.rpt-accordion .teaser-txt').exists()) $('.rpt-accordion .teaser-txt').ellipsis({
+        if ($('.JSNews .rpt-accordion .ellipsis').exists()) $('.JSNews .rpt-accordion .ellipsis').ellipsis({
             row: 2,
             onlyFullWords: true
         });
-
-        $('.link-save').prepend($lnkSave + ' ');
-        $('.link-cancel').prepend($lnkCancel + ' ');
-        $('.link-all').prepend($lnkAll + ' ');
-        $('.link-upload').prepend($lnkUpload + ' ');
-
-        $('a.dnnFormHelp').prepend($lnkInfo);
-
-        $('.add-news .link-delete').prepend($lnkDelete + ' ');
-
-
-        $('.details-view .link-home').prepend($lnkHome + ' ');
-        $('.details-view .link-back').prepend($lnkBack + ' ');
-        $('.details-view .link-edit').prepend($lnkEdit + ' ');
-        $('.details-view .link-delete').prepend($lnkDelete + ' ');
-
-
-        $('.rpt-list .link-edit').prepend($lnkEdit + ' ');
-        $('.rpt-list .link-add').prepend($lnkAdd + ' ');
-        $('.rpt-list .link-delete').prepend($lnkDelete + ' ');
-        $('.rpt-list .link-prev, .details-view .link-prev').prepend($lnkPrev + ' ');
-        $('.rpt-list .link-next, .details-view .link-next').append(' ' + $lnkNext);
-
-
-        $('.rpt-accordion .link-edit').html($lnkEdit);
-        $('.rpt-accordion .link-add').html($lnkAdd);
-        $('.rpt-accordion .link-delete').html($lnkDelete);
-        $('.rpt-accordion .link-prev').html($lnkPrev);
-        $('.rpt-accordion .link-next').html($lnkNext);
-
-        //COLLAPSING BY BOOTSTRAP FRAMEWORK
-        $('.collapse').collapse();
-
 
         //dnnEditBasicSettings();
         //Sys.WebForms.PageRequestManager.getInstance().add_endRequest(function () {
         //    dnnEditBasicSettings();
         //});
 
-        if ($('a.link-popup').exists()) $('a.link-popup').fancybox({
-            'padding': 0,
-            'transitionIn': 'elastic',
-            'transitionOut': 'elastic',
-            'titleShow': false
+        if ($('.JSNews a.link-popup').exists()) $('.JSNews a.link-popup')
+            .fancybox({
+                padding: 0,
+                closeClick: true,
+                closeBtn: true,
+                openEffect: 'elastic',
+                closeEffect: 'elastic',
+                helpers: {
+                    //title: null,
+                    title: {
+                        type: 'over' // 'float', 'inside', 'outside' or 'over'
+                    },
+                    //overlay: null,
+                    overlay: {
+                        showEarly: false
+                    }
+                }
+
         });
+
+
+        $('.JSNews [data-toggle="tooltip"]').tooltip({
+            placement: 'auto bottom'
+        });
+
+        //AUTO CLOSE POPUP PANEL
+        $('.JSNews .popup').each(function(){
+        
+            var $this = $(this),
+                $timer = 0,
+                $total = 4;
+
+            if ($this.is('.auto-close-box')) {
+
+                $this.find('.popup-wrapper')
+                    .append($('<div>', { 'class': 'progress-bar'}).css('width', '0%'));
+
+                var $interval = setInterval(function () {
+
+                    //$timer = ($timer + 1) % 361;
+                    $timer++;
+                                        
+                    $this.find('.progress-bar').css('width', '100%');
+
+                    if ($timer === $total) {
+                        clearInterval($interval);
+                        $('.JSNews .popup.auto-close-box').remove();
+                    }
+                    //console.log($timer);
+
+                }, 1000);
+            }
+                    
+            //if ($this.is('.confirm-box')) $('.JSNews .popup.confirm-box').remove();
+
+
+        });
+
+
     });
 
 }(jQuery, window.Sys));

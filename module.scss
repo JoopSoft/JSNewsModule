@@ -1,590 +1,891 @@
 ﻿@import "variables.scss";
 
-* {
-    @include box-size(border-box);
-}
+.JSNews {
 
-.dnnForm {
-
-    .form-control {
-        width: 45%;
-        height: 35px;
-        line-height: normal;
-
-        @include box-shadow($none);
-
-        &.teaser-txt {
-            height: 70px;
-        }
-
-        &.body-txt {
-            height: 150px;
-        }
+    * {
+        @include box-size(border-box);
     }
 
-    h1, h2, h3, h4, h5, h6 {
-        color: $dark;
-        /*margin: 0 0 10px;*/
-    }
-
-    h3 {
-        /*font-size: 1rem;*/
-        font-size: 1.571em;
-    }
-
-    h4 {
-        /*font-size: 0.85rem;*/
-        font-size: 1.286em;
-    }
-
-    .dnnFormSectionHead {
-        /*border-bottom: 1px solid $dark-alpha;*/
-        border-bottom: $none;
-
-        .dnnFormMessage {
-            margin: 0 0 30px;
-            padding: 15px;
-            background-size: 30px;
-            font-weight: normal;
-            line-height: normal;
-            border: $none;
-
-            @include border-radius(0);
-
-            &.dnnFormTitle {
-                color: $white;
-                background-color: $dark-alpha-lg;
-
-                &.dnnFormIcon {
-                    padding: 15px 15px 15px 55px;
-                    background-image: url(h-icon.png);
-                    background-repeat: no-repeat;
-                    background-position: 15px center;
-                }
-            }
-            //&.dnnFormInfo {
-            //    color: $white;
-            //    background: $dark-alpha-md;
-            //
-            //}
-            //&.dnnFormSuccess {
-            //    color: $dark;
-            //    background: $dark-alpha;
-            //}
-            //&.dnnFormWarning {
-            //    color: $dark;
-            //    background: $dark-alpha;
-            //}
-        }
-    }
-
-    input[type=checkbox] {
-        visibility: hidden;
-    }
-    //DNN RE-STYLING CHECK BOX CONTROL
-    //DON'T REORDER ROW DEFINITIONS
-    .dnnCheckbox img {
-        display: inline-block;
-        width: 20px;
-        height: 18px;
-        min-width: 20px;
-        vertical-align: middle;
-    }
-
-    .dnnCheckbox img {
-        background: transparent url(checkbox.png) no-repeat;
-    }
-
-    .dnnCheckbox img {
-        background-position: 0px 0px;
-    }
-
-    .dnnCheckbox-checked img {
-        background-position: -50px 0px;
-    }
-
-    .dnnCheckbox-disabled img {
-        opacity: .5;
-    }
-    //END
-    .dnnFormItem,
-    .dnnFormItem {
-        margin-bottom: 15px;
-
-        .news-image {
-            width: auto;
-            height: 35px;
-            //display: inline-block;
-            //margin-right: 10px;
-            //border: 1px solid $dark-alpha-lg;
-            float: left;
-        }
-
-        .link-delete {
-            height: 35px;
-            float: left;
-            margin-right: 10px;
-        }
-
-        select > option {
-            color: $dark;
-        }
-
-        label span {
-            color: $dark-alpha-lg;
-            font-weight: bold;
-        }
-
-        .btn {
-            line-height: normal;
-            border: $none;
-            padding: 10px 15px;
-
-            @include border-radius(0);
-
-            &.btn-primary {
-                background-color: $dark-alpha-lg;
-
-                &:hover,
-                &:focus,
-                &:active {
-                    background-color: $dark-alpha-xlg;
-                }
-            }
-
-            &.btn-default {
-                color: $dark-alpha-lg;
-
-                &:hover,
-                &:focus,
-                &:active {
-                    color: $white;
-                    background-color: $dark-alpha-lg;
-                }
-            }
-
-            &:hover {
-                border: $none;
-            }
-
-            &:active {
-                @include box-shadow($none);
-            }
-        }
-
-        &.controls {
-            margin: 0;
-            padding: 10px 0 0 0;
-            border-top: 1px solid $dark-alpha;
-        }
-    }
-
-    &.add-news {
-
-        .dnnFormItem button,
-        .dnnFormItem input[type="button"],
-        .dnnFormItem input[type="reset"],
-        .dnnSecondaryAction,
-        a.dnnSecondaryAction,
-        ul.dnnAdminTabNav li a,
-        .dnnLogin .LoginTabGroup span {
-            margin: 0;
-            padding: 8px 12px;
-            color: $white;
-            background: $dark-alpha-lg;
-            font-family: inherit;
-            font-weight: normal;
-            border: $none;
-            text-decoration: none;
-            text-shadow: $none;
-
-            @include border-radius(0);
-            @include box-shadow($none);
-
-            &:hover {
-                background: $dark-alpha-xlg;
-            }
-        }
-
-        a.dnnFormHelp {
-            color: $dark-alpha-lg;
-            background: $none;
-            top: 0;
-            width: auto;
-            height: auto;
-            font-weight: normal;
-        }
-    }
-
-    &.add-news,
-    &.settings {
-        font-size: 14px;
-
-        input[type="text"],
-        select,
-        textarea,
-        input[type="email"],
-        input[type="search"],
-        input[type="date"] {
-            margin: 0;
-            border: 1px solid $dark-alpha;
-            color: $dark-alpha-md;
-            width: 50%;
-            max-width: 450px;
-            font-size: 1em;
-            padding: 5px 8px;
-
-            @include border-radius(0);
-            @include box-shadow($none);
-            @include transition($all);
-
-            &:active,
-            &:focus {
-                color: $dark;
-                background: $none;
-                border: 1px solid $dark;
-                outline: $none;
-                @include box-shadow(0 0 6px 1px $dark-alpha-md);
-            }
-
-            &[disabled="disabled"] {
-                color: $dark;
-                width: calc(50% - 50px);
-                display: inline-block;
-                border: none;
-                background: none;
-                padding: 0;
-
-                @include box-shadow($none);
-            }
-        }
-
-        select {
-            padding: 5px;
-        }
-    }
-}
-
-.panel {
-
-    h1, h2, h3, h4, h5, h6 {
-        color: $dark;
-        /*margin: 0 0 10px;*/
-    }
-
-    h3 {
-        /*font-size: 1rem;*/
-        font-size: 1.571em;
-    }
-
-    h4 {
-        /*font-size: 0.85rem;*/
-        font-size: 1.286em;
-    }
-
-    p {
-        /*font-size: 0.65rem;*/
-        font-size: 1em;
-    }
-
-    a.btn-primary:active,
-    a.btn-primary:link,
-    a.btn-primary:visited {
+    .link-dev {
+        float: right;
+        font-size: 12px;
         color: $white;
+        margin-top: 6px;
     }
 
-    .btn {
-        @include border-radius(0);
-        line-height: normal;
-        border-color: transparent;
+    .dnnForm {
 
-        &.btn-primary {
-            background-color: $dark-alpha-lg;
-            border-color: transparent;
-
-            &:hover {
-                background-color: $dark-alpha-xlg;
-                border-color: transparent;
-            }
-        }
-
-        &:hover {
-            border-color: transparent;
-        }
-
-        &:active {
-            @include box-shadow($none);
-        }
-    }
-
-    .btn-group .btn + .btn, .btn-group .btn + .btn-group, .btn-group .btn-group + .btn, .btn-group .btn-group + .btn-group {
-        margin-left: 0;
-    }
-
-    .list-group {
-        margin: 0;
-
-        .list-group-item-text {
-            color: $middle;
-        }
-
-        .list-group-item-heading {
-            margin: 0;
-            color: $large;
-        }
-
-        .panel-footer {
-            float: left;
-            clear: both;
-            width: 100%;
-            background-color: transparent;
-            border: $none;
-        }
-
-        .badge {
-            position: absolute;
-            min-width: 10px;
-            padding: 2px 6px;
+        .form-control {
+            width: 45%;
+            height: 35px;
             line-height: normal;
-            top: 0;
-            right: 0;
-            font-weight: normal;
-            color: $white;
-            background-color: $dark-alpha-lg;
-            border-radius: 0;
+
+            @include box-shadow($none);
+
+            &.teaser-txt {
+                height: 70px;
+            }
+
+            &.body-txt {
+                height: 150px;
+            }
         }
 
-        .list-group-item {
-            float: left;
-            clear: both;
-            width: 100%;
-            margin-bottom: 0;
-            border: $none;
-            border-bottom: 1px solid $dark-alpha;
+        h1, h2, h3, h4, h5, h6 {
+            color: $dark;
+            /*margin: 0 0 10px;*/
+        }
 
-            &:last-child,
-            &:first-child {
+        h3 {
+            /*font-size: 1rem;*/
+            font-size: 1.571em;
+        }
+
+        h4 {
+            /*font-size: 0.85rem;*/
+            font-size: 1.286em;
+        }
+
+        .dnnFormSectionHead {
+            border-bottom: $none;
+
+            .dnnFormMessage {
+                margin: 0 0 30px;
+                padding: 15px;
+                background-size: 30px;
+                font-weight: normal;
+                line-height: normal;
+                border: $none;
+
                 @include border-radius(0);
+
+                &.dnnFormTitle {
+                    color: $white;
+                    background-color: $dark-alpha-xlg;
+
+                    &.dnnFormIcon {
+                        padding: 15px 15px 15px 55px;
+                        background-image: url(h-icon.png);
+                        background-repeat: no-repeat;
+                        background-position: 15px center;
+                    }
+                }
+                //&.dnnFormInfo {
+                //    color: $white;
+                //    background: $dark-alpha-md;
+                //
+                //}
+                //&.dnnFormSuccess {
+                //    color: $dark;
+                //    background: $dark-alpha;
+                //}
+                //&.dnnFormWarning {
+                //    color: $dark;
+                //    background: $dark-alpha;
+                //}
+            }
+        }
+
+        input[type=checkbox],
+        input[type=radio] {
+            visibility: hidden;
+            display: $none;
+        }
+        //DNN RE-STYLING CHECK BOX/RADIO BUTTON CONTROLS
+        //DON'T REORDER ROW DEFINITIONS
+        .dnnCheckbox img {
+            display: inline-block;
+            width: 20px;
+            height: 18px;
+            min-width: 20px;
+            vertical-align: middle;
+        }
+
+        .dnnCheckbox img {
+            background: transparent url(checkbox.png) no-repeat;
+        }
+
+        .dnnCheckbox img {
+            background-position: 0px 0px;
+        }
+
+        .dnnCheckbox-checked img {
+            background-position: -50px 0px;
+        }
+
+        .dnnCheckbox-disabled img {
+            opacity: .5;
+        }
+        /*RADIO BUTTONS GROUP*/
+        .dnnRadiobutton img {
+            width: 20px;
+            height: 18px;
+            min-width: 20px;
+            vertical-align: middle;
+        }
+
+        .dnnRadiobutton img {
+            /*background: transparent url(radiobutton.png) no-repeat;*/
+            background: transparent url(radiobutton.png) no-repeat;
+        }
+
+        .dnnRadiobutton img {
+            background-position: 0px 0px;
+        }
+
+        .dnnRadiobutton-checked img {
+            background-position: -50px 0px;
+        }
+
+        .dnnRadiobutton-disabled img {
+            opacity: .5;
+        }
+
+        .dnnFormItem {
+            margin-bottom: 15px;
+            float: left;
+
+            select > option {
+                color: $dark;
             }
 
-            &:nth-last-child(-n+2) {
-                margin-bottom: -1px;
+            label span,
+            .dnnBoxLabel {
+                color: $dark-alpha-lg;
+                font-weight: bold;
             }
 
-            > a {
-                text-decoration: $none;
+            > .dnnLabel,
+            .dnnLabel {
+                margin-top: 5px;
 
-                &.read-more {
-                    margin-top: 15px;
-                    float: right;
+                + span {
+                    margin-top: 0;
+                    margin-bottom: 0;
                 }
             }
 
-            &:focus,
-            &:hover,
-            &:active {
-                color: $white;
-                background-color: $dark-alpha-lg;
+            .btn {
+                line-height: normal;
+                border: $none;
+                padding: 10px 15px;
 
-                .list-group-item-heading {
-                    color: $white;
+                @include border-radius(0);
+
+                &.btn-primary {
+                    background-color: $dark-alpha-lg;
+
+                    &:hover,
+                    &:focus,
+                    &:active {
+                        background-color: $dark-alpha-xlg;
+                    }
                 }
 
-                .badge {
-                    background: $none;
-                }
+                &.btn-default {
+                    color: $dark-alpha-lg;
 
-                .list-group-item-text {
-                    color: $white;
-                }
-
-                h1, h2, h3, h4, h5, h6 {
-                    color: $white;
-                }
-
-                > a {
-
-                    &.read-more {
-                        background: $none;
+                    &:hover,
+                    &:focus,
+                    &:active {
                         color: $white;
-                        border: 1px solid $white;
-
-                        &:hover {
-                            background: $white;
-                            color: $dark;
-                            border: 1px solid $white;
-                        }
+                        background-color: $dark-alpha-lg;
                     }
                 }
 
                 &:hover {
+                    border: $none;
+                }
 
-                    .pnl-admin {
-                        .btn-group {
-                            display: block;
+                &:active {
+                    @include box-shadow($none);
+                }
+            }
+
+            &.controls {
+                margin: 0;
+                padding: 10px 0 0 0;
+                border-top: 1px solid $dark-alpha;
+            }
+
+            &.popup {
+                position: fixed;
+                top: 0;
+                left: 0;
+                margin: 0;
+                /*color: $white;*/
+                text-align: center;
+                background: $overlay;
+                height: 100%;
+                z-index: 9999;
+
+                .popup-wrapper {
+                    top: calc((100% - 180px)/2);
+                    position: relative;
+                    width: 50%;
+                    left: 25%;
+                    padding: 15px;
+
+                    h1, h2, h3, h4, h5, h6 {
+                        color: $white;
+                        border: $none;
+                        padding: 0;
+                        margin: 0;
+                    }
+
+                    .popup-icon {
+                        display: block;
+
+                        .fa {
+                            font-size: 5em;
                         }
+                    }
+
+                    .popup-msg {
+                        display: block;
+                        margin: 10px 0 0 0;
+                        word-wrap: break-word;
+                        word-break: break-all;
+                    }
+
+                    .btn-group {
+                        margin-top: 15px;
+                    }
+
+                    .btn {
+                        border: $none;
+                        margin: 0;
+                    }
+
+                    .progress-bar {
+                        position: absolute;
+                        left: 0;
+                        bottom: 0;
+                        width: 0;
+                        height: 2px;
+
+                        @include transition($width);
+                        @include transition-delay(0);
+                    }
+
+                    .close-action {
+                        position: absolute;
+                        background-color: transparent;
+                        color: $white;
+                        border: $none;
+                        top: 0;
+                        right: 0;
+                        padding: 0;
+                        margin: 0;
+                        width: 25px;
+                        height: 25px;
+                        line-height: 25px;
+
+                        &:hover {
+                            background-color: $light-alpha-xsm;
+                        }
+                    }
+                }
+
+                &.success {
+
+                    .popup-wrapper {
+                        background: $success-md;
+
+                        .popup-icon {
+                            color: $success;
+                        }
+
+                        .btn {
+                            &.close-action {
+                                &:hover {
+                                    background-color: $success;
+                                }
+                            }
+                        }
+
+                        .progress-bar {
+                            background: $success;
+                        }
+                    }
+                }
+
+                &.warning {
+
+                    .popup-wrapper {
+                        background: $warning-md;
+
+                        .popup-icon {
+                            color: $warning;
+                        }
+
+                        .btn {
+                            &.close-action {
+                                &:hover {
+                                    background-color: $warning;
+                                }
+                            }
+                        }
+
+                        .progress-bar {
+                            background: $warning;
+                        }
+                    }
+                }
+            }
+
+            &.group {
+
+                input[type="text"],
+                select,
+                textarea,
+                input[type="email"],
+                input[type="search"],
+                input[type="date"] {
+                    float: left;
+                    height: 35px;
+                    line-height: 35px;
+                    width: 50%;
+                    max-width: 450px;
+
+                    &.grouped {
+                        border-right: $none;
+                    }
+
+                    &.ungrouped {
+                        border: 1px solid $dark-alpha;
+
+                        &:focus {
+                            border: 1px solid $dark;
+                        }
+                    }
+                }
+
+                .news-image {
+                    float: left;
+                    width: auto;
+                    height: 35px;
+                }
+
+                .btn {
+                    float: left;
+                    padding: 0 10px;
+                    height: 35px;
+                    line-height: 35px;
+                    min-width: 35px;
+                    text-align: center;
+
+                    &.btn-icon {
+                        padding: 0;
+                    }
+                }
+            }
+        }
+
+        &.add-news {
+
+            .dnnFormItem button,
+            .dnnFormItem input[type="button"],
+            .dnnFormItem input[type="reset"],
+            .dnnSecondaryAction,
+            a.dnnSecondaryAction,
+            ul.dnnAdminTabNav li a,
+            .dnnLogin .LoginTabGroup span {
+                margin: 0;
+                padding: 8px 12px;
+                color: $white;
+                background: $dark-alpha-lg;
+                font-family: inherit;
+                font-weight: normal;
+                border: $none;
+                text-decoration: none;
+                text-shadow: $none;
+
+                @include border-radius(0);
+                @include box-shadow($none);
+
+                &:hover {
+                    background: $dark-alpha-xlg;
+                }
+            }
+
+            a.dnnFormHelp {
+                color: $dark-alpha-lg;
+                background: $none;
+                top: 0;
+                width: auto;
+                height: auto;
+                font-weight: normal;
+            }
+        }
+
+        &.add-news,
+        &.settings {
+            font-size: 14px;
+
+            input[type="text"],
+            select,
+            textarea,
+            input[type="email"],
+            input[type="search"],
+            input[type="date"] {
+                margin: 0;
+                border: 1px solid $dark-alpha;
+                color: $dark-alpha-md;
+                width: 50%;
+                max-width: 450px;
+                font-size: 1em;
+                padding: 5px 8px;
+
+                @include border-radius(0);
+                @include box-shadow($none);
+                @include transition($all);
+
+                &:active,
+                &:focus {
+                    color: $dark;
+                    background: $none;
+                    border: 1px solid $dark;
+                    outline: $none;
+                    overflow: visible;
+
+                    @include box-shadow(0 0 6px 1px $dark-alpha-md);
+                }
+
+                &[disabled="disabled"] {
+                    color: $dark;
+                    width: calc(50% - 50px);
+                    display: inline-block;
+                    border: none;
+                    background: none;
+                    padding: 0;
+
+                    @include box-shadow($none);
+                }
+
+                &.txt-img-url {
+                    margin-left: 10px;
+                }
+            }
+
+            select {
+                padding: 5px;
+            }
+
+            .rich-text-editor {
+                textarea {
+                    max-width: calc(100% - 16px);
+                    max-height: calc(100% - 10px);
+
+                    &:active,
+                    &:focus {
+                        @include box-shadow($none);
                     }
                 }
             }
         }
     }
 
-    .rpt-list {
+    .panel {
 
-        .list-group-item {
-            padding: 10px;
+        h1, h2, h3, h4, h5, h6 {
+            /*color: $dark;*/
+            /*margin: 0 0 10px;*/
         }
 
-        .no-img {
-            .list-group-item {
+        h3 {
+            /*font-size: 1rem;*/
+            font-size: 1.571em;
+        }
 
-                .teaser-txt {
-                    width: 100%;
-                }
+        h4 {
+            /*font-size: 0.85rem;*/
+            font-size: 1.286em;
+        }
 
-                > a.read-more {
-                    clear: both;
+        p {
+            /*font-size: 0.65rem;*/
+            font-size: 1em;
+        }
+
+        a.btn-primary:active,
+        a.btn-primary:link,
+        a.btn-primary:visited {
+            color: $white;
+        }
+
+        .btn {
+            @include border-radius(0);
+            line-height: normal;
+            border-color: transparent;
+
+            @include transition($bgColor);
+
+            &.btn-primary {
+                background-color: $dark-alpha-lg;
+                border-color: transparent;
+
+                &:hover {
+                    background-color: $dark-alpha-xlg;
+                    border-color: transparent;
                 }
+            }
+
+            &:hover {
+                border-color: transparent;
+            }
+
+            &:active {
+                @include box-shadow($none);
             }
         }
 
-        .pnl-admin {
+        .btn-group .btn + .btn, .btn-group .btn + .btn-group, .btn-group .btn-group + .btn, .btn-group .btn-group + .btn-group {
+            margin-left: 0;
+        }
 
-            .btn-group {
-                display: $none;
+        .list-group {
+            margin: 0;
+
+            .list-group-item-text {
+                color: $middle;
+            }
+
+            .list-group-item-heading {
+                margin: 0;
+                color: $large;
+            }
+
+            .panel-footer {
+                float: left;
+                clear: both;
+                width: 100%;
+                background-color: transparent;
+                border: $none;
+            }
+
+            .badge {
                 position: absolute;
-                top: 10px;
-                right: 10px;
+                min-width: 10px;
+                padding: 2px 6px;
+                line-height: normal;
+                top: 0;
+                right: 0;
+                font-weight: normal;
+                color: $white;
+                background-color: $dark-alpha-lg;
+                border-radius: 0;
             }
 
-            .btn {
-                padding: 4px 8px;
+            .list-group-item {
+                float: left;
+                clear: both;
+                width: 100%;
+                margin-bottom: 0;
+                border: $none;
+                border-bottom: 1px solid $dark-alpha;
+
+                &:last-child,
+                &:first-child {
+                    @include border-radius(0);
+                }
+
+                &:nth-last-child(-n+2) {
+                    margin-bottom: 0;
+                }
+
+                > a {
+                    text-decoration: $none;
+
+                    &.read-more {
+                        margin-top: 15px;
+                        float: right;
+                        background: transparent;
+                        color: $dark-alpha-xlg;
+                        border: 2px solid $dark-alpha-lg;
+                        clear: both;
+                    }
+                }
+
+                &:focus,
+                &:hover,
+                &:active {
+                    color: $dark;
+                    background-color: $dark-alpha-hover;
+
+                    @include transition($bgColor);
+
+                    .list-group-item-heading {
+                        color: $dark;
+                    }
+
+                    .badge {
+                        background: $none;
+                        color: $dark;
+                    }
+
+                    .list-group-item-text {
+                        color: $dark;
+                    }
+
+                    h1, h2, h3, h4, h5, h6 {
+                        color: $dark;
+                    }
+
+                    .btn-default {
+                        background: $dark-alpha-lg;
+                        color: $white;
+
+                        &:hover {
+                            background: $dark-alpha-xlg;
+                        }
+                    }
+
+                    > a {
+
+                        &.read-more {
+                            background: $dark-alpha-lg;
+                            color: $white;
+                            border: 2px solid transparent;
+
+                            @include transition($bgColor);
+
+                            &:hover {
+                                background: $dark-alpha-xlg;
+                            }
+                        }
+                    }
+
+                    &:hover {
+
+                        .pnl-admin {
+                            .btn-group {
+                                display: block;
+                            }
+                        }
+                    }
+                }
             }
         }
 
-        .panel-footer {
-            padding: 10px;
-        }
+        .rpt-list {
 
-        .link-image {
-            float: left;
-            margin: 0 10px 10px 0;
+            .list-group-item {
+                padding: 10px;
+            }
+
+            .no-img {
+                .list-group-item {
+
+                    .teaser-txt {
+                        width: 100%;
+                    }
+
+                    > a.read-more {
+                        clear: both;
+                    }
+                }
+            }
+
+            .pnl-admin {
+
+                .btn-group {
+                    display: $none;
+                    position: absolute;
+                    top: 10px;
+                    right: 10px;
+                }
+
+                .btn {
+                    padding: 4px 8px;
+                }
+            }
+
+            .panel-footer {
+                padding: 10px;
+            }
 
             .news-image {
-                max-width: 170px;
-                width: auto;
-                height: auto;
+                margin: 0 0 10px 0;
+
+                .news-image {
+                    max-width: 170px;
+                    min-width: 170px;
+                    width: auto;
+                    height: auto;
+                }
             }
-        }
 
-        .teaser-txt {
-            float: left;
-            width: calc(100% - 180px);
-            clear: right;
-        }
-
-        .body-txt {
-            float: left;
-            width: calc(100% - 270px);
-            clear: right;
-        }
-
-        .panel-heading {
-            padding: 0 0 5px 0;
-        }
-    }
-
-    .rpt-accordion {
-
-        .list-group-item {
-            padding: 5px;
-        }
-
-        .pnl-admin {
-            position: relative;
-
-            .btn-group {
+            .teaser-txt {
                 float: right;
-                margin-top: 5px;
-                display: $none;
+                width: calc(100% - 185px);
             }
 
-            .btn {
-                padding: 2px 7px;
+            .body-txt {
+                float: left;
+                width: calc(100% - 270px);
+                clear: right;
+            }
+
+            .panel-heading {
+                padding: 0 0 5px 0;
             }
         }
 
-        .panel-footer {
-            padding: 10px 5px;
+        .rpt-accordion {
+
+            .list-group-item {
+                padding: 5px;
+                overflow: hidden;
+                min-height: 64px;
+            }
+
+            .pnl-admin {
+                position: relative;
+
+                .btn-group {
+                    float: right;
+                    margin-top: 5px;
+                    display: $none;
+                }
+
+                .btn {
+                    padding: 2px 7px;
+                }
+            }
+
+            .panel-footer {
+                padding: 10px 5px;
+            }
+
+            .news-image {
+                height: 100px;
+                width: 100px;
+            }
+
+            .panel-heading {
+                padding: 0 0 5px 0;
+            }
+
+            .ellipsis {
+                height: 35px;
+            }
         }
 
-        .news-image {
-            height: 100px;
-            width: 100px;
+        &.view {
+            border: $none;
+            @include box-shadow($none);
         }
 
-        .panel-heading {
-            padding: 0 0 5px 0;
-        }
-    }
-
-    &.view {
-        border: $none;
-        @include box-shadow($none);
-    }
-
-    &.details-view {
-        margin-bottom: 0;
-        background: $none;
-        border: $none;
-
-        @include border-radius(0);
-        @include box-shadow($none);
-
-        .pnl-admin {
-            position: absolute;
-            top: 10px;
-            right: 15px;
-            margin: 0;
-        }
-
-        .news-image {
-            float: left;
-            padding: 0 15px 10px 0;
-            max-width: 270px;
-            width: auto;
-            height: auto;
-        }
-
-        .date {
-            color: $dark-alpha-md;
-        }
-
-        .body-txt {
-            color: $dark;
-        }
-
-        .panel-heading {
+        &.details-view {
+            margin-bottom: 0;
             background: $none;
             border: $none;
 
             @include border-radius(0);
-        }
+            @include box-shadow($none);
 
-        .panel-body {
-            text-align: justify;
-        }
+            .pnl-admin {
+                position: absolute;
+                top: 10px;
+                right: 15px;
+                margin: 0;
+            }
 
-        .panel-footer {
-            background-color: transparent;
-            border-top: 1px solid $dark-alpha;
+            .news-image {
+                padding: 0;
+                width: auto;
+                height: auto;
+                max-width: 270px;
+                min-width: 270px;
+            }
+
+            .date {
+                color: $dark-alpha-md;
+            }
+
+            .body-txt {
+                float: right;
+                width: calc(100% - 285px);
+                color: $dark;
+            }
+
+            .panel-heading {
+                background: $none;
+                border: $none;
+
+                @include border-radius(0);
+            }
+
+            .panel-body {
+                text-align: justify;
+            }
+
+            .panel-footer {
+                background-color: transparent;
+                border-top: 1px solid $dark-alpha;
+            }
+
+            &.no-img {
+                .body-txt {
+                    float: left;
+                    width: 100%;
+                }
+            }
         }
     }
-}
+    /*BOOTSTRAP RE-STYLING TOOLTIP*/
+    .tooltip {
 
+        &.in {
+            filter: alpha(opacity=100);
+            opacity: 1;
+        }
 
+        &.top .tooltip-arrow {
+            border-top-color: $tooltip;
+        }
+
+        &.top-left .tooltip-arrow {
+            border-top-color: $tooltip;
+        }
+
+        &.top-right .tooltip-arrow {
+            border-top-color: $tooltip;
+        }
+
+        &.right .tooltip-arrow {
+            border-right-color: $tooltip;
+        }
+
+        &.left .tooltip-arrow {
+            border-left-color: $tooltip;
+        }
+
+        &.bottom .tooltip-arrow {
+            border-bottom-color: $tooltip;
+        }
+
+        &.bottom-left .tooltip-arrow {
+            border-bottom-color: $tooltip;
+        }
+
+        &.bottom-right .tooltip-arrow {
+            border-bottom-color: $tooltip;
+        }
+
+        .tooltip-inner {
+            background-color: $tooltip;
+            @include border-radius(0);
+        }
+    }
+
+    .ellipsis {
+        overflow: hidden;
+    }
 
     .mark, mark {
         padding: 0 !important;
         background-color: transparent !important;
     }
+}

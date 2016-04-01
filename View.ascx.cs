@@ -227,7 +227,9 @@ namespace JS.Modules.JSNewsModule
                     pnlAdminControls.Visible = true;
                     lnkDelete.CommandArgument = n.NewsId.ToString();
                     lnkDelete.Enabled = lnkDelete.Visible = lnkEdit.Enabled = lnkEdit.Visible = lnkAdd.Enabled = lnkAdd.Visible = true;
+                    lnkDelete.ToolTip = "Delete " + n.NewsTitle;
                     lnkEdit.NavigateUrl = EditUrl(string.Empty, string.Empty, "AddNews", "nid=" + n.NewsId);
+                    lnkEdit.ToolTip = "Edit " + n.NewsTitle;
                     lnkAdd.NavigateUrl = EditUrl("AddNews");
 
                     ClientAPI.AddButtonConfirm(lnkDelete, Localization.GetString("ConfirmDelete", LocalResourceFile));
@@ -259,8 +261,10 @@ namespace JS.Modules.JSNewsModule
                 {
                     pnlAdminControls.Visible = true;
                     lnkDelete.CommandArgument = n.NewsId.ToString();
+                    lnkDelete.ToolTip = "Delete " + n.NewsTitle;
                     lnkDelete.Enabled = lnkDelete.Visible = lnkEdit.Enabled = lnkEdit.Visible = lnkAdd.Enabled = lnkAdd.Visible = true;
                     lnkEdit.NavigateUrl = EditUrl(string.Empty, string.Empty, "AddNews", "nid=" + n.NewsId);
+                    lnkEdit.ToolTip = "Edit " + n.NewsTitle;
                     lnkAdd.NavigateUrl = EditUrl("AddNews");
 
                     ClientAPI.AddButtonConfirm(lnkDelete, Localization.GetString("ConfirmDelete", LocalResourceFile));

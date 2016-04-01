@@ -49,6 +49,15 @@ namespace JS.Modules.JSNewsModule {
         protected global::System.Web.UI.WebControls.Repeater rptItemAccordionView;
         
         /// <summary>
+        /// pnlFirstAdd control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlFirstAdd;
+        
+        /// <summary>
         /// lnkFirstAdd control.
         /// </summary>
         /// <remarks>

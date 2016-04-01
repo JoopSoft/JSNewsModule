@@ -62,14 +62,14 @@ namespace JS.Modules.JSNewsModule
                     }
                     lblImgUrl.Visible = imgList.Visible = lblImgSelected.Visible = imgPreview.Visible = btnDeleteImg.Visible = txtImgUrl.Visible = lblUploadImg.Visible = btnImgSelect.Visible = btnImgUpload.Visible = s.ShowNewsImg && cbShowImg.Checked && s.ViewMode == "List";
                     lblCustomOrderId.Visible = txtCustomOrderId.Visible = (s.ShowCustomOrderId && s.IsSorted);
-                    var li = new ListItem("Default Image", "Default Image.png");
+                    var li = new ListItem("Default Image", "Default Image.svg");
                     imgList.Items.Add(li);
                     string[] imgDirectory = Directory.GetFiles(Server.MapPath("~/DesktopModules/JSNewsModule/Images/"));
                     foreach (string img in imgDirectory)
                     {
                         string filename = Path.GetFileName(img);
                         var im = new ListItem(filename, img);
-                        if (filename != "Default Image.png")
+                        if (filename != "Default Image.svg")
                         {
                             imgList.Items.Add(im);
                         }
@@ -106,7 +106,7 @@ namespace JS.Modules.JSNewsModule
                     {
                         txtImgUrl.Text = imgList.SelectedValue;
                     }
-                    if (imgList.SelectedValue == "Default Image.png")
+                    if (imgList.SelectedValue == "Default Image.svg")
                     {
                         btnDeleteImg.Visible = false;
                     }
@@ -255,7 +255,7 @@ namespace JS.Modules.JSNewsModule
                         {
                             txtImgUrl.Text = btnImgSelect.FileName;
                             imgPreview.ImageUrl = "~/DesktopModules/JSNewsModule/Images/" + txtImgUrl.Text;
-                            var li = new ListItem("Default Image", "Default Image.png");
+                            var li = new ListItem("Default Image", "Default Image.svg");
                             imgList.Items.Clear();
                             imgList.Items.Add(li);
                             string[] imgDirectory = Directory.GetFiles(Server.MapPath("~/DesktopModules/JSNewsModule/Images/"));
@@ -263,7 +263,7 @@ namespace JS.Modules.JSNewsModule
                             {
                                 string filename = Path.GetFileName(img);
                                 var im = new ListItem(filename, img);
-                                if (filename != "Default Image.png")
+                                if (filename != "Default Image.svg")
                                 {
                                     imgList.Items.Add(im);
                                 }
@@ -277,22 +277,30 @@ namespace JS.Modules.JSNewsModule
                     }
                     else
                     {
-                        txtImgUrl.Text = "The Selected File is not Image";
+                        pnlPopUp.Visible = true;
+                        pnlPopUp.CssClass = "dnnFormItem popup auto-close-box success";
+                        //txtImgUrl.Text = "The Selected File is not Image";
+                        lblPopUpMsg.Text = "Selected file is not image!";
+                        lblPopUpIcon.CssClass = "popup-icon link-info";
                     }
                 }
             }
             else
             {
-                txtImgUrl.Text = "No File Selected";
+                pnlPopUp.Visible = true;
+                pnlPopUp.CssClass = "dnnFormItem popup auto-close-box success";
+                //txtImgUrl.Text = "No File Selected";
+                lblPopUpMsg.Text = "No file selected!";
+                lblPopUpIcon.CssClass = "popup-icon link-info";
             }
         }
 
         protected void Image_Selected(object sender, EventArgs e)
         {
-            var li = new ListItem("Default Image", "Default Image.png");
+            var li = new ListItem("Default Image", "Default Image.svg");
             if (imgList.SelectedItem.Equals(li))
             {
-                txtImgUrl.Text = "Default Image.png";
+                txtImgUrl.Text = "Default Image.svg";
                 btnDeleteImg.Visible = false;
             }
             else
@@ -306,20 +314,30 @@ namespace JS.Modules.JSNewsModule
         protected void cbShowImg_CheckedChanged(object sender, EventArgs e)
         {
             lblImgUrl.Visible = imgList.Visible = lblImgSelected.Visible = imgPreview.Visible = txtImgUrl.Visible = lblUploadImg.Visible = btnImgSelect.Visible = btnImgUpload.Visible = cbShowImg.Checked;
-            btnDeleteImg.Visible = cbShowImg.Checked && imgList.SelectedValue != "Default Image.png";
+            btnDeleteImg.Visible = cbShowImg.Checked && imgList.SelectedValue != "Default Image.svg";
         }
 
         protected void btnDeleteImg_Click(object sender, EventArgs e)
         {
-            if (imgList.SelectedValue != "Default Image.png")
+            if (imgList.SelectedValue != "Default Image.svg")
             {
-                txtImgUrl.Text = "Are you sure you want to delete this Image?";
+                pnlPopUp.Visible = true;
+                pnlPopUp.CssClass = "dnnFormItem popup confirm-box warning";
+                //txtImgUrl.Text = "Are you sure you want to delete this Image?";
+                lblPopUpMsg.Text = "Delete this Image?";
+                lblPopUpIcon.CssClass = "popup-icon link-delete";
                 btnYes.Visible = true;
                 btnNo.Visible = true;
             }
             else
             {
-                txtImgUrl.Text = "You Can't Delete Default Image";
+                pnlPopUp.Visible = true;
+                pnlPopUp.CssClass = "dnnFormItem popup confirm-box warning";
+                //txtImgUrl.Text = "Default Image Can't Delete";
+                lblPopUpMsg.Text = "Default image can't delete!";
+                lblPopUpIcon.CssClass = "popup-icon link-delete";
+
+
             }
         }
 
@@ -338,7 +356,12 @@ namespace JS.Modules.JSNewsModule
             }
             if (imgUsed)
             {
-                txtImgUrl.Text = "There are News using this Image";
+                pnlPopUp.Visible = true;
+                pnlPopUp.CssClass = "dnnFormItem popup confirm-box warning";
+                //txtImgUrl.Text = "There are News using this Image";
+                lblPopUpMsg.Text = "There are News using this Image!";
+                lblPopUpIcon.CssClass = "popup-icon link-delete";
+                
                 btnDefault.Visible = true;
                 btnRemove.Visible = true;
                 btnCancelDelete.Visible = true;
@@ -367,12 +390,17 @@ namespace JS.Modules.JSNewsModule
             {
                 if (n.ImageUrl == imgPreview.ImageUrl)
                 {
-                    n.ImageUrl = "~/DesktopModules/JSNewsModule/Images/Default Image.png";
+                    n.ImageUrl = "~/DesktopModules/JSNewsModule/Images/Default Image.svg";
                     nc.UpdateNews(n);
                 }
             }
             DeleteImage();
-            txtImgUrl.Text = "Image Replaced with Default";
+            pnlPopUp.Visible = true;
+            pnlPopUp.CssClass = "dnnFormItem popup auto-close-box success";
+            //txtImgUrl.Text = "Image Replaced with Default";
+            lblPopUpMsg.Text = "Default image is applied!";
+            lblPopUpIcon.CssClass = "popup-icon link-info";
+
             btnDefault.Visible = false;
             btnRemove.Visible = false;
             btnCancelDelete.Visible = false;
@@ -386,13 +414,18 @@ namespace JS.Modules.JSNewsModule
             {
                 if (n.ImageUrl == imgPreview.ImageUrl)
                 {
-                    n.ImageUrl = "~/DesktopModules/JSNewsModule/Images/Default Image.png";
+                    n.ImageUrl = "~/DesktopModules/JSNewsModule/Images/Default Image.svg";
                     n.ShowNewsImg = false;
                     nc.UpdateNews(n);
                 }
             }
             DeleteImage();
-            txtImgUrl.Text = "Image Removed";
+            pnlPopUp.Visible = true;
+            pnlPopUp.CssClass = "dnnFormItem popup auto-close-box success";
+            //txtImgUrl.Text = "Image Removed";
+            lblPopUpMsg.Text = "Image Removed!";
+            lblPopUpIcon.CssClass = "popup-icon link-info";
+            
             btnDefault.Visible = false;
             btnRemove.Visible = false;
             btnCancelDelete.Visible = false;
@@ -410,8 +443,15 @@ namespace JS.Modules.JSNewsModule
         {
             File.Delete(imgList.SelectedValue);
             string temp = imgList.SelectedValue.Replace(Server.MapPath("~/DesktopModules/JSNewsModule/Images/"), "");
-            txtImgUrl.Text = "Image \"" + temp + "\" Deleted";
-            var li = new ListItem("Default Image", "Default Image.png");
+
+            pnlPopUp.Visible = true;
+            pnlPopUp.CssClass = "dnnFormItem popup auto-close-box success";
+            //txtImgUrl.Text = "Image \"" + temp + "\" Deleted";
+            lblPopUpMsg.Text = "Image \"" + temp + "\" Deleted";
+            lblPopUpIcon.CssClass = "popup-icon link-info";
+
+
+            var li = new ListItem("Default Image", "Default Image.svg");
             imgList.Items.Clear();
             imgList.Items.Add(li);
             string[] imgDirectory = Directory.GetFiles(Server.MapPath("~/DesktopModules/JSNewsModule/Images/"));
@@ -419,12 +459,12 @@ namespace JS.Modules.JSNewsModule
             {
                 string filename = Path.GetFileName(img);
                 var im = new ListItem(filename, img);
-                if (filename != "Default Image.png")
+                if (filename != "Default Image.svg")
                 {
                     imgList.Items.Add(new ListItem(filename, img));
                 }
             }
-            imgPreview.ImageUrl = "~/DesktopModules/JSNewsModule/Images/Default Image.png";
+            imgPreview.ImageUrl = "~/DesktopModules/JSNewsModule/Images/Default Image.svg";
             btnYes.Visible = false;
             btnNo.Visible = false;
             btnDeleteImg.Visible = false;

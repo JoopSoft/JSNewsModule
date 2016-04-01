@@ -46,22 +46,27 @@ namespace JS.Modules.JSNewsModule
                 var n = nc.LoadNews(NewsId, ModuleId);
                 lblNewsTitle.Text = n.NewsTitle;
                 lnkPopUpImg.NavigateUrl = n.ImageUrl;
+                lnkPopUpImg.ToolTip = n.NewsTitle;
                 lblNewsDate.Visible = n.ShowNewsDate;
                 lblNewsDate.Text = n.NewsDate;
                 imgNewsImage.Visible = n.ShowNewsImg;
                 imgNewsImage.ImageUrl = n.ImageUrl;
+                imgNewsImage.AlternateText = n.NewsTitle + " image";
                 lblNewsContent.Text = Server.HtmlDecode(n.NewsContent);
                 btnBack.Visible = n.ShowBack;
                 btnBack.Text = n.BackText;
+                btnBack.ToolTip = n.BackText;
                 btnHome.Visible = n.ShowHome;
                 btnHome.Text = n.HomeText;
+                btnHome.ToolTip = n.HomeText;
                 if (IsEditable && lnkDelete != null && lnkEdit != null && pnlAdminControls != null)
                 {
                     pnlAdminControls.Visible = true;
                     lnkDelete.CommandArgument = n.NewsId.ToString();
                     lnkDelete.Enabled = lnkDelete.Visible = lnkEdit.Enabled = lnkEdit.Visible = true;
+                    lnkDelete.ToolTip = "Delete " + n.NewsTitle;
                     lnkEdit.NavigateUrl = EditUrl(string.Empty, string.Empty, "AddNews", "nid=" + n.NewsId);
-
+                    lnkEdit.ToolTip = "Edit " + n.NewsTitle;
                     ClientAPI.AddButtonConfirm(lnkDelete, Localization.GetString("ConfirmDelete", LocalResourceFile));
                 }
                 else
