@@ -49,6 +49,15 @@ namespace JS.Modules.JSNewsModule {
         protected global::System.Web.UI.WebControls.CheckBox cbShowNewsDate;
         
         /// <summary>
+        /// pnlShowNewsImg control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlShowNewsImg;
+        
+        /// <summary>
         /// lblShowNewsImg control.
         /// </summary>
         /// <remarks>
@@ -76,6 +85,15 @@ namespace JS.Modules.JSNewsModule {
         protected global::System.Web.UI.WebControls.TextBox lblStatImgMsg;
         
         /// <summary>
+        /// pnlShowReadMore control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlShowReadMore;
+        
+        /// <summary>
         /// lblShowReadMore control.
         /// </summary>
         /// <remarks>
@@ -101,6 +119,15 @@ namespace JS.Modules.JSNewsModule {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox lblStatReadMoreMsg;
+        
+        /// <summary>
+        /// pnlReadMoreText control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlReadMoreText;
         
         /// <summary>
         /// lblReadMoreText control.

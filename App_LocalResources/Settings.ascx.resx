@@ -208,9 +208,15 @@
     <value>Use Paging</value>
   </data>
   <data name="lblAllNewsText.Text" xml:space="preserve">
-    <value>All News Button Text</value>
+    <value>News Page</value>
   </data>
   <data name="lblShowAllNews.Text" xml:space="preserve">
     <value>Show All News Button</value>
+  </data>
+  <data name="lblAllNewsText.Help" xml:space="preserve">
+    <value>Enter the name of the news page.</value>
+  </data>
+  <data name="lblShowAllNews.Help" xml:space="preserve">
+    <value>Choose whether to show All News Button or not.</value>
   </data>
 </root>

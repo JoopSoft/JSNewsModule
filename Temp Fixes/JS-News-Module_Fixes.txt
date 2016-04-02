@@ -1,0 +1,38 @@
+[DETAILS VIEW]: Prev and Next buttons must titled by next and prev item titles
+	(Ex.: Details view for News Item 2: {Next-> News Item 3; Prev -> News Item 1})
+
+[DETAILS VIEW]: Remove <img /> tag from DOM when unchecked image option from [EDIT] and 
+add custom class 'no-img' to pnlDetailsView
+
+[VIEW]: pnlFirstAdd panel should be removed from DOM when we've a record to DB
+
+[VIEW]: Delete popup must be unify to our popup vision
+
+[SETTINGS]: When we've selected Accordion mode must be invisible panels from DOM as follows:
+	- pnlShowNewsImg
+	- pnlShowReadMore
+	- pnlReadMoreText
+
+[SETTINGS]: Show "All News Button" must be show/hide "News Page" textbox (Dropdown available pages). 
+Also show/hide this button from View & Details View.
+
+	*Notes: Thinking about how is it possible to do that..
+
+[ADD/EDIT]: txtImgUrl must be cleared after current image deletion and set to default image text.
+
+[ADD/EDIT]: pnlImgList, pnlImgSelectedGroup, pnlImgUpload panels must be show/hiden from DOM when "Show Image" checkbox 
+is checked/unchecked.
+
+[ADD/EDIT] *Accordion mode: The follow panels must be hidden from DOM when:
+	pnlShowImg - When we've no image on Accordion list, 
+	pnlImgList - When we've no image on Accordion list, 
+	pnlImgSelectedGroup - When we've no image on Accordion list, 
+	pnlImgUpload - When we've no image on Accordion list, 
+	pnlCustomOrderId - When we've select another sorting method from settings (Diff. from Custom Order method)
+
+	*Notes: Thinkig about whether we've a news image on accordion list and how is it possible to do that...
+
+*One close event for all popups "Close" && "Cancel" buttons -> Unify them
+
+*Discuss for separately styled dnnFormItem by some of horizontal line or something else..
+

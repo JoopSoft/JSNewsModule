@@ -122,6 +122,7 @@
     <Content Include="module.min.css">
       <DependentUpon>module.css</DependentUpon>
     </Content>
+    <Content Include="radiobutton.png" />
     <Content Include="ReleaseNotes.txt" />
     <Content Include="Settings.ascx" />
     <Content Include="Temp Fixes\JS-News-Module_Fixes.txt" />

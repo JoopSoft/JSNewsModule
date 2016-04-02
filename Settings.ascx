@@ -19,24 +19,26 @@
                 <dnn:Label ID="lblShowNewsDate" runat="server" />
                 <asp:CheckBox ID="cbShowNewsDate" runat="server" />
             </div>
-            <div class="dnnFormItem">
+
+            <asp:Panel ID="pnlShowNewsImg" runat="server" CssClass="dnnFormItem">
                 <dnn:Label ID="lblShowNewsImg" runat="server" />
                 <asp:CheckBox ID="cbShowNewsImg" runat="server" CssClass="form-control"
                     AutoPostBack="true" OnCheckedChanged="cbShowNewsImg_CheckedChanged" />
                 <asp:TextBox ID="lblStatImgMsg" runat="server" CssClass="form-control" 
                     Enabled="false" Text="*Notes: Read more button must be checked" />
-            </div>
-            <div class="dnnFormItem">
+            </asp:Panel>
+            <asp:Panel ID="pnlShowReadMore" runat="server" CssClass="dnnFormItem">
                 <dnn:Label ID="lblShowReadMore" runat="server" />
                 <asp:CheckBox ID="cbShowReadMore" runat="server" 
                     AutoPostBack="true" OnCheckedChanged="cbShowReadMore_CheckedChanged" />
                 <asp:TextBox ID="lblStatReadMoreMsg" runat="server" CssClass="form-control" 
                     Enabled="false" Text="*Notes: News image must be checked" />
-            </div>
-            <div class="dnnFormItem">
+            </asp:Panel>
+            <asp:Panel ID="pnlReadMoreText" runat="server" CssClass="dnnFormItem">
                 <dnn:Label ID="lblReadMoreText" runat="server" />
                 <asp:TextBox ID="txtReadMoreText" runat="server" CssClass="form-control" />
-            </div>
+            </asp:Panel>
+
             <div class="dnnFormItem">
                 <dnn:Label ID="lblShowBack" runat="server" />
                 <asp:CheckBox ID="cbShowBack" runat="server" 
