@@ -54,15 +54,19 @@
     </file>
     <file>
       <path>App_LocalResources/</path>
-      <name>Edit.ascx.resx</name>
-    </file>
-    <file>
-      <path>App_LocalResources/</path>
       <name>Settings.ascx.resx</name>
     </file>
     <file>
       <path>App_LocalResources/</path>
       <name>View.ascx.resx</name>
+    </file>
+    <file>
+      <path>Controls/</path>
+      <name>TextEditor.ascx</name>
+    </file>
+    <file>
+      <path>Controls/App_LocalResources/</path>
+      <name>TextEditor.ascx.resx</name>
     </file>
     <file>
       <path>Documentation/</path>
@@ -82,31 +86,15 @@
     </file>
     <file>
       <path>Images/</path>
-      <name>00.jpg</name>
-    </file>
-    <file>
-      <path>Images/</path>
-      <name>5-1920x1080.jpg</name>
-    </file>
-    <file>
-      <path>Images/</path>
-      <name>836-1920x1080.jpg</name>
-    </file>
-    <file>
-      <path>Images/</path>
-      <name>Default Image.png</name>
-    </file>
-    <file>
-      <path>Images/</path>
-      <name>sheviza3.jpg</name>
-    </file>
-    <file>
-      <path>Images/</path>
-      <name>Skull.jpg</name>
+      <name>Default Image.svg</name>
     </file>
     <file>
       <path>Js/</path>
       <name>main.js</name>
+    </file>
+    <file>
+      <path>Temp Fixes/</path>
+      <name>JS-News-Module_Fixes.txt</name>
     </file>
   </files>
 </dotnetnuke>

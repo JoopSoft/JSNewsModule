@@ -355,11 +355,13 @@ namespace JS.Modules.JSNewsModule
         {
             if (viewModeList.SelectedValue == "Accordion")
             {
-                lblShowNewsImg.Visible = cbShowNewsImg.Visible = lblShowReadMore.Visible = cbShowReadMore.Visible = lblReadMoreText.Visible = txtReadMoreText.Visible = false;
+                pnlReadMoreText.Visible = pnlShowNewsImg.Visible = pnlShowReadMore.Visible = false;
+                //lblShowNewsImg.Visible = cbShowNewsImg.Visible = lblShowReadMore.Visible = cbShowReadMore.Visible = lblReadMoreText.Visible = txtReadMoreText.Visible = false;
             }
             else
             {
-                lblShowNewsImg.Visible = cbShowNewsImg.Visible = lblShowReadMore.Visible = cbShowReadMore.Visible = lblReadMoreText.Visible = txtReadMoreText.Visible = true;
+                pnlReadMoreText.Visible = pnlShowNewsImg.Visible = pnlShowReadMore.Visible = true;
+                //lblShowNewsImg.Visible = cbShowNewsImg.Visible = lblShowReadMore.Visible = cbShowReadMore.Visible = lblReadMoreText.Visible = txtReadMoreText.Visible = true;
             }
         }
 

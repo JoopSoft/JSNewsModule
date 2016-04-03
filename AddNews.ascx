@@ -45,8 +45,7 @@
                     ResourceKey="btnDeleteImg" OnClick="btnDeleteImg_Click"
                      data-toggle="tooltip" ToolTip="Delete Image" />
 
-                <asp:TextBox ID="txtImgUrl" runat="server" CssClass="form-control txt-img-url" 
-                    Visible="true" Enabled="false" />                
+                <asp:TextBox ID="txtImgUrl" runat="server" CssClass="form-control txt-img-url" Enabled="false" />                
             </asp:Panel>
             <asp:Panel ID="pnlImgUpload" runat="server" CssClass="dnnFormItem">
                 <dnn:label ID="lblUploadImg" runat="server" />

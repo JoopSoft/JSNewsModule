@@ -4,11 +4,11 @@
 [DETAILS VIEW]: Remove <img /> tag from DOM when unchecked image option from [EDIT] and 
 add custom class 'no-img' to pnlDetailsView
 
-[VIEW]: pnlFirstAdd panel should be removed from DOM when we've a record to DB
+Done [VIEW]: pnlFirstAdd panel should be removed from DOM when we've a record to DB
 
 [VIEW]: Delete popup must be unify to our popup vision
 
-[SETTINGS]: When we've selected Accordion mode must be invisible panels from DOM as follows:
+Done [SETTINGS]: When we've selected Accordion mode must be invisible panels from DOM as follows:
 	- pnlShowNewsImg
 	- pnlShowReadMore
 	- pnlReadMoreText
@@ -18,9 +18,9 @@ Also show/hide this button from View & Details View.
 
 	*Notes: Thinking about how is it possible to do that..
 
-[ADD/EDIT]: txtImgUrl must be cleared after current image deletion and set to default image text.
+Done [ADD/EDIT]: txtImgUrl must be cleared after current image deletion and set to default image text.
 
-[ADD/EDIT]: pnlImgList, pnlImgSelectedGroup, pnlImgUpload panels must be show/hiden from DOM when "Show Image" checkbox 
+Done [ADD/EDIT]: pnlImgList, pnlImgSelectedGroup, pnlImgUpload panels must be show/hiden from DOM when "Show Image" checkbox 
 is checked/unchecked.
 
 [ADD/EDIT] *Accordion mode: The follow panels must be hidden from DOM when:

@@ -185,13 +185,15 @@ namespace JS.Modules.JSNewsModule
                 }
                 if (newsPresent)
                 {
-                    lnkFirstAdd.Visible = false;
+                    pnlFirstAdd.Visible = false;
+                    //lnkFirstAdd.Visible = false;
                     lnkAll.Visible = lnkPrev.Visible = lnkNext.Visible = true;
                     lnkAllA.Visible = lnkPrevA.Visible = lnkNextA.Visible = true;
                 }
                 else
                 {
-                    lnkFirstAdd.Visible = true;
+                    pnlFirstAdd.Visible = true;
+                    //lnkFirstAdd.Visible = true;
                     lnkAll.Visible = lnkPrev.Visible = lnkNext.Visible = false;
                     lnkAllA.Visible = lnkPrevA.Visible = lnkNextA.Visible = false;
                 }

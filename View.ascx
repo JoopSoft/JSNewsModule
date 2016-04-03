@@ -123,7 +123,7 @@
         
         <%--FIRST ADD BUTTON--%>
         <asp:Panel ID="pnlFirstAdd" runat="server">
-            <asp:HyperLink ID="lnkFirstAdd" runat="server" CssClass="btn btn-primary link-add" Visible="false" ResourceKey="AddFirstItem" />
+            <asp:HyperLink ID="lnkFirstAdd" runat="server" CssClass="btn btn-primary link-add" ResourceKey="AddFirstItem" />
         </asp:Panel>
     </div>
 </div>
