@@ -122,6 +122,8 @@
     <Content Include="module.min.css">
       <DependentUpon>module.css</DependentUpon>
     </Content>
+    <Content Include="packages\MSBuildTasks.1.4.0.128\tools\MSBuild.Community.Tasks.dll" />
+    <Content Include="packages\MSBuildTasks.1.4.0.128\tools\MSBuild.Community.Tasks.xml" />
     <Content Include="radiobutton.png" />
     <Content Include="ReleaseNotes.txt" />
     <Content Include="Settings.ascx" />
@@ -169,6 +171,15 @@
       <DependentUpon>compilerconfig.json</DependentUpon>
     </None>
     <Content Include="variables.scss" />
+    <Content Include="packages\MSBuildTasks.1.4.0.128\content\MSBuild.Community.Tasks.ReadMe.md" />
+    <Content Include="packages\MSBuildTasks.1.4.0.128\MSBuildTasks.1.4.0.128.nupkg" />
+    <Content Include="packages\MSBuildTasks.1.4.0.128\tools\Build.proj" />
+    <Content Include="packages\MSBuildTasks.1.4.0.128\tools\Install.ps1" />
+    <Content Include="packages\MSBuildTasks.1.4.0.128\tools\MSBuild.Community.Tasks.Targets" />
+    <None Include="packages\MSBuildTasks.1.4.0.128\tools\MSBuild.Community.Tasks.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="packages\MSBuildTasks.1.4.0.128\tools\MSBuild.psm1" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_LocalResources\DetailsView.ascx.resx" />
