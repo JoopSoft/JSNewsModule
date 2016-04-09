@@ -45,6 +45,25 @@
             </div>
         </div>
     </asp:Panel>
+    <asp:Panel ID="pnlPopUp" runat="server" Visible="false" CssClass="popup">
+        <div class="popup-wrapper">
+            <asp:Label ID="lblPopUpIcon" runat="server" />
+            <h3>
+                <asp:Label ID="lblPopUpMsg" runat="server" CssClass="popup-msg" />
+            </h3>
+            <asp:Label ID="lblDeleteNewsID" runat="server" />
+            <div class="btn-group" role="group" aria-label="Control buttons">
+                <%--FIRST DELETION--%>
+                <asp:LinkButton ID="btnDelete" runat="server" CssClass="btn btn-danger link-delete"
+                    ResourceKey="btnDeleteImg" OnClick="btnDelete_Click"
+                    data-toggle="tooltip" ToolTip="Delete Image" />
+            </div>
+
+            <asp:LinkButton ID="btnClose" runat="server" CssClass="close-action btn btn-danger link-close"
+                ResourceKey="btnCancelDelete-RRRRRRRRRRRRRR" OnClick="btnClose_Click"
+                data-toggle="tooltip" ToolTip="Close" />
+        </div>
+    </asp:Panel>
 </div>
 
 <%--<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script>--%>

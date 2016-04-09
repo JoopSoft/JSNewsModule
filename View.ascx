@@ -1,4 +1,6 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="View.ascx.cs" Inherits="JS.Modules.JSNewsModule.View" %>
+<%@ Register TagPrefix="dnn" Namespace="DotNetNuke.UI.WebControls" Assembly="DotNetNuke" %>
+
 
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" />
 
@@ -7,8 +9,7 @@
         <%--LIST VIEW--%>
         <asp:Panel ID="pnlList" runat="server" CssClass="rpt-list">
             <div class="list-group">
-                <asp:Repeater ID="rptItemListView" runat="server"
-                    OnItemDataBound="rptItemListOnItemDataBound" OnItemCommand="rptItemListOnItemCommand">
+                <asp:Repeater ID="rptItemListView" runat="server" OnItemDataBound="rptItemListOnItemDataBound">
 
                     <HeaderTemplate></HeaderTemplate>
                     <ItemTemplate>
@@ -16,6 +17,7 @@
                             <div class="list-group-item">
                                 <div class="panel-heading">
                                     <h3 class="panel-title">
+                                        <asp:Label ID="lblNewsId" runat="server" Text='<%#DataBinder.Eval(Container.DataItem,"NewsId").ToString() %>' />
                                         <asp:Label ID="lblNewsTitle" runat="server" Text='<%#DataBinder.Eval(Container.DataItem,"NewsTitle").ToString() %>' />
                                     </h3>
                                     <asp:Label ID="lblNewsDate" runat="server" CssClass="" Text='<%#DataBinder.Eval(Container.DataItem,"NewsDate").ToString() %>' Visible='<%#((DataBinder.Eval(Container.DataItem,"ShowNewsDate")!=null) && ((bool)DataBinder.Eval(Container.DataItem,"ShowNewsDate")==true)) %>' />
@@ -41,7 +43,7 @@
                                             ResourceKey="EditItem" Visible="false" Enabled="false" 
                                             data-toggle="tooltip" />
                                         <asp:LinkButton ID="lnkDelete" runat="server" CssClass="btn btn-danger link-delete" 
-                                            ResourceKey="DeleteItem" Visible="false" Enabled="false" CommandName="Delete" 
+                                            ResourceKey="DeleteItem" Visible="false" Enabled="false" OnClick="btnDeleteNews_Click" 
                                             data-toggle="tooltip" />
                                     </div>
                                 </asp:Panel>
@@ -66,8 +68,7 @@
         <%--ACCORDION VIEW--%>
         <asp:Panel ID="pnlAccordion" runat="server" CssClass="rpt-accordion">
             <div class="list-group">
-                <asp:Repeater ID="rptItemAccordionView" runat="server"
-                    OnItemDataBound="rptItemAccordionOnItemDataBound" OnItemCommand="rptItemListOnItemCommand">
+                <asp:Repeater ID="rptItemAccordionView" runat="server" OnItemDataBound="rptItemAccordionOnItemDataBound">
 
                     <HeaderTemplate></HeaderTemplate>
                     <ItemTemplate>
@@ -77,6 +78,8 @@
                                     <asp:Label ID="lblNewsDate" runat="server" 
                                         Text='<%#DataBinder.Eval(Container.DataItem,"NewsDate").ToString() %>' Visible='<%#((DataBinder.Eval(Container.DataItem,"ShowNewsDate")!=null) && ((bool)DataBinder.Eval(Container.DataItem,"ShowNewsDate")==true)) %>' />
                                 </span>
+                                <asp:Image ID="imgNewsImage" runat="server" CssClass="news-image"
+                                    ImageUrl='<%#DataBinder.Eval(Container.DataItem, "ImageUrl").ToString() %>' Visible='<%#((DataBinder.Eval(Container.DataItem,"ShowNewsImg")!=null) && ((bool)DataBinder.Eval(Container.DataItem,"ShowNewsImg")==true)) %>' />
                                 <h4 class="list-group-item-heading">
                                     <asp:Label ID="lblNewsTitle" runat="server" 
                                         Text='<%#DataBinder.Eval(Container.DataItem,"NewsTitle").ToString() %>' />
@@ -98,7 +101,7 @@
                                         ResourceKey="EditItem-RRRRRRRRRRRRRRRR" Visible="false" Enabled="false" 
                                          data-toggle="tooltip" />
                                     <asp:LinkButton ID="lnkDelete" runat="server" CssClass="btn btn-danger link-delete no-txt" 
-                                        ResourceKey="DeleteItem-RRRRRRRRRRRR" Visible="false" Enabled="false" CommandName="Delete" 
+                                        ResourceKey="DeleteItem-RRRRRRRRRRRR" Visible="false" Enabled="false" OnClick="btnDeleteNews_Click" 
                                          data-toggle="tooltip" />
                                 </div>
                             </asp:Panel>
@@ -120,6 +123,29 @@
                 </asp:Repeater>
             </div>
         </asp:Panel>
+        <asp:Panel ID="pnlPopUp" runat="server" Visible="false" CssClass="popup">
+            <div class="popup-wrapper">
+                <asp:Label ID="lblPopUpIcon" runat="server" />
+                <h3>
+                    <asp:Label ID="lblPopUpMsg" runat="server" CssClass="popup-msg" />
+                </h3>
+                <asp:Label ID="lblDeleteNewsID" runat="server" />
+                <div class="btn-group" role="group" aria-label="Control buttons">
+                    <%--FIRST DELETION--%>
+                    <asp:LinkButton ID="btnDelete" runat="server" CssClass="btn btn-danger link-delete"
+                        ResourceKey="btnDeleteImg" OnClick="btnDelete_Click"
+                        data-toggle="tooltip" ToolTip="Delete Image" />
+                </div>
+
+                <asp:LinkButton ID="btnClose" runat="server" CssClass="close-action btn btn-danger link-close"
+                    ResourceKey="btnCancelDelete-RRRRRRRRRRRRRR" OnClick="btnClose_Click"
+                    data-toggle="tooltip" ToolTip="Close" />
+            </div>
+        </asp:Panel>
+
+        <%--        <asp:Panel ID="pnlPaging" runat="server">
+            <dnn:PagingControl ID="pagingControl" runat="server"></dnn:PagingControl>
+        </asp:Panel>--%>
         
         <%--FIRST ADD BUTTON--%>
         <asp:Panel ID="pnlFirstAdd" runat="server">

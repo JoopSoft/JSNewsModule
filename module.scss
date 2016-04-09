@@ -833,6 +833,132 @@
                 }
             }
         }
+
+        .popup {
+            position: fixed;
+            top: 0;
+            left: 0;
+            margin: 0;
+            /*color: $white;*/
+            text-align: center;
+            background: $overlay;
+            height: 100%;
+            z-index: 9999;
+
+            .popup-wrapper {
+                top: calc((100% - 180px)/2);
+                position: relative;
+                width: 50%;
+                left: 25%;
+                padding: 15px;
+
+                h1, h2, h3, h4, h5, h6 {
+                    color: $white;
+                    border: $none;
+                    padding: 0;
+                    margin: 0;
+                }
+
+                .popup-icon {
+                    display: block;
+
+                    .fa {
+                        font-size: 5em;
+                    }
+                }
+
+                .popup-msg {
+                    display: block;
+                    margin: 10px 0 0 0;
+                    word-wrap: break-word;
+                    word-break: break-all;
+                }
+
+                .btn-group {
+                    margin-top: 15px;
+                }
+
+                .btn {
+                    border: $none;
+                    margin: 0;
+                }
+
+                .progress-bar {
+                    position: absolute;
+                    left: 0;
+                    bottom: 0;
+                    width: 0;
+                    height: 2px;
+
+                    @include transition($width);
+                    @include transition-delay(0);
+                }
+
+                .close-action {
+                    position: absolute;
+                    background-color: transparent;
+                    color: $white;
+                    border: $none;
+                    top: 0;
+                    right: 0;
+                    padding: 0;
+                    margin: 0;
+                    width: 25px;
+                    height: 25px;
+                    line-height: 25px;
+
+                    &:hover {
+                        background-color: $light-alpha-xsm;
+                    }
+                }
+            }
+
+            &.success {
+
+                .popup-wrapper {
+                    background: $success-md;
+
+                    .popup-icon {
+                        color: $success;
+                    }
+
+                    .btn {
+                        &.close-action {
+                            &:hover {
+                                background-color: $success;
+                            }
+                        }
+                    }
+
+                    .progress-bar {
+                        background: $success;
+                    }
+                }
+            }
+
+            &.warning {
+
+                .popup-wrapper {
+                    background: $warning-md;
+
+                    .popup-icon {
+                        color: $warning;
+                    }
+
+                    .btn {
+                        &.close-action {
+                            &:hover {
+                                background-color: $warning;
+                            }
+                        }
+                    }
+
+                    .progress-bar {
+                        background: $warning;
+                    }
+                }
+            }
+        }
     }
     /*BOOTSTRAP RE-STYLING TOOLTIP*/
     .tooltip {

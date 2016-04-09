@@ -67,17 +67,17 @@ namespace JS.Modules.JSNewsModule
                         if (s.SettingsId == ModuleId)
                         {
                             viewModeList.SelectedValue = s.ViewMode;
-                            lblNewsPerPage.Visible = txtNewsPerPage.Visible = cbUsePaging.Checked = s.UsePaging;
+                            cbUsePaging.Checked = pnlNewsPerPage.Visible = s.UsePaging;
                             txtNewsPerPage.Text = s.NewsPerPage.ToString();
                             cbShowNewsDate.Checked = s.ShowNewsDate;
                             cbShowNewsImg.Checked = s.ShowNewsImg;
-                            cbShowReadMore.Checked = lblReadMoreText.Visible = txtReadMoreText.Visible = s.ShowReadMore;
+                            cbShowReadMore.Checked = pnlReadMoreText.Visible = s.ShowReadMore;
                             txtReadMoreText.Text = s.ReadMoreText;
-                            cbShowBack.Checked = lblBackText.Visible = txtBackText.Visible = s.ShowBack;
+                            cbShowBack.Checked = pnlBackText.Visible = s.ShowBack;
                             txtBackText.Text = s.BackText;
-                            cbShowHome.Checked = lblHomeText.Visible = txtHomeText.Visible = s.ShowHome;
+                            cbShowHome.Checked = pnlHomeText.Visible = s.ShowHome;
                             txtHomeText.Text = s.HomeText;
-                            cbIsSorted.Checked = lblSortBy.Visible = sortByList.Visible = lblSortType.Visible = sortTypeList.Visible = s.IsSorted;
+                            cbIsSorted.Checked = pnlSortBy.Visible = pnlSortType.Visible = s.IsSorted;
                             sortByList.SelectedValue = s.SortBy;
                             sortTypeList.SelectedValue = s.SortType;
                         }
@@ -85,19 +85,19 @@ namespace JS.Modules.JSNewsModule
                         {
                             var ds = sc.LoadSingleSettings(0);
                             viewModeList.SelectedValue = ds.ViewMode;
-                            lblNewsPerPage.Visible = txtNewsPerPage.Visible = cbUsePaging.Checked = s.UsePaging;
-                            txtNewsPerPage.Text = s.NewsPerPage.ToString();
+                            cbUsePaging.Checked = pnlNewsPerPage.Visible = ds.UsePaging;
+                            txtNewsPerPage.Text = ds.NewsPerPage.ToString();
                             cbShowNewsDate.Checked = ds.ShowNewsDate;
                             cbShowNewsImg.Checked = ds.ShowNewsImg;
-                            cbShowReadMore.Checked = lblReadMoreText.Visible = txtReadMoreText.Visible = ds.ShowReadMore;
+                            cbShowReadMore.Checked = pnlReadMoreText.Visible = ds.ShowReadMore;
                             txtReadMoreText.Text = ds.ReadMoreText;
-                            cbShowBack.Checked = lblBackText.Visible = txtBackText.Visible = ds.ShowBack;
+                            cbShowBack.Checked = pnlBackText.Visible = ds.ShowBack;
                             txtBackText.Text = ds.BackText;
-                            cbShowHome.Checked = lblHomeText.Visible = txtHomeText.Visible = ds.ShowHome;
+                            cbShowHome.Checked = pnlHomeText.Visible = ds.ShowHome;
                             txtHomeText.Text = ds.HomeText;
-                            cbIsSorted.Checked = lblSortBy.Visible = sortByList.Visible = lblSortType.Visible = sortTypeList.Visible = s.IsSorted;
-                            sortByList.SelectedValue = s.SortBy;
-                            sortTypeList.SelectedValue = s.SortType;
+                            cbIsSorted.Checked = pnlSortBy.Visible = pnlSortType.Visible = ds.IsSorted;
+                            sortByList.SelectedValue = ds.SortBy;
+                            sortTypeList.SelectedValue = ds.SortType;
                         }
                     }
                 }
@@ -107,11 +107,11 @@ namespace JS.Modules.JSNewsModule
                 lblStatReadMoreMsg.Visible = !cbShowNewsImg.Checked;
                 if (viewModeList.SelectedValue == "Accordion")
                 {
-                    lblShowNewsImg.Visible = cbShowNewsImg.Visible = lblShowReadMore.Visible = cbShowReadMore.Visible = lblReadMoreText.Visible = txtReadMoreText.Visible = false;
+                    pnlShowReadMore.Visible = pnlReadMoreText.Visible = false;
                 }
                 else
                 {
-                    lblShowNewsImg.Visible = cbShowNewsImg.Visible = lblShowReadMore.Visible = cbShowReadMore.Visible = lblReadMoreText.Visible = txtReadMoreText.Visible = true;
+                    pnlShowReadMore.Visible = pnlReadMoreText.Visible = true;
                 }
             }
             catch (Exception exc) //Module failed to load
@@ -332,42 +332,39 @@ namespace JS.Modules.JSNewsModule
             lblStatImgMsg.Visible = !cbShowReadMore.Checked;
             lblStatReadMoreMsg.Visible = !cbShowNewsImg.Checked;
 
-            lblReadMoreText.Visible = txtReadMoreText.Visible = cbShowReadMore.Checked;
+            pnlReadMoreText.Visible = cbShowReadMore.Checked;
         }
 
         protected void cbShowBack_CheckedChanged(object sender, EventArgs e)
         {
-            lblBackText.Visible = txtBackText.Visible = cbShowBack.Checked;
+            pnlBackText.Visible = cbShowBack.Checked;
         }
 
         protected void cbShowHome_CheckedChanged(object sender, EventArgs e)
         {
-            lblHomeText.Visible = txtHomeText.Visible = cbShowHome.Checked;
+            pnlHomeText.Visible = cbShowHome.Checked;
         }
 
         protected void cbIsSorted_CheckedChanged(object sender, EventArgs e)
         {
-            lblSortBy.Visible = sortByList.Visible = cbIsSorted.Checked;
-            lblSortType.Visible = sortTypeList.Visible = cbIsSorted.Checked;
+            pnlSortBy.Visible = pnlSortType.Visible = cbIsSorted.Checked;
         }
 
         protected void viewModeList_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (viewModeList.SelectedValue == "Accordion")
             {
-                pnlReadMoreText.Visible = pnlShowNewsImg.Visible = pnlShowReadMore.Visible = false;
-                //lblShowNewsImg.Visible = cbShowNewsImg.Visible = lblShowReadMore.Visible = cbShowReadMore.Visible = lblReadMoreText.Visible = txtReadMoreText.Visible = false;
+                pnlReadMoreText.Visible = pnlShowReadMore.Visible = false;
             }
             else
             {
-                pnlReadMoreText.Visible = pnlShowNewsImg.Visible = pnlShowReadMore.Visible = true;
-                //lblShowNewsImg.Visible = cbShowNewsImg.Visible = lblShowReadMore.Visible = cbShowReadMore.Visible = lblReadMoreText.Visible = txtReadMoreText.Visible = true;
+                pnlReadMoreText.Visible = pnlShowReadMore.Visible = true;
             }
         }
 
         protected void cbUsePaging_CheckedChanged(object sender, EventArgs e)
         {
-            lblNewsPerPage.Visible = txtNewsPerPage.Visible = cbUsePaging.Checked;
+            pnlNewsPerPage.Visible = cbUsePaging.Checked;
         }
     }
 }

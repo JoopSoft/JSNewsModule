@@ -26,10 +26,10 @@
                 <dnn:label ID="lblTitle" runat="server" />
                 <asp:TextBox ID="txtTitle" runat="server" CssClass="form-control" />
             </div>
-            <div class="dnnFormItem">
+            <asp:Panel ID="pnlDate" runat="server" class="dnnFormItem">
                 <dnn:label ID="lblDate" runat="server" />
                 <asp:TextBox ID="txtDate" runat="server" TextMode="Date" CssClass="form-control" />
-            </div>
+            </asp:Panel>
             <asp:Panel ID="pnlShowImg" runat="server" CssClass="dnnFormItem">
                 <dnn:label ID="lblShowImg" runat="server" />
                 <asp:CheckBox ID="cbShowImg" runat="server" OnCheckedChanged="cbShowImg_CheckedChanged" AutoPostBack="true" />
@@ -88,8 +88,8 @@
 
                     <div class="btn-group" role="group" aria-label="Control buttons">
                         <%--FIRST DELETION--%>
-                        <asp:LinkButton ID="btnYes" runat="server" Visible="false" CssClass="btn btn-danger link-delete"
-                            ResourceKey="btnDeleteImg" OnClick="btnYes_Click"
+                        <asp:LinkButton ID="btnDelete" runat="server" Visible="false" CssClass="btn btn-danger link-delete"
+                            ResourceKey="btnDeleteImg" OnClick="btnDelete_Click"
                             data-toggle="tooltip" ToolTip="Delete Image" />
 
                         <%--CONFRIM DELETE AND SET DEFAULT IMAGE--%>
@@ -102,12 +102,12 @@
 
                     </div>
 
-                    <asp:LinkButton ID="btnNo" runat="server" Visible="false" CssClass="close-action btn btn-danger link-close"
-                        ResourceKey="btnCancelDelete-RRRRRRRRRRRRRR" OnClick="btnNo_Click"
+                    <asp:LinkButton ID="btnClose" runat="server" Visible="false" CssClass="close-action btn btn-danger link-close"
+                        ResourceKey="btnCancelDelete-RRRRRRRRRRRRRR" OnClick="btnClose_Click"
                         data-toggle="tooltip" ToolTip="Close" />
-                    <asp:LinkButton ID="btnCancelDelete" runat="server" CssClass="close-action btn btn-danger link-close"
+<%--                    <asp:LinkButton ID="btnCancelDelete" runat="server" CssClass="close-action btn btn-danger link-close"
                         ResourceKey="btnCancelDelete-RRRRRRRRRRRR" Visible="false" OnClick="btnCancelDelete_Click"
-                        data-toggle="tooltip" ToolTip="Close" />
+                        data-toggle="tooltip" ToolTip="Close" />--%>
 
                     <%--<asp:LinkButton ID="btnClose" runat="server" Visible="true" CssClass="close-action btn btn-default link-close" 
                         ResourceKey="btnClose-RRRRRRRRRRRRRR" OnClick="btnCancelDelete_Click" 

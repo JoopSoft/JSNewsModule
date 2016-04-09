@@ -43,6 +43,7 @@ namespace JS.Modules.JSNewsModule
         {
             try
             {
+                pnlPopUp.Visible = false;
                 var nc = new NewsController();
                 var cs = new CustomSettings();
                 var sc = new SettingsController();
@@ -111,9 +112,9 @@ namespace JS.Modules.JSNewsModule
                 }
                 else
                 {
-
                     rptItemListView.DataSource = nc.LoadAllNews(ModuleId);
                 }
+                
                 rptItemListView.DataBind();
                 #endregion
                 #region Accordion View Sort
@@ -209,32 +210,24 @@ namespace JS.Modules.JSNewsModule
         {
             if (e.Item.ItemType == ListItemType.AlternatingItem || e.Item.ItemType == ListItemType.Item)
             {
-
                 var lnkEdit = e.Item.FindControl("lnkEdit") as HyperLink;
                 var lnkAdd = e.Item.FindControl("lnkAdd") as HyperLink;
                 var lnkSettings = e.Item.FindControl("lnkSettings") as HyperLink;
                 var lnkDelete = e.Item.FindControl("lnkDelete") as LinkButton;
                 var btnReadMore = e.Item.FindControl("btnReadMoreList") as HyperLink;
                 var lnkImg = e.Item.FindControl("lnkImg") as HyperLink;
-
-
                 var pnlAdminControls = e.Item.FindControl("pnlAdmin") as Panel;
-
                 var n = (News)e.Item.DataItem;
-
                 btnReadMore.NavigateUrl = EditUrl(string.Empty, string.Empty, "DetailsView", "nid=" + n.NewsId);
                 lnkImg.NavigateUrl = EditUrl(string.Empty, string.Empty, "DetailsView", "nid=" + n.NewsId);
                 if (IsEditable && lnkDelete != null && lnkEdit != null && pnlAdminControls != null)
                 {
                     pnlAdminControls.Visible = true;
-                    lnkDelete.CommandArgument = n.NewsId.ToString();
                     lnkDelete.Enabled = lnkDelete.Visible = lnkEdit.Enabled = lnkEdit.Visible = lnkAdd.Enabled = lnkAdd.Visible = true;
                     lnkDelete.ToolTip = "Delete " + n.NewsTitle;
                     lnkEdit.NavigateUrl = EditUrl(string.Empty, string.Empty, "AddNews", "nid=" + n.NewsId);
                     lnkEdit.ToolTip = "Edit " + n.NewsTitle;
                     lnkAdd.NavigateUrl = EditUrl("AddNews");
-
-                    ClientAPI.AddButtonConfirm(lnkDelete, Localization.GetString("ConfirmDelete", LocalResourceFile));
                 }
                 else
                 {
@@ -242,6 +235,7 @@ namespace JS.Modules.JSNewsModule
                 }
             }
         }
+
         protected void rptItemAccordionOnItemDataBound(object sender, RepeaterItemEventArgs e)
         {
             if (e.Item.ItemType == ListItemType.AlternatingItem || e.Item.ItemType == ListItemType.Item)
@@ -252,59 +246,22 @@ namespace JS.Modules.JSNewsModule
                 var lnkSettings = e.Item.FindControl("lnkSettings") as HyperLink;
                 var lnkDelete = e.Item.FindControl("lnkDelete") as LinkButton;
                 var btnReadMore = e.Item.FindControl("btnReadMore") as HyperLink;
-
-
                 var pnlAdminControls = e.Item.FindControl("pnlAdmin") as Panel;
-
                 var n = (News)e.Item.DataItem;
-
                 btnReadMore.NavigateUrl = EditUrl(string.Empty, string.Empty, "DetailsView", "nid=" + n.NewsId);
                 if (IsEditable && lnkDelete != null && lnkEdit != null && pnlAdminControls != null)
                 {
                     pnlAdminControls.Visible = true;
-                    lnkDelete.CommandArgument = n.NewsId.ToString();
                     lnkDelete.ToolTip = "Delete " + n.NewsTitle;
                     lnkDelete.Enabled = lnkDelete.Visible = lnkEdit.Enabled = lnkEdit.Visible = lnkAdd.Enabled = lnkAdd.Visible = true;
                     lnkEdit.NavigateUrl = EditUrl(string.Empty, string.Empty, "AddNews", "nid=" + n.NewsId);
                     lnkEdit.ToolTip = "Edit " + n.NewsTitle;
                     lnkAdd.NavigateUrl = EditUrl("AddNews");
-
-                    ClientAPI.AddButtonConfirm(lnkDelete, Localization.GetString("ConfirmDelete", LocalResourceFile));
                 }
                 else
                 {
                     pnlAdminControls.Visible = false;
                 }
-            }
-        }
-
-
-        public void rptItemListOnItemCommand(object source, RepeaterCommandEventArgs e)
-        {
-            if (e.CommandName == "Delete")
-            {
-                var nc = new NewsController();
-                nc.DeleteNews(Convert.ToInt32(e.CommandArgument), ModuleId);
-            }
-            Response.Redirect(DotNetNuke.Common.Globals.NavigateURL());
-        }
-
-        public ModuleActionCollection ModuleActions
-        {
-            get
-            {
-                var actions = new ModuleActionCollection
-                    {
-                        //{
-                        //    GetNextActionID(), Localization.GetString("EditModule", LocalResourceFile), "", "", "",
-                        //    EditUrl(), false, SecurityAccessLevel.Edit, true, false
-                        //},
-                        {
-                            GetNextActionID(), Localization.GetString("AddNews", LocalResourceFile), "", "", "",
-                            EditUrl("AddNews"), false, SecurityAccessLevel.Edit, true, false
-                        }
-                    };
-                return actions;
             }
         }
 
@@ -374,6 +331,57 @@ namespace JS.Modules.JSNewsModule
                 Exceptions.ProcessModuleLoadException(this, exc);
             }
 
+        }
+
+        protected void btnDeleteNews_Click(object sender, EventArgs e)
+        {
+            foreach (RepeaterItem ri in rptItemListView.Items)
+            {
+                var btnDelete = ri.FindControl("lnkDelete") as LinkButton;
+                var newsId = ri.FindControl("lblNewsId") as Label;
+
+                if (sender.Equals(btnDelete))
+                {
+                    pnlPopUp.Visible = true;
+                    pnlPopUp.CssClass = "dnnFormItem popup confirm-box warning";
+                    lblPopUpMsg.Text = "Delete this News?";
+                    lblPopUpIcon.CssClass = "popup-icon link-delete";
+                    lblDeleteNewsID.Text = newsId.Text;
+                }
+            }
+        }
+
+        protected void btnDelete_Click(object sender, EventArgs e)
+        {
+            var nc = new NewsController();
+            nc.DeleteNews(Convert.ToInt32(lblDeleteNewsID.Text), ModuleId);
+            rptItemListView.DataSource = rptItemAccordionView.DataSource = nc.LoadAllNews(ModuleId);
+            rptItemListView.DataBind();
+            rptItemAccordionView.DataBind();
+        }
+
+        protected void btnClose_Click(object sender, EventArgs e)
+        {
+            pnlPopUp.Visible = false;
+        }
+
+        public ModuleActionCollection ModuleActions
+        {
+            get
+            {
+                var actions = new ModuleActionCollection
+                    {
+                        //{
+                        //    GetNextActionID(), Localization.GetString("EditModule", LocalResourceFile), "", "", "",
+                        //    EditUrl(), false, SecurityAccessLevel.Edit, true, false
+                        //},
+                        {
+                            GetNextActionID(), Localization.GetString("AddNews", LocalResourceFile), "", "", "",
+                            EditUrl("AddNews"), false, SecurityAccessLevel.Edit, true, false
+                        }
+                    };
+                return actions;
+            }
         }
     }
 }

@@ -166,6 +166,15 @@ namespace JS.Modules.JSNewsModule {
         protected global::System.Web.UI.WebControls.CheckBox cbShowBack;
         
         /// <summary>
+        /// pnlBackText control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlBackText;
+        
+        /// <summary>
         /// lblBackText control.
         /// </summary>
         /// <remarks>
@@ -200,6 +209,15 @@ namespace JS.Modules.JSNewsModule {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CheckBox cbShowHome;
+        
+        /// <summary>
+        /// pnlHomeText control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlHomeText;
         
         /// <summary>
         /// lblHomeText control.
@@ -274,6 +292,15 @@ namespace JS.Modules.JSNewsModule {
         protected global::System.Web.UI.WebControls.CheckBox cbIsSorted;
         
         /// <summary>
+        /// pnlSortBy control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlSortBy;
+        
+        /// <summary>
         /// lblSortBy control.
         /// </summary>
         /// <remarks>
@@ -290,6 +317,15 @@ namespace JS.Modules.JSNewsModule {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList sortByList;
+        
+        /// <summary>
+        /// pnlSortType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlSortType;
         
         /// <summary>
         /// lblSortType control.
@@ -326,6 +362,15 @@ namespace JS.Modules.JSNewsModule {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CheckBox cbUsePaging;
+        
+        /// <summary>
+        /// pnlNewsPerPage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlNewsPerPage;
         
         /// <summary>
         /// lblNewsPerPage control.

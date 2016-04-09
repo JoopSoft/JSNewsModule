@@ -49,6 +49,7 @@ namespace JS.Modules.JSNewsModule
                 lnkPopUpImg.ToolTip = n.NewsTitle;
                 lblNewsDate.Visible = n.ShowNewsDate;
                 lblNewsDate.Text = n.NewsDate;
+                lnkPopUpImg.Visible = n.ShowNewsImg;
                 imgNewsImage.Visible = n.ShowNewsImg;
                 imgNewsImage.ImageUrl = n.ImageUrl;
                 imgNewsImage.AlternateText = n.NewsTitle + " image";
@@ -62,16 +63,22 @@ namespace JS.Modules.JSNewsModule
                 if (IsEditable && lnkDelete != null && lnkEdit != null && pnlAdminControls != null)
                 {
                     pnlAdminControls.Visible = true;
-                    lnkDelete.CommandArgument = n.NewsId.ToString();
                     lnkDelete.Enabled = lnkDelete.Visible = lnkEdit.Enabled = lnkEdit.Visible = true;
                     lnkDelete.ToolTip = "Delete " + n.NewsTitle;
                     lnkEdit.NavigateUrl = EditUrl(string.Empty, string.Empty, "AddNews", "nid=" + n.NewsId);
                     lnkEdit.ToolTip = "Edit " + n.NewsTitle;
-                    ClientAPI.AddButtonConfirm(lnkDelete, Localization.GetString("ConfirmDelete", LocalResourceFile));
                 }
                 else
                 {
                     pnlAdminControls.Visible = false;
+                }
+                if (n.ShowNewsImg)
+                {
+                    pnlDetailsView.CssClass = "panel panel - default details- view";
+                }
+                else
+                {
+                    pnlDetailsView.CssClass = "panel panel - default details- view no-img";
                 }
 
             }
@@ -88,10 +95,24 @@ namespace JS.Modules.JSNewsModule
 
         protected void lnkDelete_Click(object sender, EventArgs e)
         {
+            pnlPopUp.Visible = true;
+            pnlPopUp.CssClass = "dnnFormItem popup confirm-box warning";
+            lblPopUpMsg.Text = "Delete this News?";
+            lblPopUpIcon.CssClass = "popup-icon link-delete";
+        }
+
+        protected void btnDelete_Click(object sender, EventArgs e)
+        {
             var nc = new NewsController();
             nc.DeleteNews(NewsId, ModuleId);
             Response.Redirect(DotNetNuke.Common.Globals.NavigateURL());
         }
+
+        protected void btnClose_Click(object sender, EventArgs e)
+        {
+            pnlPopUp.Visible = false;
+        }
+
     }
 }
    

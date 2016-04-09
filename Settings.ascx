@@ -44,19 +44,19 @@
                 <asp:CheckBox ID="cbShowBack" runat="server" 
                     AutoPostBack="true" OnCheckedChanged="cbShowBack_CheckedChanged" />
             </div>
-            <div class="dnnFormItem">
+            <asp:Panel ID="pnlBackText" runat="server" class="dnnFormItem">
                 <dnn:Label ID="lblBackText" runat="server" />
                 <asp:TextBox ID="txtBackText" runat="server" CssClass="form-control" />
-            </div>
+            </asp:Panel>
             <div class="dnnFormItem">
                 <dnn:Label ID="lblShowHome" runat="server" />
                 <asp:CheckBox ID="cbShowHome" runat="server" 
                     AutoPostBack="true" OnCheckedChanged="cbShowHome_CheckedChanged" />
             </div>
-            <div class="dnnFormItem">
+            <asp:Panel ID="pnlHomeText" runat="server" class="dnnFormItem">
                 <dnn:Label ID="lblHomeText" runat="server" />
                 <asp:TextBox ID="txtHomeText" runat="server" CssClass="form-control" />
-            </div>
+            </asp:Panel>
 
             <%--Edit region
                 ---------------------- --%>
@@ -77,23 +77,23 @@
                 <asp:CheckBox ID="cbIsSorted" runat="server" AutoPostBack="true" 
                     OnCheckedChanged="cbIsSorted_CheckedChanged" />
             </div>
-            <div class="dnnFormItem">
+            <asp:Panel ID="pnlSortBy" runat="server" class="dnnFormItem">
                 <dnn:Label ID="lblSortBy" runat="server" />
                 <asp:DropDownList ID="sortByList" runat="server" CssClass="form-control" />
-            </div>
-            <div class="dnnFormItem">
+            </asp:Panel>
+            <asp:Panel ID="pnlSortType" runat="server" class="dnnFormItem">
                 <dnn:Label ID="lblSortType" runat="server" />
                 <asp:DropDownList ID="sortTypeList" runat="server" CssClass="form-control" />
-            </div>
+            </asp:Panel>
             <div class="dnnFormItem">
                 <dnn:label ID="lblUsePaging" runat="server" />
                 <asp:CheckBox ID="cbUsePaging" runat="server" CssClass="form-control" 
                     AutoPostBack="true" OnCheckedChanged="cbUsePaging_CheckedChanged" />
             </div>
-            <div class="dnnFormItem">
+            <asp:Panel ID="pnlNewsPerPage" runat="server" class="dnnFormItem">
                 <dnn:label ID="lblNewsPerPage" runat="server" />
                 <asp:TextBox ID="txtNewsPerPage" runat="server" CssClass="form-control" />
-            </div>
+            </asp:Panel>
         </fieldset>
     </div>
 </div>
