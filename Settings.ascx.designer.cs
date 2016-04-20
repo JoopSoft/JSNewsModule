@@ -13,6 +13,33 @@ namespace JS.Modules.JSNewsModule {
     public partial class Settings {
         
         /// <summary>
+        /// fontAwesomeCss control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DotNetNuke.Web.Client.ClientResourceManagement.DnnCssInclude fontAwesomeCss;
+        
+        /// <summary>
+        /// bootstrapCss control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DotNetNuke.Web.Client.ClientResourceManagement.DnnCssInclude bootstrapCss;
+        
+        /// <summary>
+        /// bootstrapSelectCss control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DotNetNuke.Web.Client.ClientResourceManagement.DnnCssInclude bootstrapSelectCss;
+        
+        /// <summary>
         /// lblViewMode control.
         /// </summary>
         /// <remarks>
@@ -76,13 +103,22 @@ namespace JS.Modules.JSNewsModule {
         protected global::System.Web.UI.WebControls.CheckBox cbShowNewsImg;
         
         /// <summary>
-        /// lblStatImgMsg control.
+        /// lblStatusImgMsg control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox lblStatImgMsg;
+        protected global::System.Web.UI.WebControls.Label lblStatusImgMsg;
+        
+        /// <summary>
+        /// pnlReadMoreGroup control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlReadMoreGroup;
         
         /// <summary>
         /// pnlShowReadMore control.
@@ -112,13 +148,13 @@ namespace JS.Modules.JSNewsModule {
         protected global::System.Web.UI.WebControls.CheckBox cbShowReadMore;
         
         /// <summary>
-        /// lblStatReadMoreMsg control.
+        /// lblStatusReadMoreMsg control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox lblStatReadMoreMsg;
+        protected global::System.Web.UI.WebControls.Label lblStatusReadMoreMsg;
         
         /// <summary>
         /// pnlReadMoreText control.
@@ -274,6 +310,33 @@ namespace JS.Modules.JSNewsModule {
         protected global::System.Web.UI.WebControls.TextBox txtAllNews;
         
         /// <summary>
+        /// lblAllNewsSelect control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DotNetNuke.UI.UserControls.LabelControl lblAllNewsSelect;
+        
+        /// <summary>
+        /// ddAllNewsSelect control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddAllNewsSelect;
+        
+        /// <summary>
+        /// SqlDataSourcePages control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSourcePages;
+        
+        /// <summary>
         /// lblIsSorted control.
         /// </summary>
         /// <remarks>
@@ -389,5 +452,41 @@ namespace JS.Modules.JSNewsModule {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtNewsPerPage;
+        
+        /// <summary>
+        /// btnScrollTop control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton btnScrollTop;
+        
+        /// <summary>
+        /// bootstrapJs control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DotNetNuke.Web.Client.ClientResourceManagement.DnnJsInclude bootstrapJs;
+        
+        /// <summary>
+        /// bootstrapSelectJs control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DotNetNuke.Web.Client.ClientResourceManagement.DnnJsInclude bootstrapSelectJs;
+        
+        /// <summary>
+        /// mainJs control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DotNetNuke.Web.Client.ClientResourceManagement.DnnJsInclude mainJs;
     }
 }

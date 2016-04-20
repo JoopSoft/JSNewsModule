@@ -1,49 +1,53 @@
-/*! jQuery ellipsis - v1.1.1 - 2014-02-23
+﻿/*! jQuery ellipsis - v1.1.1 - 2014-02-23
 * https://github.com/STAR-ZERO/jquery-ellipsis
 * Copyright (c) 2014 Kenji Abe; Licensed MIT */
-(function($) {
-    $.fn.ellipsis = function(options) {
+'use strict';
+
+(function ($) {
+    $.fn.ellipsis = function (options) {
 
         // default option
         var defaults = {
-            'row' : 1, // show rows
+            'row': 1, // show rows
             'onlyFullWords': false, // set to true to avoid cutting the text in the middle of a word
-            'char' : '...', // ellipsis
-            'callback': function() {},
+            'char': '...', // ellipsis
+            'callback': function callback() {},
             'position': 'tail' // middle, tail
         };
 
         options = $.extend(defaults, options);
 
-        this.each(function() {
+        this.each(function () {
             // get element text
             var $this = $(this);
-            var text = $this.text();
+            var text = $this.html();
             var origText = text;
             var origLength = origText.length;
             var origHeight = $this.height();
 
             // get height
-            $this.text('a');
-            var lineHeight =  parseFloat($this.css("lineHeight"), 10);
+            $this.html('a');
+            var lineHeight = parseFloat($this.css("lineHeight"), 10);
             var rowHeight = $this.height();
-            var gapHeight = lineHeight > rowHeight ? (lineHeight - rowHeight) : 0;
+            var gapHeight = lineHeight > rowHeight ? lineHeight - rowHeight : 0;
             var targetHeight = gapHeight * (options.row - 1) + rowHeight * options.row;
 
             if (origHeight <= targetHeight) {
-                $this.text(text);
+                $this.html(text);
                 options.callback.call(this);
                 return;
             }
 
-            var start = 1, length = 0;
+            var start = 1,
+                length = 0;
             var end = text.length;
 
-            if(options.position === 'tail') {
-                while (start < end) { // Binary search for max length
+            if (options.position === 'tail') {
+                while (start < end) {
+                    // Binary search for max length
                     length = Math.ceil((start + end) / 2);
 
-                    $this.text(text.slice(0, length) + options['char']);
+                    $this.html(text.slice(0, length) + options['char']);
 
                     if ($this.height() <= targetHeight) {
                         start = length;
@@ -58,19 +62,15 @@
                     text = text.replace(/[\u00AD\w\uac00-\ud7af]+$/, ''); // remove fragment of the last word together with possible soft-hyphen characters
                 }
                 text += options['char'];
-
-            }else if(options.position === 'middle') {
+            } else if (options.position === 'middle') {
 
                 var sliceLength = 0;
-                while (start < end) { // Binary search for max length
+                while (start < end) {
+                    // Binary search for max length
                     length = Math.ceil((start + end) / 2);
                     sliceLength = Math.max(origLength - length, 0);
 
-                    $this.text(
-                        origText.slice(0, Math.floor((origLength - sliceLength) / 2)) +
-                               options['char'] +
-                               origText.slice(Math.floor((origLength + sliceLength) / 2), origLength)
-                    );
+                    $this.html(origText.slice(0, Math.floor((origLength - sliceLength) / 2)) + options['char'] + origText.slice(Math.floor((origLength + sliceLength) / 2), origLength));
 
                     if ($this.height() <= targetHeight) {
                         start = length;
@@ -91,11 +91,12 @@
                 text = head + options['char'] + tail;
             }
 
-            $this.text(text);
+            $this.html(text);
 
             options.callback.call(this);
         });
 
         return this;
     };
-}) (jQuery);
+})(jQuery);
+

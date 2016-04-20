@@ -1,10 +1,42 @@
 [DETAILS VIEW]: Prev and Next buttons must titled by next and prev item titles
 	(Ex.: Details view for News Item 2: {Next-> News Item 3; Prev -> News Item 1})
 
-[SETTINGS]: Show "All News Button" must be show/hide "News Page" textbox (Dropdown available pages). 
-Also show/hide this button from View & Details View.
+DONE *Discuss for separately styled dnnFormItem by some of horizontal line or something else..
 
-	*Notes: Thinking about how is it possible to do that..
+DONE - add .no-txt class to all icon buttons..
 
-*Discuss for separately styled dnnFormItem by some of horizontal line or something else..
+DONE - upload button must be hidden when no file choosen..
 
+- Delete btn not working on Accordion mode..
+
+- When img is not checked on list view, changes not applied on accordion view
+	Img group not showing on edit mode with accordion mode
+
+[SETTINGS]: Show "All News Button": 
+		
+	DONE - Dropdown available pages). 
+		 - Show All news button, All news button text from dynamic textbox.. 
+		 - Also show/hide this button from View & Details View.
+		 
+		 - New DB table fields for:
+		 	- news button display/hide
+		 	- news button text
+		 	- news button navigation page
+		 
+		 - LOGIC CONNECTION
+
+- Partial DONE: All news drop down list for available website pages.. Write small logic
+	http://www.adefwebserver.com/dotnetnukehelp/Misc/PageNavigator.htm
+
+DONE - AutoPostBack on settings - Broke design elements.. 
+	WORK - http://www.aspsnippets.com/Articles/Call-JavaScript-function-after-AJAX-UpdatePanel-Refresh-Partial-PostBack-in-ASPNet.aspx
+
+DONE - Hide unnessesary elements via javascript and disabling/removing AutoPostBack methods 
+	 - All dynamic asp:Panels > migrate to simple div's elements - C#
+	 
+[ADD/EDIT]: Buttons from second deletion must be hidden after closing and reopen delete box..
+
+[EDIT List & Accordion]: Image checkbox is removed when image is unchecked and save..  Check image on [Settings] is OK..
+
+
+*CODE CLEARING!!!

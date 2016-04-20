@@ -1,4 +1,7 @@
-﻿
+﻿//@import "http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css";
+//@import "http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css";
+//@import "http://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/css/bootstrap-select.min.css";
+
 $font-awesome:	'FontAwesome';
 
 $white:             #fff;
@@ -20,11 +23,14 @@ $success-xlg:       rgba(39,174,96, 0.8); //#27ae60;
 
 $grey:              #ccc;
 $middle:            #999;
-$large:             #333;
+$large:             #666;
+$x-large:           #333;
 
 //$tooltip:           rgba(59,30,119, 0.9);
 $tooltip:           rgba(0,0,0, 0.8);
-$overlay:           rgba(0,0,0,0.75);
+//$overlay:           rgba(0,0,0,0.75);
+$overlay:           rgba(255,255,255,0.7);
+
 $activeColor: #27ae60; //green
 $darkenColor: darken($activeColor, 20%);
 

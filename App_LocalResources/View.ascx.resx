@@ -117,31 +117,28 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="AddFirstItem.Text" xml:space="preserve">
-    <value>Add News</value>
-  </data>
-  <data name="AddItem.Text" xml:space="preserve">
-    <value>New</value>
-  </data>
   <data name="AddNews.Text" xml:space="preserve">
     <value>Add News</value>
   </data>
-  <data name="AllItems.Text" xml:space="preserve">
+  <data name="lnkAdd.Text" xml:space="preserve">
+    <value>New</value>
+  </data>
+  <data name="lnkAll.Text" xml:space="preserve">
     <value>All News</value>
   </data>
-  <data name="ConfirmDelete.Text" xml:space="preserve">
-    <value>Are you sure you want to delete this Item</value>
-  </data>
-  <data name="DeleteItem.Text" xml:space="preserve">
+  <data name="lnkDelete.Text" xml:space="preserve">
     <value>Delete</value>
   </data>
-  <data name="EditItem.Text" xml:space="preserve">
+  <data name="lnkEdit.Text" xml:space="preserve">
     <value>Edit</value>
   </data>
-  <data name="NextItem.Text" xml:space="preserve">
+  <data name="lnkFirstAdd.Text" xml:space="preserve">
+    <value>Add News</value>
+  </data>
+  <data name="lnkNext.Text" xml:space="preserve">
     <value>Next</value>
   </data>
-  <data name="PrevItem.Text" xml:space="preserve">
+  <data name="lnkPrev.Text" xml:space="preserve">
     <value>Previous</value>
   </data>
 </root>

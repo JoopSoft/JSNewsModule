@@ -63,7 +63,8 @@ namespace JS.Modules.JSNewsModule
                         var n = nc.LoadNews(NewsId, ModuleId);
                         cbShowImg.Checked = n.ShowNewsImg;
                     }
-                    pnlImgList.Visible = pnlImgSelectedGroup.Visible = pnlImgUpload.Visible = s.ShowNewsImg && cbShowImg.Checked && s.ViewMode == "List";
+                    showImgGroup.Visible = s.ShowNewsImg && cbShowImg.Checked && s.ViewMode == "List";
+                    //pnlImgList.Visible = pnlImgSelectedGroup.Visible = pnlImgUpload.Visible = s.ShowNewsImg && cbShowImg.Checked && s.ViewMode == "List";
                     pnlCustomOrderId.Visible = (s.ShowCustomOrderId && s.IsSorted);
                     var li = new ListItem("Default Image", "Default Image.svg");
                     imgList.Items.Add(li);
@@ -249,6 +250,7 @@ namespace JS.Modules.JSNewsModule
             String[] allowedExtensions = { ".gif", ".png", ".jpeg", ".jpg" };
             if (btnImgSelect.HasFile)
             {
+                btnImgSelect.CssClass = "";
                 string fileExtension = Path.GetExtension(btnImgSelect.FileName).ToLower();
                 foreach (string str in allowedExtensions)
                 {
@@ -291,9 +293,8 @@ namespace JS.Modules.JSNewsModule
                 {
                     pnlPopUp.Visible = true;
                     pnlPopUp.CssClass = "dnnFormItem popup auto-close-box success";
-                    //txtImgUrl.Text = "The Selected File is not Image";
                     lblPopUpMsg.Text = "Selected file is not image!";
-                    lblPopUpIcon.CssClass = "popup-icon link-info";
+                    lblPopUpIcon.CssClass = "popup-icon link-info no-txt";
                 }
 
             }
@@ -301,9 +302,9 @@ namespace JS.Modules.JSNewsModule
             {
                 pnlPopUp.Visible = true;
                 pnlPopUp.CssClass = "dnnFormItem popup auto-close-box success";
-                //txtImgUrl.Text = "No File Selected";
                 lblPopUpMsg.Text = "No file selected!";
-                lblPopUpIcon.CssClass = "popup-icon link-info";
+                lblPopUpIcon.CssClass = "popup-icon link-info no-txt";
+                //btnDelete.Visible = false;
             }
         }
 
@@ -327,7 +328,8 @@ namespace JS.Modules.JSNewsModule
         protected void cbShowImg_CheckedChanged(object sender, EventArgs e)
         {
             pnlPopUp.Visible = false;
-            pnlImgList.Visible = pnlImgSelectedGroup.Visible = pnlImgUpload.Visible = cbShowImg.Checked;
+            showImgGroup.Visible = cbShowImg.Checked;
+            //pnlImgList.Visible = pnlImgSelectedGroup.Visible = pnlImgUpload.Visible = cbShowImg.Checked;
             btnDeleteImg.Visible = cbShowImg.Checked && imgList.SelectedValue != "Default Image.svg";
         }
 
@@ -338,7 +340,7 @@ namespace JS.Modules.JSNewsModule
                 pnlPopUp.Visible = true;
                 pnlPopUp.CssClass = "dnnFormItem popup confirm-box warning";
                 lblPopUpMsg.Text = "Delete this Image?";
-                lblPopUpIcon.CssClass = "popup-icon link-delete";
+                lblPopUpIcon.CssClass = "popup-icon link-delete no-txt";
                 btnDelete.Visible = true;
                 btnClose.Visible = true;
             }
@@ -347,7 +349,7 @@ namespace JS.Modules.JSNewsModule
                 pnlPopUp.Visible = true;
                 pnlPopUp.CssClass = "dnnFormItem popup confirm-box warning";
                 lblPopUpMsg.Text = "Default image cannot be deleted!";
-                lblPopUpIcon.CssClass = "popup-icon link-delete";
+                lblPopUpIcon.CssClass = "popup-icon link-delete no-txt";
 
 
             }
@@ -371,7 +373,7 @@ namespace JS.Modules.JSNewsModule
                 pnlPopUp.Visible = true;
                 pnlPopUp.CssClass = "dnnFormItem popup confirm-box warning";
                 lblPopUpMsg.Text = "There are News using this Image!";
-                lblPopUpIcon.CssClass = "popup-icon link-delete";
+                lblPopUpIcon.CssClass = "popup-icon link-delete no-txt";
                 btnDefault.Visible = true;
                 btnRemove.Visible = true;
                 btnDelete.Visible = false;
@@ -409,7 +411,7 @@ namespace JS.Modules.JSNewsModule
             pnlPopUp.Visible = true;
             pnlPopUp.CssClass = "dnnFormItem popup auto-close-box success";
             lblPopUpMsg.Text = "Default image is applied!";
-            lblPopUpIcon.CssClass = "popup-icon link-info";
+            lblPopUpIcon.CssClass = "popup-icon link-info no-txt";
             btnDefault.Visible = false;
             btnRemove.Visible = false;
         }
@@ -432,7 +434,7 @@ namespace JS.Modules.JSNewsModule
             pnlPopUp.Visible = true;
             pnlPopUp.CssClass = "dnnFormItem popup auto-close-box success";
             lblPopUpMsg.Text = "Image Removed!";
-            lblPopUpIcon.CssClass = "popup-icon link-info";
+            lblPopUpIcon.CssClass = "popup-icon link-info no-txt";
         }
 
         protected void DeleteImage()
@@ -443,7 +445,7 @@ namespace JS.Modules.JSNewsModule
             pnlPopUp.Visible = true;
             pnlPopUp.CssClass = "dnnFormItem popup auto-close-box success";
             lblPopUpMsg.Text = "Image \"" + temp + "\" Deleted";
-            lblPopUpIcon.CssClass = "popup-icon link-info";
+            lblPopUpIcon.CssClass = "popup-icon link-info no-txt";
 
             var li = new ListItem("Default Image", "Default Image.svg");
             imgList.Items.Clear();

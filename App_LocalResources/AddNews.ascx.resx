@@ -132,12 +132,6 @@
   <data name="ExpandAll.Text" xml:space="preserve">
     <value>Expand All</value>
   </data>
-  <data name="lblContent.Help" xml:space="preserve">
-    <value>Enter Full News Text</value>
-  </data>
-  <data name="lblContent.Text" xml:space="preserve">
-    <value>Full Text</value>
-  </data>
   <data name="lblDate.Help" xml:space="preserve">
     <value>Enter News Date</value>
   </data>
@@ -191,9 +185,6 @@
   </data>
   <data name="btnDeleteImg.Text" xml:space="preserve">
     <value>Delete</value>
-  </data>
-  <data name="btnCancelDelete.Text" xml:space="preserve">
-    <value>Cancel</value>
   </data>
   <data name="btnDefault.Text" xml:space="preserve">
     <value>Default Image</value>

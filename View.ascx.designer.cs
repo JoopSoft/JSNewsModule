@@ -13,6 +13,15 @@ namespace JS.Modules.JSNewsModule {
     public partial class View {
         
         /// <summary>
+        /// fontAwesomeCss control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DotNetNuke.Web.Client.ClientResourceManagement.DnnCssInclude fontAwesomeCss;
+        
+        /// <summary>
         /// pnlList control.
         /// </summary>
         /// <remarks>
@@ -47,6 +56,24 @@ namespace JS.Modules.JSNewsModule {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Repeater rptItemAccordionView;
+        
+        /// <summary>
+        /// pnlFirstAdd control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlFirstAdd;
+        
+        /// <summary>
+        /// lnkFirstAdd control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink lnkFirstAdd;
         
         /// <summary>
         /// pnlPopUp control.
@@ -103,21 +130,21 @@ namespace JS.Modules.JSNewsModule {
         protected global::System.Web.UI.WebControls.LinkButton btnClose;
         
         /// <summary>
-        /// pnlFirstAdd control.
+        /// ellipsisJs control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlFirstAdd;
+        protected global::DotNetNuke.Web.Client.ClientResourceManagement.DnnJsInclude ellipsisJs;
         
         /// <summary>
-        /// lnkFirstAdd control.
+        /// mainJs control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink lnkFirstAdd;
+        protected global::DotNetNuke.Web.Client.ClientResourceManagement.DnnJsInclude mainJs;
     }
 }

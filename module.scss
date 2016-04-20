@@ -14,6 +14,20 @@
     }
 
     .dnnForm {
+        fieldset {
+            margin-bottom: 10px;
+        }
+
+        .fieldset {
+            float: left;
+            padding: 15px 0;
+            margin: 0;
+            width: 100%;
+
+            &:nth-child(even) {
+                background: $dark-alpha-hover;
+            }
+        }
 
         .form-control {
             width: 45%;
@@ -48,9 +62,10 @@
 
         .dnnFormSectionHead {
             border-bottom: $none;
+            position: relative;
 
             .dnnFormMessage {
-                margin: 0 0 30px;
+                margin: 0 0 20px;
                 padding: 15px;
                 background-size: 30px;
                 font-weight: normal;
@@ -83,6 +98,14 @@
                 //    color: $dark;
                 //    background: $dark-alpha;
                 //}
+            }
+
+            &.fixed {
+                @include transition($all);
+                position: fixed;
+                //top: 0;
+                width: 100%;
+                z-index: 99;
             }
         }
 
@@ -142,8 +165,12 @@
         }
 
         .dnnFormItem {
-            margin-bottom: 15px;
+            margin-top: 15px;
             float: left;
+
+            &:first-child {
+                margin-top: 0;
+            }
 
             select > option {
                 color: $dark;
@@ -171,6 +198,7 @@
                 padding: 10px 15px;
 
                 @include border-radius(0);
+                @include transition($all);
 
                 &.btn-primary {
                     background-color: $dark-alpha-lg;
@@ -213,21 +241,50 @@
                 top: 0;
                 left: 0;
                 margin: 0;
-                /*color: $white;*/
                 text-align: center;
                 background: $overlay;
+                width: 100%;
                 height: 100%;
-                z-index: 9999;
+                z-index: 9998;
+
+                &.confirm-box {
+                    .popup-wrapper {
+                        top: calc((100% - 315px)/2);
+                    }
+                }
+
+                &.auto-close-box {
+                    .popup-wrapper {
+                        top: calc((100% - 274px)/2);
+                    }
+                }
+
+                &.overlay {
+                    .popup-wrapper {
+                        top: 40px;
+                        position: relative;
+
+                        .popup-icon {
+                            color: $dark-alpha-lg;
+                        }
+
+                        h1, h2, h3, h4, h5, h6 {
+                            color: $dark-alpha-lg;
+                        }
+
+                        input[type=text] {
+                            height: 100px;
+                        }
+                    }
+                }
 
                 .popup-wrapper {
-                    top: calc((100% - 180px)/2);
                     position: relative;
-                    width: 50%;
-                    left: 25%;
+                    width: 60%;
+                    left: 20%;
                     padding: 15px;
 
                     h1, h2, h3, h4, h5, h6 {
-                        color: $white;
                         border: $none;
                         padding: 0;
                         margin: 0;
@@ -237,7 +294,8 @@
                         display: block;
 
                         .fa {
-                            font-size: 5em;
+                            font-size: 15em;
+                            text-shadow: 0 1px 0 #ccc, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b9, 0 5px 0 #aaa, 0 6px 1px rgba(0,0,0,.1), 0 0 5px rgba(0,0,0,.1), 0 1px 3px rgba(0,0,0,.3), 0 3px 5px rgba(0,0,0,.2), 0 5px 10px rgba(0,0,0,.25), 0 10px 10px rgba(0,0,0,.2), 0 20px 20px rgba(0,0,0,.15);
                         }
                     }
 
@@ -250,11 +308,15 @@
 
                     .btn-group {
                         margin-top: 15px;
+
+                        .btn {
+                            margin: 0;
+                        }
                     }
 
                     .btn {
                         border: $none;
-                        margin: 0;
+                        margin: 15px 0 0 0;
                     }
 
                     .progress-bar {
@@ -271,18 +333,19 @@
                     .close-action {
                         position: absolute;
                         background-color: transparent;
-                        color: $white;
+                        color: $dark-alpha-lg;
                         border: $none;
-                        top: 0;
-                        right: 0;
+                        top: -70px;
+                        right: -70px;
                         padding: 0;
                         margin: 0;
-                        width: 25px;
-                        height: 25px;
-                        line-height: 25px;
+                        width: 70px;
+                        height: 70px;
+                        line-height: 70px;
 
                         &:hover {
-                            background-color: $light-alpha-xsm;
+                            background-color: $dark-alpha-lg;
+                            color: $white;
                         }
                     }
                 }
@@ -290,9 +353,11 @@
                 &.success {
 
                     .popup-wrapper {
-                        background: $success-md;
-
                         .popup-icon {
+                            color: $success;
+                        }
+
+                        h1, h2, h3, h4, h5, h6 {
                             color: $success;
                         }
 
@@ -307,15 +372,26 @@
                         .progress-bar {
                             background: $success;
                         }
+
+                        .close-action {
+                            color: $success;
+
+                            &:hover {
+                                color: $white;
+                                background-color: $success;
+                            }
+                        }
                     }
                 }
 
                 &.warning {
 
                     .popup-wrapper {
-                        background: $warning-md;
-
                         .popup-icon {
+                            color: $warning;
+                        }
+
+                        h1, h2, h3, h4, h5, h6 {
                             color: $warning;
                         }
 
@@ -329,6 +405,15 @@
 
                         .progress-bar {
                             background: $warning;
+                        }
+
+                        .close-action {
+                            color: $warning;
+
+                            &:hover {
+                                color: $white;
+                                background-color: $warning;
+                            }
                         }
                     }
                 }
@@ -382,7 +467,7 @@
             }
         }
 
-        &.add-news {
+        &.add-news, &.settings {
 
             .dnnFormItem button,
             .dnnFormItem input[type="button"],
@@ -392,7 +477,11 @@
             ul.dnnAdminTabNav li a,
             .dnnLogin .LoginTabGroup span {
                 margin: 0;
-                padding: 8px 12px;
+                padding: 0 10px;
+                height: 35px;
+                line-height: 35px;
+                min-width: 35px;
+                text-align: center;
                 color: $white;
                 background: $dark-alpha-lg;
                 font-family: inherit;
@@ -400,6 +489,7 @@
                 border: $none;
                 text-decoration: none;
                 text-shadow: $none;
+
 
                 @include border-radius(0);
                 @include box-shadow($none);
@@ -422,6 +512,7 @@
         &.add-news,
         &.settings {
             font-size: 14px;
+            min-height: 475px;
 
             input[type="text"],
             select,
@@ -444,7 +535,7 @@
                 &:active,
                 &:focus {
                     color: $dark;
-                    background: $none;
+                    background: $white;
                     border: 1px solid $dark;
                     outline: $none;
                     overflow: visible;
@@ -469,7 +560,8 @@
             }
 
             select {
-                padding: 5px;
+                width: auto;
+                min-width: 100px;
             }
 
             .rich-text-editor {
@@ -540,8 +632,13 @@
             }
         }
 
-        .btn-group .btn + .btn, .btn-group .btn + .btn-group, .btn-group .btn-group + .btn, .btn-group .btn-group + .btn-group {
-            margin-left: 0;
+        .btn-group {
+            .btn + .btn,
+            .btn + .btn-group,
+            .btn-group + .btn,
+            .btn-group + .btn-group {
+                margin-left: 0;
+            }
         }
 
         .list-group {
@@ -735,9 +832,14 @@
         .rpt-accordion {
 
             .list-group-item {
-                padding: 5px;
+                padding: 0;
                 overflow: hidden;
                 min-height: 64px;
+
+                > a {
+                    padding: 5px;
+                    display: block;
+                }
             }
 
             .pnl-admin {
@@ -758,17 +860,20 @@
                 padding: 10px 5px;
             }
 
-            .news-image {
-                height: 100px;
-                width: 100px;
-            }
-
             .panel-heading {
                 padding: 0 0 5px 0;
             }
 
+            .news-image {
+                width: 40px;
+                height: auto;
+                float: left;
+                margin-right: 10px;
+            }
+
             .ellipsis {
-                height: 35px;
+                height: 40px;
+                display: block;
             }
         }
 
@@ -839,21 +944,50 @@
             top: 0;
             left: 0;
             margin: 0;
-            /*color: $white;*/
             text-align: center;
             background: $overlay;
+            width: 100%;
             height: 100%;
-            z-index: 9999;
+            z-index: 9998;
+
+            &.confirm-box {
+                .popup-wrapper {
+                    top: calc((100% - 315px)/2);
+                }
+            }
+
+            &.auto-close-box {
+                .popup-wrapper {
+                    top: calc((100% - 274px)/2);
+                }
+            }
+
+            &.overlay {
+                .popup-wrapper {
+                    top: 40px;
+                    position: relative;
+
+                    .popup-icon {
+                        color: $dark-alpha-lg;
+                    }
+
+                    h1, h2, h3, h4, h5, h6 {
+                        color: $dark-alpha-lg;
+                    }
+
+                    input[type=text] {
+                        height: 100px;
+                    }
+                }
+            }
 
             .popup-wrapper {
-                top: calc((100% - 180px)/2);
                 position: relative;
-                width: 50%;
-                left: 25%;
+                width: 60%;
+                left: 20%;
                 padding: 15px;
 
                 h1, h2, h3, h4, h5, h6 {
-                    color: $white;
                     border: $none;
                     padding: 0;
                     margin: 0;
@@ -863,7 +997,8 @@
                     display: block;
 
                     .fa {
-                        font-size: 5em;
+                        font-size: 15em;
+                        text-shadow: 0 1px 0 #ccc, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b9, 0 5px 0 #aaa, 0 6px 1px rgba(0,0,0,.1), 0 0 5px rgba(0,0,0,.1), 0 1px 3px rgba(0,0,0,.3), 0 3px 5px rgba(0,0,0,.2), 0 5px 10px rgba(0,0,0,.25), 0 10px 10px rgba(0,0,0,.2), 0 20px 20px rgba(0,0,0,.15);
                     }
                 }
 
@@ -876,11 +1011,16 @@
 
                 .btn-group {
                     margin-top: 15px;
+
+                    .btn {
+                        margin: 0;
+                    }
                 }
 
                 .btn {
                     border: $none;
-                    margin: 0;
+                    margin: 15px 0 0 0;
+                    padding: 10px 15px;
                 }
 
                 .progress-bar {
@@ -897,18 +1037,19 @@
                 .close-action {
                     position: absolute;
                     background-color: transparent;
-                    color: $white;
+                    color: $dark-alpha-lg;
                     border: $none;
-                    top: 0;
-                    right: 0;
+                    top: -70px;
+                    right: -70px;
                     padding: 0;
                     margin: 0;
-                    width: 25px;
-                    height: 25px;
-                    line-height: 25px;
+                    width: 70px;
+                    height: 70px;
+                    line-height: 70px;
 
                     &:hover {
-                        background-color: $light-alpha-xsm;
+                        background-color: $dark-alpha-lg;
+                        color: $white;
                     }
                 }
             }
@@ -916,9 +1057,11 @@
             &.success {
 
                 .popup-wrapper {
-                    background: $success-md;
-
                     .popup-icon {
+                        color: $success;
+                    }
+
+                    h1, h2, h3, h4, h5, h6 {
                         color: $success;
                     }
 
@@ -933,15 +1076,26 @@
                     .progress-bar {
                         background: $success;
                     }
+
+                    .close-action {
+                        color: $success;
+
+                        &:hover {
+                            color: $white;
+                            background-color: $success;
+                        }
+                    }
                 }
             }
 
             &.warning {
 
                 .popup-wrapper {
-                    background: $warning-md;
-
                     .popup-icon {
+                        color: $warning;
+                    }
+
+                    h1, h2, h3, h4, h5, h6 {
                         color: $warning;
                     }
 
@@ -956,11 +1110,65 @@
                     .progress-bar {
                         background: $warning;
                     }
+
+                    .close-action {
+                        color: $warning;
+
+                        &:hover {
+                            color: $white;
+                            background-color: $warning;
+                        }
+                    }
                 }
             }
         }
     }
-    /*BOOTSTRAP RE-STYLING TOOLTIP*/
+    /*BOOTSTRAP RE-STYLING*/
+    .dropup {
+        .dropdown-menu {
+            border: 1px solid $dark-alpha-lg;
+            border-bottom: $none;
+            margin-bottom: 0;
+        }
+    }
+
+    .bs-actionsbox,
+    .bs-donebutton,
+    .bs-searchbox {
+        padding: 0;
+    }
+
+    .bs-searchbox + .bs-actionsbox {
+        padding: 0;
+    }
+
+    .dropdown-menu {
+        border: 1px solid $dark-alpha-lg;
+        border-top: $none;
+        box-shadow: $none;
+        /*background-color: $dark-alpha-md;*/
+        margin-top: 0;
+        padding: 0;
+        @include border-radius(0);
+
+        > li {
+            > a {
+                color: $dark-alpha-lg;
+                padding: 8px;
+                outline: $none;
+
+                &:hover {
+                    color: $dark;
+                }
+            }
+        }
+    }
+
+    .bootstrap-select.btn-group.show-tick .dropdown-menu li.selected a span.check-mark {
+        margin-top: 10px;
+        color: $dark-alpha-lg;
+    }
+
     .tooltip {
 
         &.in {
@@ -1008,10 +1216,97 @@
 
     .ellipsis {
         overflow: hidden;
+        text-overflow: ellipsis;
     }
 
-    .mark, mark {
-        padding: 0 !important;
-        background-color: transparent !important;
+    .hidden {
+        display: $none !important;
+        visibility: hidden !important;
+    }
+
+    .aspNetDisabled,
+    a.aspNetDisabled,
+    .dnnDisabled,
+    a.dnnDisabled,
+    [disabled=disabled] {
+        color: $dark-alpha;
+        cursor: default;
+    }
+
+    .scroll-action {
+        position: fixed;
+        bottom: 0;
+        right: 15px;
+        display: $none;
+
+        &.btn {
+            padding: 0;
+            width: 50px;
+            height: 50px;
+            line-height: 50px;
+            border-color: transparent;
+
+            @include border-radius(0);
+            @include transition($bgColor);
+
+            &.btn-primary {
+                background-color: $dark-alpha-lg;
+                border-color: transparent;
+
+                &:hover {
+                    background-color: $dark-alpha-xlg;
+                    border-color: transparent;
+                }
+            }
+
+            &:hover {
+                border-color: transparent;
+            }
+
+            &:active {
+                @include box-shadow($none);
+            }
+        }
+    }
+}
+
+//DNN STYLE FIXES
+.mark, mark {
+    padding: 0 !important;
+    background-color: transparent !important;
+}
+
+.dnnDropDownList {
+    .selected-item {
+        margin: 0 0 0 15px !important;
+
+        a {
+            height: auto !important;
+
+            &:link,
+            &:visited,
+            &:hover,
+            &:active {
+                height: auto !important;
+            }
+        }
+    }
+}
+
+.dnnPermissionsGrid {
+    > .dnnFormItem {
+        ul.token-input-list-facebook {
+            /*padding: 8px !important;*/
+        }
+
+        li.token-input-token-facebook {
+            margin: 3px !important;
+            padding: 3px 5px !important;
+        }
+
+        li.token-input-input-token-facebook {
+            margin: 4px 0 !important;
+            padding: 4px 0 !important;
+        }
     }
 }

@@ -74,11 +74,11 @@ namespace JS.Modules.JSNewsModule
                 }
                 if (n.ShowNewsImg)
                 {
-                    pnlDetailsView.CssClass = "panel panel - default details- view";
+                    pnlDetailsView.CssClass = "panel panel-default details-view";
                 }
                 else
                 {
-                    pnlDetailsView.CssClass = "panel panel - default details- view no-img";
+                    pnlDetailsView.CssClass = "panel panel-default details-view no-img";
                 }
 
             }
@@ -96,9 +96,9 @@ namespace JS.Modules.JSNewsModule
         protected void lnkDelete_Click(object sender, EventArgs e)
         {
             pnlPopUp.Visible = true;
-            pnlPopUp.CssClass = "dnnFormItem popup confirm-box warning";
+            pnlPopUp.CssClass = "popup confirm-box warning";
             lblPopUpMsg.Text = "Delete this News?";
-            lblPopUpIcon.CssClass = "popup-icon link-delete";
+            lblPopUpIcon.CssClass = "popup-icon link-delete no-txt";
         }
 
         protected void btnDelete_Click(object sender, EventArgs e)

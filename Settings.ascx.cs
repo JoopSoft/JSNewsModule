@@ -103,15 +103,17 @@ namespace JS.Modules.JSNewsModule
                 }
                 cbShowReadMore.Enabled = cbShowNewsImg.Checked;
                 cbShowNewsImg.Enabled = cbShowReadMore.Checked;
-                lblStatImgMsg.Visible = !cbShowReadMore.Checked;
-                lblStatReadMoreMsg.Visible = !cbShowNewsImg.Checked;
+                //lblStatImgMsg.Visible = !cbShowReadMore.Checked;
+                //lblStatReadMoreMsg.Visible = !cbShowNewsImg.Checked;
                 if (viewModeList.SelectedValue == "Accordion")
                 {
-                    pnlShowReadMore.Visible = pnlReadMoreText.Visible = false;
+                    pnlReadMoreGroup.Visible = lblStatusImgMsg.Visible = false;
+                    //pnlShowReadMore.Visible = pnlReadMoreText.Visible = false;
                 }
                 else
                 {
-                    pnlShowReadMore.Visible = pnlReadMoreText.Visible = true;
+                    pnlReadMoreGroup.Visible = lblStatusImgMsg.Visible = true;
+                    //pnlShowReadMore.Visible = pnlReadMoreText.Visible = true;
                 }
             }
             catch (Exception exc) //Module failed to load
@@ -322,15 +324,15 @@ namespace JS.Modules.JSNewsModule
         protected void cbShowNewsImg_CheckedChanged(object sender, EventArgs e)
         {
             cbShowReadMore.Enabled = cbShowNewsImg.Checked;
-            lblStatReadMoreMsg.Visible = !cbShowNewsImg.Checked;
+            //lblStatReadMoreMsg.Visible = !cbShowNewsImg.Checked;
             lblReadMoreText.Visible = txtReadMoreText.Visible = true;
         }
 
         protected void cbShowReadMore_CheckedChanged(object sender, EventArgs e)
         {
             cbShowNewsImg.Enabled = cbShowReadMore.Checked;
-            lblStatImgMsg.Visible = !cbShowReadMore.Checked;
-            lblStatReadMoreMsg.Visible = !cbShowNewsImg.Checked;
+            //lblStatImgMsg.Visible = !cbShowReadMore.Checked;
+            //lblStatReadMoreMsg.Visible = !cbShowNewsImg.Checked;
 
             pnlReadMoreText.Visible = cbShowReadMore.Checked;
         }
@@ -354,11 +356,14 @@ namespace JS.Modules.JSNewsModule
         {
             if (viewModeList.SelectedValue == "Accordion")
             {
-                pnlReadMoreText.Visible = pnlShowReadMore.Visible = false;
+
+                pnlReadMoreGroup.Visible = false;
+                //pnlReadMoreText.Visible = pnlShowReadMore.Visible = false;
             }
             else
             {
-                pnlReadMoreText.Visible = pnlShowReadMore.Visible = true;
+                pnlReadMoreGroup.Visible = true;
+                //pnlReadMoreText.Visible = pnlShowReadMore.Visible = true;
             }
         }
 

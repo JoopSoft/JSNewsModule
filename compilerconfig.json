@@ -1,12 +1,18 @@
-[
+﻿[
   {
     "outputFile": "module.css",
-    "inputFile": "module.scss",
-    "sourceMap": false
+    "inputFile": "module.scss"
   },
   {
     "outputFile": "variables.css",
-    "inputFile": "variables.scss",
-    "sourceMap": false
+    "inputFile": "variables.scss"
+  },
+  {
+    "outputFile": "Ellipsis/jquery.ellipsis.js",
+    "inputFile": "Ellipsis/jquery.ellipsis.js"
+  },
+  {
+    "outputFile": "Js/main.js",
+    "inputFile": "Js/JSScript.js"
   }
 ]

@@ -343,9 +343,9 @@ namespace JS.Modules.JSNewsModule
                 if (sender.Equals(btnDelete))
                 {
                     pnlPopUp.Visible = true;
-                    pnlPopUp.CssClass = "dnnFormItem popup confirm-box warning";
+                    pnlPopUp.CssClass = "popup confirm-box warning";
                     lblPopUpMsg.Text = "Delete this News?";
-                    lblPopUpIcon.CssClass = "popup-icon link-delete";
+                    lblPopUpIcon.CssClass = "popup-icon link-delete no-txt";
                     lblDeleteNewsID.Text = newsId.Text;
                 }
             }
