@@ -1,6 +1,16 @@
-﻿IF EXISTS (SELECT * FROM sys.objects WHERE [object_id] = OBJECT_ID(N'{databaseOwner}[{objectQualifier}JSNewsModule_News]') AND type in (N'U'))
+﻿
+
+/************************************************************/
+/*****             Deleting The News Table              *****/
+/************************************************************/
+
+IF EXISTS (SELECT * FROM sys.objects WHERE [object_id] = OBJECT_ID(N'{databaseOwner}[{objectQualifier}JSNewsModule_News]') AND type in (N'U'))
 	DROP TABLE {databaseOwner}[{objectQualifier}JSNewsModule_News]
 GO
+
+/************************************************************/
+/*****           Deleting The Settings Table            *****/
+/************************************************************/
 
 IF EXISTS (SELECT * FROM sys.objects WHERE [object_id] = OBJECT_ID(N'{databaseOwner}[{objectQualifier}JSNewsModule_Settings]') AND type in (N'U'))
 	DROP TABLE {databaseOwner}[{objectQualifier}JSNewsModule_Settings]

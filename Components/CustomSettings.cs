@@ -44,5 +44,8 @@ namespace JS.Modules.JSNewsModule.Components
         public bool IsSorted { get; set; }
         public string SortBy { get; set; }
         public string SortType { get; set; }
+        public bool ShowNewsButton { get; set; }
+        public string NewsButtonText { get; set; }
+        public string NewsButtonPage { get; set; }
     }
 }

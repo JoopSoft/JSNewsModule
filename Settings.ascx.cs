@@ -11,48 +11,21 @@
 */
 
 using System;
-using DotNetNuke.Entities.Modules;
 using DotNetNuke.Services.Exceptions;
 using JS.Modules.JSNewsModule.Components;
 
 namespace JS.Modules.JSNewsModule
 {
-    /// -----------------------------------------------------------------------------
-    /// <summary>
-    /// The Settings class manages Module Settings
-    /// 
-    /// Typically your settings control would be used to manage settings for your module.
-    /// There are two types of settings, ModuleSettings, and TabModuleSettings.
-    /// 
-    /// ModuleSettings apply to all "copies" of a module on a site, no matter which page the module is on. 
-    /// 
-    /// TabModuleSettings apply only to the current module on the current page, if you copy that module to
-    /// another page the settings are not transferred.
-    /// 
-    /// If you happen to save both TabModuleSettings and ModuleSettings, TabModuleSettings overrides ModuleSettings.
-    /// 
-    /// Below we have some examples of how to access these settings but you will need to uncomment to use.
-    /// 
-    /// Because the control inherits from JSNewsModuleSettingsBase you have access to any custom properties
-    /// defined there, as well as properties from DNN such as PortalId, ModuleId, TabId, UserId and many more.
-    /// </summary>
-    /// -----------------------------------------------------------------------------
     public partial class Settings : JSNewsModuleModuleSettingsBase
     {
         #region Base Method Implementations
-
-        /// -----------------------------------------------------------------------------
-        /// <summary>
-        /// LoadSettings loads the settings from the Database and displays them
-        /// </summary>
-        /// -----------------------------------------------------------------------------
         public override void LoadSettings()
         {
-
             try
             {
                 if (!IsPostBack)
                 {
+                    //Filling The Sorting DropDownLists
                     viewModeList.Items.Add("List");
                     viewModeList.Items.Add("Accordion");
                     sortByList.Items.Add("Date");
@@ -60,60 +33,21 @@ namespace JS.Modules.JSNewsModule
                     sortByList.Items.Add("Custom Order");
                     sortTypeList.Items.Add("ASC");
                     sortTypeList.Items.Add("DESC");
+
                     var sc = new SettingsController();
-                    var cs = sc.LoadSettings();
-                    foreach (CustomSettings s in cs)
+                    if (AreSettingsPresent(sc)) //Load Settings With Current ModuleId
                     {
-                        if (s.SettingsId == ModuleId)
-                        {
-                            viewModeList.SelectedValue = s.ViewMode;
-                            cbUsePaging.Checked = pnlNewsPerPage.Visible = s.UsePaging;
-                            txtNewsPerPage.Text = s.NewsPerPage.ToString();
-                            cbShowNewsDate.Checked = s.ShowNewsDate;
-                            cbShowNewsImg.Checked = s.ShowNewsImg;
-                            cbShowReadMore.Checked = pnlReadMoreText.Visible = s.ShowReadMore;
-                            txtReadMoreText.Text = s.ReadMoreText;
-                            cbShowBack.Checked = pnlBackText.Visible = s.ShowBack;
-                            txtBackText.Text = s.BackText;
-                            cbShowHome.Checked = pnlHomeText.Visible = s.ShowHome;
-                            txtHomeText.Text = s.HomeText;
-                            cbIsSorted.Checked = pnlSortBy.Visible = pnlSortType.Visible = s.IsSorted;
-                            sortByList.SelectedValue = s.SortBy;
-                            sortTypeList.SelectedValue = s.SortType;
-                        }
-                        else
-                        {
-                            var ds = sc.LoadSingleSettings(0);
-                            viewModeList.SelectedValue = ds.ViewMode;
-                            cbUsePaging.Checked = pnlNewsPerPage.Visible = ds.UsePaging;
-                            txtNewsPerPage.Text = ds.NewsPerPage.ToString();
-                            cbShowNewsDate.Checked = ds.ShowNewsDate;
-                            cbShowNewsImg.Checked = ds.ShowNewsImg;
-                            cbShowReadMore.Checked = pnlReadMoreText.Visible = ds.ShowReadMore;
-                            txtReadMoreText.Text = ds.ReadMoreText;
-                            cbShowBack.Checked = pnlBackText.Visible = ds.ShowBack;
-                            txtBackText.Text = ds.BackText;
-                            cbShowHome.Checked = pnlHomeText.Visible = ds.ShowHome;
-                            txtHomeText.Text = ds.HomeText;
-                            cbIsSorted.Checked = pnlSortBy.Visible = pnlSortType.Visible = ds.IsSorted;
-                            sortByList.SelectedValue = ds.SortBy;
-                            sortTypeList.SelectedValue = ds.SortType;
-                        }
+                        var s = sc.LoadSingleSettings(ModuleId);
+                        string newsButtonPage = s.NewsButtonPage.Remove(0, 2);
+                        DisplaySettings(s);
+                        ddAllNewsSelect.SelectedValue = newsButtonPage;
                     }
-                }
-                cbShowReadMore.Enabled = cbShowNewsImg.Checked;
-                cbShowNewsImg.Enabled = cbShowReadMore.Checked;
-                //lblStatImgMsg.Visible = !cbShowReadMore.Checked;
-                //lblStatReadMoreMsg.Visible = !cbShowNewsImg.Checked;
-                if (viewModeList.SelectedValue == "Accordion")
-                {
-                    pnlReadMoreGroup.Visible = lblStatusImgMsg.Visible = false;
-                    //pnlShowReadMore.Visible = pnlReadMoreText.Visible = false;
-                }
-                else
-                {
-                    pnlReadMoreGroup.Visible = lblStatusImgMsg.Visible = true;
-                    //pnlShowReadMore.Visible = pnlReadMoreText.Visible = true;
+                    else //Load Default Settings
+                    {
+                        var ds = sc.LoadSingleSettings(0);
+                        DisplaySettings(ds);
+                        txtAllNews.Text = ds.NewsButtonText;
+                    }
                 }
             }
             catch (Exception exc) //Module failed to load
@@ -122,33 +56,19 @@ namespace JS.Modules.JSNewsModule
             }
         }
 
-        /// -----------------------------------------------------------------------------
-        /// <summary>
-        /// UpdateSettings saves the modified settings to the Database
-        /// </summary>
-        /// -----------------------------------------------------------------------------
         public override void UpdateSettings()
         {
             try
             {
-                bool isSettingsPresent = false;
                 var sc = new SettingsController();
                 var cs = sc.LoadSettings();
                 var nc = new NewsController();
-                var an = nc.LoadAllNews(ModuleId);
                 string sortByTemp = null;
                 string sortTypeTemp = null;
                 sortByTemp = sortByList.SelectedValue;
                 sortTypeTemp = sortTypeList.SelectedValue;
-                foreach (CustomSettings s in cs)
-                {
-                    if (s.SettingsId == ModuleId)
-                    {
-                        isSettingsPresent = true;
-                        break;
-                    }
-                }
-                if (!isSettingsPresent)
+
+                if (AreSettingsPresent(sc)) 
                 {
                     var ns = new CustomSettings()
                     {
@@ -167,67 +87,12 @@ namespace JS.Modules.JSNewsModule
                         HomeText = txtHomeText.Text.Trim(),
                         IsSorted = cbIsSorted.Checked,
                         SortBy = sortByTemp,
-                        SortType = sortTypeTemp                       
+                        SortType = sortTypeTemp,
+                        ShowNewsButton = cbShowAllNews.Checked,
+                        NewsButtonText = txtAllNews.Text.Trim(),
+                        NewsButtonPage = "~/" + ddAllNewsSelect.SelectedValue
                     };
-                    foreach (News n in an)
-                    {
-                        string style = "";
-                        n.ShowCustomOrderId = ns.ShowCustomOrderId;
-                        n.ShowNewsDate = ns.ShowNewsDate;
-                        n.ShowNewsImg = ns.ShowNewsImg;
-                        n.ShowReadMore = ns.ShowReadMore;
-                        n.ReadMoreText = ns.ReadMoreText;
-                        n.ShowBack = ns.ShowBack;
-                        n.BackText = ns.BackText;
-                        n.ShowHome = ns.ShowHome;
-                        n.HomeText = ns.HomeText;
-                        #region News Style Rotation
-                        if (n.ShowNewsDate)
-                        {
-                            if (n.ShowNewsImg)
-                            {
-                                switch (n.ShowReadMore)
-                                {
-                                    case true:
-                                        style = "";
-                                        break;
-                                    case false:
-                                        style = "no-read-more";
-                                        break;
-                                    default:
-                                        break;
-                                }
-                            }
-                            else
-                            {
-                                style = "no-img";
-                            }
-                        }
-                        else
-                        {
-                            if (n.ShowNewsImg)
-                            {
-                                switch (n.ShowReadMore)
-                                {
-                                    case true:
-                                        style = "no-date";
-                                        break;
-                                    case false:
-                                        style = "no-date no-read-more";
-                                        break;
-                                    default:
-                                        break;
-                                }
-                            }
-                            else
-                            {
-                                style = "no-date no-img";
-                            }
-                        }
-                        #endregion
-                        n.NewsStyle = style;
-                        nc.UpdateNews(n);
-                    }
+                    UpdateNewsSettings(ns, nc);
                     sc.AddSettings(ns);
                     Response.Redirect(DotNetNuke.Common.Globals.NavigateURL());
                 }
@@ -249,127 +114,127 @@ namespace JS.Modules.JSNewsModule
                     s.IsSorted = cbIsSorted.Checked;
                     s.SortBy = sortByTemp;
                     s.SortType = sortTypeTemp;
-                    foreach (News n in an)
-                    {
-                        string style = "";
-                        n.ShowCustomOrderId = s.ShowCustomOrderId;
-                        n.ShowNewsDate = s.ShowNewsDate;
-                        n.ShowNewsImg = s.ShowNewsImg;
-                        n.ShowReadMore = s.ShowReadMore;
-                        n.ReadMoreText = s.ReadMoreText;
-                        n.ShowBack = s.ShowBack;
-                        n.BackText = s.BackText;
-                        n.ShowHome = s.ShowHome;
-                        n.HomeText = s.HomeText;
-                        #region News Style Rotation
-                        if (n.ShowNewsDate)
-                        {
-                            if (n.ShowNewsImg)
-                            {
-                                switch (n.ShowReadMore)
-                                {
-                                    case true:
-                                        style = "";
-                                        break;
-                                    case false:
-                                        style = "no-read-more";
-                                        break;
-                                    default:
-                                        break;
-                                }
-                            }
-                            else
-                            {
-                                style = "no-img";
-                            }
-                        }
-                        else
-                        {
-                            if (n.ShowNewsImg)
-                            {
-                                switch (n.ShowReadMore)
-                                {
-                                    case true:
-                                        style = "no-date";
-                                        break;
-                                    case false:
-                                        style = "no-date no-read-more";
-                                        break;
-                                    default:
-                                        break;
-                                }
-                            }
-                            else
-                            {
-                                style = "no-date no-img";
-                            }
-                        }
-                        #endregion
-                        n.NewsStyle = style;
-                        nc.UpdateNews(n);
-                    }
+                    s.ShowNewsButton = cbShowAllNews.Checked;
+                    s.NewsButtonText = txtAllNews.Text.Trim();
+                    s.NewsButtonPage = "~/" + ddAllNewsSelect.SelectedValue;
+                    UpdateNewsSettings(s, nc);
                     sc.UpdateSettings(s);
                     Response.Redirect(DotNetNuke.Common.Globals.NavigateURL());
                 }
-
             }
             catch (Exception exc) //Module failed to load
             {
                 Exceptions.ProcessModuleLoadException(this, exc);
             }
         }
-
         #endregion
 
-        protected void cbShowNewsImg_CheckedChanged(object sender, EventArgs e)
+        #region Help Method Implementations
+        void DisplaySettings(CustomSettings s)
         {
-            cbShowReadMore.Enabled = cbShowNewsImg.Checked;
-            //lblStatReadMoreMsg.Visible = !cbShowNewsImg.Checked;
-            lblReadMoreText.Visible = txtReadMoreText.Visible = true;
+            viewModeList.SelectedValue = s.ViewMode;
+            cbUsePaging.Checked = s.UsePaging;
+            txtNewsPerPage.Text = s.NewsPerPage.ToString();
+            cbShowNewsDate.Checked = s.ShowNewsDate;
+            cbShowNewsImg.Checked = s.ShowNewsImg;
+            cbShowReadMore.Checked = s.ShowReadMore;
+            txtReadMoreText.Text = s.ReadMoreText;
+            cbShowBack.Checked = s.ShowBack;
+            txtBackText.Text = s.BackText;
+            cbShowHome.Checked = s.ShowHome;
+            txtHomeText.Text = s.HomeText;
+            cbIsSorted.Checked = s.IsSorted;
+            sortByList.SelectedValue = s.SortBy;
+            sortTypeList.SelectedValue = s.SortType;
+            cbShowAllNews.Checked = s.ShowNewsButton;
+            txtAllNews.Text = s.NewsButtonText;
         }
 
-        protected void cbShowReadMore_CheckedChanged(object sender, EventArgs e)
+        void UpdateNewsSettings(CustomSettings s, NewsController nc)
         {
-            cbShowNewsImg.Enabled = cbShowReadMore.Checked;
-            //lblStatImgMsg.Visible = !cbShowReadMore.Checked;
-            //lblStatReadMoreMsg.Visible = !cbShowNewsImg.Checked;
-
-            pnlReadMoreText.Visible = cbShowReadMore.Checked;
-        }
-
-        protected void cbShowBack_CheckedChanged(object sender, EventArgs e)
-        {
-            pnlBackText.Visible = cbShowBack.Checked;
-        }
-
-        protected void cbShowHome_CheckedChanged(object sender, EventArgs e)
-        {
-            pnlHomeText.Visible = cbShowHome.Checked;
-        }
-
-        protected void cbIsSorted_CheckedChanged(object sender, EventArgs e)
-        {
-            pnlSortBy.Visible = pnlSortType.Visible = cbIsSorted.Checked;
-        }
-
-        protected void viewModeList_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (viewModeList.SelectedValue == "Accordion")
+            var an = nc.LoadAllNews(ModuleId);
+            foreach (News n in an)
             {
-
-                pnlReadMoreGroup.Visible = false;
-                //pnlReadMoreText.Visible = pnlShowReadMore.Visible = false;
+                string style = "";
+                n.ShowCustomOrderId = s.ShowCustomOrderId;
+                n.ShowNewsDate = s.ShowNewsDate;
+                if (s.ShowNewsImg)
+                {
+                    n.ShowNewsImg = n.ShowNewsImgTemp;
+                }
+                else
+                {
+                    n.ShowNewsImg = s.ShowNewsImg;
+                }
+                n.ShowReadMore = s.ShowReadMore;
+                n.ReadMoreText = s.ReadMoreText;
+                n.ShowBack = s.ShowBack;
+                n.BackText = s.BackText;
+                n.ShowHome = s.ShowHome;
+                n.HomeText = s.HomeText;
+                #region News Style Rotation
+                if (n.ShowNewsDate)
+                {
+                    if (n.ShowNewsImg)
+                    {
+                        switch (n.ShowReadMore)
+                        {
+                            case true:
+                                style = "";
+                                break;
+                            case false:
+                                style = "no-read-more";
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                    else
+                    {
+                        style = "no-img";
+                    }
+                }
+                else
+                {
+                    if (n.ShowNewsImg)
+                    {
+                        switch (n.ShowReadMore)
+                        {
+                            case true:
+                                style = "no-date";
+                                break;
+                            case false:
+                                style = "no-date no-read-more";
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                    else
+                    {
+                        style = "no-date no-img";
+                    }
+                }
+                #endregion
+                n.NewsStyle = style;
+                nc.UpdateNews(n);
             }
-            else
+
+        }
+
+        bool AreSettingsPresent(SettingsController sc) {
+            var cs = sc.LoadSettings();
+            bool areSettingsPresent = false;
+            foreach (CustomSettings s in cs)
             {
-                pnlReadMoreGroup.Visible = true;
-                //pnlReadMoreText.Visible = pnlShowReadMore.Visible = true;
+                if (s.SettingsId == ModuleId)
+                {
+                    areSettingsPresent = true;
+                    break;
+                }
             }
+            return areSettingsPresent;
         }
-
-        protected void cbUsePaging_CheckedChanged(object sender, EventArgs e)
-        {
-            pnlNewsPerPage.Visible = cbUsePaging.Checked;
-        }
+        #endregion
     }
 }

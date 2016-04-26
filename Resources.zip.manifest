@@ -69,14 +69,6 @@
       <name>TextEditor.ascx.resx</name>
     </file>
     <file>
-      <path>Documentation/</path>
-      <name>Documentation.css</name>
-    </file>
-    <file>
-      <path>Documentation/</path>
-      <name>Documentation.html</name>
-    </file>
-    <file>
       <path>Ellipsis/</path>
       <name>jquery.ellipsis.js</name>
     </file>
@@ -89,8 +81,20 @@
       <name>Default Image.svg</name>
     </file>
     <file>
+      <path>Images/</path>
+      <name>Picturesque_scenery_240012.jpg</name>
+    </file>
+    <file>
+      <path>Images/</path>
+      <name>Picturesque_scenery_240015.jpg</name>
+    </file>
+    <file>
       <path>Js/</path>
       <name>main.js</name>
+    </file>
+    <file>
+      <path>Js/</path>
+      <name>main.min.js</name>
     </file>
     <file>
       <path>Temp Fixes/</path>

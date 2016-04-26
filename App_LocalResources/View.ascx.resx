@@ -123,9 +123,6 @@
   <data name="lnkAdd.Text" xml:space="preserve">
     <value>New</value>
   </data>
-  <data name="lnkAll.Text" xml:space="preserve">
-    <value>All News</value>
-  </data>
   <data name="lnkDelete.Text" xml:space="preserve">
     <value>Delete</value>
   </data>

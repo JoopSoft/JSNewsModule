@@ -121,10 +121,6 @@
     <Content Include="icon.png" />
     <Content Include="Images\Default Image.svg" />
     <Content Include="Js\JSScript.js" />
-    <Content Include="Js\main.js" />
-    <Content Include="Js\main.min.js">
-      <DependentUpon>JSScript.js</DependentUpon>
-    </Content>
     <Content Include="License.txt" />
     <Content Include="module.css">
       <DependentUpon>module.scss</DependentUpon>

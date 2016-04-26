@@ -28,12 +28,11 @@
                     <asp:TextBox ID="txtDate" runat="server" TextMode="Date" CssClass="form-control" />
                 </asp:Panel>
             </div>
+            <asp:Panel ID="pnlShowImg" runat="server" CssClass="dnnFormItem">
+                <dnn:label ID="lblShowImg" runat="server" />
+                <asp:CheckBox ID="cbShowImg" runat="server" CssClass="hidder" data-target=".showImgGroup" />
+            </asp:Panel>
             <asp:Panel ID="showImgGroup" runat="server" CssClass="fieldset">
-                <asp:Panel ID="pnlShowImg" runat="server" CssClass="dnnFormItem">
-                    <dnn:label ID="lblShowImg" runat="server" />
-                    <asp:CheckBox ID="cbShowImg" runat="server" CssClass="hidder" data-target=".showImgGroup"
-                        AutoPostBack="false" OnCheckedChanged="cbShowImg_CheckedChanged" />
-                </asp:Panel>
                 <asp:Panel ID="pnlImgList" runat="server" CssClass="showImgGroup dnnFormItem">
                     <dnn:label ID="lblImgUrl" runat="server" />
                     <asp:DropDownList ID="imgList" runat="server" CssClass="selectpicker show-tick single-select"

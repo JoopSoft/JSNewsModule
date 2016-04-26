@@ -34,6 +34,7 @@ namespace JS.Modules.JSNewsModule.Components
         public bool ShowNewsDate { get; set; }
         public string NewsDate { get; set; }
         public bool ShowNewsImg { get; set; }
+        public bool ShowNewsImgTemp { get; set; }
         public string ImageUrl { get; set; }
         public string NewsTeaserText { get; set; }
         public string NewsContent { get; set; }

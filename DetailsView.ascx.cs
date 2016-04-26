@@ -11,31 +11,11 @@
 */
 
 using System;
-using System.Web.UI.WebControls;
 using JS.Modules.JSNewsModule.Components;
-using DotNetNuke.Security;
 using DotNetNuke.Services.Exceptions;
-using DotNetNuke.Entities.Modules;
-using DotNetNuke.Entities.Modules.Actions;
-using DotNetNuke.Services.Localization;
-using DotNetNuke.UI.Utilities;
-using System.Linq;
 
 namespace JS.Modules.JSNewsModule
 {
-    /// -----------------------------------------------------------------------------
-    /// <summary>
-    /// The View class displays the content
-    /// 
-    /// Typically your view control would be used to display content or functionality in your module.
-    /// 
-    /// View may be the only control you have in your project depending on the complexity of your module
-    /// 
-    /// Because the control inherits from JSNewsModuleModuleBase you have access to any custom properties
-    /// defined there, as well as properties from DNN such as PortalId, ModuleId, TabId, UserId and many more.
-    /// 
-    /// </summary>
-    /// -----------------------------------------------------------------------------
     public partial class DetailsView : JSNewsModuleModuleBase
     {
         protected void Page_Load(object sender, EventArgs e)

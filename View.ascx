@@ -51,8 +51,7 @@
                     </ItemTemplate>
                     <FooterTemplate>
                         <div class="panel-footer">
-                            <asp:LinkButton ID="lnkAll" runat="server" CssClass="btn btn-primary link-all"
-                                ResourceKey="lnkAll" Visible="True" Enabled="True" />
+                            <asp:HyperLink ID="lnkAll" runat="server" CssClass="btn btn-primary link-all" />
                             <div class="btn-group pull-right">
                                 <asp:LinkButton ID="lnkPrev" runat="server" CssClass="btn btn-primary link-prev" OnClick="lnkPrev_Click"
                                     ResourceKey="lnkPrev" Visible="True" Enabled="True" />
@@ -75,6 +74,7 @@
                         <div class="list-group-item">
                             <asp:HyperLink ID="btnReadMore" runat="server" ToolTip='<%#DataBinder.Eval(Container.DataItem,"NewsTitle").ToString() %>'>
                                 <span class="badge">
+                                    <asp:Label ID="lblNewsId" runat="server" Text='<%#DataBinder.Eval(Container.DataItem,"NewsId").ToString() %>' Visible="false" />
                                     <asp:Label ID="lblNewsDate" runat="server"
                                         Text='<%#DataBinder.Eval(Container.DataItem,"NewsDate").ToString() %>' Visible='<%#((DataBinder.Eval(Container.DataItem,"ShowNewsDate")!=null) && ((bool)DataBinder.Eval(Container.DataItem,"ShowNewsDate")==true)) %>' />
                                 </span>
@@ -106,8 +106,7 @@
                     </ItemTemplate>
                     <FooterTemplate>
                         <div class="panel-footer">
-                            <asp:LinkButton ID="lnkAll" runat="server" CssClass="btn btn-primary link-all" Visible="false"
-                                ResourceKey="lnkAll" CommandName="AllNews" />
+                            <asp:HyperLink ID="lnkAll" runat="server" CssClass="btn btn-primary link-all" />
                             <div class="btn-group pull-right">
                                 <asp:LinkButton ID="lnkPrev" runat="server" CssClass="btn btn-primary link-prev no-txt"
                                     OnClick="lnkPrev_Click" Visible="false" CommandName="Previous"

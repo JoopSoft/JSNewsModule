@@ -1,4 +1,4 @@
-[DETAILS VIEW]: Prev and Next buttons must titled by next and prev item titles
+﻿[DETAILS VIEW]: Prev and Next buttons must titled by next and prev item titles
 	(Ex.: Details view for News Item 2: {Next-> News Item 3; Prev -> News Item 1})
 
 DONE *Discuss for separately styled dnnFormItem by some of horizontal line or something else..
@@ -7,25 +7,25 @@ DONE - add .no-txt class to all icon buttons..
 
 DONE - upload button must be hidden when no file choosen..
 
-- Delete btn not working on Accordion mode..
+DONE - Delete btn not working on Accordion mode..
 
-- When img is not checked on list view, changes not applied on accordion view
+DONE - When img is not checked on list view, changes not applied on accordion view
 	Img group not showing on edit mode with accordion mode
 
-[SETTINGS]: Show "All News Button": 
+DONE [SETTINGS]: Show "All News Button": 
 		
 	DONE - Dropdown available pages). 
-		 - Show All news button, All news button text from dynamic textbox.. 
-		 - Also show/hide this button from View & Details View.
+	DONE - Show All news button, All news button text from dynamic textbox.. 
+	DONE - Also show/hide this button from View & Details View.
 		 
-		 - New DB table fields for:
+	DONE - New DB table fields for:
 		 	- news button display/hide
 		 	- news button text
 		 	- news button navigation page
 		 
-		 - LOGIC CONNECTION
+	DONE - LOGIC CONNECTION
 
-- Partial DONE: All news drop down list for available website pages.. Write small logic
+DONE: All news drop down list for available website pages.. Write small logic
 	http://www.adefwebserver.com/dotnetnukehelp/Misc/PageNavigator.htm
 
 DONE - AutoPostBack on settings - Broke design elements.. 
@@ -34,9 +34,18 @@ DONE - AutoPostBack on settings - Broke design elements..
 DONE - Hide unnessesary elements via javascript and disabling/removing AutoPostBack methods 
 	 - All dynamic asp:Panels > migrate to simple div's elements - C#
 	 
-[ADD/EDIT]: Buttons from second deletion must be hidden after closing and reopen delete box..
+DONE - [ADD/EDIT]: Buttons from second deletion must be hidden after closing and reopen delete box..
 
-[EDIT List & Accordion]: Image checkbox is removed when image is unchecked and save..  Check image on [Settings] is OK..
+DONE - [EDIT List & Accordion]: Image checkbox is removed when image is unchecked and save..  Check image on [Settings] is OK..
 
 
 *CODE CLEARING!!!
+
+
+[ADD/EDIT] View Mode dropdown doesn't show/hide readmore panel on change
+
+[View] delete panels don't show correctly
+
+[SETTINGS] ReadMore ShowImage stat texts must be switched
+
+Ако още се случва да се забележи точно кога [ADD/EDIT]: Buttons from second deletion must be hidden after closing and reopen delete box..

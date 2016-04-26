@@ -18,25 +18,10 @@ using DotNetNuke.Services.Exceptions;
 using DotNetNuke.Entities.Modules;
 using DotNetNuke.Entities.Modules.Actions;
 using DotNetNuke.Services.Localization;
-using DotNetNuke.UI.Utilities;
 using System.Linq;
-using System.Web.UI;
 
 namespace JS.Modules.JSNewsModule
 {
-    /// -----------------------------------------------------------------------------
-    /// <summary>
-    /// The View class displays the content
-    /// 
-    /// Typically your view control would be used to display content or functionality in your module.
-    /// 
-    /// View may be the only control you have in your project depending on the complexity of your module
-    /// 
-    /// Because the control inherits from JSNewsModuleModuleBase you have access to any custom properties
-    /// defined there, as well as properties from DNN such as PortalId, ModuleId, TabId, UserId and many more.
-    /// 
-    /// </summary>
-    /// -----------------------------------------------------------------------------
     public partial class View : JSNewsModuleModuleBase, IActionable
     {
         protected void Page_Load(object sender, EventArgs e)
@@ -171,13 +156,16 @@ namespace JS.Modules.JSNewsModule
                 rptItemAccordionView.DataBind();
                 #endregion
 
-
-                var lnkAll = rptItemListView.Controls[rptItemListView.Controls.Count - 1].Controls[0].FindControl("lnkAll") as LinkButton;
+                
+                var lnkAll = rptItemListView.Controls[rptItemListView.Controls.Count - 1].Controls[0].FindControl("lnkAll") as HyperLink;
                 var lnkPrev = rptItemListView.Controls[rptItemListView.Controls.Count - 1].Controls[0].FindControl("lnkPrev") as LinkButton;
                 var lnkNext = rptItemListView.Controls[rptItemListView.Controls.Count - 1].Controls[0].FindControl("lnkNext") as LinkButton;
-                var lnkAllA = rptItemAccordionView.Controls[rptItemAccordionView.Controls.Count - 1].Controls[0].FindControl("lnkAll") as LinkButton;
+                var lnkAllA = rptItemAccordionView.Controls[rptItemAccordionView.Controls.Count - 1].Controls[0].FindControl("lnkAll") as HyperLink;
                 var lnkPrevA = rptItemAccordionView.Controls[rptItemAccordionView.Controls.Count - 1].Controls[0].FindControl("lnkPrev") as LinkButton;
                 var lnkNextA = rptItemAccordionView.Controls[rptItemAccordionView.Controls.Count - 1].Controls[0].FindControl("lnkNext") as LinkButton;
+                lnkAll.NavigateUrl = lnkAllA.NavigateUrl = cs.NewsButtonPage;
+                lnkAll.Text = lnkAllA.Text = cs.NewsButtonText;
+                lnkAll.Visible = lnkAllA.Visible = cs.ShowNewsButton;
                 var currentNews = nc.LoadAllNews(ModuleId);
                 bool newsPresent = false;
                 foreach (var n in currentNews)
@@ -187,16 +175,14 @@ namespace JS.Modules.JSNewsModule
                 if (newsPresent)
                 {
                     pnlFirstAdd.Visible = false;
-                    //lnkFirstAdd.Visible = false;
-                    lnkAll.Visible = lnkPrev.Visible = lnkNext.Visible = true;
-                    lnkAllA.Visible = lnkPrevA.Visible = lnkNextA.Visible = true;
+                    lnkPrev.Visible = lnkNext.Visible = true;
+                    lnkPrevA.Visible = lnkNextA.Visible = true;
                 }
                 else
                 {
                     pnlFirstAdd.Visible = true;
-                    //lnkFirstAdd.Visible = true;
-                    lnkAll.Visible = lnkPrev.Visible = lnkNext.Visible = false;
-                    lnkAllA.Visible = lnkPrevA.Visible = lnkNextA.Visible = false;
+                    lnkPrev.Visible = lnkNext.Visible = false;
+                    lnkPrevA.Visible = lnkNextA.Visible = false;
                 }
                 lnkFirstAdd.NavigateUrl = EditUrl("AddNews");
             }
@@ -212,7 +198,6 @@ namespace JS.Modules.JSNewsModule
             {
                 var lnkEdit = e.Item.FindControl("lnkEdit") as HyperLink;
                 var lnkAdd = e.Item.FindControl("lnkAdd") as HyperLink;
-                var lnkSettings = e.Item.FindControl("lnkSettings") as HyperLink;
                 var lnkDelete = e.Item.FindControl("lnkDelete") as LinkButton;
                 var btnReadMore = e.Item.FindControl("btnReadMoreList") as HyperLink;
                 var lnkImg = e.Item.FindControl("lnkImg") as HyperLink;
@@ -240,10 +225,8 @@ namespace JS.Modules.JSNewsModule
         {
             if (e.Item.ItemType == ListItemType.AlternatingItem || e.Item.ItemType == ListItemType.Item)
             {
-
                 var lnkEdit = e.Item.FindControl("lnkEdit") as HyperLink;
                 var lnkAdd = e.Item.FindControl("lnkAdd") as HyperLink;
-                var lnkSettings = e.Item.FindControl("lnkSettings") as HyperLink;
                 var lnkDelete = e.Item.FindControl("lnkDelete") as LinkButton;
                 var btnReadMore = e.Item.FindControl("btnReadMore") as HyperLink;
                 var pnlAdminControls = e.Item.FindControl("pnlAdmin") as Panel;
@@ -349,6 +332,20 @@ namespace JS.Modules.JSNewsModule
                     lblDeleteNewsID.Text = newsId.Text;
                 }
             }
+            foreach (RepeaterItem ri in rptItemAccordionView.Items)
+            {
+                var btnDelete = ri.FindControl("lnkDelete") as LinkButton;
+                var newsId = ri.FindControl("lblNewsId") as Label;
+
+                if (sender.Equals(btnDelete))
+                {
+                    pnlPopUp.Visible = true;
+                    pnlPopUp.CssClass = "popup confirm-box warning";
+                    lblPopUpMsg.Text = "Delete this News?";
+                    lblPopUpIcon.CssClass = "popup-icon link-delete no-txt";
+                    lblDeleteNewsID.Text = newsId.Text;
+                }
+            }
         }
 
         protected void btnDelete_Click(object sender, EventArgs e)
@@ -371,10 +368,6 @@ namespace JS.Modules.JSNewsModule
             {
                 var actions = new ModuleActionCollection
                     {
-                        //{
-                        //    GetNextActionID(), Localization.GetString("EditModule", LocalResourceFile), "", "", "",
-                        //    EditUrl(), false, SecurityAccessLevel.Edit, true, false
-                        //},
                         {
                             GetNextActionID(), Localization.GetString("AddNews", LocalResourceFile), "", "", "",
                             EditUrl("AddNews"), false, SecurityAccessLevel.Edit, true, false

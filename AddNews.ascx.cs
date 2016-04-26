@@ -11,7 +11,6 @@
 */
 
 using System;
-using DotNetNuke.Entities.Users;
 using JS.Modules.JSNewsModule.Components;
 using DotNetNuke.Services.Exceptions;
 using System.IO;
@@ -19,52 +18,27 @@ using System.Web.UI.WebControls;
 
 namespace JS.Modules.JSNewsModule
 {
-    /// -----------------------------------------------------------------------------
-    /// <summary>   
-    /// The Edit class is used to manage content
-    /// 
-    /// Typically your edit control would be used to create new content, or edit existing content within your module.
-    /// The ControlKey for this control is "Edit", and is defined in the manifest (.dnn) file.
-    /// 
-    /// Because the control inherits from JSNewsModuleModuleBase you have access to any custom properties
-    /// defined there, as well as properties from DNN such as PortalId, ModuleId, TabId, UserId and many more.
-    /// 
-    /// </summary>
-    /// -----------------------------------------------------------------------------
     public partial class AddNews : JSNewsModuleModuleBase
     {
         protected void Page_Load(object sender, EventArgs e)
         {
             try
             {
-                //Implement your edit logic for your module
                 if (!Page.IsPostBack)
                 {
                     pnlPopUp.Visible = false;
                     var sc = new SettingsController();
-                    int TModuleId = 0;
-                    var ts = sc.LoadSettings();
-                    foreach (CustomSettings ns in ts)
-                    {
-                        if (ns.SettingsId == ModuleId)
-                        {
-                            TModuleId = ModuleId;
-                            break;
-                        }
-                    }
-                    var s = sc.LoadSingleSettings(TModuleId);
+                    var s = sc.LoadSingleSettings(TempModuleId(sc));
                     cbShowImg.Checked = s.ShowNewsImg;
                     pnlDate.Visible = s.ShowNewsDate;
-                    pnlShowImg.Visible = s.ShowNewsImg && s.ShowReadMore && s.ViewMode == "List";
-                    pnlShowImg.Visible = cbShowImg.Checked = s.ShowNewsImg && s.ShowReadMore && s.ViewMode == "List";
+                    pnlShowImg.Visible = s.ShowNewsImg;
                     var nc = new NewsController();
                     if (NewsId > 0)
                     {
                         var n = nc.LoadNews(NewsId, ModuleId);
                         cbShowImg.Checked = n.ShowNewsImg;
                     }
-                    showImgGroup.Visible = s.ShowNewsImg && cbShowImg.Checked && s.ViewMode == "List";
-                    //pnlImgList.Visible = pnlImgSelectedGroup.Visible = pnlImgUpload.Visible = s.ShowNewsImg && cbShowImg.Checked && s.ViewMode == "List";
+                    showImgGroup.Visible = s.ShowNewsImg;
                     pnlCustomOrderId.Visible = (s.ShowCustomOrderId && s.IsSorted);
                     var li = new ListItem("Default Image", "Default Image.svg");
                     imgList.Items.Add(li);
@@ -79,8 +53,6 @@ namespace JS.Modules.JSNewsModule
                         }
                     }
                     txtImgUrl.Text = imgList.SelectedValue;
-                    //check if we have an ID passed in via a querystring parameter, if so, load that item to edit.
-                    //ItemId is defined in the ItemModuleBase.cs file
                     if (NewsId > 0)
                     {
                         var n = nc.LoadNews(NewsId, ModuleId);
@@ -130,17 +102,7 @@ namespace JS.Modules.JSNewsModule
             var nc = new NewsController();
             var sc = new SettingsController();
             string style = "";
-            int TModuleId = 0;
-            var ts = sc.LoadSettings();
-            foreach (CustomSettings ns in ts)
-            {
-                if (ns.SettingsId == ModuleId)
-                {
-                    TModuleId = ModuleId;
-                    break;
-                }
-            }
-            s = sc.LoadSingleSettings(TModuleId);
+            s = sc.LoadSingleSettings(TempModuleId(sc));
             if (NewsId > 0)
             {
                 n = nc.LoadNews(NewsId, ModuleId);
@@ -148,7 +110,7 @@ namespace JS.Modules.JSNewsModule
                 n.NewsTitle = txtTitle.Text.Trim();
                 n.ShowNewsDate = s.ShowNewsDate;
                 n.NewsDate = txtDate.Text.Trim();
-                n.ShowNewsImg = s.ShowNewsImg && cbShowImg.Checked;
+                n.ShowNewsImg = n.ShowNewsImgTemp = s.ShowNewsImg && cbShowImg.Checked;
                 n.ImageUrl = imgPreview.ImageUrl;
                 n.NewsTeaserText = txtTeaserText.Text.Trim();
                 n.NewsContent = txtContent.Text.Trim();
@@ -168,6 +130,7 @@ namespace JS.Modules.JSNewsModule
                     ShowNewsDate = s.ShowNewsDate,
                     NewsDate = txtDate.Text.Trim(),
                     ShowNewsImg = s.ShowNewsImg && cbShowImg.Checked,
+                    ShowNewsImgTemp = s.ShowNewsImg && cbShowImg.Checked,
                     ImageUrl = imgPreview.ImageUrl,
                     NewsTeaserText = txtTeaserText.Text.Trim(),
                     NewsContent = txtContent.Text.Trim(),
@@ -304,7 +267,6 @@ namespace JS.Modules.JSNewsModule
                 pnlPopUp.CssClass = "dnnFormItem popup auto-close-box success";
                 lblPopUpMsg.Text = "No file selected!";
                 lblPopUpIcon.CssClass = "popup-icon link-info no-txt";
-                //btnDelete.Visible = false;
             }
         }
 
@@ -325,34 +287,12 @@ namespace JS.Modules.JSNewsModule
             imgPreview.ImageUrl = "~/DesktopModules/JSNewsModule/Images/" + txtImgUrl.Text;
         }
 
-        protected void cbShowImg_CheckedChanged(object sender, EventArgs e)
-        {
-            pnlPopUp.Visible = false;
-            showImgGroup.Visible = cbShowImg.Checked;
-            //pnlImgList.Visible = pnlImgSelectedGroup.Visible = pnlImgUpload.Visible = cbShowImg.Checked;
-            btnDeleteImg.Visible = cbShowImg.Checked && imgList.SelectedValue != "Default Image.svg";
-        }
-
         protected void btnDeleteImg_Click(object sender, EventArgs e)
         {
-            if (imgList.SelectedValue != "Default Image.svg")
-            {
-                pnlPopUp.Visible = true;
-                pnlPopUp.CssClass = "dnnFormItem popup confirm-box warning";
-                lblPopUpMsg.Text = "Delete this Image?";
-                lblPopUpIcon.CssClass = "popup-icon link-delete no-txt";
-                btnDelete.Visible = true;
-                btnClose.Visible = true;
-            }
-            else
-            {
                 pnlPopUp.Visible = true;
                 pnlPopUp.CssClass = "dnnFormItem popup confirm-box warning";
                 lblPopUpMsg.Text = "Default image cannot be deleted!";
                 lblPopUpIcon.CssClass = "popup-icon link-delete no-txt";
-
-
-            }
         }
 
         protected void btnDelete_Click(object sender, EventArgs e)
@@ -392,6 +332,8 @@ namespace JS.Modules.JSNewsModule
         {
             txtImgUrl.Text = "";
             pnlPopUp.Visible = false;
+            btnDefault.Visible = false;
+            btnRemove.Visible = false;
         }
 
         protected void btnDefault_Click(object sender, EventArgs e)
@@ -414,6 +356,8 @@ namespace JS.Modules.JSNewsModule
             lblPopUpIcon.CssClass = "popup-icon link-info no-txt";
             btnDefault.Visible = false;
             btnRemove.Visible = false;
+            btnDeleteImg.Visible = false;
+            txtImgUrl.Text = "Default Image.svg";
         }
 
         protected void btnRemove_Click(object sender, EventArgs e)
@@ -435,6 +379,9 @@ namespace JS.Modules.JSNewsModule
             pnlPopUp.CssClass = "dnnFormItem popup auto-close-box success";
             lblPopUpMsg.Text = "Image Removed!";
             lblPopUpIcon.CssClass = "popup-icon link-info no-txt";
+            btnDefault.Visible = false;
+            btnRemove.Visible = false;
+            btnDeleteImg.Visible = false;
         }
 
         protected void DeleteImage()
@@ -463,6 +410,21 @@ namespace JS.Modules.JSNewsModule
             imgPreview.ImageUrl = "~/DesktopModules/JSNewsModule/Images/Default Image.svg";
             btnDefault.Visible = false;
             btnRemove.Visible = false;
+        }
+
+        int TempModuleId(SettingsController sc)
+        {
+            int moduleId = 0;
+            var ts = sc.LoadSettings();
+            foreach (CustomSettings ns in ts)
+            {
+                if (ns.SettingsId == ModuleId)
+                {
+                    moduleId = ModuleId;
+                    break;
+                }
+            }
+            return moduleId;
         }
     }
 }

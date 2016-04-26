@@ -19,7 +19,6 @@
                 <div class="dnnFormItem">
                     <dnn:Label ID="lblViewMode" runat="server" />
                     <asp:DropDownList ID="viewModeList" runat="server" CssClass="selectpicker show-tick single-select" />
-                    <%--AutoPostBack="true" OnSelectedIndexChanged="viewModeList_SelectedIndexChanged" /> REMOVE POSTBACK AND CHANGE METHOD--%>
                 </div>
             </div>
             <div class="fieldset">
@@ -32,9 +31,6 @@
                 <asp:Panel ID="pnlShowNewsImg" runat="server" CssClass="dnnFormItem">
                     <dnn:Label ID="lblShowNewsImg" runat="server" />
                     <asp:CheckBox ID="cbShowNewsImg" runat="server" />
-                    <%--AutoPostBack="true" OnCheckedChanged="cbShowNewsImg_CheckedChanged" /> REMOVE POSTBACK AND CHANGE METHOD--%>
-                    <%--<asp:TextBox ID="lblStatImgMsg" runat="server" CssClass="pnlReadMoreTxt form-control"
-                    Text="*Notes: Read more button must be checked" Enabled="false" /> DELETE FROM CODE--%>
 
                     <asp:Label ID="lblStatusImgMsg" runat="server" Enabled="false"
                         ResourceKey="lblStatImgMsg" />
@@ -44,9 +40,6 @@
                 <asp:Panel ID="pnlShowReadMore" runat="server" CssClass="dnnFormItem">
                     <dnn:Label ID="lblShowReadMore" runat="server" />
                     <asp:CheckBox ID="cbShowReadMore" runat="server" CssClass="hidder" data-target=".pnlReadMoreTxt" />
-                    <%--AutoPostBack="true" OnCheckedChanged="cbShowReadMore_CheckedChanged" /> REMOVE POSTBACK AND CHANGE METHOD--%>
-                    <%--<asp:TextBox ID="lblStatReadMoreMsg" runat="server" CssClass="pnlReadMoreTxt form-controlllllll"
-                    Text="*Notes: News image must be checked" /> DELETE FROM CODE--%>
 
                     <asp:Label ID="lblStatusReadMoreMsg" runat="server" Enabled="false"
                         ResourceKey="lblStatReadMoreMsg" />
@@ -60,7 +53,6 @@
                 <div class="dnnFormItem">
                     <dnn:Label ID="lblShowBack" runat="server" />
                     <asp:CheckBox ID="cbShowBack" runat="server" CssClass="hidder" data-target=".pnlBackText" />
-                    <%--AutoPostBack="false" OnCheckedChanged="cbShowBack_CheckedChanged" /> REMOVE POSTBACK AND CHANGE METHOD--%>
                 </div>
                 <asp:Panel ID="pnlBackText" runat="server" class="pnlBackText dnnFormItem">
                     <dnn:Label ID="lblBackText" runat="server" />
@@ -71,7 +63,6 @@
                 <div class="dnnFormItem">
                     <dnn:Label ID="lblShowHome" runat="server" />
                     <asp:CheckBox ID="cbShowHome" runat="server" CssClass="hidder" data-target=".pnlHomeText" />
-                    <%--AutoPostBack="true" OnCheckedChanged="cbShowHome_CheckedChanged" /> REMOVE POSTBACK AND CHANGE METHOD--%>
                 </div>
                 <asp:Panel ID="pnlHomeText" runat="server" class="pnlHomeText dnnFormItem">
                     <dnn:Label ID="lblHomeText" runat="server" />
@@ -103,7 +94,6 @@
                 <div class="dnnFormItem">
                     <dnn:Label ID="lblIsSorted" runat="server" />
                     <asp:CheckBox ID="cbIsSorted" runat="server" CssClass="hidder" data-target=".pnlSortNews" />
-                    <%--AutoPostBack="true" OnCheckedChanged="cbIsSorted_CheckedChanged" /> REMOVE POSTBACK AND CHANGE METHOD--%>
                 </div>
                 <asp:Panel ID="pnlSortBy" runat="server" class="pnlSortNews dnnFormItem group">
                     <dnn:Label ID="lblSortBy" runat="server" />
@@ -118,7 +108,6 @@
                 <div class="dnnFormItem">
                     <dnn:label ID="lblUsePaging" runat="server" />
                     <asp:CheckBox ID="cbUsePaging" runat="server" CssClass="hidder" data-target=".pnlPaging" />
-                    <%--AutoPostBack="true" OnCheckedChanged="cbUsePaging_CheckedChanged" /> REMOVE POSTBACK AND CHANGE METHOD--%>
                 </div>
                 <asp:Panel ID="pnlNewsPerPage" runat="server" CssClass="pnlPaging dnnFormItem">
                     <dnn:label ID="lblNewsPerPage" runat="server" />
