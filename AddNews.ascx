@@ -28,32 +28,34 @@
                     <asp:TextBox ID="txtDate" runat="server" TextMode="Date" CssClass="form-control" />
                 </asp:Panel>
             </div>
-            <asp:Panel ID="pnlShowImg" runat="server" CssClass="dnnFormItem">
-                <dnn:label ID="lblShowImg" runat="server" />
-                <asp:CheckBox ID="cbShowImg" runat="server" CssClass="hidder" data-target=".showImgGroup" />
-            </asp:Panel>
-            <asp:Panel ID="showImgGroup" runat="server" CssClass="fieldset">
-                <asp:Panel ID="pnlImgList" runat="server" CssClass="showImgGroup dnnFormItem">
-                    <dnn:label ID="lblImgUrl" runat="server" />
-                    <asp:DropDownList ID="imgList" runat="server" CssClass="selectpicker show-tick single-select"
-                        AutoPostBack="True" OnSelectedIndexChanged="Image_Selected" />
+            <div class="fieldset">
+                <asp:Panel ID="pnlShowImg" runat="server" CssClass="dnnFormItem">
+                    <dnn:label ID="lblShowImg" runat="server" />
+                    <asp:CheckBox ID="cbShowImg" runat="server" CssClass="hidder" data-target=".showImgGroup" />
                 </asp:Panel>
-                <asp:Panel ID="pnlImgSelectedGroup" runat="server" CssClass="showImgGroup dnnFormItem group">
-                    <dnn:label ID="lblImgSelected" runat="server" />
-                    <asp:Image ID="imgPreview" runat="server" CssClass="news-image" AlternateText="News image"
-                        ImageUrl="~/DesktopModules/JSNewsModule/Images/Default Image.svg" />
-                    <asp:LinkButton ID="btnDeleteImg" runat="server" CssClass="btn btn-danger link-delete"
-                        ResourceKey="btnDeleteImg" OnClick="btnDeleteImg_Click"
-                        data-toggle="tooltip" ToolTip="Delete Image" />
-                    <asp:TextBox ID="txtImgUrl" runat="server" CssClass="form-control txt-img-url" Enabled="false" />
+                <asp:Panel ID="showImgGroup" runat="server" CssClass="showImgGroup dnnFormItem">
+                    <asp:Panel ID="pnlImgList" runat="server" CssClass="dnnFormItem">
+                        <dnn:label ID="lblImgUrl" runat="server" />
+                        <asp:DropDownList ID="imgList" runat="server" CssClass="selectpicker show-tick single-select"
+                            AutoPostBack="True" OnSelectedIndexChanged="Image_Selected" />
+                    </asp:Panel>
+                    <asp:Panel ID="pnlImgSelectedGroup" runat="server" CssClass="dnnFormItem group">
+                        <dnn:label ID="lblImgSelected" runat="server" />
+                        <asp:Image ID="imgPreview" runat="server" CssClass="news-image" AlternateText="News image"
+                            ImageUrl="~/DesktopModules/JSNewsModule/Images/Default Image.svg" />
+                        <asp:LinkButton ID="btnDeleteImg" runat="server" CssClass="btn btn-danger link-delete"
+                            ResourceKey="btnDeleteImg" OnClick="btnDeleteImg_Click"
+                            data-toggle="tooltip" ToolTip="Delete Image" />
+                        <asp:TextBox ID="txtImgUrl" runat="server" CssClass="form-control txt-img-url" Enabled="false" />
+                    </asp:Panel>
+                    <asp:Panel ID="pnlImgUpload" runat="server" CssClass="dnnFormItem">
+                        <dnn:label ID="lblUploadImg" runat="server" />
+                        <asp:FileUpload ID="btnImgSelect" runat="server" data-target=".btnImgUpload" />
+                        <asp:LinkButton ID="btnImgUpload" runat="server" CssClass="btnImgUpload dnnSecondaryAction link-upload"
+                            OnClick="btnImgUpload_Click" ResourceKey="btnUpload" />
+                    </asp:Panel>
                 </asp:Panel>
-                <asp:Panel ID="pnlImgUpload" runat="server" CssClass="showImgGroup dnnFormItem">
-                    <dnn:label ID="lblUploadImg" runat="server" />
-                    <asp:FileUpload ID="btnImgSelect" runat="server" data-target=".btnImgUpload" />
-                    <asp:LinkButton ID="btnImgUpload" runat="server" CssClass="btnImgUpload dnnSecondaryAction link-upload"
-                        OnClick="btnImgUpload_Click" ResourceKey="btnUpload" />
-                </asp:Panel>
-            </asp:Panel>
+            </div>
             <div class="fieldset">
                 <div class="dnnFormItem">
                     <dnn:label ID="lblTeaserText" runat="server" />

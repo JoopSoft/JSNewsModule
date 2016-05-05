@@ -226,12 +226,9 @@
     <value>Select Page To Navigate To</value>
   </data>
   <data name="lblStatImgMsg.Text" xml:space="preserve">
-    <value>News image must be checked</value>
-  </data>
-  <data name="lblStatReadMoreMsg.Text" xml:space="preserve">
     <value>Read more button must be checked</value>
   </data>
-  <data name="String1" xml:space="preserve">
-    <value />
+  <data name="lblStatReadMoreMsg.Text" xml:space="preserve">
+    <value>News image must be checked</value>
   </data>
 </root>

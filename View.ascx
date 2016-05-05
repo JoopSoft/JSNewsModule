@@ -50,18 +50,21 @@
                         </asp:Panel>
                     </ItemTemplate>
                     <FooterTemplate>
-                        <div class="panel-footer">
-                            <asp:HyperLink ID="lnkAll" runat="server" CssClass="btn btn-primary link-all" />
+                        <%--<div class="panel-footer">
                             <div class="btn-group pull-right">
                                 <asp:LinkButton ID="lnkPrev" runat="server" CssClass="btn btn-primary link-prev" OnClick="lnkPrev_Click"
                                     ResourceKey="lnkPrev" Visible="True" Enabled="True" />
                                 <asp:LinkButton ID="lnkNext" runat="server" CssClass="btn btn-primary link-next" OnClick="lnkNext_Click"
                                     ResourceKey="lnkNext" Visible="True" Enabled="True" />
                             </div>
-                        </div>
+                        </div>--%>
+            
+                        <asp:HyperLink ID="lnkAll" runat="server" CssClass="btn btn-primary link-all" />
                     </FooterTemplate>
                 </asp:Repeater>
             </div>
+            <div class="page_navigation btn-group panel-footer"></div>
+            <div class="info_text"></div>
         </asp:Panel>
 
         <%--ACCORDION VIEW--%>
@@ -105,8 +108,7 @@
                         </div>
                     </ItemTemplate>
                     <FooterTemplate>
-                        <div class="panel-footer">
-                            <asp:HyperLink ID="lnkAll" runat="server" CssClass="btn btn-primary link-all" />
+                        <%--<div class="panel-footer">
                             <div class="btn-group pull-right">
                                 <asp:LinkButton ID="lnkPrev" runat="server" CssClass="btn btn-primary link-prev no-txt"
                                     OnClick="lnkPrev_Click" Visible="false" CommandName="Previous"
@@ -115,10 +117,13 @@
                                     OnClick="lnkNext_Click" Visible="false" CommandName="Next"
                                     ToolTip="Next" />
                             </div>
-                        </div>
+                        </div>--%>
+                        <asp:HyperLink ID="lnkAll" runat="server" CssClass="btn btn-primary link-all" />
                     </FooterTemplate>
                 </asp:Repeater>
             </div>
+            <div class="page_navigation btn-group panel-footer"></div>
+            <div class="info_text"></div>
         </asp:Panel>
 
         <%--        <asp:Panel ID="pnlPaging" runat="server">
@@ -146,8 +151,32 @@
                     data-toggle="tooltip" ToolTip="Close" />
             </div>
         </asp:Panel>
+
     </div>
 </div>
 
-<dnn:DnnJsInclude ID="ellipsisJs" runat="server" FilePath="~/DesktopModules/JSNewsModule/Ellipsis/jquery.ellipsis.js" Priority="20" />
-<dnn:DnnJsInclude ID="mainJs" runat="server" FilePath="~/DesktopModules/JSNewsModule/Js/main.min.js" Priority="21" />
+<script type="text/javascript">
+
+    $('#<%= pnlList.ClientID %>').paging({
+        item_container_id: '.list-group',
+        nav_label_info: 'Showing {0}-{1} of {2} results',
+        num_page_links_to_display: 3,
+        items_per_page: 3,
+        wrap_around: true,
+        show_first_last: false
+    });
+
+    $('#<%= pnlAccordion.ClientID %>').paging({
+        item_container_id: '.list-group',
+        nav_label_info: 'Showing {0}-{1} of {2} results',
+        num_page_links_to_display: 3,
+        items_per_page: 3,
+        wrap_around: true,
+        show_first_last: false
+    });
+
+</script>
+
+<dnn:DnnJsInclude ID="ellipsisJs" runat="server" FilePath="~/DesktopModules/JSNewsModule/Js/jquery.ellipsis.min.js" Priority="20" />
+<dnn:DnnJsInclude ID="pagingJs" runat="server" FilePath="~/DesktopModules/JSNewsModule/Js/jquery.paging.min.js" Priority="21" />
+<dnn:DnnJsInclude ID="mainJs" runat="server" FilePath="~/DesktopModules/JSNewsModule/Js/main.min.js" Priority="22" />

@@ -26,8 +26,8 @@ namespace JS.Modules.JSNewsModule
                 if (!IsPostBack)
                 {
                     //Filling The Sorting DropDownLists
-                    viewModeList.Items.Add("List");
-                    viewModeList.Items.Add("Accordion");
+                    ddViewModeList.Items.Add("List");
+                    ddViewModeList.Items.Add("Accordion");
                     sortByList.Items.Add("Date");
                     sortByList.Items.Add("Title");
                     sortByList.Items.Add("Custom Order");
@@ -73,7 +73,7 @@ namespace JS.Modules.JSNewsModule
                     var ns = new CustomSettings()
                     {
                         SettingsId = ModuleId,
-                        ViewMode = viewModeList.SelectedValue,
+                        ViewMode = ddViewModeList.SelectedValue,
                         UsePaging = cbUsePaging.Checked,
                         NewsPerPage = Convert.ToInt32(txtNewsPerPage.Text),
                         ShowCustomOrderId = (sortByList.SelectedValue == "Custom Order"),
@@ -99,7 +99,7 @@ namespace JS.Modules.JSNewsModule
                 else
                 {
                     var s = sc.LoadSingleSettings(ModuleId);
-                    s.ViewMode = viewModeList.SelectedValue;
+                    s.ViewMode = ddViewModeList.SelectedValue;
                     s.UsePaging = cbUsePaging.Checked;
                     s.NewsPerPage = Convert.ToInt32(txtNewsPerPage.Text);
                     s.ShowCustomOrderId = (sortByList.SelectedValue == "Custom Order");
@@ -132,7 +132,7 @@ namespace JS.Modules.JSNewsModule
         #region Help Method Implementations
         void DisplaySettings(CustomSettings s)
         {
-            viewModeList.SelectedValue = s.ViewMode;
+            ddViewModeList.SelectedValue = s.ViewMode;
             cbUsePaging.Checked = s.UsePaging;
             txtNewsPerPage.Text = s.NewsPerPage.ToString();
             cbShowNewsDate.Checked = s.ShowNewsDate;

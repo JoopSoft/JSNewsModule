@@ -81,12 +81,8 @@
       <name>Default Image.svg</name>
     </file>
     <file>
-      <path>Images/</path>
-      <name>Picturesque_scenery_240012.jpg</name>
-    </file>
-    <file>
-      <path>Images/</path>
-      <name>Picturesque_scenery_240015.jpg</name>
+      <path>Js/</path>
+      <name>JSScript.js</name>
     </file>
     <file>
       <path>Js/</path>

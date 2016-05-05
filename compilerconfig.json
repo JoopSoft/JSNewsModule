@@ -8,11 +8,15 @@
     "inputFile": "variables.scss"
   },
   {
-    "outputFile": "Ellipsis/jquery.ellipsis.js",
-    "inputFile": "Ellipsis/jquery.ellipsis.js"
-  },
-  {
     "outputFile": "Js/main.js",
     "inputFile": "Js/JSScript.js"
+  },
+  {
+    "outputFile": "Js/jquery.paging.js",
+    "inputFile": "Js/jquery.pagingScript.js"
+  },
+  {
+    "outputFile": "Js/jquery.ellipsis.js",
+    "inputFile": "Js/jquery.ellipsisScript.js"
   }
 ]

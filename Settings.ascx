@@ -18,7 +18,8 @@
             <div class="fieldset">
                 <div class="dnnFormItem">
                     <dnn:Label ID="lblViewMode" runat="server" />
-                    <asp:DropDownList ID="viewModeList" runat="server" CssClass="selectpicker show-tick single-select" />
+                    <asp:DropDownList ID="ddViewModeList" runat="server" CssClass="selectpicker show-tick single-select" 
+                        data-target=".pnlReadMoreGroup" />
                 </div>
             </div>
             <div class="fieldset">
@@ -27,7 +28,7 @@
                     <asp:CheckBox ID="cbShowNewsDate" runat="server" />
                 </div>
             </div>
-            <div class="fieldset">
+            <asp:Panel ID="pnlReadMoreNewsGroup" runat="server" CssClass="fieldset">
                 <asp:Panel ID="pnlShowNewsImg" runat="server" CssClass="dnnFormItem">
                     <dnn:Label ID="lblShowNewsImg" runat="server" />
                     <asp:CheckBox ID="cbShowNewsImg" runat="server" />
@@ -35,18 +36,18 @@
                     <asp:Label ID="lblStatusImgMsg" runat="server" Enabled="false"
                         ResourceKey="lblStatImgMsg" />
                 </asp:Panel>
-            </div>
-            <asp:Panel ID="pnlReadMoreGroup" runat="server" CssClass="fieldset">
-                <asp:Panel ID="pnlShowReadMore" runat="server" CssClass="dnnFormItem">
-                    <dnn:Label ID="lblShowReadMore" runat="server" />
-                    <asp:CheckBox ID="cbShowReadMore" runat="server" CssClass="hidder" data-target=".pnlReadMoreTxt" />
+                <asp:Panel ID="pnlReadMoreGroup" runat="server" CssClass="pnlReadMoreGroup dnnFormItem">
+                    <asp:Panel ID="pnlShowReadMore" runat="server" CssClass="dnnFormItem">
+                        <dnn:Label ID="lblShowReadMore" runat="server" />
+                        <asp:CheckBox ID="cbShowReadMore" runat="server" CssClass="hidder" data-target=".pnlReadMoreTxt" />
 
-                    <asp:Label ID="lblStatusReadMoreMsg" runat="server" Enabled="false"
-                        ResourceKey="lblStatReadMoreMsg" />
-                </asp:Panel>
-                <asp:Panel ID="pnlReadMoreText" runat="server" CssClass="pnlReadMoreTxt dnnFormItem">
-                    <dnn:Label ID="lblReadMoreText" runat="server" />
-                    <asp:TextBox ID="txtReadMoreText" runat="server" CssClass="form-control" />
+                        <asp:Label ID="lblStatusReadMoreMsg" runat="server" Enabled="false"
+                            ResourceKey="lblStatReadMoreMsg" />
+                    </asp:Panel>
+                    <asp:Panel ID="pnlReadMoreText" runat="server" CssClass="pnlReadMoreTxt dnnFormItem">
+                        <dnn:Label ID="lblReadMoreText" runat="server" />
+                        <asp:TextBox ID="txtReadMoreText" runat="server" CssClass="form-control" />
+                    </asp:Panel>
                 </asp:Panel>
             </asp:Panel>
             <div class="fieldset">
@@ -121,28 +122,75 @@
 </div>
 
 <script type="text/javascript">
-
+    
     //SWITCH CHECKBOXES BETWEEN READMORE AND IMAGE LINKS
     $('.JSNews #<%= cbShowNewsImg.ClientID %>')
         .each(function () {
-            if ($(this).is(':checked')) $('.JSNews #<%= cbShowReadMore.ClientID %>').prop('disabled', false).closest('#<%= pnlShowReadMore.ClientID %>').find('#<%= lblStatusReadMoreMsg.ClientID %>').hide();
-            else $('.JSNews #<%= cbShowReadMore.ClientID %>').prop('disabled', true).closest('#<%= pnlShowReadMore.ClientID %>').find('#<%= lblStatusReadMoreMsg.ClientID %>').show();
+            if ($(this).is(':checked')) $('.JSNews #<%= cbShowReadMore.ClientID %>')
+                .prop('disabled', false)
+                .closest('#<%= pnlReadMoreNewsGroup.ClientID %>')
+                .find('#<%= lblStatusReadMoreMsg.ClientID %>')
+                .hide();
+            else $('.JSNews #<%= cbShowReadMore.ClientID %>')
+                .prop('disabled', true)
+                .closest('#<%= pnlReadMoreNewsGroup.ClientID %>')
+                .find('#<%= lblStatusReadMoreMsg.ClientID %>')
+                .show();
         })
         .bind('change', function () {
-            if ($(this).is(':checked')) $('.JSNews #<%= cbShowReadMore.ClientID %>').prop('disabled', false).closest('#<%= pnlShowReadMore.ClientID %>').find('#<%= lblStatusReadMoreMsg.ClientID %>').hide();
-            else $('.JSNews #<%= cbShowReadMore.ClientID %>').prop('disabled', true).closest('#<%= pnlShowReadMore.ClientID %>').find('#<%= lblStatusReadMoreMsg.ClientID %>').show();
+            if ($(this).is(':checked')) $('.JSNews #<%= cbShowReadMore.ClientID %>')
+                .prop('disabled', false)
+                .closest('#<%= pnlReadMoreNewsGroup.ClientID %>')
+                .find('#<%= lblStatusReadMoreMsg.ClientID %>')
+                .hide();
+            else $('.JSNews #<%= cbShowReadMore.ClientID %>')
+                .prop('disabled', true)
+                .closest('#<%= pnlReadMoreNewsGroup.ClientID %>')
+                .find('#<%= lblStatusReadMoreMsg.ClientID %>')
+                .show();
         });
 
     $('.JSNews #<%= cbShowReadMore.ClientID %>')
         .each(function () {
-            if ($(this).is(':checked')) $('.JSNews #<%= cbShowNewsImg.ClientID %>').prop('disabled', false).closest('#<%= pnlShowNewsImg.ClientID %>').find('#<%= lblStatusImgMsg.ClientID %>').hide();
-            else $('.JSNews #<%= cbShowNewsImg.ClientID %>').prop('disabled', true).closest('#<%= pnlShowNewsImg.ClientID %>').find('#<%= lblStatusImgMsg.ClientID %>').show();
+            if ($(this).is(':checked'))
+                $('.JSNews #<%= cbShowNewsImg.ClientID %>')
+                    .prop('disabled', false)
+                    .closest('#<%= pnlReadMoreNewsGroup.ClientID %>')
+                        .find('#<%= lblStatusImgMsg.ClientID %>')
+                        .hide();
+            else
+                $('.JSNews #<%= cbShowNewsImg.ClientID %>')
+                    .prop('disabled', true)
+                    .closest('#<%= pnlReadMoreNewsGroup.ClientID %>')
+                        .find('#<%= lblStatusImgMsg.ClientID %>')
+                        .show();
         })
         .bind('change', function () {
-            if ($(this).is(':checked')) $('.JSNews #<%= cbShowNewsImg.ClientID %>').prop('disabled', false).closest('#<%= pnlShowNewsImg.ClientID %>').find('#<%= lblStatusImgMsg.ClientID %>').hide();
-            else $('.JSNews #<%= cbShowNewsImg.ClientID %>').prop('disabled', true).closest('#<%= pnlShowNewsImg.ClientID %>').find('#<%= lblStatusImgMsg.ClientID %>').show();
+            if ($(this).is(':checked'))
+                $('.JSNews #<%= cbShowNewsImg.ClientID %>')
+                    .prop('disabled', false)
+                    .closest('#<%= pnlReadMoreNewsGroup.ClientID %>')
+                        .find('#<%= lblStatusImgMsg.ClientID %>')
+                        .hide();
+            else
+                $('.JSNews #<%= cbShowNewsImg.ClientID %>')
+                    .prop('disabled', true)
+                    .closest('#<%= pnlReadMoreNewsGroup.ClientID %>')
+                        .find('#<%= lblStatusImgMsg.ClientID %>')
+                        .show();
         });
 
+    //NEW TEXT BOX AFTER CUSTOM SELECTION
+    $('.JSNews #<%= ddViewModeList.ClientID %>')
+        .each(function () {
+            if ($(this).val() === 'Accordion') $($(this).data('target')).hide();
+            else $($(this).data('target')).show();
+        })
+        .bind('change', function () {
+            if ($(this).val() === 'Accordion') $($(this).data('target')).hide();
+            else $($(this).data('target')).show();
+        });
+    
 </script>
 
 <dnn:DnnJsInclude ID="bootstrapJs" runat="server" FilePath="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js" Priority="18" />

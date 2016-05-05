@@ -158,11 +158,11 @@ namespace JS.Modules.JSNewsModule
 
                 
                 var lnkAll = rptItemListView.Controls[rptItemListView.Controls.Count - 1].Controls[0].FindControl("lnkAll") as HyperLink;
-                var lnkPrev = rptItemListView.Controls[rptItemListView.Controls.Count - 1].Controls[0].FindControl("lnkPrev") as LinkButton;
-                var lnkNext = rptItemListView.Controls[rptItemListView.Controls.Count - 1].Controls[0].FindControl("lnkNext") as LinkButton;
+                //var lnkPrev = rptItemListView.Controls[rptItemListView.Controls.Count - 1].Controls[0].FindControl("lnkPrev") as LinkButton;
+                //var lnkNext = rptItemListView.Controls[rptItemListView.Controls.Count - 1].Controls[0].FindControl("lnkNext") as LinkButton;
                 var lnkAllA = rptItemAccordionView.Controls[rptItemAccordionView.Controls.Count - 1].Controls[0].FindControl("lnkAll") as HyperLink;
-                var lnkPrevA = rptItemAccordionView.Controls[rptItemAccordionView.Controls.Count - 1].Controls[0].FindControl("lnkPrev") as LinkButton;
-                var lnkNextA = rptItemAccordionView.Controls[rptItemAccordionView.Controls.Count - 1].Controls[0].FindControl("lnkNext") as LinkButton;
+                //var lnkPrevA = rptItemAccordionView.Controls[rptItemAccordionView.Controls.Count - 1].Controls[0].FindControl("lnkPrev") as LinkButton;
+                //var lnkNextA = rptItemAccordionView.Controls[rptItemAccordionView.Controls.Count - 1].Controls[0].FindControl("lnkNext") as LinkButton;
                 lnkAll.NavigateUrl = lnkAllA.NavigateUrl = cs.NewsButtonPage;
                 lnkAll.Text = lnkAllA.Text = cs.NewsButtonText;
                 lnkAll.Visible = lnkAllA.Visible = cs.ShowNewsButton;
@@ -175,14 +175,14 @@ namespace JS.Modules.JSNewsModule
                 if (newsPresent)
                 {
                     pnlFirstAdd.Visible = false;
-                    lnkPrev.Visible = lnkNext.Visible = true;
-                    lnkPrevA.Visible = lnkNextA.Visible = true;
+                    //lnkPrev.Visible = lnkNext.Visible = true;
+                    //lnkPrevA.Visible = lnkNextA.Visible = true;
                 }
                 else
                 {
                     pnlFirstAdd.Visible = true;
-                    lnkPrev.Visible = lnkNext.Visible = false;
-                    lnkPrevA.Visible = lnkNextA.Visible = false;
+                    //lnkPrev.Visible = lnkNext.Visible = false;
+                    //lnkPrevA.Visible = lnkNextA.Visible = false;
                 }
                 lnkFirstAdd.NavigateUrl = EditUrl("AddNews");
             }

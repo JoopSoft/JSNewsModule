@@ -207,6 +207,7 @@
                     &:focus,
                     &:active {
                         background-color: $dark-alpha-xlg;
+                        outline: $none !important;
                     }
                 }
 
@@ -218,6 +219,7 @@
                     &:active {
                         color: $white;
                         background-color: $dark-alpha-lg;
+                        outline: $none !important;
                     }
                 }
 
@@ -610,6 +612,7 @@
             @include border-radius(0);
             line-height: normal;
             border-color: transparent;
+            border: $none;
 
             @include transition($bgColor);
 
@@ -630,6 +633,10 @@
             &:active {
                 @include box-shadow($none);
             }
+
+            &.active_page {
+                background-color: $dark-alpha-xlg;
+            }
         }
 
         .btn-group {
@@ -639,6 +646,21 @@
             .btn-group + .btn-group {
                 margin-left: 0;
             }
+        }
+
+        .panel-footer {
+            float: right;
+            clear: both;
+            background-color: transparent;
+            border: $none;
+        }
+
+        .info_text {
+            float: right;
+            padding: 6px 12px;
+            background-color: $dark-alpha-lg;
+            color: $white;
+            border-color: transparent;
         }
 
         .list-group {
@@ -651,14 +673,6 @@
             .list-group-item-heading {
                 margin: 0;
                 color: $large;
-            }
-
-            .panel-footer {
-                float: left;
-                clear: both;
-                width: 100%;
-                background-color: transparent;
-                border: $none;
             }
 
             .badge {
@@ -799,7 +813,11 @@
             }
 
             .panel-footer {
-                padding: 10px;
+                padding: 10px 10px 10px 0;
+            }
+
+            .info_text {
+                margin: 10px 0 10px 0;
             }
 
             .news-image {
@@ -857,7 +875,11 @@
             }
 
             .panel-footer {
-                padding: 10px 5px;
+                padding: 10px 0;
+            }
+
+            .info_text {
+                margin: 10px 0;
             }
 
             .panel-heading {
@@ -880,6 +902,9 @@
         &.view {
             border: $none;
             @include box-shadow($none);
+
+            .panel-footer {
+            }
         }
 
         &.details-view {
@@ -927,6 +952,7 @@
             }
 
             .panel-footer {
+                width: 100%;
                 background-color: transparent;
                 border-top: 1px solid $dark-alpha;
             }

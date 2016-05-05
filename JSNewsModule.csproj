@@ -86,9 +86,6 @@
     <Compile Include="JSNewsModuleModuleSettingsBase.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Content Include="Ellipsis\jquery.ellipsis.min.js">
-      <DependentUpon>jquery.ellipsis.js</DependentUpon>
-    </Content>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Settings.ascx.cs">
       <DependentUpon>Settings.ascx</DependentUpon>
@@ -116,11 +113,21 @@
     <Content Include="checkbox.png" />
     <Content Include="AddNews.ascx" />
     <Content Include="Controls\TextEditor.ascx" />
-    <Content Include="Ellipsis\jquery.ellipsis.js" />
+    <Content Include="Js\jquery.ellipsis.js" />
+    <Content Include="Js\jquery.ellipsis.min.js">
+      <DependentUpon>jquery.ellipsis.js</DependentUpon>
+    </Content>
+    <Content Include="Js\jquery.ellipsisScript.js" />
     <Content Include="h-icon.png" />
     <Content Include="icon.png" />
     <Content Include="Images\Default Image.svg" />
+    <Content Include="Js\jquery.paging.js" />
+    <Content Include="Js\jquery.paging.min.js">
+      <DependentUpon>jquery.paging.js</DependentUpon>
+    </Content>
     <Content Include="Js\JSScript.js" />
+    <Content Include="Js\main.js" />
+    <Content Include="Js\main.min.js" />
     <Content Include="License.txt" />
     <Content Include="module.css">
       <DependentUpon>module.scss</DependentUpon>
@@ -130,6 +137,7 @@
     </Content>
     <Content Include="packages\MSBuildTasks.1.4.0.128\tools\MSBuild.Community.Tasks.dll" />
     <Content Include="packages\MSBuildTasks.1.4.0.128\tools\MSBuild.Community.Tasks.xml" />
+    <Content Include="Js\jquery.pagingScript.js" />
     <Content Include="radiobutton.png" />
     <Content Include="ReleaseNotes.txt" />
     <Content Include="Settings.ascx" />
