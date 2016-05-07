@@ -13,6 +13,9 @@
 using System;
 using JS.Modules.JSNewsModule.Components;
 using DotNetNuke.Services.Exceptions;
+using System.Web.UI.WebControls;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace JS.Modules.JSNewsModule
 {
@@ -22,8 +25,21 @@ namespace JS.Modules.JSNewsModule
         {
             try
             {
+                var sc = new SettingsController();
+                int TModuleId = 0;
+                var ts = sc.LoadSettings();
+                foreach (CustomSettings s in ts)
+                {
+                    if (s.SettingsId == ModuleId)
+                    {
+                        TModuleId = ModuleId;
+                        break;
+                    }
+                }
+                var cs = sc.LoadSingleSettings(TModuleId);
                 var nc = new NewsController();
                 var n = nc.LoadNews(NewsId, ModuleId);
+                var cn = new News();
                 lblNewsTitle.Text = n.NewsTitle;
                 lnkPopUpImg.NavigateUrl = n.ImageUrl;
                 lnkPopUpImg.ToolTip = n.NewsTitle;
@@ -40,6 +56,83 @@ namespace JS.Modules.JSNewsModule
                 btnHome.Visible = n.ShowHome;
                 btnHome.Text = n.HomeText;
                 btnHome.ToolTip = n.HomeText;
+                lnkAll.Visible = cs.ShowNewsButton;
+                lnkAll.NavigateUrl = cs.NewsButtonPage;
+                #region DetailsView Paging
+                var news = nc.LoadAllNews(ModuleId);
+                if (cs.IsSorted)
+                {
+                    if (cs.SortType == "ASC")
+                    {
+                        switch (cs.SortBy)
+                        {
+                            case "Title":
+                                news = (nc.LoadAllNews(ModuleId)).OrderBy(item => item.NewsTitle);
+                                break;
+                            case "Date":
+                                news = (nc.LoadAllNews(ModuleId)).OrderBy(item => item.NewsDate);
+                                break;
+                            case "Custom Order":
+                                news = (nc.LoadAllNews(ModuleId)).OrderBy(item => item.CustomOrderId);
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                    else
+                    {
+                        switch (cs.SortBy)
+                        {
+                            case "Title":
+                                news = (nc.LoadAllNews(ModuleId)).OrderByDescending(item => item.NewsTitle);
+                                break;
+                            case "Date":
+                                news = (nc.LoadAllNews(ModuleId)).OrderByDescending(item => item.NewsDate);
+                                break;
+                            case "Custom Order":
+                                news = (nc.LoadAllNews(ModuleId)).OrderByDescending(item => item.CustomOrderId);
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                }
+                List<int> pagedNews = new List<int>();
+                foreach (var pn in news)
+                {
+                    pagedNews.Add(pn.NewsId);
+                }
+                int currentIndex = 0;
+                for (int i = 0; i < pagedNews.Count; i++)
+                {
+                    if (pagedNews[i] == n.NewsId)
+                    {
+                        currentIndex = i;
+                    }
+                }
+                if (currentIndex == 0)
+                {
+                    lnkPrev.Enabled = false;
+                }
+                else
+                {
+                    cn = nc.LoadNews(pagedNews[currentIndex - 1], ModuleId);
+                    lnkPrev.Enabled = true;
+                    lnkPrev.NavigateUrl = EditUrl(string.Empty, string.Empty, "DetailsView", "nid=" + (pagedNews[currentIndex - 1]));
+                    lnkPrev.ToolTip = cn.NewsTitle;
+                }
+                if (currentIndex == pagedNews.Count - 1)
+                {
+                    lnkNext.Enabled = false;
+                }
+                else
+                {
+                    cn = nc.LoadNews(pagedNews[currentIndex + 1], ModuleId);
+                    lnkNext.Enabled = true;
+                    lnkNext.NavigateUrl = EditUrl(string.Empty, string.Empty, "DetailsView", "nid=" + (pagedNews[currentIndex + 1]));
+                    lnkNext.ToolTip = cn.NewsTitle;
+                }
+                #endregion
                 if (IsEditable && lnkDelete != null && lnkEdit != null && pnlAdminControls != null)
                 {
                     pnlAdminControls.Visible = true;
@@ -92,7 +185,6 @@ namespace JS.Modules.JSNewsModule
         {
             pnlPopUp.Visible = false;
         }
-
     }
 }
    

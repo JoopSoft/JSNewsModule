@@ -132,10 +132,4 @@
   <data name="lnkFirstAdd.Text" xml:space="preserve">
     <value>Add News</value>
   </data>
-  <data name="lnkNext.Text" xml:space="preserve">
-    <value>Next</value>
-  </data>
-  <data name="lnkPrev.Text" xml:space="preserve">
-    <value>Previous</value>
-  </data>
 </root>

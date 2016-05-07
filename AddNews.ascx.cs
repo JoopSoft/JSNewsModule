@@ -26,6 +26,11 @@ namespace JS.Modules.JSNewsModule
             {
                 if (!Page.IsPostBack)
                 {
+                    joopSoft.NavigateUrl = "http://www.joopsoft.com/";
+                    joopSoft.Text = "JoopSOFT.com";
+                    joopSoft.ToolTip = "JoopSOFT.com";
+                    joopSoft.CssClass = "link-dev";
+                    joopSoft.Target = "_blank";
                     pnlPopUp.Visible = false;
                     var sc = new SettingsController();
                     var s = sc.LoadSingleSettings(TempModuleId(sc));
@@ -289,10 +294,11 @@ namespace JS.Modules.JSNewsModule
 
         protected void btnDeleteImg_Click(object sender, EventArgs e)
         {
-                pnlPopUp.Visible = true;
-                pnlPopUp.CssClass = "dnnFormItem popup confirm-box warning";
-                lblPopUpMsg.Text = "Default image cannot be deleted!";
-                lblPopUpIcon.CssClass = "popup-icon link-delete no-txt";
+            pnlPopUp.Visible = true;
+            btnDelete.Visible = true;
+            pnlPopUp.CssClass = "dnnFormItem popup confirm-box warning";
+            lblPopUpMsg.Text = "Default image cannot be deleted!";
+            lblPopUpIcon.CssClass = "popup-icon link-delete no-txt";
         }
 
         protected void btnDelete_Click(object sender, EventArgs e)
@@ -330,7 +336,6 @@ namespace JS.Modules.JSNewsModule
 
         protected void btnClose_Click(object sender, EventArgs e)
         {
-            txtImgUrl.Text = "";
             pnlPopUp.Visible = false;
             btnDefault.Visible = false;
             btnRemove.Visible = false;

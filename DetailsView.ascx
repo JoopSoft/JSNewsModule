@@ -39,11 +39,11 @@
                         href="/" />
                 </div>
                 <div class="btn-group pull-right">
-                    <asp:LinkButton ID="lnkAll" runat="server" CssClass="btn btn-primary link-all"
+                    <asp:HyperLink ID="lnkAll" runat="server" CssClass="btn btn-primary link-all"
                         ResourceKey="lnkAll" Visible="True" Enabled="True" CommandName="AllNews" />
-                    <asp:LinkButton ID="lnkPrev" runat="server" CssClass="btn btn-primary link-prev"
+                    <asp:HyperLink ID="lnkPrev" runat="server" CssClass="btn btn-primary link-prev"
                         ResourceKey="lnkPrev" Visible="True" Enabled="True" CommandName="Previous" />
-                    <asp:LinkButton ID="lnkNext" runat="server" CssClass="btn btn-primary link-next"
+                    <asp:HyperLink ID="lnkNext" runat="server" CssClass="btn btn-primary link-next"
                         ResourceKey="lnkNext" Visible="True" Enabled="True" CommandName="Next" />
                 </div>
             </div>

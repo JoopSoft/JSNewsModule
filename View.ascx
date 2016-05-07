@@ -50,15 +50,6 @@
                         </asp:Panel>
                     </ItemTemplate>
                     <FooterTemplate>
-                        <%--<div class="panel-footer">
-                            <div class="btn-group pull-right">
-                                <asp:LinkButton ID="lnkPrev" runat="server" CssClass="btn btn-primary link-prev" OnClick="lnkPrev_Click"
-                                    ResourceKey="lnkPrev" Visible="True" Enabled="True" />
-                                <asp:LinkButton ID="lnkNext" runat="server" CssClass="btn btn-primary link-next" OnClick="lnkNext_Click"
-                                    ResourceKey="lnkNext" Visible="True" Enabled="True" />
-                            </div>
-                        </div>--%>
-            
                         <asp:HyperLink ID="lnkAll" runat="server" CssClass="btn btn-primary link-all" />
                     </FooterTemplate>
                 </asp:Repeater>
@@ -108,16 +99,6 @@
                         </div>
                     </ItemTemplate>
                     <FooterTemplate>
-                        <%--<div class="panel-footer">
-                            <div class="btn-group pull-right">
-                                <asp:LinkButton ID="lnkPrev" runat="server" CssClass="btn btn-primary link-prev no-txt"
-                                    OnClick="lnkPrev_Click" Visible="false" CommandName="Previous"
-                                    ToolTip="Previous" />
-                                <asp:LinkButton ID="lnkNext" runat="server" CssClass="btn btn-primary link-next no-txt"
-                                    OnClick="lnkNext_Click" Visible="false" CommandName="Next"
-                                    ToolTip="Next" />
-                            </div>
-                        </div>--%>
                         <asp:HyperLink ID="lnkAll" runat="server" CssClass="btn btn-primary link-all" />
                     </FooterTemplate>
                 </asp:Repeater>
@@ -125,10 +106,6 @@
             <div class="page_navigation btn-group panel-footer"></div>
             <div class="info_text"></div>
         </asp:Panel>
-
-        <%--        <asp:Panel ID="pnlPaging" runat="server">
-            <dnn:PagingControl ID="pagingControl" runat="server"></dnn:PagingControl>
-        </asp:Panel>--%>
 
         <%--FIRST ADD BUTTON--%>
         <asp:Panel ID="pnlFirstAdd" runat="server">

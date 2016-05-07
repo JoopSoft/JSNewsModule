@@ -1,19 +1,5 @@
-﻿[DETAILS VIEW]: Prev and Next buttons must titled by next and prev item titles
-	(Ex.: Details view for News Item 2: {Next-> News Item 3; Prev -> News Item 1})
+﻿[DetailsView]: Fix the design of the disabled paging buttons
 
-
-Ако още се случва да се забележи точно кога 
-При мене не работи:
-[ADD/EDIT]: Delete Button from first deletion must be display after second deletion closing and reopen delete box..
-
-[SETTINGS]: DB Connection didn't work properly..
-
-	- ddViewListMode Doesn't save to DB selected value..
-
-
-VIEW - remove paging buttons from code, resx, designer
-
-
-DETAILS-VIEW: - Paging NEXT & PREV DB loop item records..
+[View]: Accordion View with No Data - litle purple bug in the upper right corner
 
 *CODE CLEARING!!!

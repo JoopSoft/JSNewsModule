@@ -3,7 +3,7 @@
     <package name="JSNewsModule" type="Module" version="00.00.01">
       <friendlyName>JSNewsModule</friendlyName>
       <description>JSNewsModule allows you to create news items, modify an existing items, delete items, change the items order and etc.</description>
-      <iconFile>icon.png</iconFile>
+      <iconFile>Images/Icons/icon.png</iconFile>
       <owner>
         <name>JoopSOFT Ltd.</name>
         <organization>JoopSOFT Ltd.</organization>

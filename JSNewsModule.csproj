@@ -38,6 +38,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <FilesToIncludeForPublish>OnlyFilesToRunTheApp</FilesToIncludeForPublish>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="DotNetNuke, Version=7.0.2.1, Culture=neutral, processorArchitecture=MSIL">
@@ -113,6 +114,11 @@
     <Content Include="checkbox.png" />
     <Content Include="AddNews.ascx" />
     <Content Include="Controls\TextEditor.ascx" />
+    <Content Include="Images\Default Image.svg" />
+    <Content Include="Images\Icons\checkbox.png" />
+    <Content Include="Images\Icons\h-icon.png" />
+    <Content Include="Images\Icons\icon.png" />
+    <Content Include="Images\Icons\radiobutton.png" />
     <Content Include="Js\jquery.ellipsis.js" />
     <Content Include="Js\jquery.ellipsis.min.js">
       <DependentUpon>jquery.ellipsis.js</DependentUpon>
@@ -120,7 +126,6 @@
     <Content Include="Js\jquery.ellipsisScript.js" />
     <Content Include="h-icon.png" />
     <Content Include="icon.png" />
-    <Content Include="Images\Default Image.svg" />
     <Content Include="Js\jquery.paging.js" />
     <Content Include="Js\jquery.paging.min.js">
       <DependentUpon>jquery.paging.js</DependentUpon>
@@ -152,7 +157,9 @@
     <Content Include="View.ascx" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="JSNewsModule.dnn" />
+    <Content Include="JSNewsModule.dnn">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Content Include="BuildScripts\ModulePackage.targets" />
@@ -205,6 +212,10 @@
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <Win32Resource>
+    </Win32Resource>
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />

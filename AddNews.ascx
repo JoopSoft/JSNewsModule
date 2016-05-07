@@ -12,7 +12,7 @@
         <div class="dnnFormSectionHead">
             <h3 class="dnnFormMessage dnnFormTitle dnnFormIcon">
                 <%=LocalizeString("Title")%>
-                <a href="http://www.joopsoft.com/" title="JoopSOFT.com" class="link-dev">JoopSOFT.com</a>
+                <asp:HyperLink ID="joopSoft" runat="server" />
             </h3>
         </div>
         <fieldset>
@@ -26,6 +26,14 @@
                 <asp:Panel ID="pnlDate" runat="server" class="dnnFormItem">
                     <dnn:label ID="lblDate" runat="server" />
                     <asp:TextBox ID="txtDate" runat="server" TextMode="Date" CssClass="form-control" />
+                </asp:Panel>
+            </div>
+            <div class="fieldset">
+                <asp:Panel ID="pnlCustomOrderId" runat="server" CssClass="fieldset">
+                    <div class="dnnFormItem">
+                        <dnn:label ID="lblCustomOrderId" runat="server" />
+                        <asp:TextBox ID="txtCustomOrderId" runat="server" CssClass="form-control" Text="0" />
+                    </div>
                 </asp:Panel>
             </div>
             <div class="fieldset">
@@ -67,12 +75,6 @@
                     <dnn:texteditor ID="txtContent" runat="server" />
                 </div>
             </div>
-            <asp:Panel ID="pnlCustomOrderId" runat="server" CssClass="fieldset">
-                <div class="dnnFormItem">
-                    <dnn:label ID="lblCustomOrderId" runat="server" />
-                    <asp:TextBox ID="txtCustomOrderId" runat="server" CssClass="form-control" Text="0" />
-                </div>
-            </asp:Panel>
         </fieldset>
 
         <div class="dnnFormItem controls">

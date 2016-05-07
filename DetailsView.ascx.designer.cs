@@ -136,7 +136,7 @@ namespace JS.Modules.JSNewsModule {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkAll;
+        protected global::System.Web.UI.WebControls.HyperLink lnkAll;
         
         /// <summary>
         /// lnkPrev control.
@@ -145,7 +145,7 @@ namespace JS.Modules.JSNewsModule {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkPrev;
+        protected global::System.Web.UI.WebControls.HyperLink lnkPrev;
         
         /// <summary>
         /// lnkNext control.
@@ -154,7 +154,7 @@ namespace JS.Modules.JSNewsModule {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkNext;
+        protected global::System.Web.UI.WebControls.HyperLink lnkNext;
         
         /// <summary>
         /// pnlPopUp control.

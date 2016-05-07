@@ -25,6 +25,11 @@ namespace JS.Modules.JSNewsModule
             {
                 if (!IsPostBack)
                 {
+                    joopSoft.NavigateUrl = "http://www.joopsoft.com/";
+                    joopSoft.Text = "JoopSOFT.com";
+                    joopSoft.ToolTip = "JoopSOFT.com";
+                    joopSoft.CssClass = "link-dev";
+                    joopSoft.Target = "_blank";
                     //Filling The Sorting DropDownLists
                     ddViewModeList.Items.Add("List");
                     ddViewModeList.Items.Add("Accordion");
@@ -68,7 +73,7 @@ namespace JS.Modules.JSNewsModule
                 sortByTemp = sortByList.SelectedValue;
                 sortTypeTemp = sortTypeList.SelectedValue;
 
-                if (AreSettingsPresent(sc)) 
+                if (!AreSettingsPresent(sc)) 
                 {
                     var ns = new CustomSettings()
                     {

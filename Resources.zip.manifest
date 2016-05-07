@@ -34,6 +34,14 @@
     </file>
     <file>
       <path />
+      <name>icon.png</name>
+    </file>
+    <file>
+      <path />
+      <name>h-icon.png</name>
+    </file>
+    <file>
+      <path />
       <name>variables.css</name>
     </file>
     <file>
@@ -91,10 +99,6 @@
     <file>
       <path>Js/</path>
       <name>main.min.js</name>
-    </file>
-    <file>
-      <path>Temp Fixes/</path>
-      <name>JS-News-Module_Fixes.txt</name>
     </file>
   </files>
 </dotnetnuke>

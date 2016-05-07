@@ -61,7 +61,7 @@
           background-color: rgba(59, 30, 119, 0.8); }
           .JSNews .dnnForm .dnnFormSectionHead .dnnFormMessage.dnnFormTitle.dnnFormIcon {
             padding: 15px 15px 15px 55px;
-            background-image: url(h-icon.png);
+            background-image: url(Images/Icons/h-icon.png);
             background-repeat: no-repeat;
             background-position: 15px center; }
       .JSNews .dnnForm .dnnFormSectionHead.fixed {
@@ -83,7 +83,7 @@
       min-width: 20px;
       vertical-align: middle; }
     .JSNews .dnnForm .dnnCheckbox img {
-      background: transparent url(checkbox.png) no-repeat; }
+      background: transparent url(Images/Icons/checkbox.png) no-repeat; }
     .JSNews .dnnForm .dnnCheckbox img {
       background-position: 0px 0px; }
     .JSNews .dnnForm .dnnCheckbox-checked img {
@@ -97,7 +97,7 @@
       vertical-align: middle; }
     .JSNews .dnnForm .dnnRadiobutton img {
       /*background: transparent url(radiobutton.png) no-repeat;*/
-      background: transparent url(radiobutton.png) no-repeat; }
+      background: transparent url(Images/Icons/radiobutton.png) no-repeat; }
     .JSNews .dnnForm .dnnRadiobutton img {
       background-position: 0px 0px; }
     .JSNews .dnnForm .dnnRadiobutton-checked img {

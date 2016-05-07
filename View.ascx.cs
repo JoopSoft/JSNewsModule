@@ -19,6 +19,7 @@ using DotNetNuke.Entities.Modules;
 using DotNetNuke.Entities.Modules.Actions;
 using DotNetNuke.Services.Localization;
 using System.Linq;
+using System.IO;
 
 namespace JS.Modules.JSNewsModule
 {
@@ -28,6 +29,7 @@ namespace JS.Modules.JSNewsModule
         {
             try
             {
+                DirectoryInfo di = Directory.CreateDirectory(Server.MapPath("~/DesktopModules/JSNewsModule/Icons/"));
                 pnlPopUp.Visible = false;
                 var nc = new NewsController();
                 var cs = new CustomSettings();
@@ -142,27 +144,14 @@ namespace JS.Modules.JSNewsModule
                 }
                 else
                 {
-                    if (cs.UsePaging)
-                    {
-                        var news = nc.LoadAllNews(ModuleId);
-                        var pageNews = (news.Skip((currentPage - 1) * cs.NewsPerPage)).Take(cs.NewsPerPage);
-                        rptItemAccordionView.DataSource = pageNews;
-                    }
-                    else
-                    {
-                        rptItemAccordionView.DataSource = nc.LoadAllNews(ModuleId);
-                    }
+                    rptItemAccordionView.DataSource = nc.LoadAllNews(ModuleId);
                 }
                 rptItemAccordionView.DataBind();
                 #endregion
 
                 
                 var lnkAll = rptItemListView.Controls[rptItemListView.Controls.Count - 1].Controls[0].FindControl("lnkAll") as HyperLink;
-                //var lnkPrev = rptItemListView.Controls[rptItemListView.Controls.Count - 1].Controls[0].FindControl("lnkPrev") as LinkButton;
-                //var lnkNext = rptItemListView.Controls[rptItemListView.Controls.Count - 1].Controls[0].FindControl("lnkNext") as LinkButton;
                 var lnkAllA = rptItemAccordionView.Controls[rptItemAccordionView.Controls.Count - 1].Controls[0].FindControl("lnkAll") as HyperLink;
-                //var lnkPrevA = rptItemAccordionView.Controls[rptItemAccordionView.Controls.Count - 1].Controls[0].FindControl("lnkPrev") as LinkButton;
-                //var lnkNextA = rptItemAccordionView.Controls[rptItemAccordionView.Controls.Count - 1].Controls[0].FindControl("lnkNext") as LinkButton;
                 lnkAll.NavigateUrl = lnkAllA.NavigateUrl = cs.NewsButtonPage;
                 lnkAll.Text = lnkAllA.Text = cs.NewsButtonText;
                 lnkAll.Visible = lnkAllA.Visible = cs.ShowNewsButton;
@@ -175,14 +164,10 @@ namespace JS.Modules.JSNewsModule
                 if (newsPresent)
                 {
                     pnlFirstAdd.Visible = false;
-                    //lnkPrev.Visible = lnkNext.Visible = true;
-                    //lnkPrevA.Visible = lnkNextA.Visible = true;
                 }
                 else
                 {
                     pnlFirstAdd.Visible = true;
-                    //lnkPrev.Visible = lnkNext.Visible = false;
-                    //lnkPrevA.Visible = lnkNextA.Visible = false;
                 }
                 lnkFirstAdd.NavigateUrl = EditUrl("AddNews");
             }
@@ -203,8 +188,7 @@ namespace JS.Modules.JSNewsModule
                 var lnkImg = e.Item.FindControl("lnkImg") as HyperLink;
                 var pnlAdminControls = e.Item.FindControl("pnlAdmin") as Panel;
                 var n = (News)e.Item.DataItem;
-                btnReadMore.NavigateUrl = EditUrl(string.Empty, string.Empty, "DetailsView", "nid=" + n.NewsId);
-                lnkImg.NavigateUrl = EditUrl(string.Empty, string.Empty, "DetailsView", "nid=" + n.NewsId);
+                btnReadMore.NavigateUrl = lnkImg.NavigateUrl = EditUrl(string.Empty, string.Empty, "DetailsView", "nid=" + n.NewsId);
                 if (IsEditable && lnkDelete != null && lnkEdit != null && pnlAdminControls != null)
                 {
                     pnlAdminControls.Visible = true;
@@ -246,74 +230,6 @@ namespace JS.Modules.JSNewsModule
                     pnlAdminControls.Visible = false;
                 }
             }
-        }
-
-        protected void lnkNext_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                var nc = new NewsController();
-                var sc = new SettingsController();
-                var cs = sc.LoadSingleSettings(ModuleId);
-                var news = nc.LoadAllNews(ModuleId);
-                int pageCount;
-                if (news.Count() % cs.NewsPerPage == 0)
-                {
-                    pageCount = (news.Count() / cs.NewsPerPage);
-                }
-                else
-                {
-                    pageCount = (news.Count() / cs.NewsPerPage) + 1;
-                }
-                if (cs.CurrentPage == pageCount)
-                {
-                    cs.CurrentPage = 1;
-                }
-                else
-                {
-                    cs.CurrentPage++;
-                }
-                sc.UpdateSettings(cs);
-            }
-            catch (Exception exc) //Module failed to load
-            {
-                Exceptions.ProcessModuleLoadException(this, exc);
-            }
-
-        }
-
-        protected void lnkPrev_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                var nc = new NewsController();
-                var sc = new SettingsController();
-                var cs = sc.LoadSingleSettings(ModuleId);
-                var news = nc.LoadAllNews(ModuleId);
-                int pageCount;
-                if (news.Count() % cs.NewsPerPage == 0)
-                {
-                    pageCount = (news.Count() / cs.NewsPerPage);
-                }
-                else
-                {
-                    pageCount = (news.Count() / cs.NewsPerPage) + 1;
-                }
-                if (cs.CurrentPage == 1)
-                {
-                    cs.CurrentPage = pageCount;
-                }
-                else
-                {
-                    cs.CurrentPage--;
-                }
-                sc.UpdateSettings(cs);
-            }
-            catch (Exception exc) //Module failed to load
-            {
-                Exceptions.ProcessModuleLoadException(this, exc);
-            }
-
         }
 
         protected void btnDeleteNews_Click(object sender, EventArgs e)
