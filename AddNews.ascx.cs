@@ -396,7 +396,7 @@ namespace JS.Modules.JSNewsModule
 
             pnlPopUp.Visible = true;
             pnlPopUp.CssClass = "dnnFormItem popup auto-close-box success";
-            lblPopUpMsg.Text = "Image \"" + temp + "\" Deleted";
+            lblPopUpMsg.Text = "Image \"" + temp + "\"<br>Deleted";
             lblPopUpIcon.CssClass = "popup-icon link-info no-txt";
 
             var li = new ListItem("Default Image", "Default Image.svg");
