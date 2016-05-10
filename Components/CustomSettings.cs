@@ -31,7 +31,6 @@ namespace JS.Modules.JSNewsModule.Components
         public string ViewMode { get; set; }
         public bool UsePaging { get; set; }
         public int NewsPerPage { get; set; }
-        public int CurrentPage { get; set; }
         public bool ShowNewsDate { get; set; }
         public bool ShowNewsImg { get; set; }
         public bool ShowReadMore { get; set; }

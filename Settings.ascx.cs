@@ -13,6 +13,7 @@
 using System;
 using DotNetNuke.Services.Exceptions;
 using JS.Modules.JSNewsModule.Components;
+using System.IO;
 
 namespace JS.Modules.JSNewsModule
 {
@@ -97,6 +98,7 @@ namespace JS.Modules.JSNewsModule
                         NewsButtonText = txtAllNews.Text.Trim(),
                         NewsButtonPage = "~/" + ddAllNewsSelect.SelectedValue
                     };
+                    SettingsJson(ns);
                     UpdateNewsSettings(ns, nc);
                     sc.AddSettings(ns);
                     Response.Redirect(DotNetNuke.Common.Globals.NavigateURL());
@@ -122,6 +124,7 @@ namespace JS.Modules.JSNewsModule
                     s.ShowNewsButton = cbShowAllNews.Checked;
                     s.NewsButtonText = txtAllNews.Text.Trim();
                     s.NewsButtonPage = "~/" + ddAllNewsSelect.SelectedValue;
+                    SettingsJson(s);
                     UpdateNewsSettings(s, nc);
                     sc.UpdateSettings(s);
                     Response.Redirect(DotNetNuke.Common.Globals.NavigateURL());
@@ -153,6 +156,8 @@ namespace JS.Modules.JSNewsModule
             sortTypeList.SelectedValue = s.SortType;
             cbShowAllNews.Checked = s.ShowNewsButton;
             txtAllNews.Text = s.NewsButtonText;
+            cbUsePaging.Checked = s.UsePaging;
+            txtNewsPerPage.Text = s.NewsPerPage.ToString();
         }
 
         void UpdateNewsSettings(CustomSettings s, NewsController nc)
@@ -239,6 +244,28 @@ namespace JS.Modules.JSNewsModule
                 }
             }
             return areSettingsPresent;
+        }
+
+        void SettingsJson(CustomSettings s)
+        {
+            string fileName = (Server.MapPath("~/DesktopModules/JSNewsModule/Json/" + ModuleId + "_Settings.json"));
+            DirectoryInfo di = Directory.CreateDirectory(Server.MapPath("~/DesktopModules/JSNewsModule/Json/"));
+            if (File.Exists(fileName))
+            {
+                File.Delete(fileName);
+            }
+            using (FileStream fs = File.Open(fileName, FileMode.CreateNew)) { }
+            AddLine("{");
+            AddLine("\t\"settings\": {");
+            AddLine("\t\t\"newsPerPage\": " + s.NewsPerPage);
+            AddLine("\t}");
+            AddLine("}");
+        }
+
+        void AddLine(string appendText)
+        {
+            string fileName = (Server.MapPath("~/DesktopModules/JSNewsModule/Json/" + ModuleId + "_Settings.json"));
+            File.AppendAllText(fileName, appendText + Environment.NewLine);
         }
         #endregion
     }

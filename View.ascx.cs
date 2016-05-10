@@ -29,11 +29,12 @@ namespace JS.Modules.JSNewsModule
         {
             try
             {
-                DirectoryInfo di = Directory.CreateDirectory(Server.MapPath("~/DesktopModules/JSNewsModule/Icons/"));
+                DefaultSettings();
                 pnlPopUp.Visible = false;
                 var nc = new NewsController();
                 var cs = new CustomSettings();
                 var sc = new SettingsController();
+                int newsCount = 0;
                 int TModuleId = 0;
                 var ts = sc.LoadSettings();
                 foreach (CustomSettings s in ts)
@@ -45,7 +46,12 @@ namespace JS.Modules.JSNewsModule
                     }
                 }
                 cs = sc.LoadSingleSettings(TModuleId);
-                int currentPage = cs.CurrentPage;
+                foreach (News nCount in nc.LoadAllNews(ModuleId))
+                {
+                    newsCount++;
+                }
+                pnlAccNavigation.Visible = pnlAccInfoText.Visible = cs.ViewMode == "Accordion" && cs.UsePaging && newsCount > cs.NewsPerPage;
+                pnlListNavigation.Visible =  pnlListInfoText.Visible = cs.ViewMode == "List" && cs.UsePaging && newsCount > cs.NewsPerPage;
                 switch (cs.ViewMode)
                 {
                     case "List":
@@ -288,6 +294,31 @@ namespace JS.Modules.JSNewsModule
             rptItemListView.DataBind();
             rptItemAccordionView.DataBind();
         }
+
+        void AddLine(string appendText)
+        {
+            string fileName = (Server.MapPath("~/DesktopModules/JSNewsModule/Json/" + ModuleId + "_Settings.json"));
+            File.AppendAllText(fileName, appendText + Environment.NewLine);
+        }
+
+        protected void DefaultSettings()
+        {
+            string fileName = Server.MapPath("~/DesktopModules/JSImageRotator/Json/" + ModuleId + "_Settings.json");
+            DirectoryInfo di = Directory.CreateDirectory(Server.MapPath("~/DesktopModules/JSImageRotator/Json/"));
+            if (!File.Exists(fileName))
+            //{
+            //}
+            //else
+            {
+                using (FileStream fs = File.Open(fileName, FileMode.CreateNew)) { }
+                AddLine("{");
+                AddLine("\t\"settings\": {");
+                AddLine("\t\t\"newsPerPage\": 3");
+                AddLine("\t}");
+                AddLine("}");
+            }
+        }
+
 
         protected void btnClose_Click(object sender, EventArgs e)
         {
