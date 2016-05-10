@@ -11,6 +11,9 @@ JSON Settings for:
 	- Use Paging
 	- News Per Page
 
+SETTINGS: default settings for:
+	- use paging	- true
+	- news per page - 3
 
 В последния билд да се махнат всички пълни версии на кода (само мин версии),
 както и всички ненужни файлове и папки..
