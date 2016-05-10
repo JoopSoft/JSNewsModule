@@ -28,14 +28,12 @@
                     <asp:TextBox ID="txtDate" runat="server" TextMode="Date" CssClass="form-control" />
                 </asp:Panel>
             </div>
-            <div class="fieldset">
-                <asp:Panel ID="pnlCustomOrderId" runat="server" CssClass="fieldset">
-                    <div class="dnnFormItem">
-                        <dnn:label ID="lblCustomOrderId" runat="server" />
-                        <asp:TextBox ID="txtCustomOrderId" runat="server" CssClass="form-control" Text="0" />
-                    </div>
-                </asp:Panel>
-            </div>
+            <asp:Panel ID="pnlCustomOrderId" runat="server" CssClass="fieldset">
+                <div class="dnnFormItem">
+                    <dnn:label ID="lblCustomOrderId" runat="server" />
+                    <asp:TextBox ID="txtCustomOrderId" runat="server" CssClass="form-control" Text="0" />
+                </div>
+            </asp:Panel>
             <div class="fieldset">
                 <asp:Panel ID="pnlShowImg" runat="server" CssClass="dnnFormItem">
                     <dnn:label ID="lblShowImg" runat="server" />

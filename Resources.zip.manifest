@@ -10,10 +10,6 @@
     </file>
     <file>
       <path />
-      <name>Edit.ascx</name>
-    </file>
-    <file>
-      <path />
       <name>License.txt</name>
     </file>
     <file>
@@ -31,14 +27,6 @@
     <file>
       <path />
       <name>Settings.ascx</name>
-    </file>
-    <file>
-      <path />
-      <name>icon.png</name>
-    </file>
-    <file>
-      <path />
-      <name>h-icon.png</name>
     </file>
     <file>
       <path />
@@ -77,16 +65,36 @@
       <name>TextEditor.ascx.resx</name>
     </file>
     <file>
-      <path>Ellipsis/</path>
-      <name>jquery.ellipsis.js</name>
-    </file>
-    <file>
-      <path>Ellipsis/</path>
-      <name>jquery.ellipsis.min.js</name>
+      <path>Images/</path>
+      <name>Default Image.svg</name>
     </file>
     <file>
       <path>Images/</path>
-      <name>Default Image.svg</name>
+      <name>me_ups.jpg</name>
+    </file>
+    <file>
+      <path>Js/</path>
+      <name>jquery.ellipsis.js</name>
+    </file>
+    <file>
+      <path>Js/</path>
+      <name>jquery.ellipsis.min.js</name>
+    </file>
+    <file>
+      <path>Js/</path>
+      <name>jquery.ellipsisScript.js</name>
+    </file>
+    <file>
+      <path>Js/</path>
+      <name>jquery.paging.js</name>
+    </file>
+    <file>
+      <path>Js/</path>
+      <name>jquery.paging.min.js</name>
+    </file>
+    <file>
+      <path>Js/</path>
+      <name>jquery.pagingScript.js</name>
     </file>
     <file>
       <path>Js/</path>
@@ -99,6 +107,10 @@
     <file>
       <path>Js/</path>
       <name>main.min.js</name>
+    </file>
+    <file>
+      <path>Temp Fixes/</path>
+      <name>JS-News-Module_Fixes.txt</name>
     </file>
   </files>
 </dotnetnuke>

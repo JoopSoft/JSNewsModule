@@ -54,8 +54,8 @@
                     </FooterTemplate>
                 </asp:Repeater>
             </div>
-            <div class="page_navigation btn-group panel-footer"></div>
-            <div class="info_text"></div>
+            <asp:Panel ID="pnlListNavigation" runat="server" CssClass="page_navigation btn-group panel-footer"></asp:Panel>
+            <asp:Panel ID="pnlListInfoText" runat="server" CssClass="info_text"></asp:Panel>
         </asp:Panel>
 
         <%--ACCORDION VIEW--%>
@@ -67,11 +67,11 @@
                     <ItemTemplate>
                         <div class="list-group-item">
                             <asp:HyperLink ID="btnReadMore" runat="server" ToolTip='<%#DataBinder.Eval(Container.DataItem,"NewsTitle").ToString() %>'>
-                                <span class="badge">
+                                <asp:Panel ID="badge" runat="server" CssClass="badge">
                                     <asp:Label ID="lblNewsId" runat="server" Text='<%#DataBinder.Eval(Container.DataItem,"NewsId").ToString() %>' Visible="false" />
                                     <asp:Label ID="lblNewsDate" runat="server"
                                         Text='<%#DataBinder.Eval(Container.DataItem,"NewsDate").ToString() %>' Visible='<%#((DataBinder.Eval(Container.DataItem,"ShowNewsDate")!=null) && ((bool)DataBinder.Eval(Container.DataItem,"ShowNewsDate")==true)) %>' />
-                                </span>
+                                </asp:Panel>
                                 <div class="list-group-item-text">
                                     <asp:Image ID="imgNewsImage" runat="server" CssClass="news-image"
                                         ImageUrl='<%#DataBinder.Eval(Container.DataItem, "ImageUrl").ToString() %>' Visible='<%#((DataBinder.Eval(Container.DataItem,"ShowNewsImg")!=null) && ((bool)DataBinder.Eval(Container.DataItem,"ShowNewsImg")==true)) %>' />
@@ -103,8 +103,8 @@
                     </FooterTemplate>
                 </asp:Repeater>
             </div>
-            <div class="page_navigation btn-group panel-footer"></div>
-            <div class="info_text"></div>
+            <asp:Panel ID="pnlAccNavigation" runat="server" CssClass="page_navigation btn-group panel-footer"></asp:Panel>
+            <asp:Panel ID="pnlAccInfoText" runat="server" CssClass="info_text"></asp:Panel>
         </asp:Panel>
 
         <%--FIRST ADD BUTTON--%>
@@ -134,24 +134,24 @@
 
 <script type="text/javascript">
 
-    $('#<%= pnlList.ClientID %>').paging({
-        item_container_id: '.list-group',
-        nav_label_info: 'Showing {0}-{1} of {2} results',
-        num_page_links_to_display: 3,
-        items_per_page: 3,
-        wrap_around: true,
-        show_first_last: false
-    });
+        $('.JSNews #<%= pnlList.ClientID %>').paging({
+            item_container_id: '.list-group',
+            nav_label_info: 'Showing {0}-{1} of {2} results',
+            num_page_links_to_display: 3,
+            items_per_page: 3,
+            wrap_around: true,
+            show_first_last: false
+        });    
 
-    $('#<%= pnlAccordion.ClientID %>').paging({
-        item_container_id: '.list-group',
-        nav_label_info: 'Showing {0}-{1} of {2} results',
-        num_page_links_to_display: 3,
-        items_per_page: 3,
-        wrap_around: true,
-        show_first_last: false
-    });
-
+        $('.JSNews #<%= pnlAccordion.ClientID %>').paging({
+            item_container_id: '.list-group',
+            nav_label_info: 'Showing {0}-{1} of {2} results',
+            num_page_links_to_display: 3,
+            items_per_page: 3,
+            wrap_around: true,
+            show_first_last: false
+        });
+    
 </script>
 
 <dnn:DnnJsInclude ID="ellipsisJs" runat="server" FilePath="~/DesktopModules/JSNewsModule/Js/jquery.ellipsis.min.js" Priority="20" />

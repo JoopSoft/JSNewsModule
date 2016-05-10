@@ -637,6 +637,19 @@
             &.active_page {
                 background-color: $dark-alpha-xlg;
             }
+
+            &.aspNetDisabled,
+            &.dnnDisabled,
+            &[disabled=disabled] {
+                color: $light-alpha;
+                background: $dark-alpha-lg;
+                cursor: not-allowed;
+
+                &:hover {
+                    color: $light-alpha;
+                    background: $dark-alpha-lg;
+                }
+            }
         }
 
         .btn-group {
@@ -686,6 +699,10 @@
                 color: $white;
                 background-color: $dark-alpha-lg;
                 border-radius: 0;
+
+                &.no-txt {
+                    padding: 0;
+                }
             }
 
             .list-group-item {

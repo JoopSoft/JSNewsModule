@@ -1,5 +1,19 @@
-﻿[DetailsView]: Fix the design of the disabled paging buttons
+﻿USE PAGING: Additional options move to 2nd verse
 
-[View]: Accordion View with No Data - litle purple bug in the upper right corner
+---------------------------------------------------------------
+VIEW: Трябва да се показват когато имаме записи равни на 
+'items_per_page':
+
+	- pnlAccNavigation, pnlAccInfoText
+	- pnlListNavigation, pnlListInfoText
+
+JSON Settings for:
+	- Use Paging
+	- News Per Page
+
+
+В последния билд да се махнат всички пълни версии на кода (само мин версии),
+както и всички ненужни файлове и папки..
+
 
 *CODE CLEARING!!!

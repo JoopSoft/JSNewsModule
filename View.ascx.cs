@@ -51,11 +51,17 @@ namespace JS.Modules.JSNewsModule
                     case "List":
                         pnlList.Visible = true;
                         pnlAccordion.Visible = false;
+                        pnlAccNavigation.Visible = true;
+                        pnlAccInfoText.Visible = true;
                         break;
+
                     case "Accordion":
                         pnlList.Visible = false;
                         pnlAccordion.Visible = true;
+                        pnlListNavigation.Visible = false;
+                        pnlListInfoText.Visible = false;
                         break;
+
                     default:
                         break;
                 }
@@ -215,6 +221,16 @@ namespace JS.Modules.JSNewsModule
                 var btnReadMore = e.Item.FindControl("btnReadMore") as HyperLink;
                 var pnlAdminControls = e.Item.FindControl("pnlAdmin") as Panel;
                 var n = (News)e.Item.DataItem;
+                var badge = e.Item.FindControl("badge") as Panel;
+                var lblNewsDate = e.Item.FindControl("lblNewsDate") as Label;
+                if (!lblNewsDate.Visible)
+                {
+                    badge.CssClass = "badge no-txt";
+                }
+                else
+                {
+                    badge.CssClass = "badge";
+                }
                 btnReadMore.NavigateUrl = EditUrl(string.Empty, string.Empty, "DetailsView", "nid=" + n.NewsId);
                 if (IsEditable && lnkDelete != null && lnkEdit != null && pnlAdminControls != null)
                 {

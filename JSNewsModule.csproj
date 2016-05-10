@@ -111,7 +111,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="checkbox.png" />
     <Content Include="AddNews.ascx" />
     <Content Include="Controls\TextEditor.ascx" />
     <Content Include="Images\Default Image.svg" />
@@ -124,8 +123,6 @@
       <DependentUpon>jquery.ellipsis.js</DependentUpon>
     </Content>
     <Content Include="Js\jquery.ellipsisScript.js" />
-    <Content Include="h-icon.png" />
-    <Content Include="icon.png" />
     <Content Include="Js\jquery.paging.js" />
     <Content Include="Js\jquery.paging.min.js">
       <DependentUpon>jquery.paging.js</DependentUpon>
@@ -143,7 +140,6 @@
     <Content Include="packages\MSBuildTasks.1.4.0.128\tools\MSBuild.Community.Tasks.dll" />
     <Content Include="packages\MSBuildTasks.1.4.0.128\tools\MSBuild.Community.Tasks.xml" />
     <Content Include="Js\jquery.pagingScript.js" />
-    <Content Include="radiobutton.png" />
     <Content Include="ReleaseNotes.txt" />
     <Content Include="Settings.ascx" />
     <Content Include="Temp Fixes\JS-News-Module_Fixes.txt" />

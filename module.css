@@ -510,6 +510,13 @@
       box-shadow: none; }
     .JSNews .panel .btn.active_page {
       background-color: rgba(59, 30, 119, 0.8); }
+    .JSNews .panel .btn.aspNetDisabled, .JSNews .panel .btn.dnnDisabled, .JSNews .panel .btn[disabled=disabled] {
+      color: rgba(255, 255, 255, 0.35);
+      background: rgba(59, 30, 119, 0.7);
+      cursor: not-allowed; }
+      .JSNews .panel .btn.aspNetDisabled:hover, .JSNews .panel .btn.dnnDisabled:hover, .JSNews .panel .btn[disabled=disabled]:hover {
+        color: rgba(255, 255, 255, 0.35);
+        background: rgba(59, 30, 119, 0.7); }
   .JSNews .panel .btn-group .btn + .btn,
   .JSNews .panel .btn-group .btn + .btn-group,
   .JSNews .panel .btn-group .btn-group + .btn,
@@ -544,6 +551,8 @@
       color: #fff;
       background-color: rgba(59, 30, 119, 0.7);
       border-radius: 0; }
+      .JSNews .panel .list-group .badge.no-txt {
+        padding: 0; }
     .JSNews .panel .list-group .list-group-item {
       float: left;
       clear: both;
