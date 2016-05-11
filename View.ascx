@@ -134,24 +134,59 @@
 
 <script type="text/javascript">
 
-        $('.JSNews #<%= pnlList.ClientID %>').paging({
-            item_container_id: '.list-group',
-            nav_label_info: 'Showing {0}-{1} of {2} results',
-            num_page_links_to_display: 3,
-            items_per_page: 3,
-            wrap_around: true,
-            show_first_last: false
-        });    
+    $settingsData = '<%= ModulePath %>Json/<%= ModuleId %>_Settings.json';
 
-        $('.JSNews #<%= pnlAccordion.ClientID %>').paging({
-            item_container_id: '.list-group',
-            nav_label_info: 'Showing {0}-{1} of {2} results',
-            num_page_links_to_display: 3,
-            items_per_page: 3,
-            wrap_around: true,
-            show_first_last: false
-        });
-    
+    //PREDEFINED AJAX REQUEST
+    function jqXHR(url, beforeLoad, cache) {
+        return $.ajax({
+            url: url,
+            dataType: 'json',
+            contentType: "application/json; charset=utf-8",
+            type: 'get',
+            cache: cache,
+            beforeSend: beforeLoad
+        })
+		.always(function () {
+		    //console.log("complete");
+		});
+    };
+
+    $(window).load(function () {
+        jqXHR($settingsData,
+                function () {
+                    //console.log('Before load func');
+                }, false)
+                .done(function (data) {
+                    var $settings = data.settings,
+                        $newsPerPage = data.settings.newsPerPage,
+                        $usePaging = data.settings.usePaging;
+
+                    if ($usePaging === true) {
+
+                        $('.JSNews #<%= pnlList.ClientID %>').paging({
+                            item_container_id: '.list-group',
+                            nav_label_info: 'Showing {0}-{1} of {2} results',
+                            num_page_links_to_display: 3,
+                            items_per_page: $newsPerPage,
+                            wrap_around: true,
+                            show_first_last: false
+                        });
+
+                        $('.JSNews #<%= pnlAccordion.ClientID %>').paging({
+                            item_container_id: '.list-group',
+                            nav_label_info: 'Showing {0}-{1} of {2} results',
+                            num_page_links_to_display: 3,
+                            items_per_page: $newsPerPage,
+                            wrap_around: true,
+                            show_first_last: false
+                        });
+                    }
+                })
+    		    .fail(function (jqXHR, textStatus) {
+    		        console.log('Error Loading JSON');
+    		    });
+    });
+
 </script>
 
 <dnn:DnnJsInclude ID="ellipsisJs" runat="server" FilePath="~/DesktopModules/JSNewsModule/Js/jquery.ellipsis.min.js" Priority="20" />

@@ -257,6 +257,7 @@ namespace JS.Modules.JSNewsModule
             using (FileStream fs = File.Open(fileName, FileMode.CreateNew)) { }
             AddLine("{");
             AddLine("\t\"settings\": {");
+            AddLine("\t\t\"usePaging\": " + s.UsePaging.ToString().ToLower() + ",");
             AddLine("\t\t\"newsPerPage\": " + s.NewsPerPage);
             AddLine("\t}");
             AddLine("}");

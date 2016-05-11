@@ -73,16 +73,28 @@
       <name>me_ups.jpg</name>
     </file>
     <file>
+      <path>Images/Icons/</path>
+      <name>checkbox.png</name>
+    </file>
+    <file>
+      <path>Images/Icons/</path>
+      <name>h-icon.png</name>
+    </file>
+    <file>
+      <path>Images/Icons/</path>
+      <name>icon.png</name>
+    </file>
+    <file>
+      <path>Images/Icons/</path>
+      <name>radiobutton.png</name>
+    </file>
+    <file>
       <path>Js/</path>
       <name>jquery.ellipsis.js</name>
     </file>
     <file>
       <path>Js/</path>
       <name>jquery.ellipsis.min.js</name>
-    </file>
-    <file>
-      <path>Js/</path>
-      <name>jquery.ellipsisScript.js</name>
     </file>
     <file>
       <path>Js/</path>
