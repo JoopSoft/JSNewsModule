@@ -20,6 +20,7 @@
                 <div class="dnnFormItem">
                     <dnn:label ID="lblTitle" runat="server" />
                     <asp:TextBox ID="txtTitle" runat="server" CssClass="form-control" />
+                    <asp:RequiredFieldValidator ID="titleValidator" runat="server" ErrorMessage="Required Field" ControlToValidate="txtTitle" ForeColor="Red" SetFocusOnError="True" Display="Static" Font-Bold="True" Font-Italic="True" />
                 </div>
             </div>
             <div class="fieldset">
@@ -66,6 +67,7 @@
                 <div class="dnnFormItem">
                     <dnn:label ID="lblTeaserText" runat="server" />
                     <asp:TextBox ID="txtTeaserText" runat="server" TextMode="MultiLine" CssClass="form-control teaser-txt" />
+                    <asp:RequiredFieldValidator ID="teaserTextValidator" runat="server" ErrorMessage="Required Field" ControlToValidate="txtTeaserText" ForeColor="Red" SetFocusOnError="True" Display="Static" Font-Bold="True" Font-Italic="True" />
                 </div>
             </div>
             <div class="fieldset">
@@ -78,7 +80,7 @@
         <div class="dnnFormItem controls">
             <asp:LinkButton ID="btnSubmit" runat="server" CssClass="btn btn-primary link-save"
                 OnClick="btnSubmit_Click" ResourceKey="btnSubmit" />
-            <asp:LinkButton ID="btnCancel" runat="server" CssClass="btn btn-default link-cancel"
+            <asp:HyperLink ID="btnCancel" runat="server" CssClass="btn btn-default link-cancel"
                 OnClick="btnCancel_Click" ResourceKey="btnCancel" />
         </div>
 

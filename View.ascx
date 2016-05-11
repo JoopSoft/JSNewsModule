@@ -168,7 +168,7 @@
                             nav_label_info: 'Showing {0}-{1} of {2} results',
                             num_page_links_to_display: 3,
                             items_per_page: $newsPerPage,
-                            wrap_around: true,
+                            wrap_around: false,
                             show_first_last: false
                         });
 
@@ -177,7 +177,7 @@
                             nav_label_info: 'Showing {0}-{1} of {2} results',
                             num_page_links_to_display: 3,
                             items_per_page: $newsPerPage,
-                            wrap_around: true,
+                            wrap_around: false,
                             show_first_last: false
                         });
                     }

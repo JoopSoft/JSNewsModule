@@ -26,6 +26,8 @@ namespace JS.Modules.JSNewsModule
             {
                 if (!Page.IsPostBack)
                 {
+                    txtContent.Mode = "BASIC";
+                    btnCancel.NavigateUrl = DotNetNuke.Common.Globals.NavigateURL();
                     joopSoft.NavigateUrl = "http://www.joopsoft.com/";
                     joopSoft.Text = "JoopSOFT.com";
                     joopSoft.ToolTip = "JoopSOFT.com";

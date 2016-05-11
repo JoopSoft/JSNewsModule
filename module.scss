@@ -640,8 +640,9 @@
 
             &.aspNetDisabled,
             &.dnnDisabled,
+            &.no_more,
             &[disabled=disabled] {
-                color: $light-alpha;
+                color: $light-alpha!important;
                 background: $dark-alpha-lg;
                 cursor: not-allowed;
 

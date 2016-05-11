@@ -67,6 +67,15 @@ namespace JS.Modules.JSNewsModule {
         protected global::System.Web.UI.WebControls.TextBox txtTitle;
         
         /// <summary>
+        /// titleValidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator titleValidator;
+        
+        /// <summary>
         /// pnlDate control.
         /// </summary>
         /// <remarks>
@@ -283,6 +292,15 @@ namespace JS.Modules.JSNewsModule {
         protected global::System.Web.UI.WebControls.TextBox txtTeaserText;
         
         /// <summary>
+        /// teaserTextValidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator teaserTextValidator;
+        
+        /// <summary>
         /// txtContent control.
         /// </summary>
         /// <remarks>
@@ -307,7 +325,7 @@ namespace JS.Modules.JSNewsModule {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton btnCancel;
+        protected global::System.Web.UI.WebControls.HyperLink btnCancel;
         
         /// <summary>
         /// pnlPopUp control.

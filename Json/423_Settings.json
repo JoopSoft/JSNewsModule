@@ -1,5 +1,6 @@
 {
 	"settings": {
-		"newsPerPage": 3
+		"usePaging": true,
+		"newsPerPage": 2
 	}
 }
