@@ -467,6 +467,19 @@
                     }
                 }
             }
+
+            .txt-error-validate {
+                font-style: italic;
+                position: absolute;
+                top: 5px;
+                left: calc(82.075% - 97px);
+                color: $white;
+                background: $warning;
+                height: 25px;
+                line-height: 25px;
+                min-width: 110px;
+                text-align: center;
+            }
         }
 
         &.add-news, &.settings {
@@ -642,7 +655,7 @@
             &.dnnDisabled,
             &.no_more,
             &[disabled=disabled] {
-                color: $light-alpha!important;
+                color: $light-alpha !important;
                 background: $dark-alpha-lg;
                 cursor: not-allowed;
 
