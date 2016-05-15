@@ -114,6 +114,10 @@
     <Content Include="AddNews.ascx" />
     <Content Include="Controls\TextEditor.ascx" />
     <Content Include="Images\Default Image.svg" />
+    <Content Include="Images\Icons\checkbox.png" />
+    <Content Include="Images\Icons\h-icon.png" />
+    <Content Include="Images\Icons\icon.png" />
+    <Content Include="Images\Icons\radiobutton.png" />
     <Content Include="Js\jquery.ellipsis.js" />
     <Content Include="Js\jquery.ellipsis.min.js">
       <DependentUpon>jquery.ellipsis.js</DependentUpon>
