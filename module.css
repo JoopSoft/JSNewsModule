@@ -527,7 +527,8 @@
       border-color: transparent; }
       .JSNews .panel .btn.btn-primary:hover {
         background-color: rgba(59, 30, 119, 0.8);
-        border-color: transparent; }
+        border-color: transparent;
+        text-decoration: none; }
     .JSNews .panel .btn:hover {
       border-color: transparent; }
     .JSNews .panel .btn:active {
