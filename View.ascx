@@ -174,7 +174,7 @@
 
                         $('.JSNews #<%= pnlAccordion.ClientID %>').paging({
                             item_container_id: '.list-group',
-                            nav_label_info: '{0}-{1} of {2} results',
+                            nav_label_info: '{0}-{1} / {2}',
                             num_page_links_to_display: 3,
                             items_per_page: $newsPerPage,
                             wrap_around: false,
