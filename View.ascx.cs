@@ -303,16 +303,14 @@ namespace JS.Modules.JSNewsModule
 
         protected void DefaultSettings()
         {
-            string fileName = Server.MapPath("~/DesktopModules/JSImageRotator/Json/" + ModuleId + "_Settings.json");
-            DirectoryInfo di = Directory.CreateDirectory(Server.MapPath("~/DesktopModules/JSImageRotator/Json/"));
+            string fileName = Server.MapPath("~/DesktopModules/JSNewsModule/Json/" + ModuleId + "_Settings.json");
+            DirectoryInfo di = Directory.CreateDirectory(Server.MapPath("~/DesktopModules/JSNewsModule/Json/"));
             if (!File.Exists(fileName))
-            //{
-            //}
-            //else
             {
                 using (FileStream fs = File.Open(fileName, FileMode.CreateNew)) { }
                 AddLine("{");
                 AddLine("\t\"settings\": {");
+                AddLine("\t\t\"usePaging\": false,");
                 AddLine("\t\t\"newsPerPage\": 3");
                 AddLine("\t}");
                 AddLine("}");
