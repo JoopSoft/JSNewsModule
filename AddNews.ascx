@@ -44,7 +44,7 @@
                 <asp:Panel ID="showImgGroup" runat="server" CssClass="showImgGroup dnnFormItem">
                     <asp:Panel ID="pnlImgList" runat="server" CssClass="dnnFormItem">
                         <dnn:label ID="lblImgUrl" runat="server" />
-                        <asp:DropDownList ID="imgList" runat="server" CssClass="selectpicker show-tick single-select"
+                        <asp:DropDownList ID="imgList" runat="server" CssClass="selectpicker single-select form-control"
                             AutoPostBack="True" OnSelectedIndexChanged="Image_Selected" />
                     </asp:Panel>
                     <asp:Panel ID="pnlImgSelectedGroup" runat="server" CssClass="dnnFormItem group">

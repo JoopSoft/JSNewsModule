@@ -33,6 +33,9 @@
         height: 70px; }
       .JSNews .dnnForm .form-control.body-txt {
         height: 150px; }
+    .JSNews .dnnForm .btn-group.form-control {
+      width: 50%;
+      max-width: 450px; }
     .JSNews .dnnForm h1, .JSNews .dnnForm h2, .JSNews .dnnForm h3, .JSNews .dnnForm h4, .JSNews .dnnForm h5, .JSNews .dnnForm h6 {
       color: #3b1e77;
       /*margin: 0 0 10px;*/ }
@@ -52,6 +55,7 @@
         font-weight: normal;
         line-height: normal;
         border: none;
+        max-width: 100%;
         -webkit-border-radius: 0;
         -moz-border-radius: 0;
         -ms-border-radius: 0;
@@ -313,7 +317,8 @@
         font-style: italic;
         position: absolute;
         top: 5px;
-        left: calc(82.075% - 97px);
+        /*left: calc(82.075% - 97px);*/
+        left: calc(32.075% + 355px - 18px);
         color: #fff;
         background: #d9534f;
         height: 25px;

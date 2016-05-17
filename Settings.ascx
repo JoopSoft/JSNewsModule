@@ -18,7 +18,7 @@
             <div class="fieldset">
                 <div class="dnnFormItem">
                     <dnn:Label ID="lblViewMode" runat="server" />
-                    <asp:DropDownList ID="ddViewModeList" runat="server" CssClass="selectpicker show-tick single-select" 
+                    <asp:DropDownList ID="ddViewModeList" runat="server" CssClass="selectpicker single-select form-control" 
                         data-target=".pnlReadMoreGroup" />
                 </div>
             </div>
@@ -82,7 +82,7 @@
                 </div>
                 <div class="pnlShowAllNews dnnFormItem group">
                     <dnn:Label ID="lblAllNewsSelect" runat="server" />
-                    <asp:DropDownList ID="ddAllNewsSelect" runat="server" CssClass="selectpicker show-tick single-select" DataSourceID="SqlDataSourcePages" DataTextField="TabName" DataValueField="TabPath" />
+                    <asp:DropDownList ID="ddAllNewsSelect" runat="server" CssClass="selectpicker single-select form-control" DataSourceID="SqlDataSourcePages" DataTextField="TabName" DataValueField="TabPath" />
 
                     <asp:SqlDataSource ID="SqlDataSourcePages" runat="server" ConnectionString="<%$ ConnectionStrings:SiteSqlServer %>" SelectCommand="SELECT * FROM [Tabs] WHERE (([PortalID] = @PortalID) AND ([ContentItemID] IS NOT NULL))">
                         <SelectParameters>
@@ -98,11 +98,11 @@
                 </div>
                 <asp:Panel ID="pnlSortBy" runat="server" class="pnlSortNews dnnFormItem group">
                     <dnn:Label ID="lblSortBy" runat="server" />
-                    <asp:DropDownList ID="sortByList" runat="server" CssClass="selectpicker show-tick single-select" />
+                    <asp:DropDownList ID="sortByList" runat="server" CssClass="selectpicker single-select form-control" />
                 </asp:Panel>
                 <asp:Panel ID="pnlSortType" runat="server" class="pnlSortNews dnnFormItem group">
                     <dnn:Label ID="lblSortType" runat="server" />
-                    <asp:DropDownList ID="sortTypeList" runat="server" CssClass="selectpicker show-tick single-select" />
+                    <asp:DropDownList ID="sortTypeList" runat="server" CssClass="selectpicker single-select form-control" />
                 </asp:Panel>
             </div>
             <div class="fieldset">

@@ -25,4 +25,6 @@
 В последния билд да се махнат всички пълни версии на кода (само мин версии),
 както и всички ненужни файлове и папки..
 
+ADD-IMAGE: UploadBtn change to HyperLink if possible. Can't submit the form..
+
 *CODE CLEARING!!!

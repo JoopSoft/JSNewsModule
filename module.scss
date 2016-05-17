@@ -45,6 +45,13 @@
             }
         }
 
+        .btn-group {
+            &.form-control {
+                width: 50%;
+                max-width: 450px;
+            }
+        }
+
         h1, h2, h3, h4, h5, h6 {
             color: $dark;
             /*margin: 0 0 10px;*/
@@ -71,6 +78,7 @@
                 font-weight: normal;
                 line-height: normal;
                 border: $none;
+                max-width: 100%;
 
                 @include border-radius(0);
 
@@ -472,7 +480,8 @@
                 font-style: italic;
                 position: absolute;
                 top: 5px;
-                left: calc(82.075% - 97px);
+                /*left: calc(82.075% - 97px);*/
+                left: calc(32.075% + 355px - 18px);
                 color: $white;
                 background: $warning;
                 height: 25px;
