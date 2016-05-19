@@ -1,5 +1,5 @@
 ﻿<h4>JSNewsModule</h4>
-<b>Version</b><br />00.00.01
+<b>Version</b><br />01.00.00
 
 <b>Description</b><br />JSNewsModule allows you to create news items, modify an existing items, delete items, change the items order and etc.<br />
 <br />

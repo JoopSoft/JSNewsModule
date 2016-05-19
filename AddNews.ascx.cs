@@ -299,7 +299,7 @@ namespace JS.Modules.JSNewsModule
             pnlPopUp.Visible = true;
             btnDelete.Visible = true;
             pnlPopUp.CssClass = "dnnFormItem popup confirm-box warning";
-            lblPopUpMsg.Text = "Default image cannot be deleted!";
+            lblPopUpMsg.Text = "Are you sure you want <br> to delete the image?";
             lblPopUpIcon.CssClass = "popup-icon link-delete no-txt";
         }
 

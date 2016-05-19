@@ -60,7 +60,7 @@
                         <dnn:label ID="lblUploadImg" runat="server" />
                         <asp:FileUpload ID="btnImgSelect" runat="server" data-target=".btnImgUpload" />
                         <asp:LinkButton ID="btnImgUpload" runat="server" CssClass="btnImgUpload dnnSecondaryAction link-upload"
-                            OnClick="btnImgUpload_Click" ResourceKey="btnUpload" />
+                            OnClick="btnImgUpload_Click" ResourceKey="btnUpload" CausesValidation="False" />
                     </asp:Panel>
                 </asp:Panel>
             </div>

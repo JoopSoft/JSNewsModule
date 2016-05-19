@@ -1,6 +1,6 @@
 <dotnetnuke type="Package" version="5.0">
   <packages>
-    <package name="JSNewsModule" type="Module" version="00.00.01">
+    <package name="JSNewsModule" type="Module" version="01.00.00">
       <friendlyName>JSNewsModule</friendlyName>
       <description>JSNewsModule allows you to create news items, modify an existing items, delete items, change the items order and etc.</description>
       <iconFile>Images/Icons/icon.png</iconFile>
@@ -23,13 +23,13 @@
             <basePath>DesktopModules\JSNewsModule</basePath>
             <script type="Install">
               <path>Providers\DataProviders\SqlDataProvider</path>
-              <name>00.00.01.SqlDataProvider</name>
-              <version>00.00.01</version>
+              <name>01.00.00.SqlDataProvider</name>
+              <version>01.00.00</version>
             </script>
             <script type="UnInstall">
               <path>Providers\DataProviders\SqlDataProvider</path>
               <name>Uninstall.SqlDataProvider</name>
-              <version>00.00.01</version>
+              <version>01.00.00</version>
             </script>
           </scripts>
         </component>
@@ -118,7 +118,7 @@
             <attributes>
               <businessControllerClass>JS.Modules.JSNewsModule.Components.FeatureController, JSNewsModule</businessControllerClass>
               <desktopModuleID>[DESKTOPMODULEID]</desktopModuleID>
-              <upgradeVersionsList>00.00.01</upgradeVersionsList>
+              <upgradeVersionsList>01.00.00</upgradeVersionsList>
             </attributes>
           </eventMessage>
         </component>

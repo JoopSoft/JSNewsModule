@@ -1,0 +1,6 @@
+{
+	"settings": {
+		"usePaging": false,
+		"newsPerPage": 3
+	}
+}
