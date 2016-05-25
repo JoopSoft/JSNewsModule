@@ -3,7 +3,7 @@
 .JSNews {
 
     * {
-        @include box-size(border-box);
+        @include box-size(border-box !important);
     }
 
     .link-dev {
@@ -549,8 +549,10 @@
                 color: $dark-alpha-md;
                 width: 50%;
                 max-width: 450px;
-                font-size: 1em;
-                padding: 5px 8px;
+                font-size: 1em;                
+                padding: 0 8px;
+                height: 35px;
+                line-height: 35px;
 
                 @include border-radius(0);
                 @include box-shadow($none);

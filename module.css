@@ -1,10 +1,10 @@
 ﻿.JSNews {
   /*BOOTSTRAP RE-STYLING*/ }
   .JSNews * {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -o-box-sizing: border-box;
-    box-sizing: border-box; }
+    -webkit-box-sizing: border-box !important;
+    -moz-box-sizing: border-box !important;
+    -o-box-sizing: border-box !important;
+    box-sizing: border-box !important; }
   .JSNews .link-dev {
     float: right;
     font-size: 12px;
@@ -140,16 +140,12 @@
         transition: all 300ms ease-out; }
         .JSNews .dnnForm .dnnFormItem .btn.btn-primary {
           background-color: rgba(59, 30, 119, 0.7); }
-          .JSNews .dnnForm .dnnFormItem .btn.btn-primary:hover,
-          .JSNews .dnnForm .dnnFormItem .btn.btn-primary:focus,
-          .JSNews .dnnForm .dnnFormItem .btn.btn-primary:active {
+          .JSNews .dnnForm .dnnFormItem .btn.btn-primary:hover, .JSNews .dnnForm .dnnFormItem .btn.btn-primary:focus, .JSNews .dnnForm .dnnFormItem .btn.btn-primary:active {
             background-color: rgba(59, 30, 119, 0.8);
             outline: none !important; }
         .JSNews .dnnForm .dnnFormItem .btn.btn-default {
           color: rgba(59, 30, 119, 0.7); }
-          .JSNews .dnnForm .dnnFormItem .btn.btn-default:hover,
-          .JSNews .dnnForm .dnnFormItem .btn.btn-default:focus,
-          .JSNews .dnnForm .dnnFormItem .btn.btn-default:active {
+          .JSNews .dnnForm .dnnFormItem .btn.btn-default:hover, .JSNews .dnnForm .dnnFormItem .btn.btn-default:focus, .JSNews .dnnForm .dnnFormItem .btn.btn-default:active {
             color: #fff;
             background-color: rgba(59, 30, 119, 0.7);
             outline: none !important; }
@@ -380,8 +376,7 @@
       width: auto;
       height: auto;
       font-weight: normal; }
-    .JSNews .dnnForm.add-news,
-    .JSNews .dnnForm.settings {
+    .JSNews .dnnForm.add-news, .JSNews .dnnForm.settings {
       font-size: 14px;
       min-height: 475px; }
       .JSNews .dnnForm.add-news input[type="text"],
@@ -389,8 +384,7 @@
       .JSNews .dnnForm.add-news textarea,
       .JSNews .dnnForm.add-news input[type="email"],
       .JSNews .dnnForm.add-news input[type="search"],
-      .JSNews .dnnForm.add-news input[type="date"],
-      .JSNews .dnnForm.settings input[type="text"],
+      .JSNews .dnnForm.add-news input[type="date"], .JSNews .dnnForm.settings input[type="text"],
       .JSNews .dnnForm.settings select,
       .JSNews .dnnForm.settings textarea,
       .JSNews .dnnForm.settings input[type="email"],
@@ -402,7 +396,9 @@
         width: 50%;
         max-width: 450px;
         font-size: 1em;
-        padding: 5px 8px;
+        padding: 0 8px;
+        height: 35px;
+        line-height: 35px;
         -webkit-border-radius: 0;
         -moz-border-radius: 0;
         -ms-border-radius: 0;
@@ -415,8 +411,7 @@
         -moz-transition: all 300ms ease-out;
         -o-transition: all 300ms ease-out;
         transition: all 300ms ease-out; }
-        .JSNews .dnnForm.add-news input[type="text"]:active,
-        .JSNews .dnnForm.add-news input[type="text"]:focus,
+        .JSNews .dnnForm.add-news input[type="text"]:active, .JSNews .dnnForm.add-news input[type="text"]:focus,
         .JSNews .dnnForm.add-news select:active,
         .JSNews .dnnForm.add-news select:focus,
         .JSNews .dnnForm.add-news textarea:active,
@@ -426,9 +421,7 @@
         .JSNews .dnnForm.add-news input[type="search"]:active,
         .JSNews .dnnForm.add-news input[type="search"]:focus,
         .JSNews .dnnForm.add-news input[type="date"]:active,
-        .JSNews .dnnForm.add-news input[type="date"]:focus,
-        .JSNews .dnnForm.settings input[type="text"]:active,
-        .JSNews .dnnForm.settings input[type="text"]:focus,
+        .JSNews .dnnForm.add-news input[type="date"]:focus, .JSNews .dnnForm.settings input[type="text"]:active, .JSNews .dnnForm.settings input[type="text"]:focus,
         .JSNews .dnnForm.settings select:active,
         .JSNews .dnnForm.settings select:focus,
         .JSNews .dnnForm.settings textarea:active,
@@ -453,8 +446,7 @@
         .JSNews .dnnForm.add-news textarea[disabled="disabled"],
         .JSNews .dnnForm.add-news input[type="email"][disabled="disabled"],
         .JSNews .dnnForm.add-news input[type="search"][disabled="disabled"],
-        .JSNews .dnnForm.add-news input[type="date"][disabled="disabled"],
-        .JSNews .dnnForm.settings input[type="text"][disabled="disabled"],
+        .JSNews .dnnForm.add-news input[type="date"][disabled="disabled"], .JSNews .dnnForm.settings input[type="text"][disabled="disabled"],
         .JSNews .dnnForm.settings select[disabled="disabled"],
         .JSNews .dnnForm.settings textarea[disabled="disabled"],
         .JSNews .dnnForm.settings input[type="email"][disabled="disabled"],
@@ -475,26 +467,20 @@
         .JSNews .dnnForm.add-news textarea.txt-img-url,
         .JSNews .dnnForm.add-news input[type="email"].txt-img-url,
         .JSNews .dnnForm.add-news input[type="search"].txt-img-url,
-        .JSNews .dnnForm.add-news input[type="date"].txt-img-url,
-        .JSNews .dnnForm.settings input[type="text"].txt-img-url,
+        .JSNews .dnnForm.add-news input[type="date"].txt-img-url, .JSNews .dnnForm.settings input[type="text"].txt-img-url,
         .JSNews .dnnForm.settings select.txt-img-url,
         .JSNews .dnnForm.settings textarea.txt-img-url,
         .JSNews .dnnForm.settings input[type="email"].txt-img-url,
         .JSNews .dnnForm.settings input[type="search"].txt-img-url,
         .JSNews .dnnForm.settings input[type="date"].txt-img-url {
           margin-left: 10px; }
-      .JSNews .dnnForm.add-news select,
-      .JSNews .dnnForm.settings select {
+      .JSNews .dnnForm.add-news select, .JSNews .dnnForm.settings select {
         width: auto;
         min-width: 100px; }
-      .JSNews .dnnForm.add-news .rich-text-editor textarea,
-      .JSNews .dnnForm.settings .rich-text-editor textarea {
+      .JSNews .dnnForm.add-news .rich-text-editor textarea, .JSNews .dnnForm.settings .rich-text-editor textarea {
         max-width: calc(100% - 16px);
         max-height: calc(100% - 10px); }
-        .JSNews .dnnForm.add-news .rich-text-editor textarea:active,
-        .JSNews .dnnForm.add-news .rich-text-editor textarea:focus,
-        .JSNews .dnnForm.settings .rich-text-editor textarea:active,
-        .JSNews .dnnForm.settings .rich-text-editor textarea:focus {
+        .JSNews .dnnForm.add-news .rich-text-editor textarea:active, .JSNews .dnnForm.add-news .rich-text-editor textarea:focus, .JSNews .dnnForm.settings .rich-text-editor textarea:active, .JSNews .dnnForm.settings .rich-text-editor textarea:focus {
           -moz-box-shadow: none;
           -webkit-box-shadow: none;
           -o-box-shadow: none;
@@ -543,17 +529,11 @@
       box-shadow: none; }
     .JSNews .panel .btn.active_page {
       background-color: rgba(59, 30, 119, 0.8); }
-    .JSNews .panel .btn.aspNetDisabled,
-    .JSNews .panel .btn.dnnDisabled,
-    .JSNews .panel .btn.no_more,
-    .JSNews .panel .btn[disabled=disabled] {
+    .JSNews .panel .btn.aspNetDisabled, .JSNews .panel .btn.dnnDisabled, .JSNews .panel .btn.no_more, .JSNews .panel .btn[disabled=disabled] {
       color: rgba(255, 255, 255, 0.35) !important;
       background: rgba(59, 30, 119, 0.7);
       cursor: not-allowed; }
-      .JSNews .panel .btn.aspNetDisabled:hover,
-      .JSNews .panel .btn.dnnDisabled:hover,
-      .JSNews .panel .btn.no_more:hover,
-      .JSNews .panel .btn[disabled=disabled]:hover {
+      .JSNews .panel .btn.aspNetDisabled:hover, .JSNews .panel .btn.dnnDisabled:hover, .JSNews .panel .btn.no_more:hover, .JSNews .panel .btn[disabled=disabled]:hover {
         color: rgba(255, 255, 255, 0.35);
         background: rgba(59, 30, 119, 0.7); }
   .JSNews .panel .btn-group .btn + .btn,
@@ -599,8 +579,7 @@
       margin-bottom: 0;
       border: none;
       border-bottom: 1px solid rgba(59, 30, 119, 0.25); }
-      .JSNews .panel .list-group .list-group-item:last-child,
-      .JSNews .panel .list-group .list-group-item:first-child {
+      .JSNews .panel .list-group .list-group-item:last-child, .JSNews .panel .list-group .list-group-item:first-child {
         -webkit-border-radius: 0;
         -moz-border-radius: 0;
         -ms-border-radius: 0;
@@ -616,54 +595,28 @@
           color: rgba(59, 30, 119, 0.8);
           border: 2px solid rgba(59, 30, 119, 0.7);
           clear: both; }
-      .JSNews .panel .list-group .list-group-item:focus,
-      .JSNews .panel .list-group .list-group-item:hover,
-      .JSNews .panel .list-group .list-group-item:active {
+      .JSNews .panel .list-group .list-group-item:focus, .JSNews .panel .list-group .list-group-item:hover, .JSNews .panel .list-group .list-group-item:active {
         color: #3b1e77;
         background-color: rgba(59, 30, 119, 0.05);
         -webkit-transition: background-color 300ms ease-out;
         -moz-transition: background-color 300ms ease-out;
         -o-transition: background-color 300ms ease-out;
         transition: background-color 300ms ease-out; }
-        .JSNews .panel .list-group .list-group-item:focus .list-group-item-heading,
-        .JSNews .panel .list-group .list-group-item:hover .list-group-item-heading,
-        .JSNews .panel .list-group .list-group-item:active .list-group-item-heading {
+        .JSNews .panel .list-group .list-group-item:focus .list-group-item-heading, .JSNews .panel .list-group .list-group-item:hover .list-group-item-heading, .JSNews .panel .list-group .list-group-item:active .list-group-item-heading {
           color: #3b1e77; }
-        .JSNews .panel .list-group .list-group-item:focus .badge,
-        .JSNews .panel .list-group .list-group-item:hover .badge,
-        .JSNews .panel .list-group .list-group-item:active .badge {
+        .JSNews .panel .list-group .list-group-item:focus .badge, .JSNews .panel .list-group .list-group-item:hover .badge, .JSNews .panel .list-group .list-group-item:active .badge {
           background: none;
           color: #3b1e77; }
-        .JSNews .panel .list-group .list-group-item:focus .list-group-item-text,
-        .JSNews .panel .list-group .list-group-item:hover .list-group-item-text,
-        .JSNews .panel .list-group .list-group-item:active .list-group-item-text {
+        .JSNews .panel .list-group .list-group-item:focus .list-group-item-text, .JSNews .panel .list-group .list-group-item:hover .list-group-item-text, .JSNews .panel .list-group .list-group-item:active .list-group-item-text {
           color: #3b1e77; }
-        .JSNews .panel .list-group .list-group-item:focus h1,
-        .JSNews .panel .list-group .list-group-item:focus h2,
-        .JSNews .panel .list-group .list-group-item:focus h3,
-        .JSNews .panel .list-group .list-group-item:focus h4,
-        .JSNews .panel .list-group .list-group-item:focus h5,
-        .JSNews .panel .list-group .list-group-item:focus h6,
-        .JSNews .panel .list-group .list-group-item:hover h1,
-        .JSNews .panel .list-group .list-group-item:hover h2,
-        .JSNews .panel .list-group .list-group-item:hover h3,
-        .JSNews .panel .list-group .list-group-item:hover h4,
-        .JSNews .panel .list-group .list-group-item:hover h5,
-        .JSNews .panel .list-group .list-group-item:hover h6,
-        .JSNews .panel .list-group .list-group-item:active h1, .JSNews .panel .list-group .list-group-item:active h2, .JSNews .panel .list-group .list-group-item:active h3, .JSNews .panel .list-group .list-group-item:active h4, .JSNews .panel .list-group .list-group-item:active h5, .JSNews .panel .list-group .list-group-item:active h6 {
+        .JSNews .panel .list-group .list-group-item:focus h1, .JSNews .panel .list-group .list-group-item:focus h2, .JSNews .panel .list-group .list-group-item:focus h3, .JSNews .panel .list-group .list-group-item:focus h4, .JSNews .panel .list-group .list-group-item:focus h5, .JSNews .panel .list-group .list-group-item:focus h6, .JSNews .panel .list-group .list-group-item:hover h1, .JSNews .panel .list-group .list-group-item:hover h2, .JSNews .panel .list-group .list-group-item:hover h3, .JSNews .panel .list-group .list-group-item:hover h4, .JSNews .panel .list-group .list-group-item:hover h5, .JSNews .panel .list-group .list-group-item:hover h6, .JSNews .panel .list-group .list-group-item:active h1, .JSNews .panel .list-group .list-group-item:active h2, .JSNews .panel .list-group .list-group-item:active h3, .JSNews .panel .list-group .list-group-item:active h4, .JSNews .panel .list-group .list-group-item:active h5, .JSNews .panel .list-group .list-group-item:active h6 {
           color: #3b1e77; }
-        .JSNews .panel .list-group .list-group-item:focus .btn-default,
-        .JSNews .panel .list-group .list-group-item:hover .btn-default,
-        .JSNews .panel .list-group .list-group-item:active .btn-default {
+        .JSNews .panel .list-group .list-group-item:focus .btn-default, .JSNews .panel .list-group .list-group-item:hover .btn-default, .JSNews .panel .list-group .list-group-item:active .btn-default {
           background: rgba(59, 30, 119, 0.7);
           color: #fff; }
-          .JSNews .panel .list-group .list-group-item:focus .btn-default:hover,
-          .JSNews .panel .list-group .list-group-item:hover .btn-default:hover,
-          .JSNews .panel .list-group .list-group-item:active .btn-default:hover {
+          .JSNews .panel .list-group .list-group-item:focus .btn-default:hover, .JSNews .panel .list-group .list-group-item:hover .btn-default:hover, .JSNews .panel .list-group .list-group-item:active .btn-default:hover {
             background: rgba(59, 30, 119, 0.8); }
-        .JSNews .panel .list-group .list-group-item:focus > a.read-more,
-        .JSNews .panel .list-group .list-group-item:hover > a.read-more,
-        .JSNews .panel .list-group .list-group-item:active > a.read-more {
+        .JSNews .panel .list-group .list-group-item:focus > a.read-more, .JSNews .panel .list-group .list-group-item:hover > a.read-more, .JSNews .panel .list-group .list-group-item:active > a.read-more {
           background: rgba(59, 30, 119, 0.7);
           color: #fff;
           border: 2px solid transparent;
@@ -671,13 +624,9 @@
           -moz-transition: background-color 300ms ease-out;
           -o-transition: background-color 300ms ease-out;
           transition: background-color 300ms ease-out; }
-          .JSNews .panel .list-group .list-group-item:focus > a.read-more:hover,
-          .JSNews .panel .list-group .list-group-item:hover > a.read-more:hover,
-          .JSNews .panel .list-group .list-group-item:active > a.read-more:hover {
+          .JSNews .panel .list-group .list-group-item:focus > a.read-more:hover, .JSNews .panel .list-group .list-group-item:hover > a.read-more:hover, .JSNews .panel .list-group .list-group-item:active > a.read-more:hover {
             background: rgba(59, 30, 119, 0.8); }
-        .JSNews .panel .list-group .list-group-item:focus:hover .pnl-admin .btn-group,
-        .JSNews .panel .list-group .list-group-item:hover:hover .pnl-admin .btn-group,
-        .JSNews .panel .list-group .list-group-item:active:hover .pnl-admin .btn-group {
+        .JSNews .panel .list-group .list-group-item:focus:hover .pnl-admin .btn-group, .JSNews .panel .list-group .list-group-item:hover:hover .pnl-admin .btn-group, .JSNews .panel .list-group .list-group-item:active:hover .pnl-admin .btn-group {
           display: block; }
   .JSNews .panel .rpt-list .list-group-item {
     padding: 10px; }
@@ -1006,10 +955,7 @@
   margin: 0 0 0 15px !important; }
   .dnnDropDownList .selected-item a {
     height: auto !important; }
-    .dnnDropDownList .selected-item a:link,
-    .dnnDropDownList .selected-item a:visited,
-    .dnnDropDownList .selected-item a:hover,
-    .dnnDropDownList .selected-item a:active {
+    .dnnDropDownList .selected-item a:link, .dnnDropDownList .selected-item a:visited, .dnnDropDownList .selected-item a:hover, .dnnDropDownList .selected-item a:active {
       height: auto !important; }
 
 .dnnPermissionsGrid > .dnnFormItem ul.token-input-list-facebook {

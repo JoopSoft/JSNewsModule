@@ -39,6 +39,11 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <FilesToIncludeForPublish>OnlyFilesToRunTheApp</FilesToIncludeForPublish>
+    <DocumentationFile>
+    </DocumentationFile>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <DeployEncryptKey>
+    </DeployEncryptKey>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="DotNetNuke, Version=7.0.2.1, Culture=neutral, processorArchitecture=MSIL">
@@ -142,7 +147,6 @@
     <Content Include="Js\jquery.pagingScript.js" />
     <Content Include="ReleaseNotes.txt" />
     <Content Include="Settings.ascx" />
-    <Content Include="Temp Fixes\JS-News-Module_Fixes.txt" />
     <Content Include="variables.css">
       <DependentUpon>variables.scss</DependentUpon>
     </Content>
@@ -197,6 +201,14 @@
       <SubType>Designer</SubType>
     </None>
     <Content Include="packages\MSBuildTasks.1.4.0.128\tools\MSBuild.psm1" />
+    <Content Include="Resources.zip.manifest" />
+    <Content Include="web.config" />
+    <None Include="web.Debug.config">
+      <DependentUpon>web.config</DependentUpon>
+    </None>
+    <None Include="web.Release.config">
+      <DependentUpon>web.config</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_LocalResources\DetailsView.ascx.resx" />
@@ -212,6 +224,13 @@
   <PropertyGroup>
     <Win32Resource>
     </Win32Resource>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
