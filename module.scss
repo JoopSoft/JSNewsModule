@@ -549,7 +549,7 @@
                 color: $dark-alpha-md;
                 width: 50%;
                 max-width: 450px;
-                font-size: 1em;                
+                font-size: 1em;
                 padding: 0 8px;
                 height: 35px;
                 line-height: 35px;
@@ -752,6 +752,7 @@
                     text-decoration: $none;
 
                     &.read-more {
+                        padding: 6px 12px;
                         margin-top: 15px;
                         float: right;
                         background: transparent;
@@ -1335,6 +1336,19 @@
             &:active {
                 @include box-shadow($none);
             }
+        }
+    }
+
+    .btn {
+        line-height: normal;
+        border: none;
+        padding: 10px 15px;
+
+        @include border-radius(0);
+        @include transition($all);
+
+        &:hover {
+            text-decoration: $none;
         }
     }
 }

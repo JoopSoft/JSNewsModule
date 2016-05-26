@@ -173,13 +173,13 @@ namespace JS.Modules.JSNewsModule
                 {
                     newsPresent = true;
                 }
-                if (newsPresent)
+                if (!newsPresent && IsEditable)
                 {
-                    pnlFirstAdd.Visible = false;
+                    pnlFirstAdd.Visible = true;
                 }
                 else
                 {
-                    pnlFirstAdd.Visible = true;
+                    pnlFirstAdd.Visible = false;
                 }
                 lnkFirstAdd.NavigateUrl = EditUrl("AddNews");
             }

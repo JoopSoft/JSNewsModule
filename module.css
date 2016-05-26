@@ -589,6 +589,7 @@
       .JSNews .panel .list-group .list-group-item > a {
         text-decoration: none; }
         .JSNews .panel .list-group .list-group-item > a.read-more {
+          padding: 6px 12px;
           margin-top: 15px;
           float: right;
           background: transparent;
@@ -946,6 +947,20 @@
         -webkit-box-shadow: none;
         -o-box-shadow: none;
         box-shadow: none; }
+  .JSNews .btn {
+    line-height: normal;
+    border: none;
+    padding: 10px 15px;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    -ms-border-radius: 0;
+    border-radius: 0;
+    -webkit-transition: all 300ms ease-out;
+    -moz-transition: all 300ms ease-out;
+    -o-transition: all 300ms ease-out;
+    transition: all 300ms ease-out; }
+    .JSNews .btn:hover {
+      text-decoration: none; }
 
 .mark, mark {
   padding: 0 !important;
