@@ -18,8 +18,8 @@
             <div class="fieldset">
                 <div class="dnnFormItem">
                     <dnn:Label ID="lblViewMode" runat="server" />
-                    <asp:DropDownList ID="ddViewModeList" runat="server" CssClass="selectpicker single-select form-control" 
-                        data-target=".pnlReadMoreGroup" />
+                    <asp:DropDownList ID="ddViewModeList" runat="server" CssClass="selectpicker single-select form-control check-equal" 
+                        data-target=".pnlReadMoreGroup" data-equal="Accordion" />
                 </div>
             </div>
             <div class="fieldset">
@@ -181,15 +181,15 @@
         });
 
     //NEW TEXT BOX AFTER CUSTOM SELECTION
-    $('.JSNews #<%= ddViewModeList.ClientID %>')
-        .each(function () {
-            if ($(this).val() === 'Accordion') $($(this).data('target')).hide();
-            else $($(this).data('target')).show();
-        })
-        .bind('change', function () {
-            if ($(this).val() === 'Accordion') $($(this).data('target')).hide();
-            else $($(this).data('target')).show();
-        });
+    //$('.JSNews #<%= ddViewModeList.ClientID %>')
+    //    .each(function () {
+    //        if ($(this).val() === 'Accordion') $($(this).data('target')).hide();
+    //        else $($(this).data('target')).show();
+    //    })
+    //    .bind('change', function () {
+    //        if ($(this).val() === 'Accordion') $($(this).data('target')).hide();
+    //        else $($(this).data('target')).show();
+    //    });
     
 </script>
 

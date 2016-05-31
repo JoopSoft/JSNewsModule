@@ -229,6 +229,32 @@
             }
         });
 
+        $('.JSNews .check-equal').each(function () {
+            if ($(this).val() === $(this).data('equal')) $($(this).data('target')).show();else $($(this).data('target')).hide();
+        }).bind('change', function () {
+            if ($(this).val() === $(this).data('equal')) $($(this).data('target')).show();else $($(this).data('target')).hide();
+        });
+
+        $('.JSNews .hidder-radio input:radio').each(function () {
+            if ($(this).is(':checked')) {
+                if ($(this).val() !== 'auto') $($(this).closest('.hidder-radio').data('target')).show();else $($(this).closest('.hidder-radio').data('target')).hide();
+            }
+        }).bind('change', function () {
+            if ($(this).is(':checked')) {
+                if ($(this).val() !== 'auto') $($(this).closest('.hidder-radio').data('target')).show();else $($(this).closest('.hidder-radio').data('target')).hide();
+            }
+        });
+
+        $('.JSNews .hidder-radio-option input:radio').each(function () {
+            if ($(this).is(':checked')) $($(this).parent().data('target')).show();else $($(this).parent().data('target')).hide();
+        }).bind('change', function () {
+            if ($(this).is(':checked')) {
+                var $groupedClass = $(this).closest('.hidder-radio-option').data('grouped-class');
+                $('.JSNews ' + $groupedClass).hide();
+                $($(this).parent().data('target')).show();
+            }
+        });
+
         //SELECT PICKER CUSTOM PLUGIN DEFINITION
         //SINGLE SELECT OPTIONS
         if ($('.JSNews .selectpicker.single-select').exists()) $('.JSNews .selectpicker.single-select').selectpicker({
