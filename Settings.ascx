@@ -179,17 +179,6 @@
                         .find('#<%= lblStatusImgMsg.ClientID %>')
                         .show();
         });
-
-    //NEW TEXT BOX AFTER CUSTOM SELECTION
-    //$('.JSNews #<%= ddViewModeList.ClientID %>')
-    //    .each(function () {
-    //        if ($(this).val() === 'Accordion') $($(this).data('target')).hide();
-    //        else $($(this).data('target')).show();
-    //    })
-    //    .bind('change', function () {
-    //        if ($(this).val() === 'Accordion') $($(this).data('target')).hide();
-    //        else $($(this).data('target')).show();
-    //    });
     
 </script>
 
