@@ -26,6 +26,7 @@ namespace JS.Modules.JSNewsModule
             {
                 if (!IsPostBack)
                 {
+                    lnkAddNews.NavigateUrl = EditUrl("AddNews");
                     joopSoft.NavigateUrl = "http://www.joopsoft.com/";
                     joopSoft.Text = "JoopSOFT.com";
                     joopSoft.ToolTip = "JoopSOFT.com";

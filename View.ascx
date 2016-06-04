@@ -53,9 +53,6 @@
                                 <%--EDIT MODE GROUP BUTTONS--%>
                                 <asp:Panel ID="pnlAdmin" runat="server" Visible="false" CssClass="pnl-admin">
                                     <div class="btn-group" role="group" aria-label="Control buttons">
-                                        <asp:HyperLink ID="lnkAdd" runat="server" CssClass="btn btn-default link-add"
-                                            ResourceKey="lnkAdd" Visible="false" Enabled="false"
-                                            data-toggle="tooltip" ToolTip="Add News" />
                                         <asp:HyperLink ID="lnkEdit" runat="server" CssClass="btn btn-default link-edit"
                                             ResourceKey="lnkEdit" Visible="false" Enabled="false"
                                             data-toggle="tooltip" />
@@ -105,8 +102,6 @@
                             <%--EDIT MODE GROUP BUTTONS--%>
                             <asp:Panel ID="pnlAdmin" runat="server" Visible="false" CssClass="pnl-admin">
                                 <div class="btn-group" role="group" aria-label="Control buttons">
-                                    <asp:HyperLink ID="lnkAdd" runat="server" CssClass="btn btn-default link-add no-txt"
-                                        data-toggle="tooltip" ToolTip="Add News" Visible="false" Enabled="false" />
                                     <asp:HyperLink ID="lnkEdit" runat="server" CssClass="btn btn-default link-edit no-txt"
                                         data-toggle="tooltip" Visible="false" Enabled="false" />
                                     <asp:LinkButton ID="lnkDelete" runat="server" CssClass="btn btn-danger link-delete no-txt"

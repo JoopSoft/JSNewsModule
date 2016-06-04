@@ -26,6 +26,7 @@ namespace JS.Modules.JSNewsModule
             {
                 if (!Page.IsPostBack)
                 {
+                    lnkSettings.NavigateUrl = "javascript:dnnModal.show('http://dnndev.me/JS-News/ctl/Module/ModuleId/" + ModuleId + "?ReturnURL=/JS-News&amp;popUp=true',/*showReturn*/false,550,950,true,'')";
                     txtContent.Mode = "BASIC";
                     btnCancel.NavigateUrl = DotNetNuke.Common.Globals.NavigateURL();
                     joopSoft.NavigateUrl = "http://www.joopsoft.com/";

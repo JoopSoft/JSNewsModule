@@ -29,6 +29,8 @@ namespace JS.Modules.JSNewsModule
         {
             try
             {
+                lnkFirstAdd.NavigateUrl = lnkAdd.NavigateUrl = EditUrl("AddNews");
+                lnkSettings.NavigateUrl = "javascript:dnnModal.show('http://dnndev.me/JS-News/ctl/Module/ModuleId/" + ModuleId + "?ReturnURL=/JS-News&amp;popUp=true',/*showReturn*/false,550,950,true,'')";
                 DefaultSettings();
                 pnlPopUp.Visible = false;
                 var nc = new NewsController();
@@ -181,7 +183,6 @@ namespace JS.Modules.JSNewsModule
                 {
                     pnlFirstAdd.Visible = false;
                 }
-                lnkFirstAdd.NavigateUrl = EditUrl("AddNews");
             }
             catch (Exception exc) //Module failed to load
             {
@@ -194,7 +195,6 @@ namespace JS.Modules.JSNewsModule
             if (e.Item.ItemType == ListItemType.AlternatingItem || e.Item.ItemType == ListItemType.Item)
             {
                 var lnkEdit = e.Item.FindControl("lnkEdit") as HyperLink;
-                var lnkAdd = e.Item.FindControl("lnkAdd") as HyperLink;
                 var lnkDelete = e.Item.FindControl("lnkDelete") as LinkButton;
                 var btnReadMore = e.Item.FindControl("btnReadMoreList") as HyperLink;
                 var lnkImg = e.Item.FindControl("lnkImg") as HyperLink;
@@ -208,7 +208,6 @@ namespace JS.Modules.JSNewsModule
                     lnkDelete.ToolTip = "Delete " + n.NewsTitle;
                     lnkEdit.NavigateUrl = EditUrl(string.Empty, string.Empty, "AddNews", "nid=" + n.NewsId);
                     lnkEdit.ToolTip = "Edit " + n.NewsTitle;
-                    lnkAdd.NavigateUrl = EditUrl("AddNews");
                 }
                 else
                 {
@@ -222,7 +221,6 @@ namespace JS.Modules.JSNewsModule
             if (e.Item.ItemType == ListItemType.AlternatingItem || e.Item.ItemType == ListItemType.Item)
             {
                 var lnkEdit = e.Item.FindControl("lnkEdit") as HyperLink;
-                var lnkAdd = e.Item.FindControl("lnkAdd") as HyperLink;
                 var lnkDelete = e.Item.FindControl("lnkDelete") as LinkButton;
                 var btnReadMore = e.Item.FindControl("btnReadMore") as HyperLink;
                 var pnlAdminControls = e.Item.FindControl("pnlAdmin") as Panel;
@@ -245,7 +243,6 @@ namespace JS.Modules.JSNewsModule
                     lnkDelete.Enabled = lnkDelete.Visible = lnkEdit.Enabled = lnkEdit.Visible = lnkAdd.Enabled = lnkAdd.Visible = true;
                     lnkEdit.NavigateUrl = EditUrl(string.Empty, string.Empty, "AddNews", "nid=" + n.NewsId);
                     lnkEdit.ToolTip = "Edit " + n.NewsTitle;
-                    lnkAdd.NavigateUrl = EditUrl("AddNews");
                 }
                 else
                 {
