@@ -4,6 +4,24 @@
 <dnn:DnnCssInclude ID="fontAwesomeCss" runat="server" FilePath="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" />
 
 <div class="JSNews">
+
+    <%--FIRST ADD BUTTON--%>
+    <asp:Panel ID="pnlFirstAdd" runat="server">
+        <asp:HyperLink ID="lnkFirstAdd" runat="server" CssClass="btn btn-primary link-add"
+            ResourceKey="lnkFirstAdd" />
+    </asp:Panel>
+
+    <%--EDIT MODE GROUP BUTTONS--%>
+    <asp:Panel ID="pnlAdminShortcuts" runat="server" Visible="true" CssClass="pnl-admin pull-right">
+        <div class="btn-group" role="group" aria-label="Control buttons">
+            <asp:Label ID="lblContentHolder" runat="server" CssClass="content-holder" />
+            <asp:HyperLink ID="lnkAdd" runat="server" CssClass="btn btn-primary link-add no-txt"
+                ResourceKey="lnkAdd" ToolTip="Add News Entry" />
+            <asp:HyperLink ID="lnkSettings" runat="server" CssClass="btn btn-primary link-settings no-txt"
+                ResourceKey="lnkSettings" ToolTip="Settings" />
+        </div>
+    </asp:Panel>
+
     <div class="panel panel-default view">
         <%--LIST VIEW--%>
         <asp:Panel ID="pnlList" runat="server" CssClass="rpt-list">
@@ -107,12 +125,6 @@
             <asp:Panel ID="pnlAccInfoText" runat="server" CssClass="info_text"></asp:Panel>
         </asp:Panel>
 
-        <%--FIRST ADD BUTTON--%>
-        <asp:Panel ID="pnlFirstAdd" runat="server">
-            <asp:HyperLink ID="lnkFirstAdd" runat="server" CssClass="btn btn-primary link-add"
-                ResourceKey="lnkFirstAdd" />
-        </asp:Panel>
-
         <%--POPUP--%>
         <asp:Panel ID="pnlPopUp" runat="server" Visible="false" CssClass="popup">
             <div class="popup-wrapper">
@@ -133,37 +145,40 @@
 </div>
 
 <script type="text/javascript">
+    (function ($, Sys) {
+        $('.JSNews #<%= lblContentHolder.ClientID %>')
+        .html('<b class="link-check"> Activated</b> | JSNews Module: ' + <%= ModuleId %>);
 
-    $settingsData = '<%= ModulePath %>Json/<%= ModuleId %>_Settings.json';
+        $settingsData = '<%= ModulePath %>Json/<%= ModuleId %>_Settings.json';
 
-    //PREDEFINED AJAX REQUEST
-    function jqXHR(url, beforeLoad, cache) {
-        return $.ajax({
-            url: url,
-            dataType: 'json',
-            contentType: "application/json; charset=utf-8",
-            type: 'get',
-            cache: cache,
-            beforeSend: beforeLoad
-        })
-		.always(function () {
-		    //console.log("complete");
-		});
-    };
+        //PREDEFINED AJAX REQUEST
+        function jqXHR(url, beforeLoad, cache) {
+            return $.ajax({
+                url: url,
+                dataType: 'json',
+                contentType: "application/json; charset=utf-8",
+                type: 'get',
+                cache: cache,
+                beforeSend: beforeLoad
+            })
+            .always(function () {
+                //console.log("complete");
+            });
+        };
 
-    $(window).load(function () {
-        jqXHR($settingsData,
-                function () {
-                    //console.log('Before load func');
-                }, false)
-                .done(function (data) {
-                    var $settings = data.settings,
-                        $newsPerPage = data.settings.newsPerPage,
-                        $usePaging = data.settings.usePaging;
+        $(window).load(function () {
+            jqXHR($settingsData,
+                    function () {
+                        //console.log('Before load func');
+                    }, false)
+                    .done(function (data) {
+                        var $settings = data.settings,
+                            $newsPerPage = data.settings.newsPerPage,
+                            $usePaging = data.settings.usePaging;
 
-                    if ($usePaging === true) {
+                        if ($usePaging === true) {
 
-                        $('.JSNews #<%= pnlList.ClientID %>').paging({
+                            $('.JSNews #<%= pnlList.ClientID %>').paging({
                             item_container_id: '.list-group',
                             nav_label_info: 'Showing {0}-{1} of {2} results',
                             num_page_links_to_display: 3,
@@ -187,6 +202,7 @@
     		    });
     });
 
+    })(jQuery, window.Sys);
 </script>
 
 <dnn:DnnJsInclude ID="ellipsisJs" runat="server" FilePath="~/DesktopModules/JSNewsModule/Js/jquery.ellipsis.min.js" Priority="20" />

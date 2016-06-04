@@ -6,34 +6,49 @@
 <dnn:DnnCssInclude ID="fontAwesomeCss" runat="server" FilePath="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" />
 <dnn:DnnCssInclude ID="bootstrapCss" runat="server" FilePath="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" />
 <dnn:DnnCssInclude ID="bootstrapSelectCss" runat="server" FilePath="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/css/bootstrap-select.min.css" />
+<dnn:DnnCssInclude ID="bootstrapDatePickerCss" runat="server" FilePath="//cdnjs.cloudflare.com/ajax/libs/bootstrap-daterangepicker/2.1.21/daterangepicker.min.css" />
+<dnn:DnnCssInclude ID="moduleCss" runat="server" FilePath="~/DesktopModules/JSNewsModule/module.min.css" />
 
 <div class="JSNews">
     <div class="dnnForm add-news">
         <div class="dnnFormSectionHead">
-            <h3 class="dnnFormMessage dnnFormTitle dnnFormIcon">
+            <h3 class="dnnFormMessage dnnFormTitle dnnFormIcon no-spacing">
                 <%=LocalizeString("Title")%>
                 <asp:HyperLink ID="joopSoft" runat="server" />
             </h3>
+            <div class="dnnFormItem JSNewsMenu">
+                <asp:Panel ID="headerMenu" runat="server" CssClass="dnnFormMessage one-control dnnFormTitle no-spacing">
+                    <asp:Label ID="lblSubTitle" runat="server" ResourceKey="lblSubTitle" />
+                </asp:Panel>
+                <asp:HyperLink ID="lnkSettings" runat="server" CssClass="btn btn-primary link-settings no-txt"
+                    data-toggle="tooltip" ToolTip="Settings" />
+            </div>
         </div>
         <fieldset>
             <div class="fieldset">
                 <div class="dnnFormItem">
                     <dnn:label ID="lblTitle" runat="server" />
-                    <asp:TextBox ID="txtTitle" runat="server" CssClass="form-control" />
+                    <asp:TextBox ID="txtTitle" runat="server" CssClass="form-control"
+                        Placeholder="Enter Title" />
                     <asp:RequiredFieldValidator ID="titleValidator" runat="server" CssClass="txt-error-validate" 
                         ErrorMessage="Required Field" ControlToValidate="txtTitle" SetFocusOnError="True" Display="Dynamic" />
                 </div>
             </div>
             <div class="fieldset">
-                <asp:Panel ID="pnlDate" runat="server" class="dnnFormItem">
+                <asp:Panel ID="pnlDate" runat="server" class="dnnFormItem group">
                     <dnn:label ID="lblDate" runat="server" />
-                    <asp:TextBox ID="txtDate" runat="server" TextMode="Date" CssClass="form-control" />
+                    <div class="input-group">
+                        <asp:TextBox ID="txtDate" runat="server" CssClass="datePicker form-control grouped squared-box" 
+                            Placeholder="Enter Date" />
+                        <asp:HyperLink ID="lnkCalendarIcon" runat="server" CssClass="input-group-addon link-calendar no-txt" />
+                    </div>
                 </asp:Panel>
             </div>
             <asp:Panel ID="pnlCustomOrderId" runat="server" CssClass="fieldset">
                 <div class="dnnFormItem">
                     <dnn:label ID="lblCustomOrderId" runat="server" />
-                    <asp:TextBox ID="txtCustomOrderId" runat="server" CssClass="form-control" Text="0" />
+                    <asp:TextBox ID="txtCustomOrderId" runat="server" CssClass="form-control" Text="0" 
+                        Placeholder="Enter Custom Order" />
                 </div>
             </asp:Panel>
             <div class="fieldset">
@@ -67,7 +82,8 @@
             <div class="fieldset">
                 <div class="dnnFormItem">
                     <dnn:label ID="lblTeaserText" runat="server" />
-                    <asp:TextBox ID="txtTeaserText" runat="server" TextMode="MultiLine" CssClass="form-control teaser-txt" />
+                    <asp:TextBox ID="txtTeaserText" runat="server" TextMode="MultiLine" CssClass="form-control teaser-txt"
+                        Placeholder="Enter Teaser Text" />
                     <asp:RequiredFieldValidator ID="teaserTextValidator" runat="server" CssClass="txt-error-validate"  
                         ErrorMessage="Required Field" ControlToValidate="txtTeaserText" SetFocusOnError="True" Display="Dynamic" />
                 </div>
@@ -116,6 +132,26 @@
     </div>
 </div>
 
+<script type="text/javascript">
+    $(function () {
+
+        $('.JSNews #<%= lnkCalendarIcon.ClientID %>')
+            .bind('click', function () {                
+                $(this).parent().find('input').click();                                
+            });
+
+        //DATEPICKIER MODULE DEFINITION
+        $('.JSNews .datePicker').daterangepicker({
+            'singleDatePicker': true,
+            'alwaysShowCalendars': true
+        });
+
+
+    });
+</script>
+
 <dnn:DnnJsInclude ID="bootstrapJs" runat="server" FilePath="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js" Priority="18" />
 <dnn:DnnJsInclude ID="bootstrapSelectJs" runat="server" FilePath="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/js/bootstrap-select.min.js" Priority="19" />
-<dnn:DnnJsInclude ID="mainJs" runat="server" FilePath="~/DesktopModules/JSNewsModule/Js/main.min.js" Priority="21" />
+<dnn:DnnJsInclude ID="bootstrapDatePickerMomentJs" runat="server" FilePath="//cdnjs.cloudflare.com/ajax/libs/bootstrap-daterangepicker/2.1.21/moment.min.js" Priority="20" />
+<dnn:DnnJsInclude ID="bootstrapDatePickerJs" runat="server" FilePath="//cdnjs.cloudflare.com/ajax/libs/bootstrap-daterangepicker/2.1.21/daterangepicker.min.js" Priority="21" />
+<dnn:DnnJsInclude ID="mainJs" runat="server" FilePath="~/DesktopModules/JSNewsModule/Js/main.min.js" Priority="22" />

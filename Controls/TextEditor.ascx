@@ -14,7 +14,7 @@
         <div class="dnnFormItem">
             <dnn:label ID="lblContent" runat="server" />
             <asp:TextBox ID="TxtDesktopHTML" runat="server" CssClass="form-control body-txt"
-                TextMode="multiline" />
+                TextMode="multiline" Placeholder="Enter Full Text" />
         </div>
         <div id="DivBasicRender" runat="server" class="dnnFormItem">
             <dnn:label id="plRender" runat="server" controlname="optRender" />

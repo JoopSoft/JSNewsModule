@@ -5,6 +5,19 @@
 <dnn:DnnCssInclude ID="fontAwesomeCss" runat="server" FilePath="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" />
 
 <div class="JSNews">
+    <asp:Panel ID="pnlAdminControls" runat="server" Visible="false" CssClass="pnl-admin right">
+        <div class="btn-group" role="group" aria-label="Control buttons">
+            <asp:Label ID="lblContentHolder" runat="server" CssClass="content-holder" />
+            <asp:HyperLink ID="lnkAdd" runat="server" CssClass="btn btn-primary link-add no-txt"
+                ResourceKey="lnkAdd" data-toggle="tooltip" />
+            <asp:HyperLink ID="lnkEdit" runat="server" CssClass="btn btn-primary link-edit"
+                ResourceKey="lnkEdit" data-toggle="tooltip" />
+            <asp:LinkButton ID="lnkDelete" runat="server" CssClass="btn btn-danger link-delete" OnClick="lnkDelete_Click"
+                ResourceKey="lnkDelete" data-toggle="tooltip" />
+            <asp:HyperLink ID="lnkSettings" runat="server" CssClass="btn btn-primary link-settings no-txt"
+                ResourceKey="lnkSettings" data-toggle="tooltip" />
+        </div>
+    </asp:Panel>
     <div class="panel panel-default details-view">
         <%--DETAILS VIEW--%>
         <asp:Panel ID="pnlDetailsView" runat="server">
@@ -20,16 +33,6 @@
                         AlternateText="" />
                 </asp:HyperLink>
                 <asp:Label ID="lblNewsContent" runat="server" CssClass="body-txt" />
-                <asp:Panel ID="pnlAdminControls" runat="server" Visible="false" CssClass="pnl-admin">
-                    <div class="btn-group" role="group" aria-label="Control buttons">
-                        <asp:HyperLink ID="lnkEdit" runat="server" CssClass="btn btn-primary link-edit"
-                            ResourceKey="lnkEdit" Visible="false" Enabled="false"
-                            data-toggle="tooltip" />
-                        <asp:LinkButton ID="lnkDelete" runat="server" CssClass="btn btn-danger link-delete" OnClick="lnkDelete_Click"
-                            ResourceKey="lnkDelete" Visible="false" Enabled="false"
-                            data-toggle="tooltip" />
-                    </div>
-                </asp:Panel>
             </div>
             <div class="panel-footer">
                 <div class="btn-group" role="group" aria-label="Navigate buttons">
@@ -67,6 +70,13 @@
         </asp:Panel>
     </div>
 </div>
+
+<script type="text/javascript">
+    (function ($, Sys) {
+        $('.JSNews #<%= lblContentHolder.ClientID %>')
+        .html('<b class="link-check"> Activated</b> | JSNews Module: ' + <%= ModuleId %>);
+    })(jQuery, window.Sys);
+</script>
 
 <dnn:DnnJsInclude ID="fancyboxJs" runat="server" FilePath="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.pack.js" Priority="19" />
 <dnn:DnnJsInclude ID="mainJs" runat="server" FilePath="~/DesktopModules/JSNewsModule/Js/main.min.js" Priority="21" />

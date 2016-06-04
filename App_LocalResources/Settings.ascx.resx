@@ -121,37 +121,37 @@
     <value>JSNewsModule - Settings</value>
   </data>
   <data name="lblBackText.Help" xml:space="preserve">
-    <value>Enter custom text for the Back Button.</value>
+    <value>Enter custom text for the back button.</value>
   </data>
   <data name="lblBackText.Text" xml:space="preserve">
     <value>Back Button Text</value>
   </data>
   <data name="lblHomeText.Help" xml:space="preserve">
-    <value>Enter custom text for the Home Button.</value>
+    <value>Enter custom text for the home button.</value>
   </data>
   <data name="lblHomeText.Text" xml:space="preserve">
     <value>Home Button Text</value>
   </data>
   <data name="lblIsSorted.Help" xml:space="preserve">
-    <value>Check to sort the News List.</value>
+    <value>Check to sort the news list.</value>
   </data>
   <data name="lblIsSorted.Text" xml:space="preserve">
     <value>Sort News</value>
   </data>
   <data name="lblReadMoreText.Help" xml:space="preserve">
-    <value>Enter custom text for the Read More Button.</value>
+    <value>Enter custom text for the read more button.</value>
   </data>
   <data name="lblReadMoreText.Text" xml:space="preserve">
     <value>Read More Button Text</value>
   </data>
   <data name="lblShowBack.Help" xml:space="preserve">
-    <value>Choose whether to show Back Button or not.</value>
+    <value>Choose whether to show back button or not.</value>
   </data>
   <data name="lblShowBack.Text" xml:space="preserve">
     <value>Back Button</value>
   </data>
   <data name="lblShowHome.Help" xml:space="preserve">
-    <value>Choose whether to show Home Button or not.</value>
+    <value>Choose whether to show home button or not.</value>
   </data>
   <data name="lblShowHome.Text" xml:space="preserve">
     <value>Home Button</value>
@@ -169,31 +169,31 @@
     <value>News Image</value>
   </data>
   <data name="lblShowReadMore.Help" xml:space="preserve">
-    <value>Choose whether to show Read More Button or not.</value>
+    <value>Choose whether to show read more button or not.</value>
   </data>
   <data name="lblShowReadMore.Text" xml:space="preserve">
     <value>Read More Button</value>
   </data>
   <data name="lblSortBy.Help" xml:space="preserve">
-    <value>Select Sorting Method.</value>
+    <value>Select sorting method.</value>
   </data>
   <data name="lblSortBy.Text" xml:space="preserve">
     <value>Sort By</value>
   </data>
   <data name="lblSortType.Help" xml:space="preserve">
-    <value>Select Sorting Type.</value>
+    <value>Select sorting type.</value>
   </data>
   <data name="lblSortType.Text" xml:space="preserve">
     <value>Sort Type</value>
   </data>
   <data name="lblViewMode.Help" xml:space="preserve">
-    <value>Select the View Mode.</value>
+    <value>Select the view mode.</value>
   </data>
   <data name="lblViewMode.Text" xml:space="preserve">
     <value>View Mode</value>
   </data>
   <data name="Title.Text" xml:space="preserve">
-    <value>JSNewsModule - Settings</value>
+    <value>JSNewsModule</value>
   </data>
   <data name="lblNewsPerPage.Help" xml:space="preserve">
     <value>Enter how many news to see per page.</value>
@@ -214,10 +214,10 @@
     <value>All News Button</value>
   </data>
   <data name="lblAllNewsText.Help" xml:space="preserve">
-    <value>Enter custom text for the All News Button.</value>
+    <value>Enter custom text for the all news button.</value>
   </data>
   <data name="lblShowAllNews.Help" xml:space="preserve">
-    <value>Choose whether to show All News Button or not.</value>
+    <value>Choose whether to show all news button or not.</value>
   </data>
   <data name="lblAllNewsSelect.Help" xml:space="preserve">
     <value>Select page to navigate from available pages.</value>
@@ -230,5 +230,8 @@
   </data>
   <data name="lblStatReadMoreMsg.Text" xml:space="preserve">
     <value>News image must be checked</value>
+  </data>
+  <data name="lblSubTitle.Text" xml:space="preserve">
+    <value>Settings</value>
   </data>
 </root>

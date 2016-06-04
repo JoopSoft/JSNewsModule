@@ -124,46 +124,46 @@
     <value>Save</value>
   </data>
   <data name="ControlTitle_edit.Text" xml:space="preserve">
-    <value>JSNewsModule - Add/Edit News</value>
+    <value>JSNewsModule</value>
   </data>
   <data name="Title.Text" xml:space="preserve">
-    <value>JSNewsModule - Add/Edit News</value>
+    <value>JSNewsModule</value>
   </data>
   <data name="ExpandAll.Text" xml:space="preserve">
     <value>Expand All</value>
   </data>
   <data name="lblDate.Help" xml:space="preserve">
-    <value>Enter News Date</value>
+    <value>Enter news date.</value>
   </data>
   <data name="lblDate.Text" xml:space="preserve">
     <value>Date</value>
   </data>
   <data name="lblImgUrl.Help" xml:space="preserve">
-    <value>Select from Uploaded Images</value>
+    <value>Select from uploaded images.</value>
   </data>
   <data name="lblImgUrl.Text" xml:space="preserve">
     <value>Select From</value>
   </data>
   <data name="lblTeaserText.Help" xml:space="preserve">
-    <value>Enter Short News Text</value>
+    <value>Enter teaser text.</value>
   </data>
   <data name="lblTeaserText.Text" xml:space="preserve">
-    <value>Short Text</value>
+    <value>Teaser Text</value>
   </data>
   <data name="lblTitle.Help" xml:space="preserve">
-    <value>Enter News Title</value>
+    <value>Enter news title.</value>
   </data>
   <data name="lblTitle.Text" xml:space="preserve">
     <value>Title</value>
   </data>
   <data name="lblUploadImg.Help" xml:space="preserve">
-    <value>Upload New Image</value>
+    <value>Upload new image.</value>
   </data>
   <data name="lblUploadImg.Text" xml:space="preserve">
     <value>Upload Image</value>
   </data>
   <data name="lblCustomOrderId.Help" xml:space="preserve">
-    <value>Enter Number for Custom Order</value>
+    <value>Enter number for custom order.</value>
   </data>
   <data name="lblCustomOrderId.Text" xml:space="preserve">
     <value>Custom Order</value>
@@ -172,7 +172,7 @@
     <value>Upload</value>
   </data>
   <data name="lblImgSelected.Help" xml:space="preserve">
-    <value>Choosen image</value>
+    <value>Choosen image.</value>
   </data>
   <data name="lblImgSelected.Text" xml:space="preserve">
     <value>Selected image</value>
@@ -197,5 +197,8 @@
   </data>
   <data name="btnYes.Text" xml:space="preserve">
     <value>Yes</value>
+  </data>
+  <data name="lblSubTitle.Text" xml:space="preserve">
+    <value>Add/Edit News Entries</value>
   </data>
 </root>

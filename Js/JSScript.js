@@ -32,9 +32,13 @@
             $lnkInfo = '<i class="fa fa-info-circle"></i>',
             $lnkClose = '<i class="fa fa-close"></i>',
             $lnkWarning = '<i class="fa fa-warning"></i>',
+            $lnkSettings = '<i class="fa fa-cog"></i>',
             $lnkImage = '<i class="fa fa-picture-o"></i>',
             $lnkPrev = '<i class="fa fa-angle-left"></i>',
             $lnkNext = '<i class="fa fa-angle-right"></i>',
+            $lnkCheck = '<i class="fa fa-check"></i>',
+            $lnkCalendar = '<i class="fa fa-calendar"></i>',
+
             $largeIcon = 'fa-lg';
 
         //PUSHED MIXED UP ICON AND TEXT ONTO ELEMENTS
@@ -52,7 +56,10 @@
         $('.JSNews .link-prev').prepend($lnkPrev + ' ');
         $('.JSNews .link-close').prepend($lnkClose + ' ');
         $('.JSNews .link-warning').prepend($lnkWarning + ' ');
+        $('.JSNews .link-settings').prepend($lnkSettings + ' ');
         $('.JSNews .link-image').prepend($lnkImage + ' ');
+        $('.JSNews .link-check').prepend(' ' + $lnkCheck);
+        $('.JSNews .link-calendar').prepend(' ' + $lnkCalendar);
         $('.JSNews .link-next').append(' ' + $lnkNext);
 
         //PUSHED ONLY ICONS ON ELEMTNS
@@ -71,7 +78,11 @@
         $('.JSNews .link-next.no-txt').html($lnkNext);
         $('.JSNews .link-close.no-txt').html($lnkClose);
         $('.JSNews .link-warning.no-txt').html($lnkWarning);
+        $('.JSNews .link-settings.no-txt').html($lnkSettings);
         $('.JSNews .link-image.no-txt').html($lnkImage);
+        $('.JSNews .link-check.no-txt').html($lnkCheck);
+        $('.JSNews .link-calendar.no-txt').html(' ' + $lnkCalendar);
+
 
         $('.JSNews a.dnnFormHelp').html($lnkInfo);
 

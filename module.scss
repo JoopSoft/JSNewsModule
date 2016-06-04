@@ -15,7 +15,13 @@
 
     .dnnForm {
         fieldset {
+            border: $none;
+            margin: 0;
+            padding: 0;
             margin-bottom: 10px;
+            float: left;
+            clear: both;
+            width: 100%;
         }
 
         .fieldset {
@@ -71,8 +77,13 @@
             border-bottom: $none;
             position: relative;
 
+            span {
+                font-size: inherit;
+                color: $white;
+            }
+
             .dnnFormMessage {
-                margin: 0 0 20px;
+                margin: 0 0 30px;
                 padding: 15px;
                 background-size: 30px;
                 font-weight: normal;
@@ -93,11 +104,12 @@
                         background-position: 15px center;
                     }
                 }
-                //&.dnnFormInfo {
-                //    color: $white;
-                //    background: $dark-alpha-md;
-                //
-                //}
+
+                &.dnnFormInfo {
+                    color: $white;
+                    background: $dark-alpha-md;
+                    /*display: $none;*/
+                }
                 //&.dnnFormSuccess {
                 //    color: $dark;
                 //    background: $dark-alpha;
@@ -106,6 +118,84 @@
                 //    color: $dark;
                 //    background: $dark-alpha;
                 //}
+            }
+
+            .JSNewsMenu {
+                display: inline-block;
+                margin: 0;
+
+                .dnnFormTitle {
+                    float: left;
+                    background-color: $dark-alpha-lg;
+
+                    &.error {
+                        background-color: $warning;
+                    }
+
+                    &.success {
+                        background-color: $success;
+                    }
+                }
+
+                .dnnFormMessage {
+                    padding: 0 15px;
+                    min-width: 45px;
+                    width: 100%;
+                    height: 45px;
+                    line-height: 45px;
+                    font-size: 1.286em;
+
+                    &.no-controls {
+                        width: 100%;
+                    }
+
+                    &.one-control {
+                        width: calc(100% - 45px);
+                    }
+
+                    &.two-controls {
+                        width: calc(100% - 90px);
+                    }
+
+                    &.three-controls {
+                        width: calc(100% - 135px);
+                    }
+
+                    &.four-controls {
+                        width: calc(100% - 180px);
+                    }
+                }
+
+                a.btn {
+                    float: left;
+                    padding: 0;
+                    margin: 0;
+                    min-width: 45px;
+                    height: 45px;
+                    line-height: 45px;
+                    font-size: 1.286em;
+                    text-align: center;
+
+                    &.error {
+                        background-color: $warning;
+
+                        &:hover {
+                            background-color: $warning-xlg;
+                        }
+                    }
+
+                    &.success {
+                        background-color: $success;
+
+                        &:hover {
+                            background-color: $success-xlg;
+                        }
+                    }
+                }
+            }
+
+            .no-spacing {
+                margin: 0;
             }
 
             &.fixed {
@@ -445,6 +535,16 @@
 
                     &.grouped {
                         border-right: $none;
+
+                        &.squared-box {
+                            width: calc(50% - 35px);
+                            max-width: 415px;
+                            //margin-right: 0px;
+                            //border-right: $none;
+                            &:focus {
+                                border: 1px solid $dark;
+                            }
+                        }
                     }
 
                     &.ungrouped {
@@ -476,12 +576,44 @@
                 }
             }
 
+            .input-group {
+                display: block;
+
+                .input-group-addon {
+                    float: left;
+                    width: 35px;
+                    height: 35px;
+                    line-height: 35px;
+                    padding: 0;
+                    background-color: $white;
+                    border: 1px solid $dark-alpha;
+                    /*border-left: $none;*/
+                    text-decoration: $none;
+                    color: $dark-alpha-lg;
+                    cursor: pointer;
+
+                    &:hover {
+                        color: $dark-alpha-lg;
+                    }
+
+                    @include border-radius(0);
+
+                    i {
+                        height: 33px;
+                        width: 33px;
+                        line-height: 33px;
+                        display: block;
+                    }
+                }
+            }
+
+
             .txt-error-validate {
                 font-style: italic;
                 position: absolute;
                 top: 5px;
                 /*left: calc(82.075% - 97px);*/
-                left: calc(32.075% + 355px - 18px);
+                left: calc(32.075% + 355px - 4px);
                 color: $white;
                 background: $warning;
                 height: 25px;
@@ -944,11 +1076,10 @@
         }
 
         &.view {
+            float: left;
+            width: 100%;
             border: $none;
             @include box-shadow($none);
-
-            .panel-footer {
-            }
         }
 
         &.details-view {
@@ -958,13 +1089,6 @@
 
             @include border-radius(0);
             @include box-shadow($none);
-
-            .pnl-admin {
-                position: absolute;
-                top: 10px;
-                right: 15px;
-                margin: 0;
-            }
 
             .news-image {
                 padding: 0;
@@ -1213,12 +1337,12 @@
     }
 
     .dropdown-menu {
-        border: 1px solid $dark-alpha-lg;
-        border-top: $none;
-        box-shadow: $none;
-        /*background-color: $dark-alpha-md;*/
         margin-top: 0;
         padding: 0;
+        border: 1px solid $dark-alpha-lg;
+        border-top: $none;
+
+        @include box-shadow($none);
         @include border-radius(0);
 
         > li {
@@ -1303,6 +1427,46 @@
         cursor: default;
     }
 
+    .pnl-admin {
+        margin-bottom: 15px;
+
+        &.left {
+            text-align: left;
+            float: $none;
+        }
+
+        &.right {
+            text-align: right;
+            float: $none;
+        }
+
+        .btn {
+            &.btn-primary {
+                background-color: $tooltip-md;
+
+                &:hover,
+                &:focus,
+                &:active,
+                &.active {
+                    background-color: $tooltip;
+                }
+            }
+        }
+
+        .content-holder {
+            float: left;
+            color: $white;
+            background-color: $tooltip-md;
+            padding: 10px 15px;
+        }
+    }
+
+    .page_navigation {
+        .btn {
+            padding: 6px 12px;
+        }
+    }
+
     .scroll-action {
         position: fixed;
         bottom: 0;
@@ -1341,16 +1505,165 @@
 
     .btn {
         line-height: normal;
-        border: none;
+        border: $none;
         padding: 10px 15px;
 
         @include border-radius(0);
         @include transition($all);
 
-        &:hover {
-            text-decoration: $none;
+        &.btn-primary {
+            background-color: $dark-alpha-lg;
+            color: $white;
+
+            &:hover,
+            &:focus,
+            &:active,
+            &.active {
+                background-color: $dark-alpha-xlg;
+                text-decoration: none;
+            }
+        }
+
+        &.btn-default {
+            color: $dark-alpha-lg;
+            background: $dark-alpha-xsm;
+
+            &:hover,
+            &:focus,
+            &:active {
+                color: $white;
+                background-color: $dark-alpha-lg;
+            }
+        }
+
+        &:hover,
+        &:focus,
+        &:active {
+            border: $none;
+            outline: $none;
+            @include box-shadow($none);
+        }
+
+        &[disabled=disabled],
+        &.aspNetDisabled,
+        &.dnnDisabled {
+            color: $light-alpha-md;
+
+            &:hover {
+                background-color: $dark-alpha-lg;
+            }
+        }
+
+        &.custom-acc-ctrl {
+            display: block;
         }
     }
+    /*BOOTSTRAP RE-STYLING */
+    .btn-group {
+        &.form-control {
+            width: 50%;
+            max-width: 450px;
+        }
+
+        &:focus {
+            outline: $none;
+            border: $none;
+        }
+
+        .btn + .btn,
+        .btn + .btn-group,
+        .btn-group + .btn,
+        .btn-group + .btn-group {
+            margin-left: 0;
+
+            &:focus {
+                outline: $none;
+                border: $none;
+            }
+        }
+    }
+
+    .group {
+        zoom: 1;
+    }
+
+    .no-spacing {
+        margin: 0;
+        padding: 0;
+    }
+
+    ::-webkit-input-placeholder {
+        color: $dark-alpha;
+        font-style: italic;
+    }
+
+    :-moz-placeholder {
+        color: $dark-alpha;
+        font-style: italic;
+    }
+
+    ::-moz-placeholder {
+        color: $dark-alpha;
+        font-style: italic;
+    }
+
+    :-ms-input-placeholder {
+        color: $dark-alpha;
+        font-style: italic;
+    }
+}
+
+.daterangepicker {
+    @include border-radius(0);
+
+    table {
+        thead,
+        tbody {
+            color: $dark-alpha-lg;
+        }
+
+        td, th {
+            @include border-radius(0);
+
+            &.off,
+            &.off.end-date,
+            &.off.in-range,
+            &.off.start-date {
+                color: $dark-alpha;
+            }
+
+            &.available:hover {
+                background-color: $dark-alpha-lg;
+                color: $white;
+            }
+
+            &.active,
+            &.active:hover {
+                background-color: $dark-alpha-lg;
+            }
+
+            &.start-date.end-date {
+                @include border-radius(0);
+            }
+
+            &.end-date {
+                @include border-radius(0);
+            }
+
+            &.start-date {
+                @include border-radius(0);
+            }
+        }
+    }
+}
+.dropdown-menu {
+    margin: 0;
+    padding: 0;
+    border: 1px solid $dark-alpha;
+    border-top: $none;
+
+    @include box-shadow($none);
+    @include border-radius(0);
 }
 
 //DNN STYLE FIXES

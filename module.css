@@ -1,5 +1,12 @@
-﻿.JSNews {
-  /*BOOTSTRAP RE-STYLING*/ }
+﻿@keyframes roll {
+  0% {
+    transform: rotate(0); }
+  100% {
+    transform: rotate(360deg); } }
+
+.JSNews {
+  /*BOOTSTRAP RE-STYLING*/
+  /*BOOTSTRAP RE-STYLING */ }
   .JSNews * {
     -webkit-box-sizing: border-box !important;
     -moz-box-sizing: border-box !important;
@@ -13,7 +20,13 @@
   .JSNews .dnnForm {
     /*RADIO BUTTONS GROUP*/ }
     .JSNews .dnnForm fieldset {
-      margin-bottom: 10px; }
+      border: none;
+      margin: 0;
+      padding: 0;
+      margin-bottom: 10px;
+      float: left;
+      clear: both;
+      width: 100%; }
     .JSNews .dnnForm .fieldset {
       float: left;
       padding: 15px 0;
@@ -48,8 +61,11 @@
     .JSNews .dnnForm .dnnFormSectionHead {
       border-bottom: none;
       position: relative; }
+      .JSNews .dnnForm .dnnFormSectionHead span {
+        font-size: inherit;
+        color: #fff; }
       .JSNews .dnnForm .dnnFormSectionHead .dnnFormMessage {
-        margin: 0 0 20px;
+        margin: 0 0 30px;
         padding: 15px;
         background-size: 30px;
         font-weight: normal;
@@ -68,6 +84,56 @@
             background-image: url(Images/Icons/h-icon.png);
             background-repeat: no-repeat;
             background-position: 15px center; }
+        .JSNews .dnnForm .dnnFormSectionHead .dnnFormMessage.dnnFormInfo {
+          color: #fff;
+          background: rgba(59, 30, 119, 0.5);
+          /*display: $none;*/ }
+      .JSNews .dnnForm .dnnFormSectionHead .JSNewsMenu {
+        display: inline-block;
+        margin: 0; }
+        .JSNews .dnnForm .dnnFormSectionHead .JSNewsMenu .dnnFormTitle {
+          float: left;
+          background-color: rgba(59, 30, 119, 0.7); }
+          .JSNews .dnnForm .dnnFormSectionHead .JSNewsMenu .dnnFormTitle.error {
+            background-color: #d9534f; }
+          .JSNews .dnnForm .dnnFormSectionHead .JSNewsMenu .dnnFormTitle.success {
+            background-color: #27ae60; }
+        .JSNews .dnnForm .dnnFormSectionHead .JSNewsMenu .dnnFormMessage {
+          padding: 0 15px;
+          min-width: 45px;
+          width: 100%;
+          height: 45px;
+          line-height: 45px;
+          font-size: 1.286em; }
+          .JSNews .dnnForm .dnnFormSectionHead .JSNewsMenu .dnnFormMessage.no-controls {
+            width: 100%; }
+          .JSNews .dnnForm .dnnFormSectionHead .JSNewsMenu .dnnFormMessage.one-control {
+            width: calc(100% - 45px); }
+          .JSNews .dnnForm .dnnFormSectionHead .JSNewsMenu .dnnFormMessage.two-controls {
+            width: calc(100% - 90px); }
+          .JSNews .dnnForm .dnnFormSectionHead .JSNewsMenu .dnnFormMessage.three-controls {
+            width: calc(100% - 135px); }
+          .JSNews .dnnForm .dnnFormSectionHead .JSNewsMenu .dnnFormMessage.four-controls {
+            width: calc(100% - 180px); }
+        .JSNews .dnnForm .dnnFormSectionHead .JSNewsMenu a.btn {
+          float: left;
+          padding: 0;
+          margin: 0;
+          min-width: 45px;
+          height: 45px;
+          line-height: 45px;
+          font-size: 1.286em;
+          text-align: center; }
+          .JSNews .dnnForm .dnnFormSectionHead .JSNewsMenu a.btn.error {
+            background-color: #d9534f; }
+            .JSNews .dnnForm .dnnFormSectionHead .JSNewsMenu a.btn.error:hover {
+              background-color: rgba(217, 83, 79, 0.8); }
+          .JSNews .dnnForm .dnnFormSectionHead .JSNewsMenu a.btn.success {
+            background-color: #27ae60; }
+            .JSNews .dnnForm .dnnFormSectionHead .JSNewsMenu a.btn.success:hover {
+              background-color: rgba(39, 174, 96, 0.8); }
+      .JSNews .dnnForm .dnnFormSectionHead .no-spacing {
+        margin: 0; }
       .JSNews .dnnForm .dnnFormSectionHead.fixed {
         -webkit-transition: all 300ms ease-out;
         -moz-transition: all 300ms ease-out;
@@ -282,6 +348,21 @@
         .JSNews .dnnForm .dnnFormItem.group input[type="search"].grouped,
         .JSNews .dnnForm .dnnFormItem.group input[type="date"].grouped {
           border-right: none; }
+          .JSNews .dnnForm .dnnFormItem.group input[type="text"].grouped.squared-box,
+          .JSNews .dnnForm .dnnFormItem.group select.grouped.squared-box,
+          .JSNews .dnnForm .dnnFormItem.group textarea.grouped.squared-box,
+          .JSNews .dnnForm .dnnFormItem.group input[type="email"].grouped.squared-box,
+          .JSNews .dnnForm .dnnFormItem.group input[type="search"].grouped.squared-box,
+          .JSNews .dnnForm .dnnFormItem.group input[type="date"].grouped.squared-box {
+            width: calc(50% - 35px);
+            max-width: 415px; }
+            .JSNews .dnnForm .dnnFormItem.group input[type="text"].grouped.squared-box:focus,
+            .JSNews .dnnForm .dnnFormItem.group select.grouped.squared-box:focus,
+            .JSNews .dnnForm .dnnFormItem.group textarea.grouped.squared-box:focus,
+            .JSNews .dnnForm .dnnFormItem.group input[type="email"].grouped.squared-box:focus,
+            .JSNews .dnnForm .dnnFormItem.group input[type="search"].grouped.squared-box:focus,
+            .JSNews .dnnForm .dnnFormItem.group input[type="date"].grouped.squared-box:focus {
+              border: 1px solid #3b1e77; }
         .JSNews .dnnForm .dnnFormItem.group input[type="text"].ungrouped,
         .JSNews .dnnForm .dnnFormItem.group select.ungrouped,
         .JSNews .dnnForm .dnnFormItem.group textarea.ungrouped,
@@ -309,12 +390,37 @@
         text-align: center; }
         .JSNews .dnnForm .dnnFormItem.group .btn.btn-icon {
           padding: 0; }
+      .JSNews .dnnForm .dnnFormItem .input-group {
+        display: block; }
+        .JSNews .dnnForm .dnnFormItem .input-group .input-group-addon {
+          float: left;
+          width: 35px;
+          height: 35px;
+          line-height: 35px;
+          padding: 0;
+          background-color: #fff;
+          border: 1px solid rgba(59, 30, 119, 0.25);
+          /*border-left: $none;*/
+          text-decoration: none;
+          color: rgba(59, 30, 119, 0.7);
+          cursor: pointer;
+          -webkit-border-radius: 0;
+          -moz-border-radius: 0;
+          -ms-border-radius: 0;
+          border-radius: 0; }
+          .JSNews .dnnForm .dnnFormItem .input-group .input-group-addon:hover {
+            color: rgba(59, 30, 119, 0.7); }
+          .JSNews .dnnForm .dnnFormItem .input-group .input-group-addon i {
+            height: 33px;
+            width: 33px;
+            line-height: 33px;
+            display: block; }
       .JSNews .dnnForm .dnnFormItem .txt-error-validate {
         font-style: italic;
         position: absolute;
         top: 5px;
         /*left: calc(82.075% - 97px);*/
-        left: calc(32.075% + 355px - 18px);
+        left: calc(32.075% + 355px - 4px);
         color: #fff;
         background: #d9534f;
         height: 25px;
@@ -558,7 +664,7 @@
       color: #999; }
     .JSNews .panel .list-group .list-group-item-heading {
       margin: 0;
-      color: #666; }
+      color: #333; }
     .JSNews .panel .list-group .badge {
       position: absolute;
       min-width: 10px;
@@ -692,6 +798,8 @@
     height: 40px;
     display: block; }
   .JSNews .panel.view {
+    float: left;
+    width: 100%;
     border: none;
     -moz-box-shadow: none;
     -webkit-box-shadow: none;
@@ -709,11 +817,6 @@
     -webkit-box-shadow: none;
     -o-box-shadow: none;
     box-shadow: none; }
-    .JSNews .panel.details-view .pnl-admin {
-      position: absolute;
-      top: 10px;
-      right: 15px;
-      margin: 0; }
     .JSNews .panel.details-view .news-image {
       padding: 0;
       width: auto;
@@ -858,12 +961,14 @@
   .JSNews .bs-searchbox + .bs-actionsbox {
     padding: 0; }
   .JSNews .dropdown-menu {
-    border: 1px solid rgba(59, 30, 119, 0.7);
-    border-top: none;
-    box-shadow: none;
-    /*background-color: $dark-alpha-md;*/
     margin-top: 0;
     padding: 0;
+    border: 1px solid rgba(59, 30, 119, 0.7);
+    border-top: none;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    -o-box-shadow: none;
+    box-shadow: none;
     -webkit-border-radius: 0;
     -moz-border-radius: 0;
     -ms-border-radius: 0;
@@ -915,6 +1020,25 @@
   .JSNews [disabled=disabled] {
     color: rgba(59, 30, 119, 0.25);
     cursor: default; }
+  .JSNews .pnl-admin {
+    margin-bottom: 15px; }
+    .JSNews .pnl-admin.left {
+      text-align: left;
+      float: none; }
+    .JSNews .pnl-admin.right {
+      text-align: right;
+      float: none; }
+    .JSNews .pnl-admin .btn.btn-primary {
+      background-color: rgba(0, 0, 0, 0.5); }
+      .JSNews .pnl-admin .btn.btn-primary:hover, .JSNews .pnl-admin .btn.btn-primary:focus, .JSNews .pnl-admin .btn.btn-primary:active, .JSNews .pnl-admin .btn.btn-primary.active {
+        background-color: rgba(0, 0, 0, 0.8); }
+    .JSNews .pnl-admin .content-holder {
+      float: left;
+      color: #fff;
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 10px 15px; }
+  .JSNews .page_navigation .btn {
+    padding: 6px 12px; }
   .JSNews .scroll-action {
     position: fixed;
     bottom: 0;
@@ -959,8 +1083,115 @@
     -moz-transition: all 300ms ease-out;
     -o-transition: all 300ms ease-out;
     transition: all 300ms ease-out; }
-    .JSNews .btn:hover {
-      text-decoration: none; }
+    .JSNews .btn.btn-primary {
+      background-color: rgba(59, 30, 119, 0.7);
+      color: #fff; }
+      .JSNews .btn.btn-primary:hover, .JSNews .btn.btn-primary:focus, .JSNews .btn.btn-primary:active, .JSNews .btn.btn-primary.active {
+        background-color: rgba(59, 30, 119, 0.8);
+        text-decoration: none; }
+    .JSNews .btn.btn-default {
+      color: rgba(59, 30, 119, 0.7);
+      background: rgba(59, 30, 119, 0.15); }
+      .JSNews .btn.btn-default:hover, .JSNews .btn.btn-default:focus, .JSNews .btn.btn-default:active {
+        color: #fff;
+        background-color: rgba(59, 30, 119, 0.7); }
+    .JSNews .btn:hover, .JSNews .btn:focus, .JSNews .btn:active {
+      border: none;
+      outline: none;
+      -moz-box-shadow: none;
+      -webkit-box-shadow: none;
+      -o-box-shadow: none;
+      box-shadow: none; }
+    .JSNews .btn[disabled=disabled], .JSNews .btn.aspNetDisabled, .JSNews .btn.dnnDisabled {
+      color: rgba(255, 255, 255, 0.5); }
+      .JSNews .btn[disabled=disabled]:hover, .JSNews .btn.aspNetDisabled:hover, .JSNews .btn.dnnDisabled:hover {
+        background-color: rgba(59, 30, 119, 0.7); }
+    .JSNews .btn.custom-acc-ctrl {
+      display: block; }
+  .JSNews .btn-group.form-control {
+    width: 50%;
+    max-width: 450px; }
+  .JSNews .btn-group:focus {
+    outline: none;
+    border: none; }
+  .JSNews .btn-group .btn + .btn,
+  .JSNews .btn-group .btn + .btn-group,
+  .JSNews .btn-group .btn-group + .btn,
+  .JSNews .btn-group .btn-group + .btn-group {
+    margin-left: 0; }
+    .JSNews .btn-group .btn + .btn:focus,
+    .JSNews .btn-group .btn + .btn-group:focus,
+    .JSNews .btn-group .btn-group + .btn:focus,
+    .JSNews .btn-group .btn-group + .btn-group:focus {
+      outline: none;
+      border: none; }
+  .JSNews .group {
+    zoom: 1; }
+  .JSNews .no-spacing {
+    margin: 0;
+    padding: 0; }
+  .JSNews ::-webkit-input-placeholder {
+    color: rgba(59, 30, 119, 0.25);
+    font-style: italic; }
+  .JSNews :-moz-placeholder {
+    color: rgba(59, 30, 119, 0.25);
+    font-style: italic; }
+  .JSNews ::-moz-placeholder {
+    color: rgba(59, 30, 119, 0.25);
+    font-style: italic; }
+  .JSNews :-ms-input-placeholder {
+    color: rgba(59, 30, 119, 0.25);
+    font-style: italic; }
+
+.daterangepicker {
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  border-radius: 0; }
+  .daterangepicker table thead,
+  .daterangepicker table tbody {
+    color: rgba(59, 30, 119, 0.7); }
+  .daterangepicker table td, .daterangepicker table th {
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    -ms-border-radius: 0;
+    border-radius: 0; }
+    .daterangepicker table td.off, .daterangepicker table td.off.end-date, .daterangepicker table td.off.in-range, .daterangepicker table td.off.start-date, .daterangepicker table th.off, .daterangepicker table th.off.end-date, .daterangepicker table th.off.in-range, .daterangepicker table th.off.start-date {
+      color: rgba(59, 30, 119, 0.25); }
+    .daterangepicker table td.available:hover, .daterangepicker table th.available:hover {
+      background-color: rgba(59, 30, 119, 0.7);
+      color: #fff; }
+    .daterangepicker table td.active, .daterangepicker table td.active:hover, .daterangepicker table th.active, .daterangepicker table th.active:hover {
+      background-color: rgba(59, 30, 119, 0.7); }
+    .daterangepicker table td.start-date.end-date, .daterangepicker table th.start-date.end-date {
+      -webkit-border-radius: 0;
+      -moz-border-radius: 0;
+      -ms-border-radius: 0;
+      border-radius: 0; }
+    .daterangepicker table td.end-date, .daterangepicker table th.end-date {
+      -webkit-border-radius: 0;
+      -moz-border-radius: 0;
+      -ms-border-radius: 0;
+      border-radius: 0; }
+    .daterangepicker table td.start-date, .daterangepicker table th.start-date {
+      -webkit-border-radius: 0;
+      -moz-border-radius: 0;
+      -ms-border-radius: 0;
+      border-radius: 0; }
+
+.dropdown-menu {
+  margin: 0;
+  padding: 0;
+  border: 1px solid rgba(59, 30, 119, 0.25);
+  border-top: none;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  -o-box-shadow: none;
+  box-shadow: none;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  border-radius: 0; }
 
 .mark, mark {
   padding: 0 !important;

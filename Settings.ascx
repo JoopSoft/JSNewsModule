@@ -5,14 +5,22 @@
 <dnn:DnnCssInclude ID="fontAwesomeCss" runat="server" FilePath="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" />
 <dnn:DnnCssInclude ID="bootstrapCss" runat="server" FilePath="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" />
 <dnn:DnnCssInclude ID="bootstrapSelectCss" runat="server" FilePath="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/css/bootstrap-select.min.css" />
+<dnn:DnnCssInclude ID="moduleCss" runat="server" FilePath="~/DesktopModules/JSNewsModule/module.min.css" />
 
 <div class="JSNews">
     <div class="dnnForm settings">
         <div class="dnnFormSectionHead">
-            <h3 class="dnnFormMessage dnnFormTitle dnnFormIcon">
+            <h3 class="dnnFormMessage dnnFormTitle dnnFormIcon no-spacing">
                 <%=LocalizeString("Title")%>
                 <asp:HyperLink ID="joopSoft" runat="server" />
             </h3>
+            <div class="dnnFormItem JSNewsMenu">
+                <asp:Panel ID="headerMenu" runat="server" CssClass="dnnFormMessage one-control dnnFormTitle">
+                    <asp:Label ID="lblSubTitle" runat="server" ResourceKey="lblSubTitle" />
+                </asp:Panel>
+                <asp:HyperLink ID="lnkAddNews" runat="server" CssClass="btn btn-primary link-add no-txt"
+                    data-toggle="tooltip" ToolTip="Add News Entry" />
+            </div>
         </div>
         <fieldset>
             <div class="fieldset">
@@ -46,7 +54,8 @@
                     </asp:Panel>
                     <asp:Panel ID="pnlReadMoreText" runat="server" CssClass="pnlReadMoreTxt dnnFormItem">
                         <dnn:Label ID="lblReadMoreText" runat="server" />
-                        <asp:TextBox ID="txtReadMoreText" runat="server" CssClass="form-control" />
+                        <asp:TextBox ID="txtReadMoreText" runat="server" CssClass="form-control"
+                            Placeholder="Enter Read More Button Text" />
                     </asp:Panel>
                 </asp:Panel>
             </asp:Panel>
@@ -57,7 +66,8 @@
                 </div>
                 <asp:Panel ID="pnlBackText" runat="server" class="pnlBackText dnnFormItem">
                     <dnn:Label ID="lblBackText" runat="server" />
-                    <asp:TextBox ID="txtBackText" runat="server" CssClass="form-control" />
+                    <asp:TextBox ID="txtBackText" runat="server" CssClass="form-control"
+                        Placeholder="Enter Back Button Text" />
                 </asp:Panel>
             </div>
             <div class="fieldset">
@@ -67,7 +77,8 @@
                 </div>
                 <asp:Panel ID="pnlHomeText" runat="server" class="pnlHomeText dnnFormItem">
                     <dnn:Label ID="lblHomeText" runat="server" />
-                    <asp:TextBox ID="txtHomeText" runat="server" CssClass="form-control" />
+                    <asp:TextBox ID="txtHomeText" runat="server" CssClass="form-control"
+                        Placeholder="Enter Home Button Text" />
                 </asp:Panel>
             </div>
             <div class="fieldset">
@@ -78,7 +89,7 @@
                 <div class="pnlShowAllNews dnnFormItem">
                     <dnn:Label ID="lblAllNewsText" runat="server" />
                     <asp:TextBox ID="txtAllNews" runat="server" CssClass="form-control"
-                        Text="All News" />
+                        Placeholder="Enter All News Button Text" />
                 </div>
                 <div class="pnlShowAllNews dnnFormItem group">
                     <dnn:Label ID="lblAllNewsSelect" runat="server" />
@@ -112,7 +123,8 @@
                 </div>
                 <asp:Panel ID="pnlNewsPerPage" runat="server" CssClass="pnlPaging dnnFormItem">
                     <dnn:label ID="lblNewsPerPage" runat="server" />
-                    <asp:TextBox ID="txtNewsPerPage" runat="server" CssClass="form-control" />
+                    <asp:TextBox ID="txtNewsPerPage" runat="server" CssClass="form-control"
+                        Placeholder="Enter News Items per Page" />
                 </asp:Panel>
             </div>
             <asp:LinkButton ID="btnScrollTop" runat="server" CssClass="scroll-action btn btn-primary link-up no-txt" 

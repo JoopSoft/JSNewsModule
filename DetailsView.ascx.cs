@@ -135,11 +135,12 @@ namespace JS.Modules.JSNewsModule
                 #endregion
                 if (IsEditable && lnkDelete != null && lnkEdit != null && pnlAdminControls != null)
                 {
-                    pnlAdminControls.Visible = true;
-                    lnkDelete.Enabled = lnkDelete.Visible = lnkEdit.Enabled = lnkEdit.Visible = true;
+                    pnlAdminControls.Visible = true;                    
+                    lnkAdd.ToolTip = "Add News Entry";
+                    lnkEdit.ToolTip = "Edit " + n.NewsTitle;
                     lnkDelete.ToolTip = "Delete " + n.NewsTitle;
                     lnkEdit.NavigateUrl = EditUrl(string.Empty, string.Empty, "AddNews", "nid=" + n.NewsId);
-                    lnkEdit.ToolTip = "Edit " + n.NewsTitle;
+                    lnkSettings.ToolTip = "Settings";
                 }
                 else
                 {
