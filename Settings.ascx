@@ -26,7 +26,7 @@
             <div class="fieldset">
                 <div class="dnnFormItem">
                     <dnn:Label ID="lblViewMode" runat="server" />
-                    <asp:DropDownList ID="ddViewModeList" runat="server" CssClass="selectpicker single-select form-control check-equal" 
+                    <asp:DropDownList ID="ddViewModeList" runat="server" CssClass="selectpicker single-select form-control check-equal"
                         data-target=".pnlReadMoreGroup" data-equal="Accordion" />
                 </div>
             </div>
@@ -127,18 +127,19 @@
                         Placeholder="Enter News Items per Page" />
                 </asp:Panel>
             </div>
-            <asp:LinkButton ID="btnScrollTop" runat="server" CssClass="scroll-action btn btn-primary link-up no-txt" 
-                ToolTip="Top"/>
+            <asp:LinkButton ID="btnScrollTop" runat="server" CssClass="scroll-action btn btn-primary link-up no-txt"
+                ToolTip="Top" />
         </fieldset>
     </div>
 </div>
 
 <script type="text/javascript">
-    
-    //SWITCH CHECKBOXES BETWEEN READMORE AND IMAGE LINKS
-    $('.JSNews #<%= cbShowNewsImg.ClientID %>')
-        .each(function () {
-            if ($(this).is(':checked')) $('.JSNews #<%= cbShowReadMore.ClientID %>')
+    (function ($, Sys) {
+
+        //SWITCH CHECKBOXES BETWEEN READMORE AND IMAGE LINKS
+        $('.JSNews #<%= cbShowNewsImg.ClientID %>')
+            .each(function () {
+                if ($(this).is(':checked')) $('.JSNews #<%= cbShowReadMore.ClientID %>')
                 .prop('disabled', false)
                 .closest('#<%= pnlReadMoreNewsGroup.ClientID %>')
                 .find('#<%= lblStatusReadMoreMsg.ClientID %>')
@@ -162,10 +163,10 @@
                 .show();
         });
 
-    $('.JSNews #<%= cbShowReadMore.ClientID %>')
-        .each(function () {
-            if ($(this).is(':checked'))
-                $('.JSNews #<%= cbShowNewsImg.ClientID %>')
+        $('.JSNews #<%= cbShowReadMore.ClientID %>')
+            .each(function () {
+                if ($(this).is(':checked'))
+                    $('.JSNews #<%= cbShowNewsImg.ClientID %>')
                     .prop('disabled', false)
                     .closest('#<%= pnlReadMoreNewsGroup.ClientID %>')
                         .find('#<%= lblStatusImgMsg.ClientID %>')
@@ -191,7 +192,7 @@
                         .find('#<%= lblStatusImgMsg.ClientID %>')
                         .show();
         });
-    
+    })(jQuery, window.Sys);
 </script>
 
 <dnn:DnnJsInclude ID="bootstrapJs" runat="server" FilePath="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js" Priority="18" />

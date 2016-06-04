@@ -40,7 +40,7 @@
                     <div class="input-group">
                         <asp:TextBox ID="txtDate" runat="server" CssClass="datePicker form-control grouped squared-box" 
                             Placeholder="Enter Date" />
-                        <asp:HyperLink ID="lnkCalendarIcon" runat="server" CssClass="input-group-addon link-calendar no-txt" />
+                        <asp:HyperLink ID="lnkCalendarIcon" runat="server" CssClass="datePickerClick input-group-addon link-calendar no-txt" />
                     </div>
                 </asp:Panel>
             </div>
@@ -131,24 +131,6 @@
             ToolTip="Top" />
     </div>
 </div>
-
-<script type="text/javascript">
-    $(function () {
-
-        $('.JSNews #<%= lnkCalendarIcon.ClientID %>')
-            .bind('click', function () {                
-                $(this).parent().find('input').click();                                
-            });
-
-        //DATEPICKIER MODULE DEFINITION
-        $('.JSNews .datePicker').daterangepicker({
-            'singleDatePicker': true,
-            'alwaysShowCalendars': true
-        });
-
-
-    });
-</script>
 
 <dnn:DnnJsInclude ID="bootstrapJs" runat="server" FilePath="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js" Priority="18" />
 <dnn:DnnJsInclude ID="bootstrapSelectJs" runat="server" FilePath="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/js/bootstrap-select.min.js" Priority="19" />

@@ -264,6 +264,16 @@
             }
         });
 
+        //DATEPICKIER MODULE DEFINITION
+        if ($('.JSNews .datePicker').exists()) $('.JSNews .datePicker').daterangepicker({
+            'singleDatePicker': true,
+            'alwaysShowCalendars': true
+        });
+
+        if ($('.JSNews .datePickerClick').exists()) $('.JSNews .datePickerClick').bind('click', function () {
+            $(this).parent().find('input').click();
+        });
+
         //SELECT PICKER CUSTOM PLUGIN DEFINITION
         //SINGLE SELECT OPTIONS
         if ($('.JSNews .selectpicker.single-select').exists()) $('.JSNews .selectpicker.single-select').selectpicker({

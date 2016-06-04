@@ -147,10 +147,10 @@
     <Content Include="Js\jquery.pagingScript.js" />
     <Content Include="ReleaseNotes.txt" />
     <Content Include="Settings.ascx" />
-    <Content Include="variables.css">
+    <Content Include="Styles\variables.css">
       <DependentUpon>variables.scss</DependentUpon>
     </Content>
-    <Content Include="variables.min.css">
+    <Content Include="Styles\variables.min.css">
       <DependentUpon>variables.css</DependentUpon>
     </Content>
     <Content Include="DetailsView.ascx" />
@@ -191,7 +191,7 @@
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
     </None>
-    <Content Include="variables.scss" />
+    <Content Include="Styles\variables.scss" />
     <Content Include="packages\MSBuildTasks.1.4.0.128\content\MSBuild.Community.Tasks.ReadMe.md" />
     <Content Include="packages\MSBuildTasks.1.4.0.128\MSBuildTasks.1.4.0.128.nupkg" />
     <Content Include="packages\MSBuildTasks.1.4.0.128\tools\Build.proj" />
