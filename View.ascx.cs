@@ -31,6 +31,7 @@ namespace JS.Modules.JSNewsModule
             {
                 lnkFirstAdd.NavigateUrl = lnkAdd.NavigateUrl = EditUrl("AddNews");
                 lnkSettings.NavigateUrl = "javascript:dnnModal.show('http://dnndev.me/JS-News/ctl/Module/ModuleId/" + ModuleId + "?ReturnURL=/JS-News&amp;popUp=true',/*showReturn*/false,550,950,true,'')";
+                pnlAdminShortcuts.Visible = IsEditable;
                 DefaultSettings();
                 pnlPopUp.Visible = false;
                 var nc = new NewsController();
@@ -164,30 +165,51 @@ namespace JS.Modules.JSNewsModule
                 #endregion
 
                 
-                var lnkAll = rptItemListView.Controls[rptItemListView.Controls.Count - 1].Controls[0].FindControl("lnkAll") as HyperLink;
-                var lnkAllA = rptItemAccordionView.Controls[rptItemAccordionView.Controls.Count - 1].Controls[0].FindControl("lnkAll") as HyperLink;
-                lnkAll.NavigateUrl = lnkAllA.NavigateUrl = cs.NewsButtonPage;
-                lnkAll.Text = lnkAllA.Text = cs.NewsButtonText;
-                lnkAll.Visible = lnkAllA.Visible = cs.ShowNewsButton;
-                var currentNews = nc.LoadAllNews(ModuleId);
-                bool newsPresent = false;
-                foreach (var n in currentNews)
-                {
-                    newsPresent = true;
-                }
-                if (!newsPresent && IsEditable)
-                {
-                    pnlFirstAdd.Visible = true;
-                }
-                else
-                {
-                    pnlFirstAdd.Visible = false;
-                }
+                FirstAddVisible(nc);
             }
             catch (Exception exc) //Module failed to load
             {
                 Exceptions.ProcessModuleLoadException(this, exc);
             }
+        }
+
+        void FirstAddVisible(NewsController nc)
+        {
+            var currentNews = nc.LoadAllNews(ModuleId);
+            bool newsPresent = false;
+            foreach (var n in currentNews)
+            {
+                if (n.NewsId > 0)
+                {
+                    newsPresent = true;
+                    break;
+                }
+            }
+            if (!newsPresent && IsEditable)
+            {
+                pnlFirstAdd.Visible = true;
+            }
+            else
+            {
+                pnlFirstAdd.Visible = false;
+            }
+            var sc = new SettingsController();
+            int TModuleId = 0;
+            var ts = sc.LoadSettings();
+            foreach (CustomSettings s in ts)
+            {
+                if (s.SettingsId == ModuleId)
+                {
+                    TModuleId = ModuleId;
+                    break;
+                }
+            }
+            var cs = sc.LoadSingleSettings(TModuleId);
+            var lnkAll = rptItemListView.Controls[rptItemListView.Controls.Count - 1].Controls[0].FindControl("lnkAll") as HyperLink;
+            var lnkAllA = rptItemAccordionView.Controls[rptItemAccordionView.Controls.Count - 1].Controls[0].FindControl("lnkAll") as HyperLink;
+            lnkAll.NavigateUrl = lnkAllA.NavigateUrl = cs.NewsButtonPage;
+            lnkAll.Text = lnkAllA.Text = cs.NewsButtonText;
+            lnkAll.Visible = lnkAllA.Visible = cs.ShowNewsButton;
         }
 
         protected void rptItemListOnItemDataBound(object sender, RepeaterItemEventArgs e)
@@ -290,9 +312,10 @@ namespace JS.Modules.JSNewsModule
             rptItemListView.DataSource = rptItemAccordionView.DataSource = nc.LoadAllNews(ModuleId);
             rptItemListView.DataBind();
             rptItemAccordionView.DataBind();
+            FirstAddVisible(nc);
         }
 
-        void AddLine(string appendText)
+        protected void AddLine(string appendText)
         {
             string fileName = (Server.MapPath("~/DesktopModules/JSNewsModule/Json/" + ModuleId + "_Settings.json"));
             File.AppendAllText(fileName, appendText + Environment.NewLine);
