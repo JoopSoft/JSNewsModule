@@ -25,6 +25,8 @@ namespace JS.Modules.JSNewsModule
         {
             try
             {
+                lnkAdd.NavigateUrl = EditUrl("AddNews");
+                lnkSettings.NavigateUrl = "javascript:dnnModal.show('http://dnndev.me/JS-News/ctl/Module/ModuleId/" + ModuleId + "?ReturnURL=/JS-News&amp;popUp=true',/*showReturn*/false,550,950,true,'')";
                 var sc = new SettingsController();
                 int TModuleId = 0;
                 var ts = sc.LoadSettings();

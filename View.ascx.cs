@@ -188,10 +188,12 @@ namespace JS.Modules.JSNewsModule
             if (!newsPresent && IsEditable)
             {
                 pnlFirstAdd.Visible = true;
+                lnkAdd.Visible = false;
             }
             else
             {
                 pnlFirstAdd.Visible = false;
+                lnkAdd.Visible = true;
             }
             var sc = new SettingsController();
             int TModuleId = 0;
