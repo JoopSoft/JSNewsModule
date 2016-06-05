@@ -20,6 +20,7 @@ using DotNetNuke.Entities.Modules.Actions;
 using DotNetNuke.Services.Localization;
 using System.Linq;
 using System.IO;
+using DotNetNuke.Entities.Tabs;
 
 namespace JS.Modules.JSNewsModule
 {
@@ -30,7 +31,7 @@ namespace JS.Modules.JSNewsModule
             try
             {
                 lnkFirstAdd.NavigateUrl = lnkAdd.NavigateUrl = EditUrl("AddNews");
-                lnkSettings.NavigateUrl = "javascript:dnnModal.show('http://dnndev.me/JS-News/ctl/Module/ModuleId/" + ModuleId + "?ReturnURL=/JS-News&amp;popUp=true',/*showReturn*/false,550,950,true,'')";
+                lnkSettings.NavigateUrl = "javascript:dnnModal.show('http://" + Request.Url.Host + TabController.CurrentPage.TabPath + "/ctl/Module/ModuleId/" + ModuleId + "?ReturnURL=/JS-News&amp;popUp=true',/*showReturn*/false,550,950,true,'')";
                 pnlAdminShortcuts.Visible = IsEditable;
                 DefaultSettings();
                 pnlPopUp.Visible = false;

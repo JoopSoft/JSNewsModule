@@ -15,6 +15,7 @@ using JS.Modules.JSNewsModule.Components;
 using DotNetNuke.Services.Exceptions;
 using System.IO;
 using System.Web.UI.WebControls;
+using DotNetNuke.Entities.Tabs;
 
 namespace JS.Modules.JSNewsModule
 {
@@ -26,7 +27,7 @@ namespace JS.Modules.JSNewsModule
             {
                 if (!Page.IsPostBack)
                 {
-                    lnkSettings.NavigateUrl = "javascript:dnnModal.show('http://dnndev.me/JS-News/ctl/Module/ModuleId/" + ModuleId + "?ReturnURL=/JS-News&amp;popUp=true',/*showReturn*/false,550,950,true,'')";
+                    lnkSettings.NavigateUrl = "javascript:dnnModal.show('http://" + Request.Url.Host + TabController.CurrentPage.TabPath + "/ctl/Module/ModuleId/" + ModuleId + "?ReturnURL=/JS-News&amp;popUp=true',/*showReturn*/false,550,950,true,'')";
                     txtContent.Mode = "BASIC";
                     btnCancel.NavigateUrl = DotNetNuke.Common.Globals.NavigateURL();
                     joopSoft.NavigateUrl = "http://www.joopsoft.com/";
