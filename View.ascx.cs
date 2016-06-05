@@ -31,7 +31,8 @@ namespace JS.Modules.JSNewsModule
             try
             {
                 lnkFirstAdd.NavigateUrl = lnkAdd.NavigateUrl = EditUrl("AddNews");
-                lnkSettings.NavigateUrl = "javascript:dnnModal.show('http://" + Request.Url.Host + TabController.CurrentPage.TabPath + "/ctl/Module/ModuleId/" + ModuleId + "?ReturnURL=/JS-News&amp;popUp=true',/*showReturn*/false,550,950,true,'')";
+                string PageName = TabController.CurrentPage.TabPath.Remove(0, 1);
+                lnkSettings.NavigateUrl = "javascript:dnnModal.show('http://" + Request.Url.Host + PageName + "/ctl/Module/ModuleId/" + ModuleId + "?ReturnURL=" + PageName + "&amp;popUp=true',/*showReturn*/false,550,950,true,'')";
                 pnlAdminShortcuts.Visible = IsEditable;
                 DefaultSettings();
                 pnlPopUp.Visible = false;
