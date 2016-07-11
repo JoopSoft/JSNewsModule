@@ -173,7 +173,7 @@ namespace JS.Modules.JSNewsModule
         {
             pnlPopUp.Visible = true;
             pnlPopUp.CssClass = "popup confirm-box warning";
-            lblPopUpMsg.Text = "Delete this News?";
+            lblPopUpTitle.Text = "Delete this News?";
             lblPopUpIcon.CssClass = "popup-icon link-delete no-txt";
         }
 

@@ -266,7 +266,7 @@ namespace JS.Modules.JSNewsModule
                 {
                     pnlPopUp.Visible = true;
                     pnlPopUp.CssClass = "dnnFormItem popup auto-close-box success";
-                    lblPopUpMsg.Text = "Selected file is not image!";
+                    lblPopUpTitle.Text = "Selected file is not image!";
                     lblPopUpIcon.CssClass = "popup-icon link-info no-txt";
                 }
 
@@ -275,7 +275,7 @@ namespace JS.Modules.JSNewsModule
             {
                 pnlPopUp.Visible = true;
                 pnlPopUp.CssClass = "dnnFormItem popup auto-close-box success";
-                lblPopUpMsg.Text = "No file selected!";
+                lblPopUpTitle.Text = "No file selected!";
                 lblPopUpIcon.CssClass = "popup-icon link-info no-txt";
             }
         }
@@ -302,7 +302,7 @@ namespace JS.Modules.JSNewsModule
             pnlPopUp.Visible = true;
             btnDelete.Visible = true;
             pnlPopUp.CssClass = "dnnFormItem popup confirm-box warning";
-            lblPopUpMsg.Text = "Are you sure you want <br> to delete the image?";
+            lblPopUpTitle.Text = "Are you sure you want <br> to delete the image?";
             lblPopUpIcon.CssClass = "popup-icon link-delete no-txt";
         }
 
@@ -323,7 +323,7 @@ namespace JS.Modules.JSNewsModule
             {
                 pnlPopUp.Visible = true;
                 pnlPopUp.CssClass = "dnnFormItem popup confirm-box warning";
-                lblPopUpMsg.Text = "There are News using this Image!";
+                lblPopUpTitle.Text = "There are News using this Image!";
                 lblPopUpIcon.CssClass = "popup-icon link-delete no-txt";
                 btnDefault.Visible = true;
                 btnRemove.Visible = true;
@@ -362,7 +362,7 @@ namespace JS.Modules.JSNewsModule
             DeleteImage();
             pnlPopUp.Visible = true;
             pnlPopUp.CssClass = "dnnFormItem popup auto-close-box success";
-            lblPopUpMsg.Text = "Default image is applied!";
+            lblPopUpTitle.Text = "Default image is applied!";
             lblPopUpIcon.CssClass = "popup-icon link-info no-txt";
             btnDefault.Visible = false;
             btnRemove.Visible = false;
@@ -387,7 +387,7 @@ namespace JS.Modules.JSNewsModule
             DeleteImage();
             pnlPopUp.Visible = true;
             pnlPopUp.CssClass = "dnnFormItem popup auto-close-box success";
-            lblPopUpMsg.Text = "Image Removed!";
+            lblPopUpTitle.Text = "Image Removed!";
             lblPopUpIcon.CssClass = "popup-icon link-info no-txt";
             btnDefault.Visible = false;
             btnRemove.Visible = false;
@@ -401,7 +401,7 @@ namespace JS.Modules.JSNewsModule
 
             pnlPopUp.Visible = true;
             pnlPopUp.CssClass = "dnnFormItem popup auto-close-box success";
-            lblPopUpMsg.Text = "Image \"" + temp + "\"<br>Deleted";
+            lblPopUpTitle.Text = "Image \"" + temp + "\"<br>Deleted";
             lblPopUpIcon.CssClass = "popup-icon link-info no-txt";
 
             var li = new ListItem("Default Image", "Default Image.svg");

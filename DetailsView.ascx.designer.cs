@@ -202,13 +202,13 @@ namespace JS.Modules.JSNewsModule {
         protected global::System.Web.UI.WebControls.Label lblPopUpIcon;
         
         /// <summary>
-        /// lblPopUpMsg control.
+        /// lblPopUpTitle control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblPopUpMsg;
+        protected global::System.Web.UI.WebControls.Label lblPopUpTitle;
         
         /// <summary>
         /// lblDeleteNewsID control.

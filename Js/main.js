@@ -32,8 +32,16 @@
             $lnkInfo = '<i class="fa fa-info-circle"></i>',
             $lnkClose = '<i class="fa fa-close"></i>',
             $lnkWarning = '<i class="fa fa-warning"></i>',
+            $lnkLock = '<i class="fa fa-lock"></i>',
+            $lnkUnlock = '<i class="fa fa-unlock"></i>',
             $lnkSettings = '<i class="fa fa-cog"></i>',
             $lnkImage = '<i class="fa fa-picture-o"></i>',
+            $lnkCopy = '<i class="fa fa-clipboard"></i>',
+            $lnkKey = '<i class="fa fa-key"></i>',
+            $lnkCompany = '<i class="fa fa-building-o"></i>',
+            $lnkMail = '<i class="fa fa-envelope-o"></i>',
+            $lnkPhone = '<i class="fa fa-phone"></i>',
+            $lnkGlobe = '<i class="fa fa-globe"></i>',
             $lnkPrev = '<i class="fa fa-angle-left"></i>',
             $lnkNext = '<i class="fa fa-angle-right"></i>',
             $lnkCheck = '<i class="fa fa-check"></i>',
@@ -55,8 +63,16 @@
         $('.JSNews .link-prev').prepend($lnkPrev + ' ');
         $('.JSNews .link-close').prepend($lnkClose + ' ');
         $('.JSNews .link-warning').prepend($lnkWarning + ' ');
+        $('.JSNews .link-lock').prepend($lnkLock + ' ');
+        $('.JSNews .link-unlock').prepend($lnkUnlock + ' ');
         $('.JSNews .link-settings').prepend($lnkSettings + ' ');
         $('.JSNews .link-image').prepend($lnkImage + ' ');
+        $('.JSNews .link-copy').prepend($lnkCopy + ' ');
+        $('.JSNews .link-key').prepend($lnkKey + ' ');
+        $('.JSNews .link-company').prepend($lnkCompany + ' ');
+        $('.JSNews .link-mail').prepend($lnkMail + ' ');
+        $('.JSNews .link-phone').prepend($lnkPhone + ' ');
+        $('.JSNews .link-globe').prepend($lnkGlobe + ' ');
         $('.JSNews .link-check').prepend(' ' + $lnkCheck);
         $('.JSNews .link-calendar').prepend(' ' + $lnkCalendar);
         $('.JSNews .link-next').append(' ' + $lnkNext);
@@ -77,8 +93,16 @@
         $('.JSNews .link-next.no-txt').html($lnkNext);
         $('.JSNews .link-close.no-txt').html($lnkClose);
         $('.JSNews .link-warning.no-txt').html($lnkWarning);
+        $('.JSNews .link-lock.no-txt').html($lnkLock);
+        $('.JSNews .link-unlock.no-txt').html($lnkUnlock);
         $('.JSNews .link-settings.no-txt').html($lnkSettings);
         $('.JSNews .link-image.no-txt').html($lnkImage);
+        $('.JSNews .link-copy.no-txt').html($lnkCopy);
+        $('.JSNews .link-key.no-txt').html($lnkKey);
+        $('.JSNews .link-company.no-txt').html($lnkCompany);
+        $('.JSNews .link-mail.no-txt').html($lnkMail);
+        $('.JSNews .link-phone.no-txt').html($lnkPhone);
+        $('.JSNews .link-globe.no-txt').html($lnkGlobe);
         $('.JSNews .link-check.no-txt').html($lnkCheck);
         $('.JSNews .link-calendar.no-txt').html(' ' + $lnkCalendar);
 
