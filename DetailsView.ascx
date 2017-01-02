@@ -57,7 +57,7 @@
             <div class="popup-wrapper">
                 <asp:Label ID="lblPopUpIcon" runat="server" />
                 <h3>
-                    <asp:Label ID="lblPopUpMsg" runat="server" CssClass="popup-msg" />
+                    <asp:Label ID="lblPopUpTitle" runat="server" CssClass="popup-msg" />
                 </h3>
                 <asp:Label ID="lblDeleteNewsID" runat="server" />
                 <asp:LinkButton ID="btnDelete" runat="server" CssClass="btn btn-danger link-delete"

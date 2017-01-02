@@ -55,7 +55,7 @@ namespace JS.Modules.JSNewsModule
 
                 lnkFirstAdd.NavigateUrl = lnkAdd.NavigateUrl = EditUrl("AddNews");
                 string PageName = TabController.CurrentPage.TabPath.Remove(0, 1);
-                lnkSettings.NavigateUrl = "javascript:dnnModal.show('http://" + Request.Url.Host + PageName + "/ctl/Module/ModuleId/" + ModuleId + "?ReturnURL=" + PageName + "&amp;popUp=true',/*showReturn*/false,550,950,true,'')";
+                lnkSettings.NavigateUrl = "javascript:dnnModal.show('http://" + Request.Url.Host + PageName + "/ctl/Module/ModuleId/" + ModuleId + "?ReturnURL=" + PageName + "&amp;popUp=true#msSpecificSettings',/*showReturn*/false,550,950,true,'')";
                 pnlAdmin.Visible = IsEditable;
                 DefaultSettings();
                 pnlPopUp.Visible = false;

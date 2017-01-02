@@ -12,10 +12,11 @@
 
 using System;
 using JS.Modules.JSNewsModule.Components;
-using DotNetNuke.Services.Exceptions;
 using System.Web.UI.WebControls;
+using DotNetNuke.Services.Exceptions;
 using System.Collections.Generic;
 using System.Linq;
+using DotNetNuke.Entities.Tabs;
 
 namespace JS.Modules.JSNewsModule
 {
@@ -25,8 +26,10 @@ namespace JS.Modules.JSNewsModule
         {
             try
             {
+                
                 lnkAdd.NavigateUrl = EditUrl("AddNews");
-                lnkSettings.NavigateUrl = "javascript:dnnModal.show('http://dnndev.me/JS-News/ctl/Module/ModuleId/" + ModuleId + "?ReturnURL=/JS-News&amp;popUp=true',/*showReturn*/false,550,950,true,'')";
+                string PageName = TabController.CurrentPage.TabPath.Remove(0, 1);
+                lnkSettings.NavigateUrl = "javascript:dnnModal.show('http://" + Request.Url.Host + PageName + "/ctl/Module/ModuleId/" + ModuleId + "?ReturnURL=" + PageName + "&amp;popUp=true#msSpecificSettings',/*showReturn*/false,550,950,true,'')";
                 var sc = new SettingsController();
                 int TModuleId = 0;
                 var ts = sc.LoadSettings();
